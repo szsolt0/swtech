@@ -11,4 +11,4 @@ md_files := $(wildcard *.md)
 all: projektterv.html
 
 projektterv.html: cover.html history.html style.css $(md_files)
-	pandoc -B cover.html -B history.html $(md_files) --toc -N -c style.css --embed-resources --metadata title="Projekt terv" -V title: | sed -e 's:^<table>$$:<div class="tbl-wrap"><table>:g' -e 's:^</table>$$:</table></div>:g' > "$@"
+	pandoc -B cover.html -B history.html $(md_files) --toc -N -c style.css --self-contained --metadata title="Projekt terv" -V title: | sed -e 's:^<table>$$:<div class="tbl-wrap"><table>:g' -e 's:^</table>$$:</table></div>:g' > "$@"
