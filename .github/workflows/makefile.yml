@@ -25,6 +25,7 @@ jobs:
       run: ls -lah
 
     - name: Commit and push generated file
+      working-directory: h1
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
