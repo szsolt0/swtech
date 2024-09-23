@@ -19,3 +19,7 @@ jobs:
     - name: Create H1
       working-directory: h1
       run: make
+
+    - name: List files in H1
+      working-directory: h1
+      run: ls -lah
