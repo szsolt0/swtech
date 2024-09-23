@@ -1,0 +1,14 @@
+th, td {
+	padding: .5em;
+	border: 1pt solid gray;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.tbl-wrap {
+	width: 100%;
+	overflow-y: scroll;
+}
