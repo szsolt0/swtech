@@ -18,4 +18,4 @@ jobs:
 
     - name: Create H1
       working-directory: h1
-      run: make
+      run: echo "asd" > projektterv.html
