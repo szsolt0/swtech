@@ -23,3 +23,9 @@ jobs:
     - name: List files in H1
       working-directory: h1
       run: ls -lah
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: projektterv
+        path: h1/projektterv.html
