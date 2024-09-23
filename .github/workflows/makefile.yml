@@ -24,8 +24,10 @@ jobs:
       working-directory: h1
       run: ls -lah
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: projektterv
-        path: h1/projektterv.html
+    - name: Commit and push generated file
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add projektterv.html
+        git commit -m "Add generated projektterv.html"
+        git push
