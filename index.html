@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+			background-color: #0f172a;
+			color: #f8fafc;
+			font-family: system-ui, sans-serif;
+		}
+
+		main {
+			display: grid;
+			grid-template-columns: auto auto;
+			gap: 1em;
+		}
+
+		h1 {
+			text-align: center;
+			margin-bottom: 1.5em;
+			margin-top: 1em;
+		}
+
+		main > a {
+			display: block;
+			border: 1.5pt solid #4f46e5;
+			border-radius: 2pt;
+			height: 50pt;
+			line-height: 50pt;
+			text-align: center;
+			text-decoration: none;
+			color: inherit;
+			font-size: large;
+			transition: all .2s ease-out;
+		}
+
+		main > a:hover {
+			border: 1.5pt solid #6366f1;
+			background-color: #4f46e5;
+			color: #eef2ff;
+		}
+
+		@media only screen and (max-width: 600px) {
+			main {
+				grid-template-columns: auto;
+			}
+		}
+	</style>
+</head>
+<body>
+	<h1>JZBBG Projekt Dokumentumok</h1>
+	<main>
+		<a href="h1/projektterv.html">H1</a>
+		<a href="h2/unknown.html">H2</a>
+		<a href="h3/unknown.html">H3</a>
+		<a href="h4/unknown.html">H4</a>
+		<a href="h5/unknown.html">H5</a>
+		<a href="munkanaplo/munkanaplo.html">Munkanapló</a>
+	</main>
+</body>
+</html>
