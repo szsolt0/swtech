@@ -28,8 +28,8 @@ dist/munkanaplo.html: folders munkanaplo/munkanaplo.html style.css
 dist/h1/projektterv.html: folders h1/cover.html h1/history.html style.css $(h1_md_files)
 	pandoc -B h1/cover.html -B h1/history.html $(h1_md_files) --toc -N -c style.css --self-contained --metadata title="Projekt terv" -V title: | sed -e 's:^<table>$$:<div class="tbl-wrap"><table>:g' -e 's:^</table>$$:</table></div>:g' > "$@"
 
-dist/h2/vizio-v0.9.html: folders h2/cover.html h2/v0.9/history.html style.css $(h2_vizio_v0.9_md_files)
-	pandoc -B h2/cover.html -B h2/v0.9/history.html $(h2_vizio_v0.9_md_files) --toc -N -c style.css --self-contained --metadata title="Vízió" -V title: | sed -e 's:^<table>$$:<div class="tbl-wrap"><table>:g' -e 's:^</table>$$:</table></div>:g' > "$@"
+dist/h2/vizio-v0.9.html: folders h2/v0.9/cover.html h2/v0.9/history.html style.css $(h2_vizio_v0.9_md_files)
+	pandoc -B h2/v0.9/cover.html -B h2/v0.9/history.html $(h2_vizio_v0.9_md_files) --toc -N -c style.css --self-contained --metadata title="Vízió" -V title: | sed -e 's:^<table>$$:<div class="tbl-wrap"><table>:g' -e 's:^</table>$$:</table></div>:g' > "$@"
 
-dist/h2/vizio-v1.0.html: folders h2/cover.html h2/v1.0/history.html style.css $(h2_vizio_v1.0_md_files)
-	pandoc -B h2/cover.html -B h2/v1.0/history.html $(h2_vizio_v1.0_md_files) --toc -N -c style.css --self-contained --metadata title="Vízió" -V title: | sed -e 's:^<table>$$:<div class="tbl-wrap"><table>:g' -e 's:^</table>$$:</table></div>:g' > "$@"
+dist/h2/vizio-v1.0.html: folders h2/v1.0/cover.html h2/v1.0/history.html style.css $(h2_vizio_v1.0_md_files)
+	pandoc -B h2/v1.0/cover.html -B h2/v1.0/history.html $(h2_vizio_v1.0_md_files) --toc -N -c style.css --self-contained --metadata title="Vízió" -V title: | sed -e 's:^<table>$$:<div class="tbl-wrap"><table>:g' -e 's:^</table>$$:</table></div>:g' > "$@"
