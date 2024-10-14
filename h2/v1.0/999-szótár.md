@@ -50,7 +50,7 @@
 
 - **Hardverkonfiguráció:** Egy eszköz technikai összetevőinek (pl. processzor, memória) összeállítása, ami befolyásolja a játék futtatását.
 
-- **i18n:** Az internationalization (nemzetköziesítés) rövidítése. Az i18n lényege, hogy egy szoftvert vagy alkalmazást úgy tervezzenek meg és készítsenek el, hogy az könnyen adaptálható legyen különböző nyelvekre és kulturális környezetekre anélkül, hogy nagyobb változtatásokat kellene végezni a program forráskódján. Ennek része például a többnyelvű felhasználói felületek, különböző dátum- és időformátumok, valuták és egyéb lokalizációs szempontok támogatása.
+- **I18n:** Az internationalization (nemzetköziesítés) rövidítése. Az i18n lényege, hogy egy szoftvert vagy alkalmazást úgy tervezzenek meg és készítsenek el, hogy az könnyen adaptálható legyen különböző nyelvekre és kulturális környezetekre anélkül, hogy nagyobb változtatásokat kellene végezni a program forráskódján. Ennek része például a többnyelvű felhasználói felületek, különböző dátum- és időformátumok, valuták és egyéb lokalizációs szempontok támogatása.
 
 - **Indie fejlesztőcsapat:** Olyan független játékfejlesztők csoportja, akik nagy vállalatoktól függetlenül dolgoznak, általában kisebb költségvetéssel.
 
@@ -70,7 +70,7 @@
 
 - **Középkori tematika:** Olyan játékvilág, amely a középkori korszak jellemzőit (lovagok, kastélyok, királyok) idézi.
 
-- **l11n:** A localization (lokalizálás) rövidítése A lokalizálás az a folyamat, amikor egy szoftvert vagy alkalmazást egy adott nyelvhez és kultúrához igazítanak, figyelembe véve a helyi sajátosságokat, például a nyelvi fordításokat, a dátum- és időformátumokat, pénznemeket, mértékegységeket, valamint a kulturális és jogi követelményeket. Az l11n tehát konkrétan azt jelenti, hogy az adott termék teljes mértékben alkalmazkodik a célpiac nyelvi és kulturális igényeihez.
+- **L11n:** A localization (lokalizálás) rövidítése A lokalizálás az a folyamat, amikor egy szoftvert vagy alkalmazást egy adott nyelvhez és kultúrához igazítanak, figyelembe véve a helyi sajátosságokat, például a nyelvi fordításokat, a dátum- és időformátumokat, pénznemeket, mértékegységeket, valamint a kulturális és jogi követelményeket. Az l11n tehát konkrétan azt jelenti, hogy az adott termék teljes mértékben alkalmazkodik a célpiac nyelvi és kulturális igényeihez.
 
 - **LAN:** A "Local Area Network" rövidítése. Egy helyi hálózat, amely korlátozott földrajzi területen, például egy épületen vagy irodán belül biztosít kapcsolatot eszközök között.
 
@@ -92,13 +92,13 @@
 
 - **Nyílt forráskódú (open source):** Olyan szoftver, amelynek a forráskódja szabadon hozzáférhető bárki számára, aki fejleszteni, módosítani vagy továbbfejleszteni szeretné. Ez különösen hasznos a játékfejlesztésben, mivel a fejlesztők testreszabhatják a szoftvert a saját igényeik szerint.
 
-- **offline játékok:** hálózathoz nem kapcsolódó játékok. Leggyakrabban arra használják, amikor valaki nincs az internethez kapcsolódva.
+- **Offline játékok:** hálózathoz nem kapcsolódó játékok. Leggyakrabban arra használják, amikor valaki nincs az internethez kapcsolódva.
 
-- **online játékok:** rendszerhez, hálózathoz kapcsolt játék, megtalálható az interneten. Fel
+- **Online játékok:** rendszerhez, hálózathoz kapcsolt játék, megtalálható az interneten. Fel
 
 - **Optimalizáció:** Egy játék vagy szoftver teljesítményének javítása különböző hardvereken és környezetekben, hogy gyorsabban és hatékonyabban fusson.
 
-- **parti játékok:** többjátékos játék, amely rövid minijátékok sorozatából áll, és társaságban játszható. A videojátékok világában a party game olyan játékokat jelöl, amelyeket több játékos játszik együtt, gyakran egy helyszínen, közös szórakozás céljából.
+- **Parti játékok:** többjátékos játék, amely rövid minijátékok sorozatából áll, és társaságban játszható. A videojátékok világában a party game olyan játékokat jelöl, amelyeket több játékos játszik együtt, gyakran egy helyszínen, közös szórakozás céljából.
 
 - **Patch:** Javítás, amely egy játék vagy program frissítésére szolgál, hibák kijavításával és teljesítménybeli fejlesztésekkel.
 
@@ -108,7 +108,7 @@
 
 - **Platform:** Az a környezet (hardver vagy szoftver), amelyen egy alkalmazás, például egy játék futtatható (pl. PC, konzol, mobil).
 
-- **projekt:** Kidolgozott terv, amely egy kitűzött fontos, összetett célt megvalósító lépések gondosan megtervezett sorozata. Célja, hogy egyedi terméket, szolgáltatást vagy végeredményt hozzon létre.
+- **Projekt:** Kidolgozott terv, amely egy kitűzött fontos, összetett célt megvalósító lépések gondosan megtervezett sorozata. Célja, hogy egyedi terméket, szolgáltatást vagy végeredményt hozzon létre.
 
 - **Promóció:** Reklámozási vagy népszerűsítési kampány, amely a termék iránti érdeklődést hivatott felkelteni és növelni. Például egy indie játék esetében fontos, hogy a játékosok tudomást szerezzenek róla.
 
@@ -120,7 +120,7 @@
 
 - **RPG (Role-Playing Game):** Szerepjáték, ahol a játékos egy karakter bőrébe bújva döntéseket hoz, fejlődik és különböző kalandokat él át.
 
-- **sandbox játék:** egy videojáték játékelemekkel, amelyek nagyfokú kreativitást biztosítanak a játékosoknak.
+- **Sandbox játék:** egy videojáték játékelemekkel, amelyek nagyfokú kreativitást biztosítanak a játékosoknak.
 
 - **Skill:** Képesség vagy jártasság, amelyet a karakterek a játék során megszereznek vagy fejlesztenek.
 
