@@ -30,15 +30,17 @@
 
 - **Egyjátékos mód:** Olyan játékmód, amelyet egyetlen játékos játszik, nem igényel más játékosok részvételét.
 
+- **Érintőképernyős vezérlés:** Olyan irányítási mód, amelyet érintőképernyős eszközökön (pl. mobiltelefonok) használnak, ujjmozdulatokkal irányítva a játékot.
+
 - **Exportálható:** A játék vagy annak elemeinek átalakítása más formátumra vagy platformra, például egy PC-s játék mobilra való átültetése.
 
 - **Felhőalapú szolgáltatás:** Olyan technológia, ahol adatok és információk távoli szervereken tárolódnak, nem a játékos eszközén.
 
 - **Finanszírozás:** A projekt megvalósításához szükséges pénzügyi források biztosítása. Ez magában foglalhatja a fejlesztők fizetését, a technológiai eszközök beszerzését, és minden egyéb költséget, amely a játék elkészítéséhez szükséges.
 
-- **FPS (Frames per Second):** A másodpercenként megjelenített képkockák száma. Minél magasabb ez a szám, annál simább a játékélmény.
-
 - **FPS (First Person Shooter):** első személyes lövöldözős játékok, középpontjában a fegyveres harcok és más fegyveralapú harcok állnak, első személy szemszögéből nézve.
+
+- **FPS (Frames per Second):** A másodpercenként megjelenített képkockák száma. Minél magasabb ez a szám, annál simább a játékélmény.
 
 - **Game franchise:** A játékfranchise játéktermékek iteratív sorozata, amelyet a szellemi tulajdon szolgáltatásai/értéke iránti kereslet köré fejlesztettek ki.
 
@@ -46,9 +48,9 @@
 
 - **Harcrendszer:** Egy videojáték azon mechanikáinak és szabályainak összessége, amelyek meghatározzák, hogyan zajlanak a harcok. Ide tartozik a karakterek mozgása, támadásai, sebzésük, erőforrások (pl. HP és SP) kezelése, valamint a harc taktikai elemei, mint a fedezékek, fegyverek és képességek használata. A harcrendszer lehet valós idejű vagy körökre osztott, és nagyban befolyásolja a játékélményt, mivel meghatározza a harci szituációk dinamikáját és a játékos stratégiájának hatékonyságát.
 
-- **Hardver:** Számítógépes eszközök fizikai része, mint például a processzor, grafikus kártya, memória.
-
 - **Hardverkonfiguráció:** Egy eszköz technikai összetevőinek (pl. processzor, memória) összeállítása, ami befolyásolja a játék futtatását.
+
+- **Hardver:** Számítógépes eszközök fizikai része, mint például a processzor, grafikus kártya, memória.
 
 - **I18n:** Az internationalization (nemzetköziesítés) rövidítése. Az i18n lényege, hogy egy szoftvert vagy alkalmazást úgy tervezzenek meg és készítsenek el, hogy az könnyen adaptálható legyen különböző nyelvekre és kulturális környezetekre anélkül, hogy nagyobb változtatásokat kellene végezni a program forráskódján. Ennek része például a többnyelvű felhasználói felületek, különböző dátum- és időformátumok, valuták és egyéb lokalizációs szempontok támogatása.
 
@@ -66,9 +68,9 @@
 
 - **Karakterfejlődés:** A játékban irányított hős egyre erősebbé válik, új képességeket tanul és fejleszti tulajdonságait.
 
-- **Kreatív:** Ötletgazdag, alkotó szemlélet. A játékfejlesztés során a kreativitás segít az új, eredeti játékmechanikák vagy történetek kidolgozásában.
-
 - **Középkori tematika:** Olyan játékvilág, amely a középkori korszak jellemzőit (lovagok, kastélyok, királyok) idézi.
+
+- **Kreatív:** Ötletgazdag, alkotó szemlélet. A játékfejlesztés során a kreativitás segít az új, eredeti játékmechanikák vagy történetek kidolgozásában.
 
 - **L11n:** A localization (lokalizálás) rövidítése A lokalizálás az a folyamat, amikor egy szoftvert vagy alkalmazást egy adott nyelvhez és kultúrához igazítanak, figyelembe véve a helyi sajátosságokat, például a nyelvi fordításokat, a dátum- és időformátumokat, pénznemeket, mértékegységeket, valamint a kulturális és jogi követelményeket. Az l11n tehát konkrétan azt jelenti, hogy az adott termék teljes mértékben alkalmazkodik a célpiac nyelvi és kulturális igényeihez.
 
@@ -122,9 +124,9 @@
 
 - **Sandbox játék:** egy videojáték játékelemekkel, amelyek nagyfokú kreativitást biztosítanak a játékosoknak.
 
-- **Skill:** Képesség vagy jártasság, amelyet a karakterek a játék során megszereznek vagy fejlesztenek.
-
 - **Skálázhatóság:** Annak a képessége, hogy egy rendszer vagy program különböző erőforrásokkal rendelkező eszközökön is megfelelően működjön.
+
+- **Skill:** Képesség vagy jártasság, amelyet a karakterek a játék során megszereznek vagy fejlesztenek.
 
 - **Specifikáció:** Valamilyen rendszer vagy eszköz pontos jellemzőinek és paramétereinek leírása.
 
@@ -140,9 +142,6 @@
 
 - **UX (User Experience):** Felhasználói élmény, amely magába foglalja, hogy a felhasználók mennyire érzik kényelmesnek és könnyen használhatónak a programot vagy játékot.
 
-- **VRAM (Video Random Access Memory):** A grafikus kártyán található memória, amit a számítógép a vizuális adatok feldolgozására és megjelenítésére használ.
-
 - **Védjegy (Trademark):** A védjegy egy olyan jogi védelem, amely egy márkanevet, logót, szlogent, szimbólumot vagy egyéb megkülönböztető jelet véd. Célja, hogy egy terméket vagy szolgáltatást megkülönböztessen más piaci szereplők hasonló termékeitől, és jogi védelmet nyújtson a visszaélések, hamisítások ellen.
 
-- **Érintőképernyős vezérlés:** Olyan irányítási mód, amelyet érintőképernyős eszközökön (pl. mobiltelefonok) használnak, ujjmozdulatokkal irányítva a játékot.
-
+- **VRAM (Video Random Access Memory):** A grafikus kártyán található memória, amit a számítógép a vizuális adatok feldolgozására és megjelenítésére használ.
