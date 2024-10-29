@@ -14,7 +14,7 @@ h2_vizio_v1.0_md_files := $(wildcard h2/v1.0/*.md)
 h3_vizio_v1.0_md_files := $(wildcard h3/v1.0/*.md)
 
 folders:
-	mkdir -p dist/h{1,2,3}
+	mkdir -p dist/h1 dist/h2 dist/h3
 
 dist/index.html: index.html folders
 	cp index.html "$@"
