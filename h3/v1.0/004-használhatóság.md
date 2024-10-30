@@ -37,10 +37,10 @@ A _Knights Age_ játék használhatósági követelményei a következő szempon
   - Elérhető lesz egy részletes felhasználói kézikönyv és online dokumentáció,
     amely a játék különböző funkcióit és lehetőségeit magyarázza el.
 
-  - Lehetőség van külön oktatóanyagok, videók és akár élő tréningek
+  - Lehetőség van külön oktatóanyagok, videók, és akár élő tréningek
     biztosítására, amelyek a játékkészítők által elérhetők lesznek igény szerint.
 
-- **elhasználói felület hasonlósága más rendszerekkel:**
+- **Felhasználói felület hasonlósága más rendszerekkel:**
 
   - A _Knights Age_ felhasználói felülete hasonlít más RPG játékokéhoz, különösen
     azokhoz, amelyek középkori, fantasy elemekkel dolgoznak, így az alapvető
