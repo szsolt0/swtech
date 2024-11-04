@@ -2,10 +2,6 @@
 
 ## Osztálydiagram
 
-<div class="img-wrap">
-[![](osztályok.png)](osztályok.png){target="_blank"}
-</div>
-
 ## Osztályok felsorolása
 
 - **Main Menu:** A játék főmenüjét kezeli, ahol a játékos választhat különböző játékmódok, beállítások és egyéb opciók közül.
