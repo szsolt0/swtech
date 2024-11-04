@@ -51,7 +51,7 @@ dist/h3/szotar.html: folders h3/szótár/cover.html style.css h3/szótár/szót�
 	pandoc -B h3/szótár/cover.html -B h3/szótár/history.html h3/szótár/szótár.md -c style.css --self-contained --metadata title="Szótár" -V title: | sed -e 's:^<table>$$:<div class="tbl-wrap"><table>:g' -e 's:^</table>$$:</table></div>:g' > "$@"
 
 dist/h4/jzbbg_ANAL1.0.html: folders h4/analízis/v1.0/cover.html h4/analízis/v1.0/history.html style.css $(h4_analizis_v1.0_md_files)
-	pandoc -B h4/analízis/v1.0/cover.html -B h4/analízis/v1.0/history.html $(h4_analizis_v1.0_md_files) --toc -N -c style.css --self-contained --metadata title="Analízis Modell" -V title: | sed -e 's:^<table>$$:<div class="tbl-wrap"><table>:g' -e 's:^</table>$$:</table></div>:g' > "$@"
+	pandoc -B h4/analízis/v1.0/cover.html -B h4/analízis/v1.0/history.html $(h4_analizis_v1.0_md_files) --toc -N -c style.css --metadata title="Analízis Modell" -V title: | sed -e 's:^<table>$$:<div class="tbl-wrap"><table>:g' -e 's:^</table>$$:</table></div>:g' > "$@"
 
 dist/h4/szotar.html: folders h4/szótár/cover.html style.css h4/szótár/szótár.md
 	pandoc -B h4/szótár/cover.html -B h4/szótár/history.html h4/szótár/szótár.md -c style.css --self-contained --metadata title="Szótár" -V title: | sed -e 's:^<table>$$:<div class="tbl-wrap"><table>:g' -e 's:^</table>$$:</table></div>:g' > "$@"
