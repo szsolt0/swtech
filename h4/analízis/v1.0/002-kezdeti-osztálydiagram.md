@@ -170,7 +170,9 @@
 
 ## Alrendszerek
 
-[INSERT UML DIAGRAM HERE]
+<div class="img-wrap">
+<a href="alrendszerek.svg" target="_blank"><img src="alrendszerek.svg" alt="Alrendszer diagram" title="Alrendszer diagram" /></a>
+</div>
 
 ### Felhasználói felület alrendszer
 
