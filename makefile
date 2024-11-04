@@ -4,6 +4,7 @@
 # this converts markdown to html
 # pandoc -o out.html -B cover.html -B history.html content.md --toc -N -c style.css --self-contained --metadata title="DOKUMENTUM CÍME" -V title:
 
+SHELL := /bin/bash
 .PHONY: all folders
 
 all: dist/index.html dist/munkanaplo.html dist/h1/projektterv.html dist/h2/vizio-v0.2.html dist/h2/index.html dist/h2/vizio-v0.2.html dist/h2/vizio-v1.0.html dist/h3/index.html dist/h3/srs-v1.0.html dist/h3/szotar.html dist/h4/index.html dist/h4/szotar.html dist/h4/jzbbg_ANAL1.0.html dist/h4/osztályok.png
@@ -15,7 +16,7 @@ h3_srs_v1.0_md_files := $(wildcard h3/v1.0/*.md)
 h4_analizis_v1.0_md_files := $(wildcard h4/analízis/v1.0/*.md)
 
 folders:
-	mkdir -p dist/h1 dist/h2 dist/h3 dist/h4
+	mkdir -p dist/h{1,2,3,4}
 
 dist/index.html: index.html folders
 	cp index.html "$@"
