@@ -7,7 +7,7 @@
 SHELL := /bin/bash
 .PHONY: all folders
 
-all: dist/index.html dist/munkanaplo.html dist/h1/projektterv.html dist/h2/vizio-v0.2.html dist/h2/index.html dist/h2/vizio-v0.2.html dist/h2/vizio-v1.0.html dist/h3/index.html dist/h3/srs-v1.0.html dist/h3/szotar.html dist/h4/index.html dist/h4/szotar.html dist/h4/jzbbg_ANAL1.0.html dist/h4/osztályok.png
+all: dist/index.html dist/munkanaplo.html dist/h1/projektterv.html dist/h2/vizio-v0.2.html dist/h2/index.html dist/h2/vizio-v0.2.html dist/h2/vizio-v1.0.html dist/h3/index.html dist/h3/srs-v1.0.html dist/h3/szotar.html dist/h4/index.html dist/h4/szotar.html dist/h4/jzbbg_ANAL1.0.html dist/h4/osztályok.png dist/h4/alrendszerek.svg
 
 h1_md_files := $(wildcard h1/*.md)
 h2_vizio_v0.2_md_files := $(wildcard h2/v0.2/*.md)
@@ -35,6 +35,9 @@ dist/h4/index.html: h4/index.html folders
 
 dist/h4/osztályok.png: h4/analízis/v1.0/osztályok.png
 	cp h4/analízis/v1.0/osztályok.png "$@"
+
+dist/h4/alrendszerek.svg: h4/analízis/v1.0/alrendszerek.svg
+	cp h4/analízis/v1.0/alrendszerek.svg "$@"
 
 dist/h1/projektterv.html: folders h1/cover.html h1/history.html style.css $(h1_md_files)
 	pandoc -B h1/cover.html -B h1/history.html $(h1_md_files) --toc -N -c style.css --self-contained --metadata title="Projekt terv" -V title: | sed -e 's:^<table>$$:<div class="tbl-wrap"><table>:g' -e 's:^</table>$$:</table></div>:g' > "$@"
