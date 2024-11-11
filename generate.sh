@@ -10,7 +10,7 @@ genhtml() {
 	local path="$3"
 	shift 3
 
-	pandoc -o "dist/$fname" -B "$path/cover.html" -B "$path/history.html" $path/*.md --toc -N -c style.css --self-contained --metadata title="$title" -V title: | sed -e 's:^<table>$:<div class="tbl-wrap"><table>:g' -e 's:^</table>$:</table></div>:g'
+	pandoc -o "dist/$fname" -B style.html -B "$path/cover.html" -B "$path/history.html" $path/*.md --toc -N --metadata title="$title" -V title: | sed -e 's:^<table>$:<div class="tbl-wrap"><table>:g' -e 's:^</table>$:</table></div>:g'
 }
 
 mkdir -p dist/h{1..5}
