@@ -20,7 +20,7 @@ jobs:
       run: sudo apt-get update && sudo apt-get install -y pandoc
 
     - name: Create Pages
-      run: make
+      run: bash ./generate
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
