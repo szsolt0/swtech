@@ -49,7 +49,7 @@ az alapvető irányítási és harci mechanikákkal, valamint az elsődleges cé
 - **Rejtett kincsek:**
     - Elrejtett ládák és titkos barlangok, amelyekben értékes tárgyakat és bónuszokat találhatunk. Egyes ládák csapdákat rejtenek, amiket ügyesen el kell kerülni.
 
-2. A Nagy sztyeppe
+### A Nagy sztyeppe
 
 Ez a szint egy végtelennek tűnő, kietlen füves pusztaságon játszódik. A sztyeppe nemcsak a nagy távolságok miatt kihívás, hanem a nehéz terepviszonyok miatt is.
 
@@ -100,7 +100,7 @@ Környezet:
 - **Mérgezés:**
   - Bizonyos mocsári területeken mérgező gázok és toxinok szabadulnak fel a talajból. Ha a karakter hosszabb ideig tartózkodik ezeken a helyeken, folyamatos sebzést szenved, és mérgezési tünetek jelentkeznek, mint például a fokozódó életpontcsökkenés. A mérgezés akkor is bekövetkezhet, ha a játékos nem figyel a környezetére, és belelép egy mérgezett növénybe vagy vízbe.
 
-## A föld alatti világ
+### A föld alatti világ
 
 A föld alatti világ egy sötét, komor helyszín, ahol a mélység és a sötétség uralkodik. A szint tele van barlangokkal, alagutakkal és föld alatti folyókkal.
 
