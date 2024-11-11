@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Software Követelmény Specifikáció</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <style>
+  th, td {
+  	padding: .5em;
+  	border: 1pt solid gray;
+  }
+
+  table {
+  	width: 100%;
+  	border-collapse: collapse;
+  }
+
+  .tbl-wrap {
+  	width: 100%;
+  	overflow-y: scroll;
+  }
+  </style>
+</head>
+<body>
+<p>Csoport neve: JZBBG</p>
+
+<p>Feladat sorszáma: 1</p>
+
+<p>Feladat címe: Knights Age</p>
+
+<p style="text-align: center; font-weight: bold; font-size: xx-large;">Software Követelmény Specifikáció</p>
+<p style="text-align: center;">Gyakorlatvezető:</p>
+<p style="text-align: center; font-size: x-large;">Árvai László</p>
+
+<p>Csoport tagok:</p>
+
+<table>
+	<tr><td>Sándor János</td><td>progterv</td><td>sandorj2002@gmail.com</td></tr>
+	<tr><td>Adamcsik Bendegúz</td><td>progterv</td><td>bendeguz.adamcsik@gmail.com</td></tr>
+	<tr><td>Dobozi Botond</td><td>progterv</td><td>boti2424@gmail.com</td></tr>
+	<tr><td>Füzi Gergő Róbert</td><td>mérnökinfó</td><td>fgergo21@gmail.com</td></tr>
+	<tr><td>Sebe Zsolt</td><td>progterv</td><td>sebezsolt2@gmail.com</td></tr>
+</table>
+
+<p style="text-align: right;">2024-11-11</p>
+<table>
+	<tr><th>Dátum</th><th>Verzió</th><th>Leírás</th><th>Szerző</th></tr>
+	<tr><td>2024-10-27</td><td>1.0</td><td>A(z) 7., 8., 9. pont létrehozása.</td><td>Sándor János</td></tr>
+	<tr><td>2024-10-27</td><td>1.0</td><td>A(z) 10., 12. pont létrehozása.</td><td>Adamcsik Bendegúz</td></tr>
+	<tr><td>2024-10-27</td><td>1.0</td><td>A(z) 4., 5., 6. pont létrehozása.</td><td>Dobozi Botond</td></tr>
+	<tr><td>2024-10-27</td><td>1.0</td><td>A(z) 11. pont létrehozása.</td><td>Füzi Gergő Róbert</td></tr>
+	<tr><td>2024-10-27</td><td>1.0</td><td>A(z) 1., 2., 3. pont létrehozása.</td><td>Sebe Zsolt</td></tr>
+	<tr><td>2024-10-28</td><td>1.0</td><td>Első verzió.</td><td>Sándor János<br>Adamcsik Bendegúz<br>Dobozi Botond<br>Füzi Gergő Róbert<br>Sebe Zsolt</td></tr>
+	<tr><td>2024-11-11</td><td>1.1</td><td>13. és további pontok hozzáadása.</td><td>Sándor János<br>Adamcsik Bendegúz<br>Dobozi Botond<br>Füzi Gergő Róbert<br>Sebe Zsolt</td></tr>
+</table>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#bevezetés"><span class="toc-section-number">1</span> Bevezetés</a></li>
+<li><a href="#áttekintés"><span class="toc-section-number">2</span> Áttekintés</a></li>
+<li><a href="#a-rendszer-funkciói"><span class="toc-section-number">3</span> A rendszer funkciói</a>
+<ul>
+<li><a href="#többnyelvűség-támogatás"><span class="toc-section-number">3.1</span> Többnyelvűség támogatás</a></li>
+<li><a href="#grafikai-beállítások-testreszabása"><span class="toc-section-number">3.2</span> Grafikai beállítások testreszabása</a></li>
+<li><a href="#korlátlan-manuális-mentés-lehetősége"><span class="toc-section-number">3.3</span> Korlátlan manuális mentés lehetősége</a></li>
+<li><a href="#automatikus-mentési-rendszer"><span class="toc-section-number">3.4</span> Automatikus mentési rendszer</a></li>
+<li><a href="#felhőalapú-mentési-támogatás-platformszinten"><span class="toc-section-number">3.5</span> Felhőalapú mentési támogatás platformszinten</a></li>
+<li><a href="#felhasználói-fiókok-kezelése-saját-szerveren"><span class="toc-section-number">3.6</span> Felhasználói fiókok kezelése saját szerveren</a></li>
+<li><a href="#a-fogyatékossággal-élők-támogatása"><span class="toc-section-number">3.7</span> A fogyatékossággal élők támogatása</a></li>
+</ul></li>
+<li><a href="#használhatóság-usability"><span class="toc-section-number">4</span> Használhatóság (Usability)</a></li>
+<li><a href="#megbízhatóság-reliability"><span class="toc-section-number">5</span> Megbízhatóság (Reliability)</a></li>
+<li><a href="#teljesítmény-performance"><span class="toc-section-number">6</span> Teljesítmény (Performance)</a></li>
+<li><a href="#támogatottság-supportability"><span class="toc-section-number">7</span> Támogatottság (Supportability)</a></li>
+<li><a href="#tervezési-korlátozások-design-constraints"><span class="toc-section-number">8</span> Tervezési korlátozások (Design Constraints)</a></li>
+<li><a href="#online-dokumentáció-és-help-rendszer"><span class="toc-section-number">9</span> Online dokumentáció és Help rendszer</a></li>
+<li><a href="#felhasznált-kész-komponensek"><span class="toc-section-number">10</span> Felhasznált kész komponensek</a>
+<ul>
+<li><a href="#ai-által-generált-textúrák-és-modellek"><span class="toc-section-number">10.1</span> AI által generált textúrák és modellek</a></li>
+<li><a href="#szabad-felhasználású-elemek"><span class="toc-section-number">10.2</span> Szabad felhasználású elemek</a></li>
+<li><a href="#vásárolt-elemek"><span class="toc-section-number">10.3</span> Vásárolt elemek</a></li>
+<li><a href="#licencelési-és-felhasználási-szabályok"><span class="toc-section-number">10.4</span> Licencelési és felhasználási szabályok</a></li>
+</ul></li>
+<li><a href="#interfészek"><span class="toc-section-number">11</span> Interfészek</a>
+<ul>
+<li><a href="#felhasználói-interfészek"><span class="toc-section-number">11.1</span> Felhasználói interfészek</a></li>
+<li><a href="#hardware-interfészek"><span class="toc-section-number">11.2</span> Hardware interfészek</a></li>
+<li><a href="#software-interfészek"><span class="toc-section-number">11.3</span> Software interfészek</a></li>
+<li><a href="#kommunikációs-interfészek"><span class="toc-section-number">11.4</span> Kommunikációs interfészek</a></li>
+</ul></li>
+<li><a href="#alkalmazott-szabványok"><span class="toc-section-number">12</span> Alkalmazott szabványok</a>
+<ul>
+<li><a href="#kötelezően-alkalmazandó-szabványok"><span class="toc-section-number">12.1</span> Kötelezően alkalmazandó szabványok</a></li>
+<li><a href="#választás-alapján-alkalmazott-szabványok"><span class="toc-section-number">12.2</span> Választás alapján alkalmazott szabványok</a></li>
+<li><a href="#egyéb-alkalmazott-szabványok"><span class="toc-section-number">12.3</span> Egyéb alkalmazott szabványok</a></li>
+</ul></li>
+<li><a href="#játékmechanika-és-játékmenet"><span class="toc-section-number">13</span> Játékmechanika és Játékmenet</a>
+<ul>
+<li><a href="#knights-age-hud-rendszere"><span class="toc-section-number">13.1</span> Knights Age HUD rendszere</a></li>
+<li><a href="#ellenfelek"><span class="toc-section-number">13.2</span> Ellenfelek</a></li>
+<li><a href="#a-pálya"><span class="toc-section-number">13.3</span> A pálya</a>
+<ul>
+<li><a href="#mezős-erdős-rész"><span class="toc-section-number">13.3.1</span> Mezős erdős rész</a></li>
+<li><a href="#sivatag"><span class="toc-section-number">13.3.2</span> Sivatag</a></li>
+<li><a href="#a-mocsár"><span class="toc-section-number">13.3.3</span> A mocsár</a></li>
+</ul></li>
+<li><a href="#a-föld-alatti-világ"><span class="toc-section-number">13.4</span> A föld alatti világ</a>
+<ul>
+<li><a href="#a-hófödte-hegységek"><span class="toc-section-number">13.4.1</span> A hófödte hegységek</a></li>
+<li><a href="#a-hamu-földje"><span class="toc-section-number">13.4.2</span> A hamu földje</a></li>
+<li><a href="#a-nagy-vulkán"><span class="toc-section-number">13.4.3</span> A nagy vulkán</a></li>
+<li><a href="#a-végetnemérők-világa"><span class="toc-section-number">13.4.4</span> A Végetnemérők világa</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="bevezetés"><span class="header-section-number">1</span> Bevezetés</h1>
+<p>A <em>Knights Age</em> egy középkori környezetben játszódó, fantasy stílusú stratégiai videojáték, amely elsősorban szórakoztatási céllal készült. A játék célja, hogy élvezetes és tartalmas játékmenetet biztosítson a felhasználók számára, amely különböző funkciók és testreszabási lehetőségek révén minden játékos igényeit kielégíti.</p>
+<p>A játék a középkori hadviselés, karakterfejlődés, és taktikai harcok világát teszi elérhetővé a játékosok számára, a különböző kihívási szinteket kereső felhasználók igényeinek megfelelően.</p>
+<h1 data-number="2" id="áttekintés"><span class="header-section-number">2</span> Áttekintés</h1>
+<p>A <em>Knights Age</em> célközönségét elsősorban a stratégiai játékokat kedvelő, középhaladó és haladó szintű játékosok alkotják, akik érdeklődnek a középkori fantasy környezet és a taktikai játékmenet iránt. A játék kialakítása lehetőséget ad arra, hogy különböző teljesítményű hardvereken is fusson, így az alacsonyabb és magasabb szintű hardverrel rendelkező felhasználók számára egyaránt hozzáférhetővé válik. A játék intuitív kezelőfelületet kínál, amely gyorsan elsajátítható, ugyanakkor elég összetett ahhoz, hogy hosszú távon is kihívást nyújtson.</p>
+<p>A játék elsődlegesen PC-platformra készült, de mobil eszközökön való futtatás is elérhetők lesz. A multiplayer mód csak a jövőbeli frissítések során válik elérhetővé. A játék működéséhez szükséges felhőalapú mentések az adott platform (például <em>Steam</em>) saját rendszerén keresztül érhetők el, így a felhasználók mentései automatikusan tárolódnak és szinkronizálódnak a platform felhőalapú szolgáltatásain keresztül. Feltételezzük, hogy a játékosok rendelkeznek alapvető technikai ismeretekkel az irányítás és a beállítások kezelésében.</p>
+<p>A követelmények csoportosítása a játék fő funkcionális moduljai alapján történik. Ide tartozik a grafikai beállítások kezelése, a mentési rendszer, a multiplayer támogatás, a harcrendszer és a felhasználói fiókokkal kapcsolatos adatkezelés. A részletes követelmények a következő fejezetekben találhatók, ahol mindegyik modul saját szekciót kap.</p>
+<h1 data-number="3" id="a-rendszer-funkciói"><span class="header-section-number">3</span> A rendszer funkciói</h1>
+<ul>
+<li><p><strong>Többnyelvűség támogatás:</strong> A játék több nyelven érhető el, biztosítva a globális elérhetőséget. Ezen felül támogatott a közösség által készített fordítások integrálása is, amely lehetővé teszi a közreműködők számára a játék saját nyelvi bővítését.</p></li>
+<li><p><strong>Grafikai beállítások testreszabása:</strong> A játék különféle grafikai beállításokat biztosít annak érdekében, hogy gyengébb és erősebb hardvereken egyaránt optimálisan fusson. Az alacsonyabb teljesítményű eszközökön minimalizált grafikai igényű mód érhető el, míg a nagy teljesítményű eszközökön részletgazdagabb látványt kínál, kihasználva a modernebb hardverek grafikai kapacitását.</p></li>
+<li><p><strong>Korlátlan manuális mentés lehetősége:</strong> A játékos igény szerint több mentést is létrehozhat, amelyek egymástól függetlenül tárolódnak, amennyiben elegendő tárhely áll rendelkezésre. Ez lehetőséget biztosít különböző játékszakaszok mentésére, és megkönnyíti a visszatérést a korábbi állapotokhoz.</p></li>
+<li><p><strong>Automatikus mentési rendszer:</strong> A játék automatikus mentési funkcióval rendelkezik, amely meghatározott időközönként (például 5 percenként) rögzíti az aktuális játékállapotot. Ez a funkció hasznos az előre nem látható események, például áramszünetek esetén, így minimalizálva az adatvesztés kockázatát.</p></li>
+<li><p><strong>Felhőalapú mentési támogatás platformszinten:</strong> A rendszer biztosítja, hogy a felhasználók választhassanak a központi szerver vagy a platform-specifikus felhőszolgáltatások között, és ezáltal testre szabható legyen a játékállások kezelése.</p></li>
+<li><p><strong>Felhasználói fiókok kezelése saját szerveren:</strong> A játékhoz kapcsolódó felhasználói fiókokat egy központi, a játékot üzemeltető csapat által kezelt szerveren tároljuk. Bár a szerver fizikai elhelyezése nem helyben történik, az üzemeltetés és adatkezelés a szolgáltató felügyelete alatt áll, biztosítva a biztonságos és folyamatos adatkezelést.</p></li>
+<li><p><strong>A fogyatékossággal élők támogatása:</strong> A játék teljes értékű játékélményt biztosít minden játékos számára, függetlenül az érzékszervi korlátoktól. Az egyes támogatási funkciók célzott megoldásokat kínálnak a különböző igényeknek megfelelően, lehetővé téve a teljes élményhez való egyenlő hozzáférést.</p></li>
+</ul>
+<h2 data-number="3.1" id="többnyelvűség-támogatás"><span class="header-section-number">3.1</span> Többnyelvűség támogatás</h2>
+<p>A játék többnyelvűségre épülő támogatása lehetővé teszi, hogy a játék különböző nyelveken legyen elérhető a felhasználók számára. A többnyelvűségi rendszer biztosítja, hogy a játékosok könnyedén válthassanak nyelvek között, és lehetőséget biztosít a közösség számára a fordítások egyszerű bővítésére is.</p>
+<p><strong>Nyelvi fájlok struktúrája:</strong></p>
+<ul>
+<li><p><strong>Központi fordítási könyvtár:</strong> A fordítási fájlok a játék könyvtárában egy külön mappában, a <code>translations</code> könyvtárban kerülnek tárolásra. A fordítások ebben a mappában találhatók, és minden nyelv saját, külön almappával rendelkezik, amely biztosítja a nyelvek egyértelmű és rendezett kezelését.</p></li>
+<li><p><strong>ISO-kód szerinti struktúra:</strong> Az egyes nyelvek almappái az ISO-kód szerinti szabványos jelölést követik, amely formátuma <code>xx_yy</code> ahol az <code>xx</code> az országkódot, a <code>yy</code> pedig a nyelvet jelöli. Például az amerikai angol nyelv <code>en_US</code>, míg a magyar nyelv <code>hu_HU</code> formátumban kerül elnevezésre. Ez a jelölési rendszer biztosítja az egyértelműséget, és megkönnyíti a különböző nyelvek közötti gyors eligazodást.</p></li>
+<li><p><strong>Egyszerű, szöveges formátum:</strong> A fordítási fájlok egyszerű szöveges (“plain text”) formátumot használnak (például JSON vagy XML), így semmilyen speciális szoftverre nincs szükség a fájlok szerkesztéséhez. Az egységes formátum megkönnyíti az új nyelvi csomagok létrehozását, hiszen elég egy meglévő mappát lemásolni, majd benne a szöveget lefordítani az adott nyelvre.</p></li>
+</ul>
+<p><strong>Nyelv kiválasztása és beállítása:</strong></p>
+<p>A játék alapértelmezés szerint megpróbálja a felhasználói környezetből automatikusan felismerni a megfelelő nyelvet. Például UNIX-alapú rendszerek esetén a <code>$LANG</code> környezeti változó alapján állítja be a nyelvet, ha az megfelel az elérhető fordítások egyikének. Ha a rendszer nyelve nem található meg a fordítások között, a játék alapértelmezett nyelvi csomagot használ, amely angol (<code>en_US</code>).</p>
+<p><strong>Előnyök:</strong></p>
+<ul>
+<li><strong>Egyszerű fordítási folyamat:</strong> A felhasználók számára könnyen szerkeszthető és átlátható nyelvi fájlok biztosítják a gyors fordítást és bővítést.</li>
+<li><strong>Automatikus nyelvfelismerés:</strong> A rendszer környezeti változókon keresztül képes a nyelvet automatikusan beállítani, így a felhasználói élmény zökkenőmentes.</li>
+<li><strong>Közösségi bővítés lehetősége:</strong> A szabványosított formátum támogatja, hogy a játékos közösség új nyelveket adjon hozzá, biztosítva a játék széles körű elérhetőségét.</li>
+</ul>
+<h2 data-number="3.2" id="grafikai-beállítások-testreszabása"><span class="header-section-number">3.2</span> Grafikai beállítások testreszabása</h2>
+<p>A játék különféle grafikai beállítási lehetőségeket biztosít annak érdekében, hogy különböző teljesítményű hardvereszközökön is optimálisan fusson. A grafikai beállítások testreszabása lehetővé teszi a játékosok számára, hogy a játékot a rendelkezésre álló hardver teljesítményéhez igazítsák.</p>
+<p><strong>Funkciók:</strong></p>
+<ul>
+<li><p><strong>Grafikai részletesség szintezése:</strong> A játék különböző szintű grafikai beállításokat kínál. Az alacsony grafikai szintek csökkentik az erőforrás-igényt, míg a magasabb szintek részletgazdagabb textúrákat és vizuális effektusokat biztosítanak, maximálva a vizuális élményt nagyobb teljesítményű eszközökön.</p></li>
+<li><p><strong>Automatikus optimalizáció:</strong> A grafikai beállítások automatikusan is konfigurálhatók a hardver teljesítményének felmérésével. Ennek eredményeképp a játék automatikusan beállítja az optimális grafikai szintet a stabil működés és a lehető legjobb élmény biztosítása érdekében.</p></li>
+<li><p><strong>Felbontás és képkockasebesség szabályozása:</strong> A játék lehetőséget biztosít különböző felbontások és képkockasebességi beállítások kiválasztására, amely lehetővé teszi a teljesítmény és a grafikai minőség egyensúlyának szabályozását.</p></li>
+<li><p><strong>Speciális grafikai effektusok kezelése:</strong> A játékban az árnyékok, részecskeeffektusok és egyéb speciális effektusok külön kezelhetők. A játékosok letilthatják vagy engedélyezhetik ezeket az elemeket, attól függően, hogy milyen teljesítményt kívánnak elérni.</p></li>
+</ul>
+<p><strong>Előnyök:</strong></p>
+<ul>
+<li><strong>Gyengébb teljesítményű eszközök támogatása:</strong> Az alacsonyabb grafikai szintek biztosítják a megfelelő működést régebbi vagy alacsonyabb teljesítményű hardvereken.</li>
+<li><strong>Vizuális minőség fokozása nagyobb teljesítményű eszközökön:</strong> A részletesebb grafikai beállítások kihasználják a modern hardverek képességeit a vizuális élmény maximalizálása érdekében.</li>
+<li><strong>Felhasználóbarát konfiguráció:</strong> Az automatikus optimalizálás révén az összes felhasználói szint számára elérhető beállítási lehetőségek biztosítják a zavartalan működést.</li>
+</ul>
+<h2 data-number="3.3" id="korlátlan-manuális-mentés-lehetősége"><span class="header-section-number">3.3</span> Korlátlan manuális mentés lehetősége</h2>
+<p>A játék lehetőséget biztosít a játékos számára, hogy saját mentési fájlokat hozzon létre és kezeljen, amelyek a haladás és az egyéni beállítások biztonságos tárolására szolgálnak.</p>
+<p><strong>Funkciók:</strong></p>
+<ul>
+<li><p><strong>Korlátlan számú mentési lehetőség:</strong> A játékos tetszőleges számú mentési fájlt hozhat létre, amelyeket a belépési menüben kiválaszthat, létrehozhat vagy törölhet. Ezzel biztosítható, hogy különböző játékállásokat külön fájlokként tárolhasson, amennyiben rendelkezik elegendő tárhellyel.</p></li>
+<li><p><strong>Önálló fájlként tárolt mentések:</strong> A mentések önálló, self-contained fájlok formájában kerülnek létrehozásra, így minden adatot egyetlen <code>.knightsage</code> kiterjesztésű fájl tárol. Ez biztosítja, hogy egy mentés áthelyezéséhez vagy másolásához nincs szükség további fájlokra; a mentési állomány minden szükséges adatot tartalmaz.</p></li>
+<li><p><strong>Mentési fájlok kezelése és áthelyezése:</strong> A mentések a játék fő könyvtárában, a “saves” mappában kerülnek tárolásra, ahonnan a fájlok egyszerűen áthelyezhetők vagy megoszthatók más eszközök között. Ezáltal a játékos a játékállást akár különböző gépeken is folytathatja.</p></li>
+<li><p><strong>Visszafelé kompatibilitás:</strong> A mentési fájlformátum visszamenőlegesen kompatibilis, így a későbbi játékváltozatok is támogatják a korábban létrehozott mentési fájlok betöltését (a technológiai korlátok figyelembevételével). Ez biztosítja, hogy a játékos akár hosszabb idő után is hozzáférjen a korábbi mentési állapotokhoz.</p></li>
+</ul>
+<p><strong>Előnyök:</strong></p>
+<ul>
+<li><strong>Független mentési fájlok:</strong> Minden mentési fájl önálló, így nincs szükség kiegészítő fájlok mozgatására.</li>
+<li><strong>Mentések áthelyezhetősége:</strong> A játékállások egyszerűen átmásolhatók különböző eszközök között.</li>
+<li><strong>Hosszú távú hozzáférés:</strong> A visszafelé kompatibilitásnak köszönhetően a régi mentési állapotok hosszabb távon is elérhetők maradnak.</li>
+</ul>
+<h2 data-number="3.4" id="automatikus-mentési-rendszer"><span class="header-section-number">3.4</span> Automatikus mentési rendszer</h2>
+<p>A automatikus mentési rendszere biztosítja, hogy a játék során rögzített haladás minden körülmények között megőrzésre kerüljön, minimálisra csökkentve az adatvesztés lehetőségét váratlan események — például áramszünet, vagy a folyamat idő előtti megszakítása — esetén.</p>
+<p><strong>Mentési folyamat:</strong></p>
+<p>Az automatikus mentés során a következő lépések biztosítják a mentések integritását:</p>
+<ol type="1">
+<li><p><strong>Biztonsági mentés létrehozása:</strong> A meglévő mentési fájl (<code>.knightsage</code>) átnevezésre kerül biztonsági mentésként: <code>.knightsage.old</code>. Ez a fájl a legutóbbi sikeres mentést tartalmazza, és szükség esetén visszaállítható.</p></li>
+<li><p><strong>Új mentési fájl létrehozása:</strong> A játék létrehozza az új mentési állapotot tartalmazó fájlt, amely az eredeti fájlnévvel (<code>.knightsage</code>) kerül tárolásra. Amennyiben a mentési folyamat megszakítás nélkül befejeződik, a fájl automatikusan az aktuális játékállást fogja tartalmazni.</p></li>
+<li><p><strong>Biztonsági fájl törlése:</strong> A sikeres mentést követően az előző mentésként tárolt <code>.knightsage.old</code> fájl törlésre kerül. Ezzel biztosítjuk, hogy a mentési könyvtár tiszta maradjon, és csak a legfrissebb állapotot tartalmazza.</p></li>
+</ol>
+<p><strong>Betöltési folyamat:</strong></p>
+<p>A játék betöltésekor az automatikus mentési rendszer ellenőrzi a mentési könyvtárat egy esetleges <code>.knightsage.old</code> fájl jelenlétére. Ha ilyen fájl található, a rendszer jelzi, hogy az előző mentési folyamat nem zárult le megfelelően. Ebben az esetben a játékos választhat, hogy a biztonsági mentésként tárolt <code>.knightsage.old</code> fájlt használja, amely tartalmazza a legutóbbi, épségben rögzített játékállást.</p>
+<p><strong>Előnyök:</strong></p>
+<ul>
+<li><strong>Adatbiztonság:</strong> Az előző mentés automatikus áthelyezése biztonsági fájlba megelőzi az adatvesztést megszakítás esetén.</li>
+<li><strong>Stabil működés:</strong> A folyamat biztosítja, hogy csak a sikeresen befejezett mentés kerüljön az alapértelmezett mentési fájlba.</li>
+<li><strong>Egyszerű visszaállítási lehetőség:</strong> Ha egy mentés sikertelen, a rendszer automatikusan visszaállítható az <code>.knightsage.old</code> fájlból, fenntartva a játék folytonosságát.</li>
+</ul>
+<h2 data-number="3.5" id="felhőalapú-mentési-támogatás-platformszinten"><span class="header-section-number">3.5</span> Felhőalapú mentési támogatás platformszinten</h2>
+<p>A játék több szintű felhőalapú mentési rendszert kínál a játékállások biztonságos és rugalmas tárolása érdekében. A felhasználók fiók létrehozásakor választhatják, hogy a mentéseiket szinkronizálják-e a központi szerveren, amelyet a játékot üzemeltető csapat kezel, vagy kizárólag a platform-specifikus felhőszolgáltatásokat használják, mint például a <em>Steam Cloud</em> vagy a <em>Google Cloud</em>. Ezáltal a játékosok szabadon dönthetnek arról, hogy mely mentési megoldásokat részesítik előnyben a kapacitás és a hozzáférhetőség szempontjából.</p>
+<p><strong>Funkciók:</strong></p>
+<ul>
+<li><p><strong>Központi felhőalapú mentés a szerverünkön:</strong> Ha a játékos regisztrál egy fiókot a központi szerveren, akkor lehetősége van játékállásait a saját felhőnkben tárolni. Mivel a központi szerver kapacitása korlátozottabb lehet a külső platformokhoz képest, a felhasználók eldönthetik, hogy csak az aktuálisan használt mentéseiket szinkronizálják-e, optimalizálva a felhasználható tárhelyet.</p></li>
+<li><p><strong>Platform-specifikus felhőintegráció:</strong> A játék platformspecifikus felhőalapú mentési szolgáltatásokkal, például a <em>Steam Cloud</em> vagy a <em>Google Cloud</em> rendszerével is kompatibilis. Ezek a külső felhők kiegészítik a központi szerver funkcióit, biztosítva, hogy a játékállások automatikusan szinkronizálódjanak és több eszközön is elérhetők legyenek.</p></li>
+<li><p><strong>Felhasználói beállítások a mentés szinkronizálására:</strong> A játékosok dönthetnek arról, hogy kívánják-e a mentéseiket a központi szerverrel szinkronizálni, vagy csak a platform által biztosított felhőszolgáltatást veszik igénybe. Ez a megközelítés nagyobb rugalmasságot biztosít, és lehetővé teszi a felhasználók számára, hogy tárhelyüket optimálisan kihasználják, különösen a központi szerver korlátozott kapacitása esetén.</p></li>
+</ul>
+<p><strong>Előnyök:</strong></p>
+<ul>
+<li><strong>Rugalmas mentési opciók:</strong> A játékos szabadon dönthet, hogy a központi szerveren, a platform-specifikus felhőszolgáltatásokon, vagy mindkettőn kívánja-e tárolni a mentéseit.</li>
+<li><strong>Adatbiztonság és redundancia:</strong> Az egyidejű platformspecifikus és központi mentési lehetőségek több szintű biztonságot nyújtanak a játékállások megőrzésére.</li>
+<li><strong>Optimális tárhelyhasználat:</strong> A felhasználók személyre szabottan választhatnak a központi szerver korlátozott tárhelye és a platformok által biztosított nagyobb kapacitás között.</li>
+<li><strong>Könnyebb platformváltás:</strong> A központi szerveren történő tárolásnak köszönhetően a mentési fájlok egyszerűbben átvihetők különböző platformok között, anélkül hogy a fájlokat kézzel kellene másolni.</li>
+</ul>
+<h2 data-number="3.6" id="felhasználói-fiókok-kezelése-saját-szerveren"><span class="header-section-number">3.6</span> Felhasználói fiókok kezelése saját szerveren</h2>
+<p>A játék központi szerverén kezelt felhasználói fiókok biztosítják a többjátékos élményhez szükséges adatkezelést és a játékosok közötti kapcsolattartást. A központi szerver funkciói között szerepel a felhasználók adatainak kezelése, a játékszerverek összekapcsolása, mentések tárolása, valamint a fiókkal kapcsolatos információk, mint például az elért teljesítmények (achievementek) tárolása.</p>
+<p><strong>Funkciók:</strong></p>
+<ul>
+<li><p><strong>Felhasználói adatok kezelése:</strong> A központi szerver tárolja a felhasználói fiókok alapvető adatait, többek között a játékos játékidejét és elért teljesítményeit. Ezen adatok tárolása lehetővé teszi, hogy a játékosok folyamatosan nyomon követhessék fejlődésüket, még a többjátékos mód hivatalos kiadása előtt is.</p></li>
+<li><p><strong>Multiplayer szerverek kezelése:</strong> A központi szerver tárolja az egyes játékosok által hostolt szerverek adatait. A játékszerverek azonban közvetlenül a host játékos eszközén futnak, és a központi szerver csupán összekötő szerepet tölt be, hogy megkönnyítse a játékosok csatlakozását és a szerverek közötti kommunikációt.</p></li>
+<li><p><strong>Chat és kommunikáció</strong>: A központi szerver támogatja a játékosok közötti kommunikációt a pályákon belüli chat-funkció segítségével, ami lehetővé teszi az azonnali üzenetváltást és koordinációt a többjátékos környezetben. A chat-funkció készen áll a többjátékos mód jövőbeli bevezetésére, ahol a szerver feladata lesz a chat-üzenetek továbbítása.</p></li>
+<li><p><strong>Többjátékos mód későbbi bevezetése:</strong> A többjátékos mód a játék kiadása után válik elérhetővé, de a központi szerver már most is készen áll a többjátékos adatkezelési és kommunikációs feladatok ellátására.</p></li>
+<li><p><strong>Központi felhőalapú mentés támogatása:</strong> Az opcionális központi felhőalapú mentés lehetőséget biztosít a játékállások szerverünkön történő tárolására. (lásd <em>Felhőalapú mentési támogatás platformszinten</em>)</p></li>
+</ul>
+<p><strong>Előnyök:</strong></p>
+<ul>
+<li><strong>Központi adatkezelés:</strong> A felhasználói adatok biztonságos tárolása és könnyű hozzáférhetősége a központi szerveren.</li>
+<li><strong>Multiplayer támogatás:</strong> A központi szerver összekötő szerepet tölt be a játékosok között, megkönnyítve a többjátékos szerverek kezelését és a kommunikációt.</li>
+<li><strong>Későbbi multiplayer integráció:</strong> A szerver már a többjátékos mód bevezetése előtt biztosítja az adatkezelési alapokat, felkészítve a játékot a jövőbeli multiplayer funkciókhoz.</li>
+<li><strong>Valós idejű kommunikáció:</strong> A chat-funkcióval a játékosok gyorsan és közvetlenül kommunikálhatnak a játékon belül.</li>
+<li><strong>Platformváltás egyszerűsítése:</strong> lásd <em>Felhőalapú mentési támogatás platformszinten</em></li>
+</ul>
+<h2 data-number="3.7" id="a-fogyatékossággal-élők-támogatása"><span class="header-section-number">3.7</span> A fogyatékossággal élők támogatása</h2>
+<p>A játék fejlesztése során különös figyelmet fordítunk a fogyatékossággal élő felhasználók számára biztosított támogatási lehetőségekre, hogy a játék minél szélesebb körben hozzáférhető legyen. Az alábbiakban ismertetjük a támogatási funkciók kategóriáit és azok tervezett megvalósítását.</p>
+<ul>
+<li><p><strong>Színvak támogatás:</strong> A különböző típusú színvakságban szenvedő játékosok számára a játék lehetőséget biztosít a felhasználói felület bizonyos elemeinek testreszabására. Ennek érdekében a felhasználó megváltoztathatja az olyan kritikus játékelemek, mint az ellenségek, szövetségesek, és fontos tárgyak jelölőszíneit. Ez a beállítás kifejezetten a protanópia, deuteranópia, és tritanópia típusú színvakságok támogatására szolgál. A színváltoztatási lehetőségek révén biztosítható, hogy minden játékos könnyen azonosíthassa az alapvető vizuális információkat, függetlenül a színérzékelési korlátoktól.</p></li>
+<li><p><strong>Halláskárosult és süket támogatás:</strong> A játék minden olyan jelentős hanghatását, amely a játékmenet szempontjából releváns információkat hordoz, automatikusan feliratozza. A feliratok közé tartoznak például a környezeti zajok, eseményekhez kapcsolódó hangjelzések (például közelgő ellenségek vagy figyelmeztetések), valamint a fontos események során hallható hanghatások. A feliratok a képernyőn jól látható helyen, megfelelő szín- és kontrasztbeállításokkal jelennek meg, így minden halláskárosult és süket játékos számára biztosított a játék eseményeinek követhetősége.</p></li>
+<li><p><strong>Látássérült és vak támogatás:</strong> A látássérült és vak felhasználók számára tervezett támogatási rendszer összetett és több fázisban valósul meg. A játék minden játékon belüli eseményt részletes narrációval lát el, amely lehetővé teszi a játékos számára, hogy hallás útján pontos információkat kapjon a játékmenetről. Ez a narrációs rendszer többek között a következőket foglalja magában:</p>
+<ul>
+<li>A karakterek helyzetének és mozgásának leírása.</li>
+<li>A harci események és környezeti változások pontos ismertetése.</li>
+<li>A stratégiai döntésekhez szükséges információk (pl. tárgyak, ellenségek, és akadályok) részletes bemutatása.</li>
+</ul>
+<p>A látássérült mód a játékmenet speciális beállításainak megfelelően működik: a valós idejű (real-time) játékelemek automatikusan turn-alapú rendszerré alakulnak, lehetőséget biztosítva a játékos számára, hogy minden narrált esemény után cselekvési döntéseket hozzon. Ez a mód a stratégiai gondolkodást és a történet követését helyezi előtérbe, a valós idejű reakciókészség helyett.</p>
+<p>Mivel ez a megoldás külön mechanikai és narrációs fejlesztést igényel, a látássérült mód nem lesz elérhető a játék kezdeti kiadásában; tervezett megjelenése a későbbi frissítések során valósul meg. Fontos továbbá, hogy a különböző nyelvekhez szükséges narrátorhangok lokalizációja és az új tartalmakhoz kapcsolódó bővítések szakaszosan, az új tartalmak megjelenését követően kerülnek kiadásra.</p></li>
+</ul>
+<p><strong>Előnyök:</strong></p>
+<ul>
+<li><strong>Széles körű elérhetőség:</strong> A különböző fogyatékossággal élők támogatása révén a játék szélesebb közönség számára válik elérhetővé.</li>
+<li><strong>Egyedi beállítási lehetőségek:</strong> A testreszabható vizuális és hangalapú támogatás segíti az egyéni igényekhez igazodó élmény biztosítását.</li>
+<li><strong>Kihívások nélküli hozzáférhetőség:</strong> A látássérült mód lehetővé teszi a real-time játékmenettől eltérő, turn-alapú játékélmény biztosítását, a stratégiai és történetkövetési élmény előtérbe helyezésével.</li>
+</ul>
+<h1 data-number="4" id="használhatóság-usability"><span class="header-section-number">4</span> Használhatóság (Usability)</h1>
+<p>A <em>Knights Age</em> játék használhatósági követelményei a következő szempontok mentén épülnek fel:</p>
+<ul>
+<li><p><strong>Betanulási idő:</strong></p>
+<ul>
+<li><p><strong>Kezdő felhasználók</strong> számára: A játék alapvető mechanikájának (mozgás, interakciók, harcrendszer) megismerése átlagosan 30–60 percet vesz igénybe, ami alatt elsajátítják az alapvető funkciók kezelését.</p></li>
+<li><p><strong>Gyakorlott felhasználók</strong> számára: Az RPG műfajban jártas játékosoknak várhatóan 10-20 perc alatt sikerül az új rendszerre való átállás, mivel a használt vezérlési és interakciós elemek a kategóriában megszokottak.</p></li>
+</ul></li>
+<li><p><strong>Tevékenységek végrehajtásának időtartama:</strong></p>
+<ul>
+<li><p>A gyakori műveletek, például harc, készletkezelés, küldetések nyomon követése gyorsabban végezhető el a <em>Knights Age</em> rendszerében, mivel átlátható menürendszert és egyszerűsített kezelési felületet biztosít.</p></li>
+<li><p>Összehasonlítva más RPG játékokkal, a fejlesztés célja, hogy a gyakori műveletek végrehajtása mintegy 10–20%-kal gyorsabban történhessen.</p></li>
+</ul></li>
+<li><p><strong>Kezdők támogatása:</strong></p>
+<ul>
+<li><p><strong>Beépített oktatórendszer:</strong> A játék az első bejelentkezéskor interaktív oktatási részt biztosít, ahol a kezdők átfogóan megismerhetik az alapvető funkciókat és szabályokat.</p></li>
+<li><p><strong>Tippek és súgók:</strong> A kezelőfelület több pontján kontextusérzékeny tippek, valamint elérhető egy részletes Súgó menü is, amely megkönnyíti a navigációt és a gyors válaszadást.</p></li>
+</ul></li>
+<li><p><strong>Betanulási lehetőségek:</strong></p>
+<ul>
+<li><p>Elérhető lesz egy részletes felhasználói kézikönyv és online dokumentáció, amely a játék különböző funkcióit és lehetőségeit magyarázza el.</p></li>
+<li><p>Lehetőség van külön oktatóanyagok, videók, és akár élő tréningek biztosítására, amelyek a játékkészítők által elérhetők lesznek igény szerint.</p></li>
+</ul></li>
+<li><p><strong>Felhasználói felület hasonlósága más rendszerekkel:</strong></p>
+<ul>
+<li>A <em>Knights Age</em> felhasználói felülete hasonlít más RPG játékokéhoz, különösen azokhoz, amelyek középkori, fantasy elemekkel dolgoznak, így az alapvető struktúra ismerős lehet a műfaj kedvelői számára.</li>
+</ul></li>
+<li><p><strong>Összhang más alkalmazásokkal:</strong></p>
+<ul>
+<li>A játék felhasználói felülete összhangban van a platformfüggetlen alkalmazásokkal, ami lehetővé teszi, hogy egyéb, párhuzamosan használt szoftverek (pl. <em>Discord</em>, <em>Steam</em>, böngésző)</li>
+</ul></li>
+</ul>
+<h1 data-number="5" id="megbízhatóság-reliability"><span class="header-section-number">5</span> Megbízhatóság (Reliability)</h1>
+<p>A <em>Knight’s Age</em> rendszerével szemben támasztott megbízhatósági követelmények:</p>
+<ul>
+<li><p><strong>Rendelkezésre állás:</strong></p>
+<ul>
+<li>A rendszer célja, hogy 99.5%-os rendelkezésre állást biztosítson. Karbantartási idő alatt korlátozott használhatóság biztosított, ahol csak a bejelentkezési és karakterinformációk érhetők el.</li>
+</ul></li>
+<li><p><strong>MTBF (Mean Time Between Failures):</strong></p>
+<ul>
+<li>Az RPG szerverek közötti átlagos idő hibamentesen legalább 500 óra, ami a hibák közötti idő maximalizálását célozza a megszakításmentes játékélmény érdekében.</li>
+</ul></li>
+<li><p><strong>MTTR (Man Time to Repair):</strong></p>
+<ul>
+<li>Hibák bekövetkeztekor a javítási idő célkitűzése átlagosan 1–2 óra, így minimalizálva a játékosok szolgáltatáskimaradását.</li>
+</ul></li>
+<li><p><strong>Pontosság és felbontás:</strong></p>
+<ul>
+<li>A játék eredményeinek pontossága kritikus, különösen a harcrendszer, az élmény- és pénzszerzés terén. A rendszer magas pontosságú és kiszámítható eredményeket garantál minden műveletnél.</li>
+</ul></li>
+</ul>
+<h1 data-number="6" id="teljesítmény-performance"><span class="header-section-number">6</span> Teljesítmény (Performance)</h1>
+<p>A <em>Knight’s Age</em> játék teljesítményével kapcsolatos követelmények:</p>
+<ul>
+<li><p><strong>Válaszidők:</strong></p>
+<ul>
+<li>A legtöbbet használt funkcióknál, mint például a harcok és a küldetésindítás, a válaszidő nem haladhatja meg az 1-2 másodpercet, hogy az interakciók gyorsak és gördülékenyek maradjanak.</li>
+</ul></li>
+<li><p><strong>Áteresztőképesség:</strong></p>
+<ul>
+<li>A szerverek minimum 100 tranzakció/másodperc áteresztőképességet biztosítanak, így egyidejűleg több játékos is problémamentesen csatlakozhat.</li>
+</ul></li>
+<li><p><strong>Kapacitás:</strong></p>
+<ul>
+<li>Az adatbázis kapacitása legalább 5 millió játékos adatainak tárolását és kezelését támogatja, a szerverek pedig egyszerre 50 000 egyidejű felhasználó kiszolgálására alkalmasak.</li>
+</ul></li>
+<li><p><strong>Korlátozott használhatóság idején elvárt mutatók:</strong></p>
+<ul>
+<li>Karbantartás idején alapvető információkhoz való hozzáférés (pl. karakterstatisztikák és profilok) továbbra is elérhető kell, hogy legyen, 5–10 másodperces válaszidő mellett.</li>
+</ul></li>
+<li><p><strong>Erőforrás igények:</strong></p>
+<ul>
+<li>A játék ajánlott rendszerkövetelményei: minimum 3 GHz-es processzor, 8 GB RAM, és legalább 2 GB rendelkezésre álló tárhely, míg az internetes sávszélesség követelmény minimum 5 Mbps a folyamatos adatkapcsolathoz.</li>
+</ul></li>
+</ul>
+<p>Ezek a követelmények biztosítják, hogy a <em>Knight’s Age</em> játék stabil, gyors és könnyen kezelhető legyen minden játékos számára.</p>
+<h1 data-number="7" id="támogatottság-supportability"><span class="header-section-number">7</span> Támogatottság (Supportability)</h1>
+<p>Az üzembe helyezés után a Knights Age játék és a fejlesztési rendszer hosszú távú támogatása érdekében a következő karbantartási követelményeket kell figyelembe venni:</p>
+<p><strong>Kódolási szabványok és elnevezési konvenciók:</strong></p>
+<p>Az egységes kódolási szabványok és elnevezési konvenciók alkalmazása szükséges a kód olvashatóságának és karbantarthatóságának biztosításához. Ezek közé tartozhatnak például a változók, funkciók és osztályok következetes elnevezései, valamint a kód formázási szabályai.</p>
+<p><strong>Karbantartók és üzemeltetők számára elérhető funkciók:</strong></p>
+<p>Speciális menük és funkciók biztosítása, amelyek lehetővé teszik a karbantartók számára a rendszer monitorozását, konfigurálását és szükséges frissítések elvégzését, például hozzáférés a konfigurációs fájlokhoz vagy az adatbázis-mentési lehetőségekhez.</p>
+<p><strong>Naplózás és hibakezelés:</strong></p>
+<p>A rendszer automatikus naplózási funkcióval rendelkezik, amely segít a későbbi hibakeresésben és finomhangolásban. Ez a funkció rögzíti a kritikus eseményeket, teljesítménymérő adatokat, illetve a felhasználói interakciókat a hibák nyomon követésére.</p>
+<p><strong>Segédalkalmazások a karbantartáshoz:</strong></p>
+<p>Olyan segédprogramok biztosítása, amelyek megkönnyítik a naplók feldolgozását és kiértékelését. Például egy GUI vagy parancssori eszköz, amely elemzi a naplófájlokat és figyelmeztetéseket generál a rendellenességekről. Ilyen megoldás lehet a Log viewer.</p>
+<h1 data-number="8" id="tervezési-korlátozások-design-constraints"><span class="header-section-number">8</span> Tervezési korlátozások (Design Constraints)</h1>
+<p>A <em>Knights Age</em> fejlesztése során figyelembe kell venni számos tervezési és implementációs korlátozásokat:</p>
+<p><strong>Architektúra előírások:</strong></p>
+<p>A játékot egy háromrétegű (3-tier) architektúra szerint kell felépíteni, ahol az egyes rétegek (pl. logikai, adatkezelési, felhasználói felület) külön vannak választva a könnyebb fejleszthetőség és karbantarthatóság érdekében.</p>
+<p><strong>Használandó programozási nyelvek:</strong></p>
+<p>A fejlesztés során elsősorban a <em>Godot</em> engine által támogatott programozási nyelveket kell használni, például <em>GDScript</em>-et vagy <em>C#</em>-ot, a játékmechanikák, logikák és egyéb rendszerfolyamatok megvalósításához. Viszont a projekt teljes körben <em>GDScript</em> nyelvben lesz megvalósítva.</p>
+<p><strong>Fejlesztőeszközök:</strong></p>
+<p>A fejlesztési környezethez és a 3D modellekhez a <em>Blender</em> használata előírt, míg a verziókezeléshez <em>Git</em>-et alkalmazunk, ennek köszönhetően hatékony modellezést kapunk, aminek formátumát a <em>Godot</em> engine támogatja. Ezek az eszközök biztosítják a hatékony együttműködést és az integrációt a <em>Godot</em> engine-nel.</p>
+<p><strong>Újra felhasználható komponensek:</strong></p>
+<p>Lehetőség szerint a játék során előre definiált <em>Godot</em> modulok és kódkomponensek felhasználása ajánlott, amelyekkel gyorsítható a fejlesztés. Például korábbi játékokból vagy nyílt forráskódú könyvtárakból származó sablonok beépítése. E mellett a <em>Godot</em> is képes önállóan pár modult létrehozni, például alapmozgási mechanika.</p>
+<p><strong>Fejlesztési módszertan:</strong></p>
+<p>Az agilis fejlesztési módszertan alkalmazása szükséges, amely iteratív fejlesztési ciklusokat biztosít. A sprint-alapú tervezés és gyakori verziófrissítések biztosítják a projekt átláthatóságát és rugalmasságát, kiküszöbölve a felmerülő hibákat, amik, ha mégis lesznek, akkor hamar ki tudjuk majd javítani, ezzel növelve a felhasználói élményt.</p>
+<h1 data-number="9" id="online-dokumentáció-és-help-rendszer"><span class="header-section-number">9</span> Online dokumentáció és Help rendszer</h1>
+<p>Az online dokumentáció és a súgórendszer célja a felhasználók támogatása a játék használata során. Az alábbi követelményeket kell figyelembe venni:</p>
+<p><strong>Felhasználói kézikönyv:</strong></p>
+<p>Készül egy online elérhető felhasználói kézikönyv, amely tartalmazza a játék telepítési és futtatási utasításait, a kezelőszervek leírását, valamint a gyakori problémák elhárítási módjait.</p>
+<p><strong>Beépített help funkció:</strong></p>
+<p>A játékban integrált súgórendszer lesz elérhető, amely kontextusfüggő segítséget nyújt a játékosok számára. Például, ha a játékos egy új funkcióval találkozik, rövid útmutató vagy tooltip jelenik meg a funkció magyarázatával.</p>
+<p><strong>Fórum és közösségi támogatás:</strong></p>
+<p>Egy online közösségi fórum létrehozása, ahol a játékosok kérdéseket tehetnek fel, megoszthatják tapasztalataikat, és problémákat jelezhetnek. A fejlesztők rendszeresen követik és frissítik az információkat, csak mint más sikeres játékok esetében megadva egy fanbase alapú hozzáállást.</p>
+<p><strong>Frissítési naplók és verziókövetés:</strong></p>
+<p>Az online dokumentáció részeként rendszeres frissítési naplókat és verziókövetést is tartalmaz, így a felhasználók mindig naprakész információkat kaphatnak az új funkciókról és hibajavításokról. E mellé egy kedvező stratégiát is alkalmazunk, amivel a lehető leggyorsabban meg tudjuk találni az esetleges hibákat.</p>
+<h1 data-number="10" id="felhasznált-kész-komponensek"><span class="header-section-number">10</span> Felhasznált kész komponensek</h1>
+<p><em>Knights Age</em> fejlesztése során nagy hangsúlyt fektetünk arra, hogy a lehető legköltséghatékonyabb módon használjuk fel a rendelkezésre álló erőforrásokat. Az AI technológiák integrálása lehetővé teszi számunkra, hogy számos komponenst, különösen a textúrákat és modelleket, házon belül hozzunk létre, így minimalizálva a külső beszerzések szükségességét. Ez a megközelítés lehetővé teszi, hogy egyedi játékot fejlesszünk, ugyanakkor ha bizonyos elemek elkészítése túl sok időt vesz igénybe, előre elkészített modelleket használunk.</p>
+<h2 data-number="10.1" id="ai-által-generált-textúrák-és-modellek"><span class="header-section-number">10.1</span> AI által generált textúrák és modellek</h2>
+<p>Az AI technológia alkalmazása a textúrák és modellek készítésében rendkívül hatékony eszköznek bizonyul. Az alábbiakban részletezzük, hogyan használjuk az AI-t a játék különböző elemeinek létrehozásához:</p>
+<ul>
+<li><p><strong>ChatGPT:</strong> A <em>ChatGPT</em>-t az <em>OpenAI</em> által fejlesztett mesterséges intelligencia, amelyet szövegalapú tartalmak generálására használunk. Ez magában foglalja a történetírást, karakterek közötti párbeszédek létrehozását, valamint a játék világának részletes leírásait. Az AI segítségével gyorsan és hatékonyan készíthetünk el nagy mennyiségű szöveges tartalmat, amely gazdagítja a játék narratíváját és mélységet ad a történetnek.</p></li>
+<li><p><strong>Microsoft Edge AI:</strong> A <em>Microsoft Edge AI</em> technológiát különböző vizuális elemek és modellek generálására használjuk. Ez az AI képes nagy felbontású textúrákat létrehozni, amelyek a középkori környezetet hűen tükrözik. Az <em>Edge AI</em> emellett segít az animációk optimalizálásában és a vizuális effektek finomhangolásában, így biztosítva a játék vizuális élményének magas színvonalát.</p></li>
+<li><p><strong>Suno AI:</strong> A <em>Suno AI</em> használatával gyorsan és hatékonyan készítünk egyedi zeneszámokat rövid szöveges utasítások alapján, amelyek változatos stílusban és hangulatban szólalnak meg. Ez lehetővé teszi a zenei tartalom pontosabb illesztését a játék atmoszférájához, magas minőségű és változatos dallamok létrehozásával.</p></li>
+</ul>
+<h2 data-number="10.2" id="szabad-felhasználású-elemek"><span class="header-section-number">10.2</span> Szabad felhasználású elemek</h2>
+<p>A költséghatékonyság érdekében számos szabad felhasználású komponenst integrálunk a játékba. Az alábbiakban részletezzük a felhasznált elemek forrásait és a felhasználásukra vonatkozó szabályokat:</p>
+<ul>
+<li><p><strong>Textúra- és modellkönyvtárak:</strong> Olyan szabadon hozzáférhető forrásokat használunk, mint például a CC0 textúrák és modellek. Ezek a források lehetővé teszik számunkra, hogy jogdíjmentesen használjunk különféle elemeket a játékban. A forrásokat pontosan</p>
+<p>megjelöljük, és biztosítjuk, hogy a licencelési feltételeknek teljes mértékben megfeleljünk.</p></li>
+<li><p><strong>Audioelemek:</strong> Számos szabadon felhasználható hangeffektet és zenét integrálunk, amelyek hozzájárulnak a játék atmoszférájának megteremtéséhez. Az ilyen elemek használata nemcsak költséghatékony, hanem lehetőséget ad a fejlesztési idő csökkentésére is.</p></li>
+</ul>
+<h2 data-number="10.3" id="vásárolt-elemek"><span class="header-section-number">10.3</span> Vásárolt elemek</h2>
+<p>Csak az abszolút szükséges komponenseket vásároljuk meg, amelyeket nem tudunk hatékonyan helyettesíteni szabad felhasználású vagy AI által generált elemekkel. Az alábbiakban részletezzük a vásárlásra kerülő elemeket és a beszerzésük körülményeit:</p>
+<ul>
+<li><p><strong>Animációk:</strong> Bizonyos komplex animációk, mint például harci mozdulatok és speciális effektek, speciális szakértelmet igényelnek. Ezeket az elemeket professzionális animációs könyvtárakból szerezzük be, amelyek biztosítják a magas minőséget és a játékélmény gazdagítását. A beszerzés során gondosan betartjuk a licencelési feltételeket, és minden költséget pontosan dokumentálunk.</p></li>
+<li><p><strong>Speciális effektek:</strong> Egyes vizuális effektek, amelyek különleges atmoszférát teremtenek, szintén megvásárlásra kerülnek. Ezek az effektek gyakran bonyolultak és időigényesek lennének házon belül elkészíteni, ezért külső forrásokból szerezzük be őket. Az effektek integrálása során biztosítjuk, hogy a licencelési szabályokat maradéktalanul betartsuk.</p></li>
+</ul>
+<h2 data-number="10.4" id="licencelési-és-felhasználási-szabályok"><span class="header-section-number">10.4</span> Licencelési és felhasználási szabályok</h2>
+<p>A vásárolt és szabad felhasználású elemek esetében is kiemelten fontos a licencelési feltételek betartása. Az alábbiakban részletezzük a legfontosabb szabályokat és kötelezettségeket:</p>
+<ul>
+<li><p><strong>Licencelési feltételek:</strong> Minden vásárolt komponens esetében gondosan áttanulmányozzuk a licencelési feltételeket, és biztosítjuk, hogy azok teljes mértékben betartásra kerüljenek. Ez magában foglalja a felhasználási jogok pontos meghatározását, valamint a licencdíjak kifizetését.</p></li>
+<li><p><strong>Forrásmegjelölés:</strong> A szabad felhasználású elemek esetében pontosan megjelöljük a forrásokat, és biztosítjuk, hogy a licencelési feltételeknek megfelelően használjuk fel azokat. Ez magában foglalja a szerzők megnevezését és a felhasználási szabályok betartását.</p></li>
+<li><p><strong>Kötelezettségek:</strong> Minden felhasznált elem esetében biztosítjuk, hogy a felhasználásból adódó kötelezettségek maradéktalanul teljesüljenek. Ez magában foglalja a szerzői jogok tiszteletben tartását és a licencelési díjak pontos kifizetését.</p></li>
+</ul>
+<p>A fent említett megközelítések révén képesek vagyunk jelentősen csökkenteni a fejlesztési költségeket és időt, miközben biztosítjuk a játék magas minőségét és a játékosok számára nyújtott élmény gazdagságát. Az AI technológia integrálása és a gondosan kiválasztott harmadik fél által nyújtott komponensek felhasználása lehetővé teszi számunkra, hogy innovatív és magával ragadó játékélményt nyújtsunk a játékosok számára.</p>
+<h1 data-number="11" id="interfészek"><span class="header-section-number">11</span> Interfészek</h1>
+<p>Interfaces</p>
+<p>Ebben a fejezetben specifikáljuk a rendszer külső kapcsolatait és a szükséges interfészeket.</p>
+<p>Figyelembe véve a több platform támogatásának lehetőségét es az átláthatóságot!</p>
+<h2 data-number="11.1" id="felhasználói-interfészek"><span class="header-section-number">11.1</span> Felhasználói interfészek</h2>
+<p>User Interfaces</p>
+<p>A <em>Knights Age</em> felhasználói interfésze egy középkori hangulatot idéző, könnyen navigálható rendszer, amely támogatja a játékosokat abban, hogy egyedi lovagjukat válasszák és fejlesszék. A lovagok irányítása középpontban áll, és a játék során elérhető eszközök és felszerelések menedzsmentje egyértelmű és intuitív módon történik.</p>
+<ul>
+<li><p><strong>Főmenü:</strong> A játék kezdésekor a játékos a főmenüvel találkozik:</p></li>
+<li><p><strong>Játék indítása:</strong> A játék kezdetén a játékos kiválaszthatja, melyik elérhető lovagot szeretné irányítani. Ezzel minden alkalommal egy új játékot hozunk létre. Lehet több mentett játékunk is.</p></li>
+<li><p><strong>Folytatás:</strong> A korábban mentett játék folytatása.</p></li>
+<li><p><strong>Beállítások:</strong> Itt a játékos módosíthatja a játék grafikai, audio- és irányítási beállításait.</p></li>
+<li><p><strong>Kilépés:</strong> A játékból való kilépési lehetőség.</p></li>
+<li><p><strong>Karakterválasztó képernyő:</strong> A játékos választhat a király még életben lévő lovagjai közül. Minden lovag egyedi tulajdonságokkal rendelkezik, és a halál után hosszabb ideig nem használhatók.</p></li>
+<li><p><strong>Lovag ikonok:</strong> Minden lovaghoz egy ikon tartozik, amely megjeleníti az aktuális állapotát (pl. elérhető, pihenő fázisban a halál miatt).</p></li>
+<li><p><strong>Tulajdonságok kijelzése:</strong> Minden lovaghoz tartoznak tulajdonságok (életerő, páncél, fegyver erőssége), amelyek segítenek a játékosnak dönteni.</p></li>
+<li><p><strong>Fejlesztési szint:</strong> Minden lovag aktuális fejlesztési szintje (pl. jobb páncél, kard) szintén megjelenik.</p></li>
+<li><p><strong>Karakter kiválasztása:</strong> A játékos kiválaszt egy lovagot, akivel elindítja a játékot.</p></li>
+<li><p><strong>Halott lovagok:</strong> A halott lovagok egyértelműen jelölve vannak, és nem elérhetők egy ideig, amíg újra használhatóvá nem válnak. A lovagot egy idő nem lehet újra használni.</p></li>
+<li><p><strong>Játék közbeni felület (HUD):</strong> A HUD biztosítja, hogy a játékos folyamatosan figyelemmel kísérhesse a lovag aktuális állapotát:</p></li>
+<li><p><strong>Életerő csík:</strong> Az életerő csík a lovag aktuális életerejét mutatja.</p></li>
+<li><p><strong>Józansági csík:</strong> Ez a lovag józansagát méri.</p></li>
+<li><p><strong>Felszerelés állapota:</strong> A felszerelések (pl. kard, páncél) állapotát is nyomon követhetjük.</p></li>
+<li><p><strong>Mana kijelző:</strong> A varázslatokhoz szükséges mana állapota.</p></li>
+<li><p><strong>Inventory ikon:</strong> A lovag inventory-jának megnyitása, ahol a játékos a felszereléseit kezelheti.</p></li>
+<li><p><strong>Küldetések:</strong> Az aktuális küldetések rövid leírása jelenik meg a képernyőn.</p></li>
+<li><p><strong>Minimap:</strong> A lovag és a környezet helyzetének megjelenítése.</p></li>
+<li><p><strong>Inventory és felszerelés képernyő:</strong> A játékban a lovag fejleszthető különböző páncélokkal, fegyverekkel és eszközökkel. Az inventory és felszerelés képernyő lehetővé teszi a játékos számára a tárgyak kezelését:</p></li>
+<li><p><strong>Tárgyak listája:</strong> Az inventory a középkori stílusú tárgyak listáját jeleníti meg.</p></li>
+<li><p><strong>Felszerelés slotok:</strong> A játékos páncélokat, fegyvereket és más eszközöket helyezhet el a megfelelő slotokba.</p></li>
+<li><p><strong>Tárgyak fejlesztése:</strong> Az inventory-ban a fejleszthető tárgyak állapotát és szintjét is meg lehet nézni.</p></li>
+<li><p><strong>Leírás:</strong> Minden tárgyhoz tartozik egy leírás, amely bemutatja annak hatását a lovagra.</p></li>
+<li><p><strong>Küldetés napló:</strong> A küldetések nyomon követése segít a játékosnak az előrehaladásban:</p></li>
+<li><p><strong>Aktív küldetések:</strong> A játékos aktuális küldetései és céljai megjelennek.</p></li>
+<li><p><strong>Befejezett küldetések:</strong> A korábbi küldetések listája.</p></li>
+<li><p><strong>Beállítások képernyő:</strong> A beállítások menü lehetőséget ad a játék testreszabására:</p></li>
+<li><p><strong>Audio beállítások:</strong> A zene és a hanghatások külön vezérlése.</p></li>
+<li><p><strong>Grafikai beállítások:</strong> A képernyőfelbontás és grafikai minőség testreszabása.</p></li>
+<li><p><strong>Irányítás:</strong> A billentyűzet és az egér gombjainak konfigurálása.</p></li>
+<li><p><strong>Multiplayer felület (jövőbeni tervek):</strong> A multiplayer mód később kerül bevezetésre, amely lehetővé teszi, hogy több játékos egyszerre játsszon:</p></li>
+<li><p><strong>Lobby:</strong> Játék előtti várakozóhely.</p></li>
+<li><p><strong>Chat rendszer:</strong> A játékosok közötti kommunikáció.</p></li>
+</ul>
+<h2 data-number="11.2" id="hardware-interfészek"><span class="header-section-number">11.2</span> Hardware interfészek</h2>
+<p>Hardware Interfaces</p>
+<p>A <em>Knights Age</em> játék nem igényel speciális hardvereket, de a következőkre optimalizálva van:</p>
+<ul>
+<li><p><strong>Platformok:</strong> A játék elsősorban PC-re készül (Windows, Linux, és macOS rendszerek), de a későbbiekben mobil platformok (Android, iOS) is célba vehetők.</p></li>
+<li><p><strong>Bemeneti eszközök:</strong> Billentyűzet és egér a fő vezérlő eszközök, de gamepad támogatás tervezett a későbbi verziókban. A játék támogatja a fogyatékkal élők játékélményét. Ezért az olyan eszközöket is támogatja amik segítik a játékban.</p></li>
+</ul>
+<h2 data-number="11.3" id="software-interfészek"><span class="header-section-number">11.3</span> Software interfészek</h2>
+<p>Software Interfaces</p>
+<p>A <em>Knights Age</em> játékban a multiplayer mód egy co-op rendszer, ahol legfeljebb négy játékos játszhat egyszerre, és minden játékos egy lovagot irányít a játékban elérhető lovagok közül. A multiplayer rendszer működéséhez a szerverrel történő kommunikáció és a <em>Steam</em> multiplayer támogatásának integrációja kulcsfontosságú. Az alábbiakban a multiplayer funkcionalitás és a szoftver interfészek részletezése található:</p>
+<p><strong>Multiplayer co-op rendszer:</strong></p>
+<ul>
+<li><p><strong>Játékosok száma:</strong> A multiplayer mód maximum négy játékost támogat, mindegyik játékos egy lovagot irányít egyszerre.</p></li>
+<li><p><strong>Lovagok megosztása:</strong> A játékosok egy közös lovagkészletből választhatnak, így mindenkinek egyszerre csak egy lovagja lehet, amelyet fejleszthet és irányíthat.</p></li>
+<li><p><strong>Kommunikáció:</strong> A játékosok számára lehetőség lesz egy beépített chat rendszer használatára, amely lehetővé teszi a játék közbeni kommunikációt.</p></li>
+</ul>
+<p><strong>Szerverrel való kommunikáció:</strong></p>
+<ul>
+<li><p><strong>Szerver-hozzáférés:</strong> A multiplayer rendszer szerveralapú, így a játékosoknak egy központi szerverhez kell csatlakozniuk. Az információk szinkronizálása (pl. lovag állapotok, inventory kezelés) valós időben történik a szerver és a kliens között.</p></li>
+<li><p><strong>Kliens-szerver architektúra:</strong> A játék kliens-szerver architektúrát használ a játékállapot és a játékosok közötti kommunikáció szinkronizálására. A szerver felelős az összes játékos adatainak központi kezeléséért, míg a kliensek csatlakoznak a szerverhez.</p></li>
+<li><p><strong>Szerver oldali mentés:</strong> A multiplayer játék előrehaladása a szerveren kerül mentésre, hogy a játékosok később visszatérhessenek a játékhoz.</p></li>
+</ul>
+<p><strong>Steam multiplayer integráció:</strong></p>
+<p>Amennyiben a játék Steam multiplayer támogatást is nyújt, az alábbi funkciók és interfészek integrációja szükséges:</p>
+<ul>
+<li><p><strong>Steamworks SDK használata:</strong> A <em>Steamworks SDK</em>-t kell használni a <em>Steam</em> multiplayer szolgáltatások, például a <em>Steam</em> matchmaking és a lobby rendszerek integrálásához.</p></li>
+<li><p><strong>Steam barátlista integráció:</strong> A játékosok meghívhatják barátaikat a <em>Steam</em> barátlista alapján, és privát vagy nyilvános játékokat hozhatnak létre.</p></li>
+<li><p><strong>Steam matchmaking:</strong> A <em>Steam</em> matchmaking rendszere lehetővé teszi a játékosok számára, hogy gyorsan találjanak csapattársakat vagy csatlakozzanak meglévő játékokhoz.</p></li>
+<li><p><strong>Steam lobby rendszer:</strong> A játék előtt a játékosok egy lobby-ban várakozhatnak, ahol beállíthatják a játék opcióit, és várhatják a többi játékos csatlakozását.</p></li>
+<li><p><strong>Achievements és statisztikák szinkronizálása:</strong> A <em>Steam</em> platform achievement rendszere és statisztikái szinkronban lesznek a játékosok teljesítményeivel.</p></li>
+</ul>
+<p><strong>Hálózati követelmények:</strong></p>
+<ul>
+<li><p><strong>Portok és protokollok:</strong> A szerver és a kliensek közötti kommunikáció TCP és UDP protokollokon keresztül történik. A pontos portszámok és beállítások az üzemeltetési dokumentációban kerülnek meghatározásra.</p></li>
+<li><p><strong>Biztonság:</strong> A szerverrel való kommunikáció titkosított kapcsolatot használ, hogy biztosítsa az adatbiztonságot és megakadályozza a csalásokat.</p></li>
+</ul>
+<p><strong>Jövőbeli bővítési lehetőségek:</strong></p>
+<ul>
+<li><p><strong>Platformok közötti multiplayer támogatás:</strong> A jövőben lehetőség van a platformok közötti multiplayer támogatásra, ahol a PC és a mobil játékosok egyazon szerveren játszhatnak együtt.</p></li>
+<li><p><strong>Ranglisták:</strong> A játék <em>Steam</em> ranglisták támogatásával később lehetőséget biztosít arra, hogy a játékosok összehasonlíthassák teljesítményeiket más játékosokkal, pl. a küldetések teljesítési ideje alapján.</p></li>
+<li><p>Az akadályozott képességűek segítésére a hangok vizuális megjelenítése és a játék eseményeinek narrálása áll rendelkezésre.</p></li>
+</ul>
+<h2 data-number="11.4" id="kommunikációs-interfészek"><span class="header-section-number">11.4</span> Kommunikációs interfészek</h2>
+<p>Communications Interfaces</p>
+<p>A <em>Knights Age</em> több kommunikációs interfészt is felhasznál:</p>
+<ul>
+<li><p><strong>Internetkapcsolat:</strong> A játékhoz nem szükséges folyamatos internetkapcsolat, kivéve a ranglisták és a multiplayer mód eléréséhez.</p></li>
+<li><p><strong>Mobil verzió:</strong> Az Android és iOS verziók speciális érintőképernyős interfészt kapnak, amely illeszkedik az adott platformhoz.</p></li>
+</ul>
+<h1 data-number="12" id="alkalmazott-szabványok"><span class="header-section-number">12</span> Alkalmazott szabványok</h1>
+<p>A fejlesztés során, valamint az alkalmazás készítése és üzemeltetése során betartandó előírások rendkívül fontosak a sikeres és kompatibilis termék létrehozása érdekében. Ezek az előírások lehetnek technikai vagy szakterületi szabványok, illetve törvényi előírások, amelyek biztosítják a szoftver megfelelőségét, biztonságát és hatékonyságát. Az alábbiakban részletezzük a kötelezően alkalmazandó és a választás alapján alkalmazott szabványokat.</p>
+<h2 data-number="12.1" id="kötelezően-alkalmazandó-szabványok"><span class="header-section-number">12.1</span> Kötelezően alkalmazandó szabványok</h2>
+<p><em>Mandatory Standards</em></p>
+<p>Ezek a szabványok törvényi előírások vagy iparági kötelezettségek miatt szükségesek:</p>
+<ul>
+<li><p><strong>GDPR (General Data Protection Regulation):</strong> Az EU adatvédelmi rendelete, amely előírja a személyes adatok védelmét és a felhasználók adatainak biztonságos kezelését. Minden olyan alkalmazásnak, amely EU-s állampolgárok adatait kezeli, meg kell felelnie ennek a szabványnak.</p></li>
+<li><p><strong>ISO/IEC 27001:</strong> Az információbiztonsági irányítási rendszerek (ISMS) szabványa. Ez a szabvány biztosítja az információbiztonság magas szintjét a fejlesztés és üzemeltetés során.</p></li>
+<li><p><strong>TCP (Transmission Control Protocol):</strong> Az interneten használt egyik alapvető kommunikációs protokoll, amely biztosítja az adatok megbízható átvitelét. Ez kötelező, az alkalmazás hálózati kommunikációjának megvalósításához.</p></li>
+<li><p><strong>HTTP/HTTPS:</strong> Az alkalmazás webes komponensei számára kötelező protokollok. A HTTPS biztosítja a titkosított és biztonságos adatátvitelt a kliens és a szerver között.</p></li>
+<li><p><strong>UDP (User Datagram Protocol):</strong> Az UDP-t, egy alternatív kommunikációs protokollt használjuk azokban az esetekben, amikor az alacsony késleltetés fontosabb a megbízhatóságnál, például valós idejű játékkommunikáció során.</p></li>
+<li><p><strong>Vulkan API:</strong> A <em>Vulkan</em> egy modern, többplatformos grafikus API, amely nagy teljesítményt és alacsony szintű hozzáférést biztosít a GPU erőforrásaihoz. Ez különösen fontos a fejlesztésünk során, mivel lehetővé teszi a nagy teljesítményű grafikai elemek hatékony megjelenítését a játékon belül.</p></li>
+<li><p><strong>Metal API:</strong> Az <em>Apple</em> által fejlesztett <em>Metal</em> API-t a macOS és iOS platformokra optimalizált grafikus feladatokhoz használjuk, mivel natív támogatást biztosít a platform számára, így maximalizálja az erőforrások kihasználását és fokozza a játék teljesítményét ezeken az eszközökön.</p></li>
+</ul>
+<h2 data-number="12.2" id="választás-alapján-alkalmazott-szabványok"><span class="header-section-number">12.2</span> Választás alapján alkalmazott szabványok</h2>
+<p><em>Optional Standards</em></p>
+<p>Ezek a szabványok a fejlesztők vagy a felhasználók által önként vállalt előírások, amelyek elősegítik a fejlesztési folyamat hatékonyságát és a termék minőségét:</p>
+<ul>
+<li><p><strong>JSON (JavaScript Object Notation):</strong> Könnyen olvasható és írható adatcsere-formátum, amelyet széles körben használnak az API-k és webszolgáltatások adatátviteléhez. Az egyszerűsége és kompatibilitása miatt választottuk ezt a formátumot az adatok kezelésére és továbbítására.</p></li>
+<li><p><strong>XML (eXtensible Markup Language):</strong> Széles körben használt adatleíró nyelv, amelyet komplex adatstruktúrák kezelésére és tárolására használunk. Az XML-t főként akkor alkalmazzuk, amikor szükséges az adatok szigorú struktúrájának fenntartása.</p></li>
+<li><p><strong>RESTful API:</strong> Az API-k kialakításánál a REST (Representational State Transfer) architektúrát követjük, amely lehetővé teszi az egyszerű és hatékony kommunikációt a kliens és a szerver között.</p></li>
+<li><p><strong>OAuth 2.0:</strong> Az alkalmazás hitelesítési és autorizációs mechanizmusainak megvalósításához az OAuth 2.0 szabványt alkalmazzuk, amely biztonságos hozzáférést biztosít a felhasználói adatokhoz anélkül, hogy a felhasználói jelszavakat tárolnunk kellene.</p></li>
+</ul>
+<h2 data-number="12.3" id="egyéb-alkalmazott-szabványok"><span class="header-section-number">12.3</span> Egyéb alkalmazott szabványok</h2>
+<p><em>Other Applicable Standards</em></p>
+<p>Ezek a szabványok további előnyöket nyújtanak a fejlesztés és üzemeltetés során:</p>
+<ul>
+<li><p><strong>ISO 9001:</strong> Minőségirányítási rendszerek szabványa, amely segít a fejlesztési folyamatok optimalizálásában és a termék minőségének biztosításában.</p></li>
+<li><p><strong>IEEE 829:</strong> A szoftvertesztelés dokumentálásának szabványa, amely segít a tesztelési folyamatok strukturálásában és a tesztelési dokumentumok következetes előállításában.</p></li>
+<li><p><strong>WCAG (Web Content Accessibility Guidelines):</strong> Az alkalmazás webes komponenseinek akadálymentesítésére vonatkozó irányelvek, amelyek biztosítják, hogy a termék hozzáférhető legyen minden felhasználó számára, beleértve a fogyatékkal élőket is.</p></li>
+</ul>
+<p>Az alkalmazott szabványok betartása nemcsak a jogi megfelelőség és a biztonság szempontjából fontos, hanem hozzájárul a fejlesztési folyamat hatékonyságához és a végtermék minőségéhez is. Az AI technológia integrálása, a gondosan kiválasztott harmadik fél által nyújtott komponensek és a szabványok betartása lehetővé teszi számunkra, hogy innovatív és magas színvonalú játékélményt nyújtsunk a felhasználók számára.</p>
+<h1 data-number="13" id="játékmechanika-és-játékmenet"><span class="header-section-number">13</span> Játékmechanika és Játékmenet</h1>
+<h2 data-number="13.1" id="knights-age-hud-rendszere"><span class="header-section-number">13.1</span> Knights Age HUD rendszere</h2>
+<ol type="1">
+<li><strong>Felső HUD Elemei</strong>
+<ul>
+<li><strong>Életerő (HP) Mérő:</strong> A képernyő bal felső sarkában található, piros színű csíkkal, amely mutatja a karakter aktuális életerejét. A csík alatt az aktuális és maximális HP számértéke is megjelenik.</li>
+<li><strong>Mana Mérő:</strong> A HP mérő alatt helyezkedik el, kék színű csíkkal. Ezt a mágiák és különleges képességek használata csökkenti, és idővel vagy gyógyitalokkal tölthető újra.</li>
+<li>Józanság Mérő: A képernyő középső felső részén kap helyet. A zöld csík a karakter mentális állapotát jelzi; ha a csík alacsony, a karakter instabil vagy különleges hatásoknak lehet kitéve.</li>
+<li><strong>Minimap</strong>: A jobb felső sarokban látható, amely megmutatja a közvetlen környezetet. A térképen egy „M” gomb található; ha rákattintasz, megnyílik a nagyobb, részletes világ térkép.</li>
+</ul></li>
+<li><strong>Küldetés Nyomonkövetés</strong>
+<ul>
+<li><strong>Küldetés Tekercsek:</strong> A képernyő jobb oldalán sorakoznak a legutóbbi vagy aktuális küldetések. Minden küldetés egy kis tekercs szimbólumot kap, amelyre kattintva megnyílik a küldetés részletes leírása. A tekercsek csak addig maradnak itt, amíg a játékos rá nem kattint, ezáltal átláthatóbbá téve az interfészt.</li>
+</ul></li>
+<li><strong>Bal Alsó Sarok — Sárkányszem Ikon</strong>
+<ul>
+<li><strong>Sárkányszem:</strong> Az ikon aranyból készült sárkányszem formában jelenik meg. Ha az egérmutatót fölé viszed, a szem lassan kinyílik, ha pedig rákattintasz, egy új ablak nyílik meg a következőkkel:
+<ul>
+<li><strong>Karakter Statisztikái:</strong> A karakter jelenlegi HP-ja, mana értéke, józanság állapota és egyéb fő statisztikák.</li>
+<li><strong>XP és Szint Információk:</strong> Egy vízszintes sáv jelzi az aktuális tapasztalati pontokat és a következő szint eléréséhez szükséges pontokat.</li>
+<li><strong>Speciális Skillek:</strong> A karakter különleges képességeinek listája, ahol a skillek mellé „+” jel is kerül, ha van elérhető fejlesztési pont. Minden skill legfeljebb 5-ös szintig fejleszthető, és a szintje egy vízszintes csíkkal látható.</li>
+<li><strong>Kiszámított Sebzés:</strong> Az aktuális felszerelés és statisztikák alapján kalkulált sebzés mennyisége, amely segítséget nyújt a harci taktika tervezésében.</li>
+</ul></li>
+</ul></li>
+<li><strong>Jobb Alsó Sarok — Inventory</strong>
+<ul>
+<li><strong>Batyu Ikon:</strong> A jobb alsó sarokban egy batyu ikon található, ami kinyílik, ha az egérmutatót fölé viszed. Ha rákattintasz, az inventory megnyílik, amely tartalmazza:
+<ul>
+<li><strong>Tároló Slotok:</strong> 3x7 slot, ahol szabadon tárolhatsz különféle tárgyakat, fogyóeszközöket, nyersanyagokat és egyéb lootokat.</li>
+<li><strong>Felszerelési Slotok:</strong> Ezek a karakter páncélzatát és fegyvereit kezelik, így itt láthatók a következő elemek:
+<ul>
+<li><strong>Sisak:</strong> A fej védelme érdekében.</li>
+<li><strong>Testpáncél:</strong> A felsőtestet védelmezi.</li>
+<li><strong>Lábpáncél:</strong> A lábat védelmező páncél.</li>
+<li><strong>Támadó Kéz (Fegyver):</strong> Csak fegyverek helyezhetők ide.</li>
+<li><strong>Pajzskéz:</strong> Pajzs vagy kisebb fegyver, ha az adott karakter ezt engedi.</li>
+</ul></li>
+<li><strong>Arany Mennyisége:</strong> A karakter birtokában lévő aranymennyiség itt látható, ikonokkal vagy számértékkel megjelenítve.</li>
+</ul></li>
+</ul></li>
+<li><strong>Gyorselérési Sáv (Hotbar)</strong>
+<ul>
+<li>A képernyő alsó részén található egy gyorselérési sáv, ahol a karakter gyakran használt tárgyai, fegyverei és skillei kapnak helyet. Ez lehetővé teszi a játékos számára, hogy egy gombnyomással válasszon a gyorsan használható elemek közül, és közvetlenül hozzáférjen a harci vagy gyógyászati tárgyakhoz.</li>
+</ul></li>
+<li><strong>Különleges Események és Értesítések</strong>
+<ul>
+<li>Ha a karakter jelentős eseménnyel találkozik, például szintet lép vagy különleges tárgyat talál, egy rövid értesítés jelenik meg a képernyő közepén vagy jobb alsó sarkában, amely értesíti a játékost az eseményről, anélkül, hogy elterelné a figyelmét.</li>
+</ul></li>
+</ol>
+<p>A Knights Age játék története köré fonódó küldetési sorozatok és tárgyak a középkori fantasy világ hangulatát erősítik, miközben fokozatosan építik a fő történeti szálat. Az alábbiakban részletezem a barátságos NPC-khez kapcsolódó küldetéseket, tárgyakat és jutalmakat, valamint a fő küldetéssorozatot, amely a nekromantával való végső összecsapáshoz vezet.</p>
+<ol type="1">
+<li><p><strong>Történet Alapjai és Cél</strong></p>
+<p>A Knights Age egy középkori világban játszódó RPG, amelyben a játékos a Király hűséges lovagját alakítja. A cél: a kilenc szinten áthaladva felkészülni a végső harcra a rettegett nekromanta ellen, aki a világot sötétségbe borítaná. A nekromanta, ha alulmaradna, képes visszaforgatni az időt, így újra meg kell küzdeni a szintenkénti boss-okkal. Minden előzőleg elért fejlesztés, tapasztalat és nyersanyag megmarad.</p></li>
+</ol>
+<p><strong>Barátságos NPC-k és Küldetéseik</strong></p>
+<ol type="1">
+<li><strong>Hajós Kapitány</strong>
+<ul>
+<li><strong>Leírás:</strong> A kapitány a szigetek között segíti a lovagot, és fontos küldetéseket biztosít, melyek a különböző szigetek felfedezéséhez és erőforrások megszerzéséhez kapcsolódnak.</li>
+<li><strong>Küldetések:</strong>
+<ul>
+<li><strong>Eltűnt Horgony:</strong> A kapitány elvesztette a különleges horgonyát. Szerezd vissza, és ezért cserébe kedvezményt ad az utazásokra.</li>
+<li><strong>Szellemkalózok:</strong> Egy szellemhajó kalózai zaklatják a környéket. Semlegesítsd őket, és a kapitány értékes kincseket ad jutalmul.</li>
+<li><strong>Tengeri Szörnyvadászat:</strong> Fogj össze a kapitánnyal, hogy levadásszatok egy tengeri szörnyet. Jutalmad egy különleges tengeri páncél vagy fegyver lesz.</li>
+<li><strong>Szállítmány Megmentése:</strong> A szállítmány viharban eltűnt. Találd meg és juttasd vissza, cserébe értékes anyagokhoz jutsz. • Szigeti Kereskedés: Hozz fát és állatbőrt egy távoli szigetről. Jutalmad ritka nyersanyag vagy tengeri talizmán lesz.</li>
+</ul></li>
+</ul></li>
+<li><strong>Kovács</strong>
+<ul>
+<li><strong>Leírás:</strong> A kovács segít páncélok, fegyverek és különleges tárgyak készítésében, melyekkel megerősítheted a lovagod.</li>
+<li><strong>Küldetések:</strong>
+<ul>
+<li><strong>Hiányzó Alkatrészek:</strong> Szerezz vasat és faanyagot a kovácsnak, aki cserébe megerősített pajzsot készít.</li>
+<li><strong>Legendás Penge:</strong> Találd meg a legendás fegyver darabjait. Jutalom: különleges kard vagy kalapács.</li>
+<li><strong>Sárkánytűz:</strong> Hozz egy fantasy alapú anyagot, mint például sárkányláng kristályt. Jutalom: sárkánytűzzel kovácsolt fegyver.</li>
+<li><strong>Báránybőr Páncél:</strong> Szerezz finom állatbőrt, és a kovács könnyű, de erős páncélt készít belőle.</li>
+<li><strong>Varázslatfém:</strong> Hozz el egy mágikus fémet. Jutalom: fém, ami megnöveli a karaktered mágiapontjait.</li>
+</ul></li>
+</ul></li>
+<li><strong>Raktáros Nő</strong>
+<ul>
+<li><strong>Leírás:</strong> Ő gondoskodik a tárgyak tárolásáról és elosztásáról, és különböző küldetésekben segít értékes nyersanyagokat szerezni.</li>
+<li><strong>Küldetések:</strong>
+<ul>
+<li><strong>Elveszett Tárgyak:</strong> Segíts megtalálni néhány elhagyott ládát. Jutalmad alapvető nyersanyagok.</li>
+<li><strong>Különleges Tárolás:</strong> Szerezz egy ritka anyagot (pl. óriás bagoly tollat), és bővítési lehetőségeket kapsz.</li>
+<li><strong>Vízvédelem:</strong> Hozz vízhatlan anyagot, amivel a ládákat megóvhatja. Jutalom: extra tároló hely.</li>
+<li><strong>Alkimista Vegyület:</strong> Találj egy titkos vegyületet, ami hosszabb ideig tartósítja a tárgyakat.</li>
+<li><strong>Exkluzív Tárhely:</strong> Hozz egy „Ősi Tárolókristályt”. Jutalom: különleges, csak értékes tárgyaknak fenntartott rekesz.</li>
+</ul></li>
+</ul></li>
+<li><strong>Várkapitány</strong>
+<ul>
+<li><strong>Leírás:</strong> Védelmi parancsnok, aki különböző erőpróbákra, katonai feladatokra küld. Ő segít a képességek fejlesztésében és a speciális képességek megszerzésében</li>
+<li><strong>Küldetések:</strong>
+<ul>
+<li><strong>Erődítmény Védelme:</strong> Segíts megvédeni a várat egy támadástól.</li>
+<li><strong>Elkallódott Lovagok:</strong> Keress eltűnt katonákat és hozd vissza őket.</li>
+<li><strong>Állatok Befogása:</strong> Fogj be vadállatokat az erőd megerősítésére.</li>
+<li><strong>Sárkányfenyegetés:</strong> Hárítsd el a közelgő sárkánytámadást.</li>
+<li><strong>Bárd és Kard:</strong> Fejleszd a lovagodat a kapitány kiképzéseivel.</li>
+</ul></li>
+</ul></li>
+<li><strong>A Király</strong>
+<ul>
+<li><strong>Leírás:</strong> Küldetései mind a lovag hűségét és bátorságát tesztelik.</li>
+<li><strong>Küldetések:</strong>
+<ul>
+<li><strong>Ősi Kincsek:</strong> Találj meg elveszett királyi relikviákat.</li>
+<li><strong>Békekötés:</strong> Hozz békét két rivális falu közé.</li>
+<li><strong>Királlyal a Csatában:</strong> Kísérd el a királyt egy csatába.</li>
+<li><strong>Királyi Vadászat:</strong> Menj vadászni a királlyal és hozz zsákmányt.</li>
+<li><strong>Király Lánya:</strong> Mentsd meg a király lányát a nekromantától (fő történet része).</li>
+</ul></li>
+</ul></li>
+<li><strong>Farmer</strong>
+<ul>
+<li><strong>Leírás:</strong> A földeken dolgozik, nyersanyagokat biztosít.</li>
+<li><strong>Küldetések:</strong>
+<ul>
+<li><strong>Aratás Időben:</strong> Segíts az aratásban.</li>
+<li><strong>Védelmi Készletek:</strong> Készíts kerítést és csapdákat a termények védelmére.</li>
+<li><strong>Rovarfertőzés:</strong> Harcolj meg mágikus lényekkel.</li>
+<li><strong>Téli Felkészülés:</strong> Szerezz be állatbőrt és meleg ruhát.</li>
+<li><strong>Különleges Termény:</strong> Találj egy misztikus magot.</li>
+</ul></li>
+</ul></li>
+<li><strong>Gyógyítók (Nő és Férfi)</strong>
+<ul>
+<li><strong>Leírás:</strong> A gyógyítók támogatást nyújtanak különféle növényekkel, gyógyitalokkal.</li>
+<li><strong>Küldetések:</strong>
+<ul>
+<li><strong>Növénygyűjtés:</strong> Gyűjts ritka gyógynövényeket.</li>
+<li><strong>Gyógyital Elkészítés:</strong> Szerezd be a szükséges összetevőket.</li>
+<li><strong>Mágikus Növény:</strong> Találj egy legendás növényt.</li>
+<li><strong>Méregkészítés:</strong> Készíts mérget különleges célokra.</li>
+<li><strong>Védelmi Varázsital:</strong> Készíts elixírt ami növeli a karakter védelmét.</li>
+</ul></li>
+</ul></li>
+</ol>
+<p><strong>Nyersanyag Tárgyak</strong></p>
+<ul>
+<li><strong>Fa:</strong> Alapanyag páncélokhoz, fegyverekhez és tárolókhoz.</li>
+<li><strong>Vas:</strong> Fegyverekhez, páncélhoz, erődítésekhez.</li>
+<li><strong>Állatbőr:</strong> Páncélok, ruhák készítéséhez.</li>
+<li><strong>Mágikus kristály:</strong> Fegyverek varázserejének növelésére.</li>
+<li><strong>Sárkányláng kristály:</strong> Különleges kovácsoláshoz.</li>
+</ul>
+<p><strong>Fő Küldetéssorozat</strong></p>
+<ul>
+<li><strong>Első Boss Fight:</strong> Győzd le az első őrzőt.</li>
+<li><strong>Második Boss Fight:</strong> Haladj tovább, és küzdj meg a következő őrzővel.</li>
+<li><strong>További Előmenetel:</strong> Harcolj további főellenfelekkel.</li>
+<li><strong>Nekromanta Előkészületek:</strong> Készítsd fel magad a végső harcra.</li>
+<li><strong>Királyi Megbízás:</strong> Találd meg a király lányát.</li>
+<li><strong>Végső Harc a Nekromantával:</strong> Győzd le és mentsd meg a király lányát.</li>
+</ul>
+<h2 data-number="13.2" id="ellenfelek"><span class="header-section-number">13.2</span> Ellenfelek</h2>
+<p>Itt egy bővített leírás a <em>Knights Age</em> játékban szereplő ellenfelekhez és főbossokhoz, beleértve a sebzéseiket, támadási típusaikat (közvetlen vagy területre ható), és egyéb jellemzőket, amik egy RPG játékban gyakoriak. A karakterek minden szinten más taktikával, képességekkel és veszélyekkel szembesülnek, ami sokszínűbbé teszi a harcrendszert.</p>
+<p><strong>1. Mezős Erdős Rész</strong></p>
+<ul>
+<li><strong>Boss:</strong> Erdőóriás
+<ul>
+<li><strong>HP:</strong> 800</li>
+<li><strong>Sebzés:</strong> 50 (area damage, földrengésszerű támadás)</li>
+<li><strong>Különleges Képességek:</strong></li>
+<li><strong>Földcsapás:</strong> Kiterjedt földrengést hoz létre, ami körülötte mindenkit megsebez.</li>
+<li><strong>Gyökércsapda:</strong> A közelében lévő játékost 2 másodpercre megbénítja.</li>
+</ul></li>
+<li><strong>Mobok:</strong>
+<ul>
+<li><strong>Goblin Harcos</strong>
+<ul>
+<li><strong>HP:</strong> 100</li>
+<li><strong>Sebzés:</strong> 15 (közvetlen)</li>
+<li><strong>Különleges Képesség:</strong> Gyors csapás, amely növeli a támadási sebességet.</li>
+</ul></li>
+<li><strong>Vad Vaddisznó</strong>
+<ul>
+<li><strong>HP:</strong> 120</li>
+<li><strong>Sebzés:</strong> 20 (közvetlen)</li>
+<li><strong>Különleges Képesség:</strong> Felöklelés, amely visszalöki az ellenfelet.</li>
+</ul></li>
+<li><strong>Tüskés Bogár</strong>
+<ul>
+<li><strong>HP:</strong> 80</li>
+<li><strong>Sebzés:</strong> 10 (area damage, tüskék kilövése minden irányban)</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>2. A Nagy Sztyeppe</strong></p>
+<ul>
+<li><strong>Boss:</strong> Sztyeppei Óriás Sas
+<ul>
+<li><strong>HP:</strong> 900</li>
+<li><strong>Sebzés:</strong> 60 (közvetlen, csőr támadás)
+<ul>
+<li><strong>Különleges Képességek:</strong>
+<ul>
+<li><strong>Szélvihar:</strong> Széles körben lesújt, ellenségeket a földre terít.</li>
+<li><strong>Ragadozás:</strong> Felkap egy játékost, és sebzést okoz, mielőtt elengedi.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><strong>Mobok:</strong>
+<ul>
+<li><strong>Nomád Harcos</strong>
+<ul>
+<li><strong>HP:</strong> 130</li>
+<li><strong>Sebzés:</strong> 25 (közvetlen)</li>
+<li><strong>Különleges Képesség:</strong> Szablyás lendület, amely növeli a kritikus csapás esélyét.</li>
+</ul></li>
+<li><strong>Sztyeppei Farkas</strong>
+<ul>
+<li><strong>HP:</strong> 150</li>
+<li><strong>Sebzés:</strong> 20 (közvetlen)</li>
+<li><strong>Különleges Képesség:</strong> Farkasüvöltés, amely buffolja a környezetében lévő többi farkast.</li>
+</ul></li>
+<li><strong>Sasszellem</strong>
+<ul>
+<li><strong>HP:</strong> 110</li>
+<li><strong>Sebzés:</strong> 15 (area damage, széllökés)</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>3. Sivatag</strong></p>
+<ul>
+<li><strong>Boss:</strong> Sivatagi Skorpiókirály
+<ul>
+<li><strong>HP:</strong> 1000</li>
+<li><strong>Sebzés:</strong> 70 (közvetlen mérgező támadás)</li>
+<li><strong>Különleges Képességek:</strong></li>
+<li><strong>Méregcsapás:</strong> A támadás mérgezést okoz, ami idővel további sebzést fejt ki.</li>
+<li><strong>Fullánklövés:</strong> Tüskéket lő ki maga körül, területi sebzést okozva.</li>
+</ul></li>
+<li><strong>Mobok:</strong>
+<ul>
+<li>Szárazföldi Skorpió
+<ul>
+<li><strong>HP:</strong> 140</li>
+<li><strong>Sebzés:</strong> 20 (közvetlen)</li>
+<li><strong>Különleges Képesség:</strong> Mérgezés, amely idővel további sebzést okoz.</li>
+</ul></li>
+<li><strong>Homokmúmia</strong>
+<ul>
+<li><strong>HP:</strong> 160</li>
+<li><strong>Sebzés:</strong> 30 (area damage, homokvihar)</li>
+<li><strong>Különleges Képesség:</strong> Elhomályosítja a látóteret, csökkentve a találati esélyt.</li>
+</ul></li>
+<li><strong>Pókmutáns</strong>
+<ul>
+<li><strong>HP:</strong> 120</li>
+<li><strong>Sebzés:</strong> 15 (közvetlen)</li>
+<li><strong>Különleges Képesség:</strong> Mérgezett csípés, lassító hatással.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>4. A Mocsár</strong></p>
+<ul>
+<li><strong>Boss:</strong> Mocsári Szörnyeteg
+<ul>
+<li><strong>HP:</strong> 1200</li>
+<li><strong>Sebzés:</strong> 80 (area damage, mérgezett iszap lövése)</li>
+<li><strong>Különleges Képességek:</strong></li>
+<li><strong>Iszapágyú:</strong> Mérgezett lövedékeket lő ki, területi sebzéssel és mérgezéssel.</li>
+<li><strong>Mocsári Gőz:</strong> Mérgező felhőt bocsát ki, ami folyamatosan sebzi a játékost.</li>
+</ul></li>
+<li><strong>Mobok:</strong>
+<ul>
+<li><strong>Mocsári Kígyó</strong>
+<ul>
+<li><strong>HP:</strong> 180</li>
+<li><strong>Sebzés:</strong> 25 (közvetlen)</li>
+<li><strong>Különleges Képesség:</strong> Gyors kitérés a támadások elől.</li>
+</ul></li>
+<li><strong>Iszapképződmény</strong>
+<ul>
+<li><strong>HP:</strong> 160</li>
+<li><strong>Sebzés:</strong> 20 (area damage, savas csepp)</li>
+<li><strong>Különleges Képesség:</strong> Lassítja a játékost, ha eltalálja.</li>
+</ul></li>
+<li><strong>Vérszomjas Hal</strong>
+<ul>
+<li><strong>HP:</strong> 100</li>
+<li><strong>Sebzés:</strong> 10 (közvetlen, gyors harapás)</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>5. A Föld Alatti Világ</strong></p>
+<ul>
+<li><strong>Boss:</strong> Barlangi Gólem
+<ul>
+<li><strong>HP:</strong> 1300</li>
+<li><strong>Sebzés:</strong> 100 (area damage, földrengés)</li>
+<li><strong>Különleges Képességek:</strong></li>
+<li><strong>Kőrobbanás:</strong> Kődarabokat dobál, amelyek területi sebzést okoznak.</li>
+<li><strong>Merev Védelem:</strong> Csökkenti a beérkező sebzéseket rövid ideig.</li>
+</ul></li>
+<li><strong>Mobok:</strong>
+<ul>
+<li><strong>Kőszörnyeteg</strong>
+<ul>
+<li><strong>HP:</strong> 200</li>
+<li><strong>Sebzés:</strong> 30 (közvetlen)</li>
+<li><strong>Különleges Képesség:</strong> Nehezen sebezhető páncélzat.</li>
+</ul></li>
+<li><strong>Barlangi Patkány</strong>
+<ul>
+<li><strong>HP:</strong> 100</li>
+<li><strong>Sebzés:</strong> 15 (közvetlen)</li>
+<li><strong>Különleges Képesség:</strong> Gyors támadások sorozata.</li>
+</ul></li>
+<li><strong>Sötét Medúza</strong>
+<ul>
+<li><strong>HP:</strong> 150</li>
+<li><strong>Sebzés:</strong> 20 (area damage, mérgezett gáz)</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>6. Hófödte Hegységek</strong></p>
+<ul>
+<li><strong>Boss:</strong> Jeges Óriás
+<ul>
+<li><strong>HP:</strong> 1400</li>
+<li><strong>Sebzés:</strong> 110 (közvetlen, fagyasztás)</li>
+<li><strong>Különleges Képességek:</strong></li>
+<li><strong>Jégrobbanás:</strong> Jeges darabokat szór szét, amelyek mindenkit megsebeznek.</li>
+<li><strong>Dermesztő Üvöltés:</strong> Lassítja a játékosokat.</li>
+</ul></li>
+<li><strong>Mobok:</strong>
+<ul>
+<li><strong>Hegyi Troll</strong>
+<ul>
+<li><strong>HP:</strong> 220</li>
+<li><strong>Sebzés:</strong> 35 (közvetlen)</li>
+<li><strong>Különleges Képesség:</strong> Páncélvédelem.</li>
+</ul></li>
+<li><strong>Jégpók</strong>
+<ul>
+<li><strong>HP:</strong> 180</li>
+<li><strong>Sebzés:</strong> 25 (közvetlen)</li>
+<li><strong>Különleges Képesség:</strong> Lassítás a támadásoknál.</li>
+</ul></li>
+<li><strong>Hószellem</strong>
+<ul>
+<li><strong>HP:</strong> 160</li>
+<li><strong>Sebzés:</strong> 20 (area damage, jeges felhő)</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>7. A Hamu Földje</strong></p>
+<ul>
+<li><strong>Boss:</strong> Lávaelementál
+<ul>
+<li><strong>HP:</strong> 1600</li>
+<li><strong>Sebzés:</strong> 120 (area damage, lávakitörés)</li>
+<li><strong>Különleges Képességek:</strong></li>
+<li><strong>Lávakitörés:</strong> Lávát zúdít a közelben lévőkre.</li>
+<li><strong>Hőtakaró:</strong> Megnöveli a sebzését és immunitást ad néhány támadás ellen.</li>
+</ul></li>
+<li><strong>Mobok:</strong>
+<ul>
+<li><strong>Tűz Imp</strong>
+<ul>
+<li><strong>HP:</strong> 140</li>
+<li><strong>Sebzés:</strong> 15 (area damage, tűzgolyó)</li>
+<li><strong>Különleges Képesség:</strong> Sebzést hagy maga után, ha meghal.</li>
+</ul></li>
+<li><strong>Láva Pók</strong>
+<ul>
+<li><strong>HP:</strong> 130</li>
+<li><strong>Sebzés:</strong> 20 (közvetlen)</li>
+<li><strong>Különleges Képesség:</strong> Lángoló harapás.</li>
+</ul></li>
+<li><strong>Hamurém</strong>
+<ul>
+<li><strong>HP:</strong> 150</li>
+<li><strong>Sebzés:</strong> 20 (area damage, hamufelhő)</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 data-number="13.3" id="a-pálya"><span class="header-section-number">13.3</span> A pálya</h2>
+<p>A játékunk 9 szintből fog állni illetve egy kezdő pályarész. A szintek különböző térségekből fog állni. A szintek között több járható útvonal is lesz.</p>
+<div class="img-wrap">
+<p><a href="pálya.png" target="_blank"><img src="pálya.png" alt="A pálya" title="A pálya" /></a></p>
+</div>
+<ol type="1">
+<li>Mezős erdős</li>
+<li>A Nagy sztyeppe</li>
+<li>Sivatag</li>
+<li>A mocsár</li>
+<li>A föld allati világ</li>
+<li>A hófödte hegységek</li>
+<li>A hamu földje</li>
+<li>A nagy vulkán</li>
+<li>A Végetnemérők világa</li>
+</ol>
+<p>A szintek természetes határai szabják meg a karakter merre tud menni ezek álltalába hegyek vagy a tenger lesz, de egyrészt nyitott világú lesz a játék. Az egyes szinteknél lesznek hátráltató körülmények:</p>
+<ul>
+<li><strong>sivatagi forróság:</strong> A játékos túlhevülhet a mozgástól -20% támadási sebesség</li>
+<li><strong>mocsári láp:</strong> lassítás -20% lassabb mozgási sebesség</li>
+<li><strong>hó hidegsége:</strong> 3:00 perce múlva -20% sebzés, 6:00 perc múlva folyamatos sebzés ha nincs megfelelő páncélod</li>
+<li><strong>sötétség:</strong> -50% látótávolság csökkenése</li>
+</ul>
+<p>A szintek pontosabb leírása:</p>
+<h3 data-number="13.3.1" id="mezős-erdős-rész"><span class="header-section-number">13.3.1</span> Mezős erdős rész</h3>
+<p>A játék kezdő szintje, amely egy idilli, zöldellő tájon játszódik. Ezen a szinten a játékos megismerkedik az alapvető irányítási és harci mechanikákkal, valamint az elsődleges célokkal és feladatokkal.</p>
+<p><strong>Környezet:</strong></p>
+<ul>
+<li><p><strong>Erdők:</strong> Sűrű fák, vastag lombkoronák alatt sétáló utak. Rejtett ösvények és tisztások, ahol gyűjtögetni lehet növényeket és gombákat.</p></li>
+<li><p><strong>Mezők:</strong> Széles, nyitott területek virágokkal és magas fűvel. Itt találkozhatsz vadon élő állatokkal és kisebb ellenségekkel.</p></li>
+<li><p><strong>Patakok és tavak:</strong> Kristálytiszta vizek, amelyek gyógyító hatással bírnak. Bizonyos területeken hidak vagy átkelési pontok.</p></li>
+</ul>
+<p><strong>Kihívások:</strong></p>
+<ul>
+<li><strong>Csapdák:</strong>
+<ul>
+<li><strong>Fakötélcsapdák:</strong> Az erdőben rejtett kötelek, melyek ha a játékos rálép, felhúzódnak és csapdába ejtik. A karakter ideiglenesen nem tud mozdulni, és kisebb sebzést szenved.</li>
+<li><strong>Ásott gödrök:</strong> Az erdő talajában ásott gödrök, amelyek elrejtve vannak, és ha a játékos beleesik, egy időre lelassítja a mozgást és kárt szenvedhet.</li>
+<li><strong>Mérgezett nyilak:</strong> A fák között elhelyezett kis rejtett mechanizmusok, amelyek mérgezett nyilakat lőnek ki, ha a játékos közelébe ér. A találat sebzést és mérgezést okoz.</li>
+</ul></li>
+<li><strong>Rejtett kincsek:</strong>
+<ul>
+<li>Elrejtett ládák és titkos barlangok, amelyekben értékes tárgyakat és bónuszokat találhatunk. Egyes ládák csapdákat rejtenek, amiket ügyesen el kell kerülni.</li>
+</ul></li>
+</ul>
+<ol start="2" type="1">
+<li>A Nagy sztyeppe</li>
+</ol>
+<p>Ez a szint egy végtelennek tűnő, kietlen füves pusztaságon játszódik. A sztyeppe nemcsak a nagy távolságok miatt kihívás, hanem a nehéz terepviszonyok miatt is.</p>
+<p><strong>Környezet:</strong></p>
+<ul>
+<li><strong>Széles mezők:</strong> Végtelen füves területek, ahol a látótávolság messzire nyúlik.</li>
+<li><strong>Dombok és sziklaképződmények:</strong> Taktikai előnyt nyújtanak a harcokban, de el is rejthetnek ellenségeket.</li>
+<li><strong>Nomád táborok:</strong> Barátságos és ellenséges törzsek táborai, amelyek kereskedési lehetőségeket és kihívásokat kínálnak.</li>
+</ul>
+<p><strong>Kihívások:</strong></p>
+<ul>
+<li><strong>Tájékozódás:</strong>
+<ul>
+<li>A sztyeppe hatalmas, nyílt területek, ahol nincs sok referenciapont. A karakter könnyen eltévedhet a tájban, főleg, ha hosszú ideig ugyanazon az úton halad. A tájékozódást segíthetik a táborok, de azokon kívül gyakran szükség van térképekre vagy tájékozódási képességekre.</li>
+</ul></li>
+<li><strong>Víz hiánya:</strong>
+<ul>
+<li>A sztyeppe területén a vízforrások ritkák, és a karakter hidratáltsága folyamatosan csökken. Ha a vízszint lecsökken, a karakter lassabban mozog, és fokozatosan szenved a hőség okozta sebzést. A víz nélkülözhetetlen, különben a karakter elfárad, és csökken a támadási sebessége, valamint a harci képességei is gyengülnek.</li>
+</ul></li>
+</ul>
+<h3 data-number="13.3.2" id="sivatag"><span class="header-section-number">13.3.2</span> Sivatag</h3>
+<p>A játék harmadik szintje a forró, kietlen sivatagban játszódik. Itt a hőség és a homokviharok komoly kihívásokat jelentenek.</p>
+<p><strong>Környezet:</strong></p>
+<ul>
+<li><strong>Homokdűnék:</strong> Végtelen, hullámzó homokdűnék, amelyek nehezítik a mozgást.</li>
+<li><strong>Oázisok:</strong> Ritka, életmentő területek, ahol vízhez és árnyékhoz lehet jutni.</li>
+<li><strong>Romok:</strong> Elfeledett, ősi városok maradványai, amelyek kincseket és ellenségeket rejtenek.</li>
+</ul>
+<p><strong>Kihívások:</strong></p>
+<ul>
+<li><strong>Forróság:</strong>
+<ul>
+<li>A karakter a sivatagi hőségben könnyen túlhevülhet a mozgás és a harc közben. Amikor a karakter túl hosszú ideig tartózkodik a forró területeken, csökken a támadási sebessége (-20%), és a mozgás is lassul. Ha nem talál árnyékot vagy oázist, a hőség fokozódik, és az elfogyott víz miatt a karakter fokozott sebzést szenvedhet.</li>
+</ul></li>
+<li><strong>Homokviharok:</strong>
+<ul>
+<li>A sivatagi homokviharok elrejtik a karaktert a látóteréből, csökkentve a látótávolságot. A homokviharok nemcsak a navigálást nehezítik meg, hanem folyamatosan apró sebzést is okoznak, mivel a karaktert homok és éles szikrák érik. Ezek az időszakos viharok a karakter mozgási sebességét is lelassíthatják, és megnehezíthetik a harcot.</li>
+</ul></li>
+</ul>
+<h3 data-number="13.3.3" id="a-mocsár"><span class="header-section-number">13.3.3</span> A mocsár</h3>
+<p>Ez a szint egy sötét, nedves és veszélyekkel teli mocsárvidéken játszódik. Itt a mozgás lassabb és a látótávolság korlátozott.</p>
+<p>Környezet:</p>
+<ul>
+<li><strong>Lápos területek:</strong> Mély, sáros részek, ahol a karakter mozgása lelassul.</li>
+<li><strong>Mocsári fák:</strong> Hatalmas, gótikus fák, amelyek elrejtik az ösvényeket.</li>
+<li><strong>Rejtett tavak:</strong> Mérgező vízű tavak, amelyek közelében veszélyes lények élnek.</li>
+</ul>
+<p><strong>Kihívások:</strong></p>
+<ul>
+<li><strong>Lassítás:</strong>
+<ul>
+<li>A mocsárban való mozgás rendkívül lassú, mivel a talaj sáros és ragadós. A karakter mozgása -20%-kal lelassul, így nehezebb gyorsan reagálni a támadásokra vagy elkerülni az ellenségeket. A mocsár növényzete, valamint a víz alatti területek tovább lassítják a karaktert.</li>
+</ul></li>
+<li><strong>Mérgezés:</strong>
+<ul>
+<li>Bizonyos mocsári területeken mérgező gázok és toxinok szabadulnak fel a talajból. Ha a karakter hosszabb ideig tartózkodik ezeken a helyeken, folyamatos sebzést szenved, és mérgezési tünetek jelentkeznek, mint például a fokozódó életpontcsökkenés. A mérgezés akkor is bekövetkezhet, ha a játékos nem figyel a környezetére, és belelép egy mérgezett növénybe vagy vízbe.</li>
+</ul></li>
+</ul>
+<h2 data-number="13.4" id="a-föld-alatti-világ"><span class="header-section-number">13.4</span> A föld alatti világ</h2>
+<p>A föld alatti világ egy sötét, komor helyszín, ahol a mélység és a sötétség uralkodik. A szint tele van barlangokkal, alagutakkal és föld alatti folyókkal.</p>
+<p><strong>Környezet:</strong></p>
+<ul>
+<li><strong>Barlangok:</strong> Kanyargós járatok, amelyek tele vannak éles sziklákkal és szűk folyosókkal.</li>
+<li><strong>Alagutak:</strong> Hosszú, sötét alagutak, amelyek néha összeomolhatnak vagy zsákutcába vezetnek.</li>
+<li><strong>Föld alatti folyók:</strong> Mély, lassan folyó vizek, amelyek átszelik a barlangokat.</li>
+</ul>
+<p><strong>Kihívások:</strong></p>
+<ul>
+<li><strong>Sötétség:</strong>
+<ul>
+<li>A föld alatti világ szinte teljesen sötét, ami jelentősen csökkenti a látótávolságot. A karakter látótávolsága -50%-kal csökken, ami megnehezíti a navigálást és az ellenségek észlelését. A játékosnak szüksége lesz lámpákra, fáklyákra vagy varázslatokra a megfelelő világításhoz, különben a csapdák és ellenségek könnyen meglephetik.</li>
+</ul></li>
+<li><strong>Navigáció:</strong>
+<ul>
+<li>A föld alatti barlangok és alagutak szűkek és könnyen eltévedhetünk bennük. A labirintusokban való tájékozódás nagyon fontos, mivel a szűk folyosók és a különböző szintkülönbségek miatt könnyen zsákutcába juthatunk. A szint különleges térképeket, iránytűket vagy jelzéseket tartalmaz, amelyek segíthetnek a helyes irány megtalálásában.</li>
+</ul></li>
+</ul>
+<h3 data-number="13.4.1" id="a-hófödte-hegységek"><span class="header-section-number">13.4.1</span> A hófödte hegységek</h3>
+<p>Ez a szint egy fagyos, jeges területen játszódik, ahol a hideg az egyik legnagyobb ellenség.</p>
+<p><strong>Környezet:</strong></p>
+<ul>
+<li><strong>Hegyek:</strong> Magas, havas csúcsok és meredek lejtők, ahol a mozgás nehézkes és veszélyes lehet.</li>
+<li><strong>Jeges utak:</strong> Csúszós felületek, ahol könnyen eleshetünk.</li>
+<li><strong>Hóviharok:</strong> Időnkénti hóviharok, amelyek korlátozzák a látótávolságot és nehezítik a mozgást.</li>
+</ul>
+<p><strong>Kihívások:</strong></p>
+<ul>
+<li><strong>Hidegség:</strong>
+<ul>
+<li>A hófödte hegységekben az alacsony hőmérséklet komoly hatással van a karakterre. 3:00 perc elteltével a karakter -20%-kal csökkent támadási sebességgel képes támadni, és 6:00 perc után, ha nincs megfelelő páncélja, folyamatos -2% sebzés hatással lesz a karakterre a fagyás miatt. Az ilyen hatások elkerülésére meleg ruházat vagy páncél szükséges, különben folyamatosan veszíthetünk életpontokat a fagyás következtében.</li>
+</ul></li>
+<li><strong>Csúszós felületek:</strong>
+<ul>
+<li>A hó és jég borította területeken különösen veszélyes a mozgás. A karakter könnyen megcsúszhat, ha nem ügyel a lépéseire, ez pedig lassítja a mozgást és eséshez vezethet. A csúszós felületeken való gyors közlekedéshez a játékosnak ügyesnek kell lennie a mozgás irányításában, hogy elkerülje a zuhanásokat.</li>
+</ul></li>
+</ul>
+<h3 data-number="13.4.2" id="a-hamu-földje"><span class="header-section-number">13.4.2</span> A hamu földje</h3>
+<p>Ez a szint egy poszt-apokaliptikus, hamuval borított tájon játszódik, ahol minden élettelen és kietlen.</p>
+<p><strong>Környezet:</strong></p>
+<ul>
+<li><strong>Hamuföld:</strong> Szürke, poros területek, ahol a látótávolság korlátozott.</li>
+<li><strong>Elhagyatott falvak:</strong> Elpusztult, romos épületek és házak, amelyek rejtekhelyeket kínálnak.•</li>
+<li><strong>zétszórt törmelék:</strong> Az egykori civilizáció maradványai, amelyek akadályokat képeznek.</li>
+</ul>
+<p><strong>Kihívások:</strong></p>
+<ul>
+<li><strong>Navigáció:</strong>
+<ul>
+<li>A hamuval borított táj teljesen lecsökkenti a látótávolságot. A táj egyhangú, szürke, és könnyen eltévedhetünk a romok között. A karakter egyre inkább elvesztheti az irányítást, ha nem használja figyelmesen a környezetét. Az iránytűk és a ritka tájékozódási pontok segíthetnek, de a szint elég nagy ahhoz, hogy könnyen elveszítsük az irányt.</li>
+</ul></li>
+<li><strong>Látótávolság:</strong>
+<ul>
+<li>A hamu és por folyamatosan akadályozza a látást. A látótávolság jelentősen csökken, és a játékosnak minden lépését meg kell fontolnia. Az ellenségek is könnyen elbújhatnak a sűrű porban, így gyakran a közelharc válik a legnagyobb kihívássá, mivel nem látni jól a távolságot.</li>
+</ul></li>
+</ul>
+<h3 data-number="13.4.3" id="a-nagy-vulkán"><span class="header-section-number">13.4.3</span> A nagy vulkán</h3>
+<p>Ez a szint egy aktív vulkán körül játszódik, ahol a hőség és a láva jelenti a legnagyobb veszélyt.</p>
+<p><strong>Környezet:</strong></p>
+<ul>
+<li><strong>Lávafolyamok:</strong> Folyékony láva patakok, amelyeket át kell ugrani vagy kerülni.</li>
+<li><strong>Vulkáni sziklák:</strong> Instabil, forró sziklák, amelyek bármikor összeomolhatnak.</li>
+<li><strong>Füst és gáz:</strong> Mérgező gázok és füstfelhők, amelyek időnként ellephetik a területet.</li>
+</ul>
+<p><strong>Kihívások:</strong></p>
+<ul>
+<li><strong>Hőség:</strong>
+<ul>
+<li>A vulkán környékén a hőmérséklet extrém magas, és a karakter túlhevülhet a harc és a mozgás következtében. A karakter mozgása lelassul, -20%-kal csökken a támadási sebesség és a mozgás sebessége a hőség hatására. Ha a karakter túl sokáig tartózkodik a lávák közelében, akár folyamatos életpont veszteséget is elszenvedhet.</li>
+</ul></li>
+<li><strong>Instabil terep:</strong>
+<ul>
+<li>A vulkán körüli terület instabil, a forró lávafolyamok és sziklák könnyen összeomolhatnak vagy elmozdulhatnak. A játékosnak folyamatosan figyelnie kell, hogy mely sziklák stabilak, mert ha nem, a láva eláraszthatja a karaktert vagy akár egy veszélyes területre sodorhatja. A talaj repedései és forró pontjai minden pillanatban nagy kockázatot jelentenek.</li>
+</ul></li>
+</ul>
+<h3 data-number="13.4.4" id="a-végetnemérők-világa"><span class="header-section-number">13.4.4</span> A Végetnemérők világa</h3>
+<p>Ez a szint egy misztikus, másvilági tájon játszódik, ahol a valóság határai elmosódnak.</p>
+<p><strong>Környezet:</strong></p>
+<ul>
+<li><strong>Lebegő szigetek:</strong> Különálló, lebegő területek, amelyeket hidak vagy varázslatos ösvények kötnek össze.</li>
+<li><strong>Dimenziókapuk:</strong> Misztikus portálok, amelyek egyik helyről a másikra vezetnek.</li>
+<li><strong>Furcsa tájak:</strong> Földöntúli növényzet és kristályok, amelyek különleges fényben tündökölnek.</li>
+</ul>
+<p><strong>Kihívások:</strong></p>
+<ul>
+<li><strong>Navigáció:</strong>
+<ul>
+<li>A Végetnemérők világa egy misztikus hely, ahol a valóság határvonalai elmosódnak. A területen lebegő szigetek, dimenziókapuk és különféle torzulások nehezítik a navigációt. A karakter könnyen eltévedhet, és a portálok, amelyek egyik helyről a másikra vezetnek, zűrzavart okozhatnak. A szigeteken való ugrálás vagy az áramlások követése miatt gyakran a karakternek döntéseket kell hoznia, hogy melyik irányba haladjon.</li>
+</ul></li>
+<li><strong>Valóság torzulása:</strong>
+<ul>
+<li>A valóság torzulásai miatt a világ időnként nem követi a megszokott törvényeit. A karakter mozgásának sebessége változhat, és egyes területeken az idő dilatálódhat, vagy a gravitáció megváltozhat. A torzult valóságban könnyen megzavarodhatunk, ha nem figyelünk, és akár egy-egy portál vagy dimenziókapu is váratlan veszélyeket hozhat.</li>
+</ul></li>
+</ul>
+</body>
+</html>

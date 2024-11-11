@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Vízió</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <style>
+  th, td {
+  	padding: .5em;
+  	border: 1pt solid gray;
+  }
+
+  table {
+  	width: 100%;
+  	border-collapse: collapse;
+  }
+
+  .tbl-wrap {
+  	width: 100%;
+  	overflow-y: scroll;
+  }
+  </style>
+</head>
+<body>
+<p>Csoport neve: JZBBG</p>
+
+<p>Feladat sorszáma: 1</p>
+
+<p>Feladat címe: Knights Age</p>
+
+<p style="text-align: center; font-weight: bold; font-size: xx-large;">Vízió</p>
+<p style="text-align: center;">Gyakorlatvezető:</p>
+<p style="text-align: center; font-size: x-large;">Árvai László</p>
+
+<p>Csoport tagok:</p>
+
+<table>
+	<tr><td>Sándor János</td><td>progterv</td><td>sandorj2002@gmail.com</td></tr>
+	<tr><td>Adamcsik Bendegúz</td><td>progterv</td><td>bendeguz.adamcsik@gmail.com</td></tr>
+	<tr><td>Dobozi Botond</td><td>progterv</td><td>boti2424@gmail.com</td></tr>
+	<tr><td>Füzi Gergő Róbert</td><td>mérnökinfó</td><td>fgergo21@gmail.com</td></tr>
+	<tr><td>Sebe Zsolt</td><td>progterv</td><td>sebezsolt2@gmail.com</td></tr>
+</table>
+
+<p style="text-align: right;">2024-10-12</p>
+<table>
+	<tr><th>Dátum</th><th>Verzió</th><th>Leírás</th><th>Szerző</th></tr>
+	<tr><td>2024-10-10</td><td>0.1</td><td>3., 7. pont létrehozása.</td><td>Sándor János</td></tr>
+	<tr><td>2024-10-10</td><td>0.1</td><td>1. pont létrehozása.</td><td>Adamcsik Bendegúz</td></tr>
+	<tr><td>2024-10-10</td><td>0.1</td><td>4., 6. pont létrehozása.</td><td>Dobozi Botond</td></tr>
+	<tr><td>2024-10-10</td><td>0.1</td><td>2., 2.1. pont létrehozása.</td><td>Füzi Gergő Róbert</td></tr>
+	<tr><td>2024-10-10</td><td>0.1</td><td>5. pont létrehozása.</td><td>Sebe Zsolt</td></tr>
+	<tr><td>2024-10-12</td><td>0.2</td><td>Első összefűzött verzió. Az egyes részek külön-külön lettek elkészítve, ezért “egységesíteni” kell az 1.0 verzió előtt.</td><td>Sándor János<br>Adamcsik Bendegúz<br>Dobozi Botond<br>Füzi Gergő Róbert<br>Sebe Zsolt</td></tr>
+</table>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#a-probléma-megfogalmazása"><span class="toc-section-number">1</span> A probléma megfogalmazása</a>
+<ul>
+<li><a href="#users-avagy-a-résztvevőkről-akiket-a-probléma-és-megoldása-érint"><span class="toc-section-number">1.1</span> Users, avagy a résztvevőkről, akiket a probléma (és megoldása érint)</a></li>
+<li><a href="#megoldandó-problémák-a-játék-fejlesztése-során"><span class="toc-section-number">1.2</span> Megoldandó problémák a játék fejlesztése során:</a></li>
+<li><a href="#a-sikeres-megoldás-legfontosabb-hasznos-hatásai"><span class="toc-section-number">1.3</span> A sikeres megoldás legfontosabb hasznos hatásai</a></li>
+</ul></li>
+<li><a href="#a-knights-age-játék-helye"><span class="toc-section-number">2</span> A “Knights Age” játék helye:</a>
+<ul>
+<li><a href="#támogatott-platformok-és-operációs-rendszerek"><span class="toc-section-number">2.1</span> Támogatott platformok és operációs rendszerek:</a></li>
+</ul></li>
+<li><a href="#a-termék-használatának-előnyei"><span class="toc-section-number">3</span> A termék használatának előnyei</a></li>
+<li><a href="#feltételezések-és-függőségek"><span class="toc-section-number">4</span> Feltételezések és Függőségek</a>
+<ul>
+<li><a href="#technikai-feltételezések-és-függőségek"><span class="toc-section-number">4.1</span> Technikai Feltételezések és Függőségek</a></li>
+<li><a href="#dizájn-és-játékmechanikai-feltételezések"><span class="toc-section-number">4.2</span> Dizájn és Játékmechanikai Feltételezések</a></li>
+<li><a href="#emberi-erőforrások-és-csapatmunka"><span class="toc-section-number">4.3</span> Emberi Erőforrások és Csapatmunka</a></li>
+<li><a href="#pénzügyi-és-üzleti-feltételezések"><span class="toc-section-number">4.4</span> Pénzügyi és Üzleti Feltételezések</a></li>
+<li><a href="#jogi-és-szabályozási-feltételezések"><span class="toc-section-number">4.5</span> Jogi és Szabályozási Feltételezések</a></li>
+<li><a href="#felhasználói-bázis-és-piaci-feltételezések"><span class="toc-section-number">4.6</span> Felhasználói Bázis és Piaci Feltételezések</a></li>
+</ul></li>
+<li><a href="#a-végtermék-jellemzői-biztosított-szolgáltatások"><span class="toc-section-number">5</span> A Végtermék Jellemzői, Biztosított Szolgáltatások</a>
+<ul>
+<li><a href="#többjátékos-mód"><span class="toc-section-number">5.1</span> Többjátékos Mód</a></li>
+<li><a href="#harcrendszer"><span class="toc-section-number">5.2</span> Harcrendszer</a></li>
+<li><a href="#hosszútávú-játékmenet"><span class="toc-section-number">5.3</span> Hosszútávú Játékmenet</a></li>
+</ul></li>
+<li><a href="#minőségi-elvárások"><span class="toc-section-number">6</span> Minőségi Elvárások</a>
+<ul>
+<li><a href="#teljesítmény-jellemzők"><span class="toc-section-number">6.1</span> Teljesítmény jellemzők</a></li>
+<li><a href="#válaszidő-latency"><span class="toc-section-number">6.2</span> Válaszidő (Latency)</a></li>
+<li><a href="#biztonsági-szint"><span class="toc-section-number">6.3</span> Biztonsági szint</a></li>
+<li><a href="#felhasználóbarátság-usability"><span class="toc-section-number">6.4</span> Felhasználóbarátság (Usability)</a></li>
+<li><a href="#grafikai-és-audiovizuális-minőség"><span class="toc-section-number">6.5</span> Grafikai és audiovizuális minőség</a></li>
+<li><a href="#játékélmény-gameplay"><span class="toc-section-number">6.6</span> Játékélmény (Gameplay)</a></li>
+<li><a href="#javítások-és-frissítések-kezelése"><span class="toc-section-number">6.7</span> Javítások és frissítések kezelése</a></li>
+</ul></li>
+<li><a href="#kockázat-lista"><span class="toc-section-number">7</span> Kockázat lista</a></li>
+</ul>
+</nav>
+<h1 data-number="1" id="a-probléma-megfogalmazása"><span class="header-section-number">1</span> A probléma megfogalmazása</h1>
+<p>A videójátékok jelentős fejlődésen mentek keresztül az évek során. A kezdetekben technikai korlátok miatt az offline játékok domináltak. Később azonban megjelentek az online játékok is, számtalan műfajban, amelyek közül az online FPS és versenyzős játékok elképesztően izgalmas versengést biztosítottak. Ugyanakkor az offline és kooperatív játékok újra növekvő népszerűségnek örvendenek. Az offline játékok sikere részben annak köszönhető, hogy lehetővé teszik a játékosok számára, hogy saját tempójukban haladjanak, anélkül, hogy külső zavaró tényezők befolyásolnák őket. Az offline játékok gyakran mélyebb, részletesebben kidolgozott történetekkel és világokkal rendelkeznek, amelyek hosszú távon is fenntartják a játékosok érdeklődését.</p>
+<p>Sokan megunják a toxikus online közösségekben való véget nem érő szenvedést és a csalók elleni küzdelmet, akik előbb-utóbb minden játékot elérnek. Ennek következtében a sandbox és a parti játékok egyre népszerűbbé válnak. Számos legendás történetalapú játék hosszú ideig meg tudta tartani játékosbázisát az online FPS-ekkel szemben. A fiatalabb korosztály számára sok igazán kiemelkedő történetvezérelt játék gyakran túl durva vagy nem nyújtanak elegendő mozgásteret.</p>
+<h2 data-number="1.1" id="users-avagy-a-résztvevőkről-akiket-a-probléma-és-megoldása-érint"><span class="header-section-number">1.1</span> Users, avagy a résztvevőkről, akiket a probléma (és megoldása érint)</h2>
+<p>A fiatalabb játékosok nagy kihívásokra vágynak egy olyan környezetben, ahol döntéseik ténylegesen számítanak, és amit akár telefonjaikra is letölthetnek. Olyan történetet keresnek, amely komolyabb hangvételű, mégis érthető, emlékezetes karakterekkel, amelyek példát mutatnak. Nem szeretnék, ha a játékmenet háttérbe szorulna egy látványos, de tartalom nélküli történet miatt. A 12+ korosztálynak sokszor gondot okoz az, hogy mibe is kezdjen például, hogy milyen játékkal töltse az idejét és abban milyen célokat érjen el, ezért mi egy célt mutatnánk nekik, amit saját elképzeléseik szerint valósíthatnak meg. Természetesen nem csak a fiatalabb korosztályt érinti ez a probléma hiszen a kihívások bárki fantáziáját megmozgathatják, aki igényli ezt a fajta játékot és együtt élvezhetik ezeket az élményeket korosztálytól függetlenül.</p>
+<p>Ennél a korosztálynál, az sem elhanyagolható, hogy a szülők is támogassák a játék használatát. Őket is megnyerje a játék világa, hasznosnak gondolják gyermekük fejlődése szempontjából. Támogassák a játék megvételét.</p>
+<h2 data-number="1.2" id="megoldandó-problémák-a-játék-fejlesztése-során"><span class="header-section-number">1.2</span> Megoldandó problémák a játék fejlesztése során:</h2>
+<p>Az RPG műfajban a fejlesztőcsapatok gyakran esnek olyan hibákba, amelyek rontják a játék élményt, ezáltal elveszítve a felhasználók érdeklődését. A leggyakoribb hibák közé tartozik, hogy a játék túl egyszerű vagy túlságosan komplex, nem engedi a játékosokat kibontakozni, túl nehéz vagy siralmasan könnyű, illetve a játék kiegyensúlyozása nem megfelelő. Jóval nagyobb probléma, ha a játék nem megfelelően működik idegen szóval bugos. Az RPG-ét nem elég csak kiadni, hogy az idő múlásával a régmúlt elfeledésébe zuhanjon. Sok RPG jó franchise-ot épít fel magának, mégsem használja ki helyesen annak lehetőségeit, nem innovál, vagy teljesen elfelejti mit szeretett meg a játékos bázisuk. Sok teljesen új sequel-t adnak ki teljesen fölöslegesen, néha alá ásva eddigi művüket. A legrosszabb pedig, ha teljesen abbahagynak és lezárnak egy projektet, amit az emberek megszerettek. Hosszútávú sikeréért folyamatos fejlesztésre van szükség.</p>
+<h2 data-number="1.3" id="a-sikeres-megoldás-legfontosabb-hasznos-hatásai"><span class="header-section-number">1.3</span> A sikeres megoldás legfontosabb hasznos hatásai</h2>
+<p>Végül, a (jól sikerült) videojátékok hosszú távon hozzájárulhatnak a fiatalok mentális és érzelmi jólétéhez. Egy jól megtervezett játék segíthet a játékosoknak abban, hogy jobban megértsék saját érzelmeiket, és megtanulják, hogyan kezeljék a stresszt és a feszültséget. A játékokban való részvétel segíthet a fiataloknak abban is, hogy fejlesszék önbizalmukat és önbecsülésüket, mivel a játékokban elért sikerek és eredmények pozitív visszajelzéseket nyújtanak számukra.</p>
+<p>Összefoglalva, a sikeres videojátékok nemcsak szórakozást és kikapcsolódást (, elképesztően szép, ingergazdag, a határokat kibővítő ugyanakkor biztonságos játékteret) nyújtanak, hanem számos pozitív hatást is gyakorolnak a játékosokra. Fejlesztik a kreativitást, a problémamegoldó készségeket, elősegítik a közösségi élményeket, és hozzájárulnak a mentális és érzelmi jóléthez. Ezek a játékok értékes eszközök lehetnek a fiatalok fejlődésében, és fontos szerepet játszanak a modern társadalomban. Ahhoz, hogy ezek a hatások valóban érvényesüljenek, a fejlesztőknek figyelembe kell venniük a játékosok igényeit és folyamatosan fejleszteniük kell játékaikat, hogy azok mindig izgalmasak és tartalmasak maradjanak.</p>
+<h1 data-number="2" id="a-knights-age-játék-helye"><span class="header-section-number">2</span> A “Knights Age” játék helye:</h1>
+<ul>
+<li><p><strong>Kinek készült:</strong> A “Knights Age” egy indie játékfejlesztő csapat által készül, célzottan singleplayer-ek számára, akik érdeklődnek a történetalapú szerepjátékok iránt. Az alkalmazás nem egy specifikus szervezet vagy vállalat számára készül, hanem a szórakoztatóiparban lesz elérhető, elsősorban digitális játékplatformokon keresztül. Mint például a Steam vagy az Itch.io és később a Google Play.</p></li>
+<li><p><strong>Ki fogja használni:</strong> A játék célcsoportja az RPG-k iránt érdeklődő egyszemélyes játék rajongói, akik szeretik a középkori témákat és a hősies kalandokat.</p></li>
+</ul>
+<p>A játék viszont tartalmazhat implicit kontentet, vért és durvább megrázó hatást keltő animációkat.</p>
+<p>Ezért az ajánlott életkor a 16+.</p>
+<ul>
+<li><strong>Alkalmazás kategóriája:</strong> A “Knights Age” egy szórakoztató játék alkalmazás, azon belül is egy szerepjáték (RPG). Ez a kategória történetalapú, karakterfejlődésre és küldetésekre épülő játékokat foglal magában, ahol a játékos egy hőst irányít egy fiktív világban. A lehető legélethűbben bemutatva azt.</li>
+</ul>
+<p>Azonban a Knights Age játék fordulatot ad a tipikus RPG rendszerekhez képest. Minden egyes halállal egy újjabb karaktert kapunk és nem térhetünk vissza az előzőhöz soha többé.</p>
+<p>Ezzel a játékosnak sokkal nagyobb óvatosságot kell gyakorolnia. Hiszen egy halál után a játék előröl kezdődik.</p>
+<ul>
+<li><p><strong>Alapvető haszna:</strong> A játék szórakozást és kikapcsolódást biztosít, miközben egy izgalmas középkori világba repíti a játékost, ahol különféle kihívásokat és küldetéseket teljesíthet. A játékos belemerülhet a szerepjáték világába, fejlesztheti karakterét és felfedezheti a történet különböző vonulatait. Azonban megfontoltan kell a játék stratégiáját megválasztania. Mivel könnyedén átfordulhat egy rémálomba.</p></li>
+<li><p><strong>Alternatívák:</strong> A piacon számos más szerepjáték található, mint például a “The Witcher” vagy a “Skyrim,” amelyek szintén egyjátékos módra épülnek, de jóval nagyobb költségvetéssel és csapatokkal készültek. Ezek az alternatívák gazdagabb tartalmat, több szereplőt és részletesebb világépítést kínálnak. Ugyanakkor ezek nagyobb méretű játékok, több órás elköteleződést kívánnak, ami egyes játékosok számára hátrány lehet.</p></li>
+<li><p><strong>Különbségek az alternatíváktól:</strong> A “Knights Age” egy kisebb, indie RPG, amely gyorsabb játékélményt nyújt. A történet és a játékmenet kompaktabb, így kevesebb időbefektetést igényel a játékosoktól. A játék középkori tematikája és hősies kalandjai vonzóvá teszik azok számára, akik szeretnének egy könnyedebb RPG élményt, ami nem igényel annyi időt vagy erőforrást, mint a nagyobb címek.</p></li>
+</ul>
+<h2 data-number="2.1" id="támogatott-platformok-és-operációs-rendszerek"><span class="header-section-number">2.1</span> Támogatott platformok és operációs rendszerek:</h2>
+<ul>
+<li><p><strong>Platformok:</strong> A “Knights Age” kezdetben Windows platformokon lesz elérhető, majd Android és más mobil eszközökre is ki lesz adva. A mobil verzió megjelenésével a játék szélesebb közönség számára válik elérhetővé.</p></li>
+<li><p>Windows 10 (Bármelyik kiadás)</p></li>
+<li><p>Windows 11 (Bármelyik kiadás)</p></li>
+<li><p>Android v13+</p></li>
+<li><p>IOS v12+ (Mivel az IOS re való kiadás költséges ezért sokkal később érkezik ez a verzió.)</p></li>
+<li><p><strong>Felhasználók száma:</strong> A játék egyjátékos módra épül, így a felhasználók száma egy időben mindig 1 lesz, mivel multiplayer funkciók nem lesznek beépítve. A játékos kizárólag saját maga játssza végig a történetet és küldetéseket.</p></li>
+<li><p><strong>Felhasználói trendek:</strong> Mivel egy RPG játékról van szó, az új platformokra történő kiadás növelheti az érdeklődést, de az egyszeri felhasználószám nem fog jelentősen változni, mivel multiplayer nem kerül beépítésre. A mobil verzió esetleges ranglistája azonban ösztönözheti a játékosokat, hogy gyorsabban teljesítsék a játékot.</p></li>
+<li><p><strong>Használati idő:</strong> Az RPG jelleg miatt a felhasználók hosszabb ideig fogják használni a rendszert egy-egy játékmenet során, akár órákig is, a történetbe való elmerülés mélységétől és a teljesíteni kívánt küldetések számától függően. A mobil verzióban az átlagos játékidő változó lehet.</p></li>
+<li><p><strong>Különleges körülmények:</strong> A mobil platformokon figyelembe kell venni az érintőképernyős vezérléseket és különböző hardverkonfigurációkat.</p></li>
+<li><p><strong>Integrációk:</strong> A Windows verzió esetében nem várhatók külső integrációk, de a mobil verzióhoz felhőalapú szolgáltatások szükségesek lehetnek a ranglista kezeléséhez és egy azonosító rendszer hogy a játékosok eredménye azonosítható legyen a listán.</p></li>
+</ul>
+<h1 data-number="3" id="a-termék-használatának-előnyei"><span class="header-section-number">3</span> A termék használatának előnyei</h1>
+<p><strong>Magával ragadó játékélmény</strong></p>
+<p>A középkori fantasy világ és a történet kombinációja egy eléggé ritka játékélményt biztosít. A hercegnő megmentése és az epikus harcok a gonosz kastély urával nagyon vonzó sok játékos számára, különösen azoknak, akik szeretik a középkori és lovagi tematikájú történeteket. A 3D-s világban a kameranézet segíti a film-szerű élményt, és jobban koncentrál a harcokra, történetmesélésre és a kihívásokra, melyek mélyne lekötik a felhasználót, elmerülve a részletekben is akár.</p>
+<p><strong>Könnyen elérhető platform (PC, esetleg mobil)</strong></p>
+<p>Elsődlegesen PC-s játék, ami széles körben hozzáférhető, így a termék a legtöbb játékos számára elérhető lesz és könnyen kezelhető. A Godot engine segítségével könnyen továbbfejleszthető és akár más platformokra is exportálható, amellett, hogy stabilan és felhasználóbarátibban kivitelezhető.</p>
+<p><strong>Költséghatékony fejlesztés</strong></p>
+<p>A Godot engine használata mellett az indie játék fejlesztése költséghatékonyabb lehet, mint nagyobb stúdiók projektjei. Ez lehetővé teszi, hogy a játék alacsonyabb áron kerüljön piacra, ami vonzó lehet az árérzékeny játékosok számára, amellett, hogy az indie játékok mostanában rohamosan kelendőek.</p>
+<p><strong>Testreszabott játékmenet</strong></p>
+<p>A különböző nehézségi szintek és kihívások (őrök, csapdák, rejtélyek) lehetőséget adnak a játékosoknak arra, hogy saját játékstílusukhoz igazítsák a játékot. Emellett a történet mélyebb felfedezése (rejtett helyek, titkok) növeli az újrajátszhatósági értéket. Ezekhez Easter egg-ek is csatlakozhatnak.</p>
+<p><strong>Magával ragadó történet</strong></p>
+<p>A két kastély közötti konfliktus és a hercegnő megmentése egy klasszikus, mégis erőteljes narratívával bír, amit számos játékos szívesen követ. Az epikus végső összecsapás a kastély gonosz urával drámai zárást biztosít, főleg ha esetleg csattanó érheti a játékost a végén.</p>
+<p><strong>Godot Engine – nyílt forráskódú előnyei</strong></p>
+<p>A Godot engine egy ingyenes, nyílt forráskódú játékmotor, ami nemcsak gyors fejlesztést tesz lehetővé, hanem folyamatos frissítésekkel és új funkciókkal bővíthető, valamint kisebb költséggel jár a fejlesztés. Ez rugalmasabbá és hosszú távon fenntarthatóvá teszi a projektet. Így egy nagyon stabil és könnyen kezelhető motorral határ a csillagos ég lehet, ami megvalósítható lenne.</p>
+<p><strong>Blender – animáció és modellezés előnyök</strong></p>
+<p>A Blender, mint nyílt forráskódú 3D-s grafikai szoftver, remek lehetőségeket kínál</p>
+<p>különböző modellezésekre, animációkra, amellett hogy ingyenes és nyílt forráskódú szoftver, rugalmas is, és képes csontváz-rendszerek (rigging) megalkotására. A dinamikus világítási lehetőségek és effektek nagyon hasznos funkciói, de a legfontosabb funkciója, hogy a fájlformátumai importálhatóak a godot engine-be.</p>
+<p><strong>Csapatalapú fejlesztés</strong></p>
+<p>A csapatmunkának köszönhetően (öt fejlesztő) a projekt fejlesztési ideje gyorsabb lehet, valamint több nézőpont és kreatív ötlet valósulhat meg a játékmenetben és a látványvilágban gazdagítva a játékélményt, amely nagyobb közösséget mozgat meg sikeresebbé téve a projektet.</p>
+<h1 data-number="4" id="feltételezések-és-függőségek"><span class="header-section-number">4</span> Feltételezések és Függőségek</h1>
+<h2 data-number="4.1" id="technikai-feltételezések-és-függőségek"><span class="header-section-number">4.1</span> Technikai Feltételezések és Függőségek</h2>
+<ul>
+<li><p><strong>Hardver specifikációk:</strong> Feltételezés, hogy a játék célközönsége rendelkezik a játék futtatásához megfelelő hardverrel. Ez magában foglalhatja a megfelelő grafikus kártyát, processzort, memóriát, stb. Külön figyelmet kell fordítani a célplatformokra (PC, konzolok, mobilok).</p></li>
+<li><p><strong>Játékmotor és technológiai függőségek:</strong> A játékmotor (pl. Unreal Engine vagy Unity) teljesítménye és képességei kulcsfontosságúak. Az RPG-hez szükséges dinamikus világépítés, NPC-k mesterséges intelligenciája (AI), harcrendszer, fizikához kapcsolódó megoldások, és a karakterek animációi mind függnek a motor lehetőségeitől és teljesítményétől.</p></li>
+<li><p><strong>Töltési idő és optimalizáció:</strong> Egy nagy, nyílt világú RPG esetében a gyors betöltési idő és a gördülékeny játékélmény biztosítása kritikus. Az optimalizálás a különböző hardverekre és platformokra nehéz függőség lehet.</p></li>
+<li><p><strong>Mentési rendszerek:</strong> A játék mentési rendszere fontos tényező. Elvárás, hogy a játékosok több mentést is létrehozhassanak, és ezek gyorsan elérhetők legyenek.</p></li>
+</ul>
+<h2 data-number="4.2" id="dizájn-és-játékmechanikai-feltételezések"><span class="header-section-number">4.2</span> Dizájn és Játékmechanikai Feltételezések</h2>
+<ul>
+<li><p><strong>Történet és világépítés:</strong> Az RPG központi eleme a gazdag történetmesélés és világépítés. Feltételezés, hogy a játékosok elmélyülnek a világban, és élvezik a narratívát, amely karaktervezérelt és döntésalapú lehet.</p></li>
+<li><p><strong>Karakterfejlődés és skillek:</strong> A karakterfejlődési rendszerek (pl. tapasztalati pontok, képességek, felszerelés) összetett mechanikák, amelyek pontos kiegyensúlyozására van szükség. Feltételezni kell, hogy a játékosok megértik a rendszert, és az intuitív lesz számukra.</p></li>
+<li><p><strong>Harcrendszer:</strong> Egy RPG-ben a harcrendszer lehet körökre osztott vagy valós idejű, de mindkét esetben figyelni kell arra, hogy könnyen érthető, de megfelelően komplex legyen a stratégiai lehetőségek miatt. Az animációk, AI és harci mechanikák közötti függőség fontos tényező.</p></li>
+<li><p><strong>Küldetések és döntések:</strong> A játékosok döntései hatással lehetnek a történet alakulására, és többféle befejezést eredményezhetnek. Ez komplex feltételezésekkel jár a narratív struktúrát illetően, és figyelembe kell venni a játékosok cselekedeteinek következményeit a játékmenet során.</p></li>
+</ul>
+<h2 data-number="4.3" id="emberi-erőforrások-és-csapatmunka"><span class="header-section-number">4.3</span> Emberi Erőforrások és Csapatmunka</h2>
+<ul>
+<li><p><strong>Forgatókönyvírók és világtervezők:</strong> Az RPG játékok nagymértékben támaszkodnak a narratívára és a világ részletességére. A kreatív csapat képességei, hogy érdekes történeteket és érdekes világot alkossanak, döntő fontosságúak.</p></li>
+<li><p><strong>Művészeti és animációs csapatok:</strong> A karakterek, a környezetek, a felszerelések és a vizuális effektek megtervezése és animálása függ a művészeti csapat tapasztalatától és tehetségétől. Egy RPG játék esetében az NPC-k és főhős vizuális megjelenítése fontos a játékos elmerülése szempontjából.</p></li>
+<li><p><strong>Audio és zene:</strong> Az RPG-k atmoszféráját nagymértékben meghatározza a zene és a hanghatások. A zeneszerzők és hangmérnökök munkája, valamint az audio integráció a játékmotorban egy fontos függőség, amely segíti a világ hangulatának és érzelmi hatásának megteremtését.</p></li>
+</ul>
+<h2 data-number="4.4" id="pénzügyi-és-üzleti-feltételezések"><span class="header-section-number">4.4</span> Pénzügyi és Üzleti Feltételezések</h2>
+<ul>
+<li><p><strong>Fejlesztési költségvetés:</strong> Egy nagyobb RPG játék fejlesztése általában hosszú időt vesz igénybe és nagy költségvetést igényel, mivel komplex rendszerekkel, rengeteg tartalommal és mély történettel dolgozik. A projekt finanszírozása (pl. saját tőke, kiadói támogatás) fontos függőség, és az esetleges költségnövekedés problémát jelenthet.</p></li>
+<li><p><strong>Kiadói támogatás:</strong> Ha a fejlesztés külső kiadóhoz kötődik, az jelentős függőséget jelent a projekt időkereteire és prioritásaira vonatkozóan. A kiadóval való együttműködés, a határidők betartása és a minőségi elvárások teljesítése gyakran előfeltétele a sikeres megjelenésnek.</p></li>
+<li><p><strong>Játék hosszú távú fenntartása:</strong> Bár egy single-player RPG esetében nincs szükség multiplayer szerverek karbantartására, a folyamatos patch-ek, bugfixek, esetleges DLC-k és kiegészítők fejlesztése üzleti szempontból fontos lehet.</p></li>
+</ul>
+<h2 data-number="4.5" id="jogi-és-szabályozási-feltételezések"><span class="header-section-number">4.5</span> Jogi és Szabályozási Feltételezések</h2>
+<ul>
+<li><p><strong>Licencelési kérdések:</strong> Ha a játékban harmadik fél által licencelt technológiát (pl. játékmotor, fizikai motorok) vagy tartalmat (pl. zene, hanganyagok) használunk, akkor figyelni kell a licencfeltételekre és jogdíjakra.</p></li>
+<li><p><strong>Szerzői jogi megfelelés:</strong> A játék világában, karaktereiben és történetében alkalmazott elemeknek eredetinek kell lenniük, vagy megfelelően kell licencelni a harmadik féltől származó tartalmakat, elkerülve a szerzői jogi problémákat.</p></li>
+</ul>
+<h2 data-number="4.6" id="felhasználói-bázis-és-piaci-feltételezések"><span class="header-section-number">4.6</span> Felhasználói Bázis és Piaci Feltételezések</h2>
+<ul>
+<li><p><strong>Célközönség igényei:</strong> Egy single-player RPG játék célközönsége általában a mély narratív élményeket és komplex karakterfejlődési rendszereket kedveli. Feltételezni kell, hogy a játékosok elegendő időt szánnak a történet megértésére és élvezetére, valamint a világ felfedezésére.</p></li>
+<li><p><strong>Piaci verseny:</strong> Az RPG-k piacán erős verseny lehet jelen, különösen olyan nagy címekkel szemben, mint a The Witcher, Skyrim vagy a Divinity: Original Sin. A siker feltételezése érdekében fontos megérteni, hogy a saját játék milyen egyedi értékeket kínál a piacon.</p></li>
+<li><p><strong>Visszajelzések és tesztelés:</strong> A játékosok visszajelzései és a játék előzetes tesztelése kritikus a végső termék minőségének szempontjából. Figyelni kell a béta tesztekre és a közösség által adott visszajelzésekre a finomhangolások és javítások érdekében.</p></li>
+</ul>
+<h1 data-number="5" id="a-végtermék-jellemzői-biztosított-szolgáltatások"><span class="header-section-number">5</span> A Végtermék Jellemzői, Biztosított Szolgáltatások</h1>
+<p>A játékos a csapatát felülnézetből irányítja, viszont a karakterek mozgása egy 2 dimenziós síkon történik, ahol az előre-hátra és fel-le mozgások adják a pozícióváltás lehetőségét. A játék tempójától függően a harcok valós időben zajlanak, így gyors döntésekre van szükség a sikeres előrehaladáshoz.</p>
+<p>Mielőtt a játékosok belépnének a játéktérbe, egy menüben lehetőségük lesz kiválasztani, mely lovagokat szeretnék harcba vinni, és milyen felszerelést vagy tárgyakat (item-eket) kívánnak magukkal hozni. Emellett a játékosok új lovagokat is kérhetnek attól az intézménytől, amely a lovagok toborzásával és kiképzésével foglalkozik (“Lovagi Rend”). Ez a menü biztosítja, hogy a játékosok felkészülten induljanak a csatába, és stratégiájukhoz megfelelő csapatot állíthassanak össze.</p>
+<p>A Termék többféle irányítási lehetőséget támogat, így a játékosok választhatnak a hagyományos billentyűzet/egér kombináció, a kontroller használata, vagy akár a mobiltelefonos verzió esetén is, ha a megfelelő perifériákat csatlakoztatják a telefonhoz. Ezáltal a játékosok szabadon dönthetnek arról, hogy melyik irányítási módot részesítik előnyben, függetlenül attól, hogy PC-n vagy telefonon játszanak.</p>
+<p>A Termék fejlesztésében kiemelt szerepet kap az i18n (nemzetköziesítés) támogatása, hiszen ez lehetővé teszi, hogy világszerte több felhasználóhoz is eljuthasson. Jelenleg azonban az angol és a magyar verziók élveznek prioritást, mivel ezek elegendőek az i18n alrendszer kezdeti teszteléséhez. A tényleges lokalizálás (l11n) a Termék további funkcióinak elkészítése után fog megvalósulni. Fontos cél, hogy a hozzáértő játékosok számára könnyen elérhetővé váljon a közösségi fordítások (“Community Translations”) készítése is, ezáltal biztosítva, hogy a játék a lehető legtöbb nyelven elérhető legyen.</p>
+<p>Fontos szempont, hogy a Termék alacsony teljesítményű eszközökön is zökkenőmentesen fusson (lásd <a href="#minőségi-elvárások"><em>Minőségi Elvárások</em></a>), mivel nem minden felhasználó rendelkezik nagy teljesítményű eszközökkel. A játék optimalizálása így biztosítja, hogy szélesebb közönség számára legyen elérhető, függetlenül a hardveres korlátoktól.</p>
+<p>A Termék teljes mértékben integrálódik az általa használt digitális áruház szolgáltatásaival, például a Steam platform funkcióival. Ez magában foglalja a Steam Achievementek (teljesítmények) rendszerét, amelyen keresztül a játékosok különféle mérföldköveket érhetnek el és díjakat szerezhetnek a játékon belüli eredményeikért. A Termék további támogatást nyújt a Steam felhőalapú mentési funkcióihoz is, lehetővé téve, hogy a játékosok több eszközön keresztül is hozzáférjenek mentéseikhez. Ezenkívül a Termék támogatja a Steam ranglistáit is, így a játékosok összehasonlíthatják teljesítményüket globális szinten más játékosokkal. A jövőbeni frissítések során további áruházi funkciók, például a közösségi műhelyek.</p>
+<p>A játékosok <em>opcionálisan</em> hozhatnak létre fiókot egy központi szerveren, amely lehetőséget biztosít arra, hogy megosszák eredményeiket, és részt vegyenek a ranglistán. Fontos hangsúlyozni, hogy ez teljesen választható, és a játékélmény fiók létrehozása nélkül is teljes értékű marad. Ha a játékos nem kíván fiókot létrehozni, a játék <em>semmilyen</em> formában nem zaklatja őt ezzel a lehetőséggel.</p>
+<h2 data-number="5.1" id="többjátékos-mód"><span class="header-section-number">5.1</span> Többjátékos Mód</h2>
+<p>A jövőben, a játék kiadása után, elérhetővé válik majd egy multiplayer játékmód is. Ez a játékmód azonban teljesen független a “story mode”-tól, és lényegében egyfajta tréningként szolgál. A multiplayerben a játékosok egymás ellen küzdhetnek, vagy közösen szállhatnak szembe véletlenszerűen generált ellenségekkel.</p>
+<p>Valamint később “co-op” játékmód is elérhető lesz, amelyben egy másik, kisebb történetszál kerül bevezetésre, amihez a játékosok közötti együttműködés szükséges. Ez a játékmód külön kihívásokat és történeti elemeket tartalmaz, amelyek csak csapatmunkával oldhatók meg. Fontos megjegyezni, hogy ez a co-op mód egy különálló DLC formájában válik elérhetővé a játék kiadása után.</p>
+<p>Az internetes többjátékos módhoz nem lesz szükség fiók létrehozására, mivel a játékosok “szobákat” hozhatnak létre, és a szoba tulajdonosa lesz a host. A központi szerver csupán a szobák összekapcsolását végzi, de maga a játékmenet és a logika a host gépén fut. Ezáltal a játékosok fiók nélkül is élvezhetik az online többjátékos élményt, és a kapcsolódás egyszerűen, a szoba létrehozásával és csatlakozással történik.</p>
+<h2 data-number="5.2" id="harcrendszer"><span class="header-section-number">5.2</span> Harcrendszer</h2>
+<p>A fő játékmechanika része, hogy minden lovagnak van életereje (HP) és józansága (SP). Ha egy lovag elveszti az összes életerejét, akkor meghal. Ha a józanságát, akkor őrülté válik. Az őrült lovagokat vissza lehet téríteni, ha teljesen visszatöltjük a józanságukat. De ha úgy véljük ez nem éri meg, akkor meg is ölhetjük őket. (Viszont ez az akció szintén rontja a többi lovag józanságát, mivel a lovagok inkább segítenének a bajbajutott társaikon.) Ha úgy fejezünk be egy szintet hogy vannak még ellenségessé tett lovagjaink, akkor azok meghalnak a szint végén.</p>
+<p>Az őrült lovagok fölött a játékos elveszíti az irányítást, azonban az őrültség különböző formákban jelentkezhet. Például, a lovag csatlakozhat az ellenséghez, mindenki ellen támadhat, beleértve a saját csapatát is, vagy akár egy ideig mozdulatlanul maradhat. Ezek a változatos őrültségi hatások újabb kihívásokat teremtenek a játékmenet során, és stratégiaváltásra késztetik a játékost.</p>
+<p>Míg a HP elsősorban közvetlen támadások révén csökken, addig az SP jóval érzékenyebb, és könnyen veszíthető. Például, ha egy lovag szemtanúja lesz egy sokkoló eseménynek, az is negatívan befolyásolja az SP-jét. Az SP azonban idővel automatikusan visszatöltődik, ellentétben a HP-vel, és fizikai támadások sem hatnak rá. Ez a mechanika további taktikai elemeket ad a játékhoz, mivel a játékosoknak figyelniük kell a lovagok mentális állapotára is, nem csak a fizikai túlélésükre.</p>
+<p>A különböző tárgyak (item-ek) szintén hozzájárulhatnak a HP és SP gyorsabb visszatöltéséhez. Ezek a tárgyak lehetnek gyógyitalok, varázslatos eszközök, vagy egyéb speciális kiegészítők, amelyek taktikai előnyt nyújtanak a harc során. A megfelelő item használata kritikus lehet a lovagok életerejének vagy józanságának gyors helyreállításához, ezzel növelve a csapat túlélési esélyeit és hatékonyságát. A különböző item-ek szintén segíthetnek a HP/SP gyors újratöltésében.</p>
+<p>Minden lovagnak, ellenségnek, és fegyvernek van egy szintje, amely az [1, 5] intervallumban mozog. Amikor egy karakter legalább 2 szinttel magasabb, előnyt élvez az alacsonyabb szintű ellenféllel szemben, például magasabb sebzést okoz vagy hatékonyabban védekezik (a szintkülönbség alapján szorzók érvényesülnek).</p>
+<p>A játék általában arra törekszik, hogy a játékos szintjéhez maximum 1 szinttel különböző ellenségeket teremtsen, így biztosítva a kiegyensúlyozott kihívást. Bizonyos területeken azonban mindig ugyanazon a szinten lévő ellenségekkel találkozhatunk, függetlenül a játékos szintjétől. A “boss” ellenségek pedig mindenképp fix szintűek.</p>
+<h2 data-number="5.3" id="hosszútávú-játékmenet"><span class="header-section-number">5.3</span> Hosszútávú Játékmenet</h2>
+<p>A játékmenet több területre oszlik, és miután egy területet feloldottunk, bármikor visszatérhetünk rá. Minden szinten számos feladat vár a játékosra, nem csak a következő szint elérése. A Termék várhatóan körülbelül 9 területet foglal majd magában, bár ez változhat a háttértörténet alakulásától függően.</p>
+<p>Bizonyos esetekben előfordulhat, hogy egy feladatot csak akkor tudunk teljesíteni egy területen, ha egy másik területen már előrehaladtunk, és fordítva. Ezáltal a területek közötti összefüggések is fontos szerepet kapnak a játékmenetben.</p>
+<p>A “főellenség” legyőzése után a játékosnak lehetősége van tovább folytatni a játékot, mellékküldetéseket teljesíteni, felfedezni rejtett tartalmakat, vagy új kihívásokat keresni. Alternatívaként visszatérhet a játék elejére vagy egy korábbi checkpoint-ra, hogy más utat választva fejezze be a történetet, akár új befejezést is feloldva. Az ilyen visszatérések során a megszerzett küldetések, pontok, tárgyak, fegyverek, és lovagok megmaradnak, így a játékos folyamatosan építheti fel a karakterét és csapatát, még ha újra is kezdi a történetet.</p>
+<p>Bizonyos küldetések csak akkor válnak elérhetővé, ha a játékos legalább egyszer végigjátszotta a játékot. Ezeknek a speciális küldetéseknek a teljesítése lehetővé teszi titkos befejezés(ek) feloldását, amely(ek)et az első végigjátszás során lehetetlen megszerezni. Ez a mechanika arra ösztönzi a játékosokat, hogy többször is végigjátsszák a játékot, új tartalmakat fedezzenek fel, és alternatív befejezéseket érjenek el.</p>
+<h1 data-number="6" id="minőségi-elvárások"><span class="header-section-number">6</span> Minőségi Elvárások</h1>
+<h2 data-number="6.1" id="teljesítmény-jellemzők"><span class="header-section-number">6.1</span> Teljesítmény jellemzők</h2>
+<ul>
+<li><p><strong>FPS (Frames per Second):</strong> A játék zökkenőmentessége érdekében elvárás, hogy a játék stabil 60 FPS-sel fusson. A játékban ezért megjelenik a grafikai beállítások skálázhatósága, hogy gyengébb hardvereken is élvezhető legyen a játék, ugyanakkor a modern eszközökön kihasználhassa a nagyobb teljesítmény nyújtotta előnyöket.</p></li>
+<li><p><strong>Memóriahasználat:</strong> A játék optimalizálása elengedhetetlen, hogy ne terhelje túl a rendelkezésre álló memóriát (RAM, VRAM). A nagy világokkal rendelkező RPG-k esetében különösen fontos a hatékony memóriafelhasználás, hogy elkerülhetők legyenek a fagyások és betöltési problémák.</p></li>
+<li><p><strong>Töltési idők:</strong> Az RPG-k nagy méretű és részletes világokkal rendelkeznek, ezért elvárás, hogy a betöltési idő minimális legyen. Az SSD-kre optimalizált gyors betöltési mechanizmusok vannak jelen, és a világ nagy része folyamatosan, háttérben töltődik be.</p></li>
+<li><p><strong>Lefagyások és stabilitás:</strong> A játék stabilitása elsődleges fontosságú. Elvárás, hogy ne legyenek gyakori összeomlások, fagyások, különösen fontos jelenetek vagy csaták közben.</p></li>
+</ul>
+<h2 data-number="6.2" id="válaszidő-latency"><span class="header-section-number">6.2</span> Válaszidő (Latency)</h2>
+<ul>
+<li><p><strong>Játékvezérlés és reakcióidő:</strong> A játékban a játékvezérlőknek és a felhasználói interakcióknak azonnal kell reagálni. A válaszidő kulcsfontosságú a harcrendszerben és az egyéb valós idejű interakciókban. Ha a karakterek késlekedve reagálnak a játékos parancsaira, az jelentősen ronthatja az élményt.</p></li>
+<li><p><strong>UI válaszidő:</strong> A felhasználói felületnek (pl. inventory, térkép, karakterfejlesztés) gyorsan és gördülékenyen kell reagálnia a játékos interakcióira. Például, ha a játékos egy tárgyat kiválaszt az inventory-ból, az azonnal jelenjen meg vagy alkalmazkodjon a karakteren.</p></li>
+</ul>
+<h2 data-number="6.3" id="biztonsági-szint"><span class="header-section-number">6.3</span> Biztonsági szint</h2>
+<ul>
+<li><p><strong>Mentési rendszerek megbízhatósága:</strong> Az RPG-k esetében kritikus, hogy a játékmentések megbízhatóak legyenek. Elvárás, hogy a mentési funkciók hibátlanul működjenek, és a játékosok soha ne veszítsenek el fontos mentéseket. A több különböző mentési állapot lehetősége (manual save, auto-save) fontos biztosíték arra, hogy a játékos ne essen vissza jelentősen a haladásban.</p></li>
+<li><p><strong>Adatbiztonság:</strong> Még egy single-player játék esetében is fontos, hogy a játék adatainak és beállításainak biztonsága garantált legyen. Ha a játék összekapcsolódik online szolgáltatásokkal (pl. achievementek, felhő alapú mentések), az adatvédelmi és biztonsági szabványoknak (pl. GDPR) is meg kell felelnie.</p></li>
+<li><p><strong>Cheat védelem:</strong> Bár egy single-player RPG esetében a cheat lehetőségek nem annyira kritikusak, mint egy multiplayer játékban, mégis fontos lehet, hogy a játék biztonságosan védve legyen a játékot megzavaró vagy instabillá tevő csalásoktól és hibáktól.</p></li>
+</ul>
+<h2 data-number="6.4" id="felhasználóbarátság-usability"><span class="header-section-number">6.4</span> Felhasználóbarátság (Usability)</h2>
+<ul>
+<li><p><strong>Intuitív UI/UX:</strong> Az RPG-k gyakran komplex rendszerekkel (pl. karakterfejlődés, harcrendszer, inventory kezelés) dolgoznak. Elvárás, hogy a felhasználói felület egyszerű és könnyen érthető legyen, valamint támogassa a játékos gyors eligazodását a menükben és az információk között. Például az inventory-ban történő navigáció, a térkép használata, vagy a questek kezelése legyen gyors és áttekinthető.</p></li>
+<li><p><strong>Tutorial és segítségnyújtás:</strong> A játékosok számára elérhető tutorialok és információs rendszerek segítenek megérteni a játék mechanikáit. Elvárás, hogy a játék intuitív módon vezesse be a játékost a bonyolultabb rendszerekbe (pl. skillek, craftolás), és biztosítson tippeket, ha a játékos elakad.</p></li>
+<li><p><strong>Hozzáférhetőség (Accessibility):</strong> Fontos, hogy a játék különböző hozzáférhetőségi opciókat kínáljon, például testreszabható billentyűzet- és kontrollerkiosztás, feliratok, színvak módok, vagy hangvezérlés. Ezek az opciók biztosítják, hogy széles körű felhasználói bázis élvezhesse a játékot.</p></li>
+</ul>
+<h2 data-number="6.5" id="grafikai-és-audiovizuális-minőség"><span class="header-section-number">6.5</span> Grafikai és audiovizuális minőség</h2>
+<ul>
+<li><p><strong>Grafikai részletesség:</strong> Egy single-player RPG világának hitelessége és vonzereje szorosan összefügg a grafikai minőséggel. A karakterek, helyszínek és effektek magas szintű részletessége, realisztikussága vagy művészi stílusa alapvető elvárás. A vizuális effektek, fények, árnyékok és animációk simasága mind fontosak a játék hangulatának megteremtésében.</p></li>
+<li><p><strong>Hangminőség és zenék:</strong> Az RPG-kben a hanghatások és a zenei aláfestés nagy szerepet játszanak a világ megteremtésében. Elvárás, hogy a hangok és a zene szinkronban legyen a játék eseményeivel, és erősítsék a játékos elmélyülését a világban. A karakterek szinkronja, az ambient zajok, valamint a zenei kompozíció minősége kulcsfontosságú.</p></li>
+</ul>
+<h2 data-number="6.6" id="játékélmény-gameplay"><span class="header-section-number">6.6</span> Játékélmény (Gameplay)</h2>
+<ul>
+<li><p><strong>Game balance (játékegyensúly):</strong> Elvárás, hogy a játék megfelelően kiegyensúlyozott legyen. A harcrendszer, a karakterfejlődés, a loot és az ellenségek nehézsége mind jól beállított legyen. Fontos, hogy a játékos soha ne érezze túl könnyűnek vagy irreálisan nehéznek a játékot, hacsak nem kifejezetten ez a célja (pl. nehezebb játékmódok).</p></li>
+<li><p><strong>Történetmesélés minősége:</strong> Az RPG-k esetében elvárás, hogy a történet és a karakterek jól megírtak legyenek, és a játékos döntései befolyásolják a világot. A párbeszédek, küldetések, NPC-k fejlődése és a történet fordulatai mind fontos elemei annak, hogy a játékos motivált maradjon a játék végigjátszására.</p></li>
+<li><p><strong>Tartalom mélysége és terjedelme:</strong> Egy RPG játéknak általában nagy mélységű tartalommal kell rendelkeznie, amely biztosítja a hosszú távú elköteleződést. A mellékküldetések, felfedezhető világok, valamint a karakterek és helyszínek sokszínűsége elvárt a műfajban.</p></li>
+</ul>
+<h2 data-number="6.7" id="javítások-és-frissítések-kezelése"><span class="header-section-number">6.7</span> Javítások és frissítések kezelése</h2>
+<ul>
+<li><strong>Patch-ek és hibajavítások:</strong> Elvárás, hogy a játék megjelenés után is kapjon rendszeres hibajavításokat és frissítéseket, amelyek javítják a teljesítményt, valamint korrigálják az esetleges bugokat vagy kiegyensúlyozási problém</li>
+</ul>
+<h1 data-number="7" id="kockázat-lista"><span class="header-section-number">7</span> Kockázat lista</h1>
+<p><strong>Fejlesztési csúszások és időhiány</strong></p>
+<p>Egy 5 fős csapat számára a teljes 3D-s világ, a karakterek, a csapdák, valamint a végső összecsapás megvalósítása időigényes lehet. A csapat mérete korlátozott erőforrásokat jelenthet, és ha valamelyik fejlesztő kiesik vagy nehézségekbe ütközik, az hatással lehet a fejlesztésre.</p>
+<p><strong>Technikai kihívások a Godot engine használatában</strong></p>
+<p>Bár a Godot engine nagyszerű eszköz, lehetnek technikai korlátok vagy nehézségek a használata során, különösen akkor, ha a csapat nem rendelkezik nagy tapasztalattal a motorral. Esetlegesen hiányzó funkciók vagy stabilitási problémák lassíthatják a fejlesztést.</p>
+<p><strong>A játék egyediségének hiánya</strong></p>
+<p>A középkori lovagi történetek egy gyakori téma a játékokban, így ha a játéknak nincs egyedi jellemzője (például egy különleges játékmenet vagy innovatív mechanika), nehezebb lesz kitűnni a tömegből és versenyképesnek maradni a piacon.</p>
+<p><strong>Optimalizálási problémák</strong></p>
+<p>A 3D-s világok, különösen egy kisebb csapat által fejlesztett játékoknál, optimalizálási gondokat okozhatnak. A lassú vagy akadozó játékélmény elriaszthatja a játékosokat, különösen, ha a játék nagyobb gépigényű lesz, mint amit a közönség elvár egy indie játéktól.</p>
+<p><strong>Történet és játékmenet balanszírozása</strong></p>
+<p>A narratív és a játékmechanikai elemek összhangja kulcsfontosságú. Ha a történet túl lineáris vagy a játékmechanika monoton, az alááshatja a játékos élményét. Kihívás lehet a játék mechanikáinak és a történetnek egyensúlyban tartása, hogy minden szempontból érdekes és változatos maradjon a játék.</p>
+<p><strong>Marketing és megjelenési problémák</strong></p>
+<p>Egy indie játéknál fontos a jó marketingstratégia és a láthatóság. Ha a játék nem kap megfelelő promóciót, vagy nem sikerül felkelteni az érdeklődést a közösségi médiában, az eladhatósága csökkenhet. Az indie játékpiac telített, és nehéz kiemelkedni.</p>
+<p><strong>Csapattagok közötti nézeteltérések</strong></p>
+<p>Egy kis csapatnál, ahol több ember kreatívan járul hozzá a projekthez, előfordulhatnak nézeteltérések a fejlesztési irányt illetően. Ez lassíthatja a döntéshozatalt, és esetlegesen belső feszültségekhez vezethet.</p>
+<p><strong>Finanszírozási és erőforrás-korlátok</strong></p>
+<p>Ha a csapat nem rendelkezik elegendő anyagi forrással, az kihatással lehet a fejlesztés minőségére vagy ütemére. Esetleg hiányozhatnak a szükséges eszközök, technológiák, vagy egyes folyamatokat nem tudnak kiszervezni, ami megnehezíti a játék befejezését.</p>
+</body>
+</html>
