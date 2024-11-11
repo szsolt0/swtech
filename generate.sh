@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# asd
+
 shopt -s nullglob
 
 genhtml() {
