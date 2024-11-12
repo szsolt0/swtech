@@ -10,7 +10,7 @@ genhtml() {
 	local path="$3"
 	shift 3
 
-	pandoc -o "dist/$fname" -H style.html -B "$path/cover.html" -B "$path/history.html" $path/*.md --toc -N --metadata title="$title" -V title: | sed -e 's:^<table>$:<div class="tbl-wrap"><table>:g' -e 's:^</table>$:</table></div>:g'
+	pandoc -t html -H style.html -B "$path/cover.html" -B "$path/history.html" $path/*.md --toc -N --metadata document-css=false --metadata title="$title" -V title: | sed -e 's:^<table>$:<div class="tbl-wrap"><table>:g' -e 's:^</table>$:</table></div>:g' > "dist/$fname"
 }
 
 mkdir -p dist/h{1..5}
@@ -40,4 +40,4 @@ cp h4/analízis/v1.0/alrendszerek.svg dist/h4/
 cp h4/analízis/v1.0/osztályok.png dist/h4/
 
 # === Munkanapló ===
-pandoc -o "dist/munkanaplo.html" -B "munkanapló/cover.html" -B "munkanapló/history.html" -B "munkanapló/munkanapló.html" /dev/null --toc -N -c style.css --self-contained --metadata title="Munkanapló" -V title: | sed -e 's:^<table>$:<div class="tbl-wrap"><table>:g' -e 's:^</table>$:</table></div>:g'
+genhtml munkanaplo.html "Munkanapló" munkanapló
