@@ -18,4 +18,7 @@
 	<tr><td>2024-10-28</td><td>Füzi Gergő Róbert</td><td>H3-ra való videó elkészítése.</td></tr>
 	<tr><td>2024-11-01</td><td>Sándor János<br>Adamcsik Bendegúz<br>Dobozi Botond<br>Füzi Gergő Róbert<br>Sebe Zsolt</td><td>H4 megbeszélés megkezdése</td></tr>
 	<tr><td>2024-11-01</td><td>Füzi Gergő Róbert</td><td>Demo implementálás kezdete Godot-ba Blender-ből</td></tr>
+	<tr><td>2024-11-07</td><td>Füzi Gergő Róbert</td><td>Github elérés a Godot projecthez. A demo implementáció folytatása. Minden model ami a videóban szerepelt benne van a játékban. Kivétel a lovag. Player mozgása kész. A kamera követi a játékost.</td></tr>
+	<tr><td>2024-11-12</td><td>Sándor János<br>Adamcsik Bendegúz<br>Dobozi Botond<br>Füzi Gergő Róbert<br>Sebe Zsolt</td><td>11.10 és 11.12 között a játék implementációján való munkálat. Plusz animáció készítése a PPT hez. 
+Jelenleg a játékban vannak animációk. A lovag és a mobok teljesen működő képes állapotban vannak. Arra jó lesz, hogy egy kettő videót készítsünk a PPT hez.</td></tr>
 </table>
