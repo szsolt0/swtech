@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Analízis Modell</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <style>
+  th, td {
+  	padding: .5em;
+  	border: 1pt solid gray;
+  }
+
+  table {
+  	width: 100%;
+  	border-collapse: collapse;
+  }
+
+  .tbl-wrap {
+  	width: 100%;
+  	overflow-y: scroll;
+  }
+
+  .img-wrap {
+  	width: 100%;
+  	overflow-y: scroll;
+  }
+  </style>
+</head>
+<body>
+<p>Csoport neve: JZBBG</p>
+
+<p>Feladat sorszáma: 1</p>
+
+<p>Feladat címe: Knights Age</p>
+
+<p style="text-align: center; font-weight: bold; font-size: xx-large;">Analízis Modell</p>
+<p style="text-align: center;">Gyakorlatvezető:</p>
+<p style="text-align: center; font-size: x-large;">Árvai László</p>
+
+<p>Csoport tagok:</p>
+
+<div class="tbl-wrap"><table>
+	<tr><td>Sándor János</td><td>progterv</td><td>sandorj2002@gmail.com</td></tr>
+	<tr><td>Adamcsik Bendegúz</td><td>progterv</td><td>bendeguz.adamcsik@gmail.com</td></tr>
+	<tr><td>Dobozi Botond</td><td>progterv</td><td>boti2424@gmail.com</td></tr>
+	<tr><td>Füzi Gergő Róbert</td><td>mérnökinfó</td><td>fgergo21@gmail.com</td></tr>
+	<tr><td>Sebe Zsolt</td><td>progterv</td><td>sebezsolt2@gmail.com</td></tr>
+</table></div>
+
+<p style="text-align: right;">2024-11-04</p>
+<div class="tbl-wrap"><table>
+	<tr><th>Dátum</th><th>Verzió</th><th>Leírás</th><th>Szerző</th></tr>
+	<tr><td>2024-11-04</td><td>1.0</td><td>Első verzió.</td><td>Sándor János<br>Adamcsik Bendegúz<br>Dobozi Botond<br>Füzi Gergő Róbert<br>Sebe Zsolt</td></tr>
+</table></div>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#bevezetés"><span class="toc-section-number">1</span> Bevezetés</a></li>
+<li><a href="#kezdeti-osztálydiagram"><span class="toc-section-number">2</span> Kezdeti Osztálydiagram</a>
+<ul>
+<li><a href="#osztálydiagram"><span class="toc-section-number">2.1</span> Osztálydiagram</a></li>
+<li><a href="#osztályok-felsorolása"><span class="toc-section-number">2.2</span> Osztályok felsorolása</a></li>
+<li><a href="#alrendszerek"><span class="toc-section-number">2.3</span> Alrendszerek</a>
+<ul>
+<li><a href="#felhasználói-felület-alrendszer"><span class="toc-section-number">2.3.1</span> Felhasználói felület alrendszer</a></li>
+<li><a href="#játék-mechanika-alrendszer"><span class="toc-section-number">2.3.2</span> Játék mechanika alrendszer</a></li>
+<li><a href="#világ-alrendszer"><span class="toc-section-number">2.3.3</span> Világ alrendszer</a></li>
+<li><a href="#adatkezelés-és-mentés-alrendszer"><span class="toc-section-number">2.3.4</span> Adatkezelés és mentés alrendszer</a></li>
+<li><a href="#multiplayer-alrendszer"><span class="toc-section-number">2.3.5</span> Multiplayer alrendszer</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#világ-alrendszer-modellje"><span class="toc-section-number">3</span> Világ alrendszer modellje</a>
+<ul>
+<li><a href="#statikus-modell"><span class="toc-section-number">3.1</span> Statikus modell</a>
+<ul>
+<li><a href="#kapcsolatok-pontosítása"><span class="toc-section-number">3.1.1</span> Kapcsolatok pontosítása</a></li>
+<li><a href="#attribútumok-azonosítása"><span class="toc-section-number">3.1.2</span> Attribútumok azonosítása</a></li>
+<li><a href="#bázisosztályok-keresése"><span class="toc-section-number">3.1.3</span> Bázisosztályok keresése</a></li>
+</ul></li>
+<li><a href="#dinamikus-modell"><span class="toc-section-number">3.2</span> Dinamikus modell</a></li>
+<li><a href="#funkcionális-modell"><span class="toc-section-number">3.3</span> Funkcionális modell</a></li>
+<li><a href="#operációk-azonosítása"><span class="toc-section-number">3.4</span> 3.4 Operációk azonosítása</a></li>
+<li><a href="#az-analízis-modell-osztálydiagramja"><span class="toc-section-number">3.5</span> 3.5 Az analízis modell osztálydiagramja</a></li>
+<li><a href="#osztályok-felelősségei-és-attribútumai"><span class="toc-section-number">3.6</span> 3.6 Osztályok felelősségei és attribútumai</a>
+<ul>
+<li><a href="#worldmanager"><span class="toc-section-number">3.6.1</span> WorldManager</a></li>
+<li><a href="#npcmanager"><span class="toc-section-number">3.6.2</span> NPCManager</a></li>
+<li><a href="#mapmanager"><span class="toc-section-number">3.6.3</span> MapManager</a></li>
+<li><a href="#environmentmanager"><span class="toc-section-number">3.6.4</span> EnvironmentManager</a></li>
+<li><a href="#questmanager"><span class="toc-section-number">3.6.5</span> QuestManager</a></li>
+<li><a href="#baseentity"><span class="toc-section-number">3.6.6</span> BaseEntity</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#adatkezelés-és-mentés-alrendszer-1"><span class="toc-section-number">4</span> Adatkezelés és mentés alrendszer</a>
+<ul>
+<li><a href="#statikus-modell-1"><span class="toc-section-number">4.1</span> Statikus modell</a>
+<ul>
+<li><a href="#kapcsolatok"><span class="toc-section-number">4.1.1</span> Kapcsolatok</a></li>
+<li><a href="#osztályok-és-azok-attribútumainak-azonosítása-és-műveleteik"><span class="toc-section-number">4.1.2</span> Osztályok és azok attribútumainak azonosítása és műveleteik</a></li>
+<li><a href="#bázisosztályok-keresése-1"><span class="toc-section-number">4.1.3</span> Bázisosztályok keresése</a></li>
+</ul></li>
+<li><a href="#dinamikus-modell-1"><span class="toc-section-number">4.2</span> Dinamikus modell</a></li>
+<li><a href="#funkcionális-modell-1"><span class="toc-section-number">4.3</span> Funkcionális modell</a></li>
+<li><a href="#operációk-azonosítása-1"><span class="toc-section-number">4.4</span> Operációk azonosítása</a></li>
+<li><a href="#az-analízis-modell-osztálydiagramja-1"><span class="toc-section-number">4.5</span> Az analízis modell osztálydiagramja</a>
+<ul>
+<li><a href="#savesystem"><span class="toc-section-number">4.5.1</span> SaveSystem</a></li>
+<li><a href="#importgame"><span class="toc-section-number">4.5.2</span> ImportGame</a></li>
+<li><a href="#localcloudsavedgamelist"><span class="toc-section-number">4.5.3</span> LocalCloudSavedGameList</a></li>
+<li><a href="#continue"><span class="toc-section-number">4.5.4</span> Continue</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="bevezetés"><span class="header-section-number">1</span> Bevezetés</h1>
+<p>Ebben a dokumentumban a Knights Age nevű játék analízis modellét és annak leírását találjuk meg. Ehhez egy osztálydiagram, az osztályok felsorolása és leírása, majd egy alrendszer ábrázolása tartozik.</p>
+<h1 data-number="2" id="kezdeti-osztálydiagram"><span class="header-section-number">2</span> Kezdeti Osztálydiagram</h1>
+<h2 data-number="2.1" id="osztálydiagram"><span class="header-section-number">2.1</span> Osztálydiagram</h2>
+<div class="img-wrap">
+<p><a href="osztályok.png" target="_blank"><img src="osztályok.png" alt="Osztálydiagram" title="Osztálydiagram" /></a></p>
+</div>
+<h2 data-number="2.2" id="osztályok-felsorolása"><span class="header-section-number">2.2</span> Osztályok felsorolása</h2>
+<ul>
+<li><p><strong>Main Menu:</strong> A játék főmenüjét kezeli, ahol a játékos választhat különböző játékmódok, beállítások és egyéb opciók közül.</p></li>
+<li><p><strong>Play:</strong> A játékmódokat tartalmazó opció, ahol a játékos egyjátékos vagy többjátékos módot indíthat.</p></li>
+<li><p><strong>Single Player:</strong> Az egyjátékos mód beállításai, ahol a játékos új játékot indíthat, és meghatározhatja a játékmenet különböző paramétereit.</p></li>
+<li><p><strong>New Game:</strong> Egy új egyjátékos játék indításához szükséges beállításokat tartalmazza, mint a világ neve, nehézség és láthatósági beállítások.</p></li>
+<li><p><strong>World Name:</strong> Az új világ nevének megadására szolgáló mező.</p></li>
+<li><p><strong>Difficulty:</strong> A játék nehézségi szintjének beállítása az egyjátékos módhoz.</p></li>
+<li><p><strong>Import Game:</strong> Lehetővé teszi egy korábban mentett játék importálását, különböző forrásokból.</p></li>
+<li><p><strong>Local:</strong> A helyileg mentett játékok importálásának lehetősége.</p></li>
+<li><p><strong>Visibility:</strong> Meghatározza, hogy az egyjátékos játék privát, csak barátok számára elérhető, vagy nyilvános legyen.</p></li>
+<li><p><strong>Private/Friends/Public:</strong> A láthatósági opciók, amelyek meghatározzák, ki férhet hozzá a játékhoz.</p></li>
+<li><p><strong>Multiplayer:</strong> A többjátékos mód beállításait tartalmazza, ahol a játékos saját játékot hozhat létre vagy csatlakozhat más játékokhoz.</p></li>
+<li><p><strong>Host Game:</strong> Lehetővé teszi, hogy a játékos saját többjátékos játékot hozzon létre.</p></li>
+<li><p><strong>My Games:</strong> A játékos által létrehozott játékok listája a többjátékos módban.</p></li>
+<li><p><strong>List Games:</strong> A többjátékos játékok listájának megtekintésére szolgál, ahol mások által létrehozott játékokhoz lehet csatlakozni.</p></li>
+<li><p><strong>Direct Connect:</strong> Lehetővé teszi, hogy a játékos közvetlen kapcsolatot létesítsen egy adott többjátékos játékkal.</p></li>
+<li><p><strong>Join:</strong> Csatlakozás mások által létrehozott többjátékos játékokhoz.</p></li>
+<li><p><strong>Continue:</strong> Lehetővé teszi egy korábban mentett játék folytatását helyi vagy felhőből mentett állományokból.</p></li>
+<li><p><strong>Local/Cloud Saved Games List:</strong> A helyileg és a felhőben mentett játékállások listája.</p></li>
+<li><p><strong>Settings:</strong> A játék beállításainak menüje, ahol a videó, audió és vezérlési beállításokat lehet módosítani.</p></li>
+<li><p><strong>Video:</strong> A játék vizuális beállításait tartalmazza, mint a felbontás, grafikai minőség és egyéb grafikai opciók.</p></li>
+<li><p><strong>Resolution:</strong> A játék felbontásának beállításai különböző opciókkal.</p></li>
+<li><p><strong>Scale:</strong> A felbontás méretezésének beállítása.</p></li>
+<li><p><strong>FPS Limit:</strong> Az FPS korlát beállítása, amely meghatározza a játék maximális képkockaszámát másodpercenként.</p></li>
+<li><p><strong>V-Sync:</strong> A vertikális szinkronizáció opciójának beállítása a képtörés elkerülése érdekében.</p></li>
+<li><p><strong>Graphics Quality:</strong> A grafikai minőség beállítása, amely befolyásolja a játék látványvilágát.</p></li>
+<li><p><strong>Anti-Aliasing:</strong> A kép simaságát biztosító élsimítás beállítása különböző opciókkal.</p></li>
+<li><p><strong>Texture Quality:</strong> A textúra minőségének beállítása a grafikai részletesség érdekében.</p></li>
+<li><p><strong>Shadows:</strong> Az árnyékok részletességi szintjének beállítása.</p></li>
+<li><p><strong>Shadow Distance:</strong> Az árnyékok megjelenítési távolságának beállítása.</p></li>
+<li><p><strong>Ambient Occlusion:</strong> A környezeti árnyékolás effektusának beállítása a valósághűbb árnyékok érdekében.</p></li>
+<li><p><strong>Bloom Effect:</strong> A bloom effektus beállítása, amely fényesebb részeket emel ki a játékban.</p></li>
+<li><p><strong>Motion Blur:</strong> Mozgáselmosás hatásának beállítása, hogy a gyors mozgás során élesebb élményt nyújtson.</p></li>
+<li><p><strong>Field of View (FOV):</strong> A látószög beállítása a játék látványának szélesítéséhez.</p></li>
+<li><p><strong>Depth of Field:</strong> A mélységélesség hatásának bekapcsolása a valósághűbb megjelenítéshez.</p></li>
+<li><p><strong>Render Distance:</strong> A renderelési távolság beállítása, amely meghatározza, milyen messze jelenjenek meg az objektumok.</p></li>
+<li><p><strong>Anisotropic Filtering:</strong> Az anizotropikus szűrés beállítása, amely a textúrák részletességét növeli távoli szögekből.</p></li>
+<li><p><strong>Audio:</strong> A hangbeállítások menüje, ahol a zene, effektusok és egyéb hangok hangereje állítható.</p></li>
+<li><p><strong>Master Volume:</strong> Az összes hangforrás hangerejének beállítása.</p></li>
+<li><p><strong>Music Volume:</strong> A zenei hangforrások hangerejének beállítása.</p></li>
+<li><p><strong>SFX Volume:</strong> A hangeffektek hangerejének beállítása.</p></li>
+<li><p><strong>Dialogue Volume:</strong> A párbeszédek hangerejének beállítása a játék során.</p></li>
+<li><p><strong>Controls:</strong> A vezérlési beállítások menüje, ahol a billentyűkiosztás és egyéb vezérlési opciók testreszabhatók.</p></li>
+<li><p><strong>Key Bindings:</strong> A billentyűkiosztás beállítása, ahol a játékos testreszabhatja az egyes akciókhoz rendelt billentyűket.</p></li>
+<li><p><strong>Mouse Sensitivity:</strong> Az egér érzékenységének beállítása a játékban.</p></li>
+<li><p><strong>Gamepad Configuration:</strong> A gamepad beállítási opciói, ahol a játékos testreszabhatja a gamepad kiosztást.</p></li>
+<li><p><strong>Quit:</strong> Kilépés a játékból és visszatérés az operációs rendszerbe.</p></li>
+<li><p><strong>GAMEPLAY UI (3):</strong> A játék felhasználói felülete, amely az összes fontos információt megjeleníti a játékmenet során.</p></li>
+<li><p><strong>Pause Menus:</strong> Szünet menü, ahol a játékos megállíthatja a játékot és elérheti a beállításokat.</p></li>
+<li><p><strong>Quit:</strong> Kilépés opció, amely lehetővé teszi a játék bezárását.</p></li>
+<li><p><strong>Map:</strong> Térkép, amely megmutatja a játék világának felfedezett területeit.</p></li>
+<li><p><strong>Active Quests:</strong> A játékos által aktívan teljesítendő küldetések listája.</p></li>
+<li><p><strong>HP:</strong> Életerő, amely a karakter egészségi állapotát jelzi.</p></li>
+<li><p><strong>Mana:</strong> Mana pontok, amelyek varázslatok és különleges képességek használatához szükségesek.</p></li>
+<li><p><strong>HUD (only online elements):</strong> A játékban kizárólag az online játékhoz kapcsolódó elemeket megjelenítő felület.</p></li>
+<li><p><strong>Sanity Points:</strong> Mentális egészség pontok, amelyek a karakter lelkiállapotát mutatják.</p></li>
+<li><p><strong>Quests:</strong> A játékos által elvállalt összes küldetés listája, aktív és teljesített egyaránt.</p></li>
+<li><p><strong>Minimap:</strong> Kisméretű térkép, amely valós időben mutatja a játékos közvetlen környezetét.</p></li>
+<li><p><strong>Chat:</strong> Csevegési lehetőség, ahol a játékos kommunikálhat más játékosokkal.</p></li>
+<li><p><strong>Inventory:</strong> A játékos tárgyainak listája, ahol minden begyűjtött tárgyat tárol.</p></li>
+<li><p><strong>Online Players List:</strong> Az online játékban résztvevő többi játékos listája.</p></li>
+<li><p><strong>HUD:</strong> A játékos általános felhasználói felülete, amely az információkat és eszközöket mutatja a játékmenet során.</p></li>
+<li><p><strong>Skills:</strong> A játékos által tanult és feloldott képességek listája.</p></li>
+<li><p><strong>Completed Quests:</strong> A már teljesített küldetések listája.</p></li>
+<li><p><strong>Head:</strong> A karakter által viselhető fejfedők és sisakok.</p></li>
+<li><p><strong>Wearable:</strong> Viselhető felszerelések, mint páncél és ruhák.</p></li>
+<li><p><strong>Body:</strong> A karakter törzsére viselhető ruházat vagy páncél.</p></li>
+<li><p><strong>Tool:</strong> Eszközök, mint például fejsze vagy csákány, amelyek gyűjtésre és barkácsolásra használhatók.</p></li>
+<li><p><strong>Shoes:</strong> Cipők és csizmák, amelyeket a karakter viselhet.</p></li>
+<li><p><strong>Notifications:</strong> Értesítések, amelyek fontos eseményekről vagy figyelmeztetésekről tájékoztatnak.</p></li>
+<li><p><strong>Active Skills:</strong> Aktív képességek, amelyeket a játékos használhat a harc vagy más interakciók során.</p></li>
+<li><p><strong>Special Skills:</strong> Speciális képességek, amelyek különleges hatásokat biztosítanak.</p></li>
+<li><p><strong>Shield:</strong> Pajzs, amely védekezésre használható a harc során.</p></li>
+<li><p><strong>Passive Skills:</strong> Passzív képességek, amelyek folyamatosan aktívak és bónuszokat nyújtanak.</p></li>
+<li><p><strong>Dialogue Box:</strong> Párbeszédablak, ahol a játékos párbeszédeket folytathat NPC-kkel.</p></li>
+<li><p><strong>Buffs/Debuffs:</strong> Ideiglenes erősítő vagy gyengítő hatások, amelyek befolyásolják a játékos statisztikáit.</p></li>
+<li><p><strong>Bag:</strong> Táska, amely extra tárhelyet biztosít a játékos tárgyainak.</p></li>
+<li><p><strong>Level Indicator:</strong> A játékos karakterének aktuális szintjét jelző sáv.</p></li>
+<li><p><strong>Active Effects:</strong> Az aktív hatások listája, mint például buffok vagy debuffok, amelyek jelenleg a karakterre hatnak.</p></li>
+<li><p><strong>XP Bar:</strong> Tapasztalati pontok sávja, amely a szintlépésig szükséges pontokat mutatja.</p></li>
+<li><p><strong>Gold (Currency):</strong> A játék pénzneme, amelyet tárgyak vásárlására használhat a játékos.</p></li>
+<li><p><strong>Extra Item:</strong> Különleges tárgy, amely különbözik a normál felszerelésektől és erősebb hatással bírhat.</p></li>
+<li><p><strong>List of Items:</strong> A játékos összes birtokolt tárgyának listája.</p></li>
+<li><p><strong>Quest Items (Infinite Slots):</strong> Küldetéstárgyak, amelyeknek külön tárhelye van és nincs mennyiségi korlátja.</p></li>
+<li><p><strong>Achievements:</strong> Teljesítmények, amelyeket a játékos érhet el különféle kihívások teljesítésével.</p></li>
+<li><p><strong>System Messages:</strong> Rendszerüzenetek, amelyek a játékkal kapcsolatos információkat közölnek, például hibajelzéseket vagy rendszerfrissítéseket.</p></li>
+<li><p><strong>Bushes:</strong> Cserjék a játék világában, dekoratív vagy erőforrásként szolgálhatnak.</p></li>
+<li><p><strong>Stones:</strong> Kövek, amelyeket gyűjteni lehet vagy akadályként jelenhetnek meg.</p></li>
+<li><p><strong>Path:</strong> Útvonalak, amelyek segítik a játékost az eligazodásban.</p></li>
+<li><p><strong>Grass:</strong> Fű, amely a játék világának természetes része, díszítő elem vagy forrás lehet.</p></li>
+<li><p><strong>Smithing:</strong> Kovácsolás képesség, amely lehetővé teszi fegyverek és páncélok készítését.</p></li>
+<li><p><strong>Herbalism:</strong> Gyógynövénytan képesség, amely lehetővé teszi a gyógynövények gyűjtését és felhasználását.</p></li>
+<li><p><strong>Trees:</strong> Fák, amelyek részei a környezetnek, vagy akár erőforrásként használhatók.</p></li>
+<li><p><strong>Lava:</strong> Láva, amely akadályokat képezhet vagy veszélyforrás lehet.</p></li>
+<li><p><strong>Rocks:</strong> Sziklák, amelyeket gyűjthetők vagy akadályként funkcionálhatnak.</p></li>
+<li><p><strong>Trees on Fire:</strong> Égő fák, amelyek veszélyforrást jelentenek.</p></li>
+<li><p><strong>Evil World:</strong> Egy gonosz világ vagy birodalom a játékban, amely kihívásokat tartogat.</p></li>
+<li><p><strong>Desert:</strong> Sivatagos terület, amely sajátos környezeti elemeket tartalmaz.</p></li>
+<li><p><strong>Ashes:</strong> Hamvak, amelyek a környezet részei vagy akadályok lehetnek.</p></li>
+<li><p><strong>Cactus:</strong> Kaktuszok a sivatagos területeken, amelyek dekorációként vagy akadályként jelenhetnek meg.</p></li>
+<li><p><strong>Tumbleweed:</strong> Szélfújta növények, amelyek a sivatag hangulatát fokozzák.</p></li>
+<li><p><strong>Melee, Ranged:</strong> Közelharci és távolsági támadási típusok.</p></li>
+<li><p><strong>Dried Tree:</strong> Száraz fa, amely a sivatagos vagy elhagyatott területeken található.</p></li>
+<li><p><strong>Forest:</strong> Erdős terület, amely gazdag növény- és állatvilágot tartalmaz.</p></li>
+<li><p><strong>Res Gathering:</strong> Erőforrás-gyűjtés a játékos által szükséges alapanyagok megszerzésére.</p></li>
+<li><p><strong>NPC Dialogue System:</strong> NPC-kel való párbeszédek rendszere.</p></li>
+<li><p><strong>Trading:</strong> Kereskedelem, amely lehetővé teszi tárgyak cseréjét NPC-kkel.</p></li>
+<li><p><strong>Crafting and Gathering:</strong> Tárgyak készítését és alapanyagok gyűjtését lehetővé tevő rendszer.</p></li>
+<li><p><strong>Faction Reputation:</strong> A játékos hírneve különböző frakciókkal.</p></li>
+<li><p><strong>Quest Acceptance:</strong> Küldetések elfogadása a játékos számára.</p></li>
+<li><p><strong>Environmental Elements:</strong> A környezet elemei, amelyek befolyásolják a játékmenetet.</p></li>
+<li><p><strong>Interactions:</strong> Interakciók különféle játékbeli elemekkel.</p></li>
+<li><p><strong>GAMEPLAY UI:</strong> A játék felhasználói felülete, amely az információkat jeleníti meg.</p></li>
+<li><p><strong>Reputation System:</strong> Hírnév rendszere, amely a játékos viszonyait szabályozza.</p></li>
+<li><p><strong>Combat System:</strong> A harcrendszer, amely a játékbeli csatákat szabályozza.</p></li>
+<li><p><strong>Weather System:</strong> Időjárási rendszer, amely dinamikus környezeti változásokat biztosít.</p></li>
+<li><p><strong>Day/Night:</strong> Nappali és éjszakai ciklus a játékban.</p></li>
+<li><p><strong>Basic Attacks:</strong> Alapvető támadások, amelyeket a játékos használhat.</p></li>
+<li><p><strong>Environments:</strong> Különféle környezeti területek a játékban, mint erdők, sivatagok stb.</p></li>
+<li><p><strong>AOE Magic Spells:</strong> Területre ható mágikus varázslatok.</p></li>
+<li><p><strong>Special Abilities:</strong> Különleges képességek, amelyeket a játékos feloldhat.</p></li>
+<li><p><strong>Party System:</strong> Csapatformálási rendszer, amely több karakter közös játékát teszi lehetővé.</p></li>
+<li><p><strong>Enemy AI:</strong> Az ellenséges karakterek mesterséges intelligenciája.</p></li>
+<li><p><strong>Def Abilities:</strong> Védekező képességek, amelyek csökkentik a sebzést.</p></li>
+<li><p><strong>Party Formation:</strong> Csapat felállítása a játék során.</p></li>
+<li><p><strong>Aggro System:</strong> Az ellenségek figyelmének vonzása.</p></li>
+<li><p><strong>World Objects:</strong> Tárgyak a játék világában, amelyekkel a játékos kölcsönhatásba léphet.</p></li>
+<li><p><strong>Enemy Skills:</strong> Az ellenségek speciális képességei.</p></li>
+<li><p><strong>KNIGHTS AGE:</strong> A játék világa, amely különböző időszakokra oszlik.</p></li>
+<li><p><strong>Player:</strong> A játékos által irányított karakter.</p></li>
+<li><p><strong>Quest System:</strong> A küldetések rendszere, amely feladatokat kínál a játékosnak.</p></li>
+<li><p><strong>Quest Types:</strong> Különféle küldetéstípusok, például fő, mellék és frakcióküldetések.</p></li>
+<li><p><strong>Main Quests:</strong> Főküldetések, amelyek a játék fő történetét viszik előre.</p></li>
+<li><p><strong>NPCs:</strong> Nem játékos karakterek, akikkel a játékos kommunikálhat.</p></li>
+<li><p><strong>Entity:</strong> Minden élőlény és objektum a játék világában.</p></li>
+<li><p><strong>Mob:</strong> Az ellenséges lények, amelyek a játékosra támadnak.</p></li>
+<li><p><strong>Side Quests:</strong> Mellékküldetések, amelyek extra tartalmat nyújtanak.</p></li>
+<li><p><strong>Progression System:</strong> Fejlődési rendszer, amely a karakter előrehaladását szabályozza.</p></li>
+<li><p><strong>Objectives:</strong> A küldetések céljai.</p></li>
+<li><p><strong>Faction Quests:</strong> Frakcióküldetések, amelyek a frakcióhoz kapcsolódnak.</p></li>
+<li><p><strong>AI Behaviour:</strong> Az NPC-k és ellenfelek viselkedését irányító mesterséges intelligencia.</p></li>
+<li><p><strong>Enemies:</strong> Az ellenségek, amelyek a játékosra veszélyt jelentenek.</p></li>
+<li><p><strong>Structures:</strong> Építmények, amelyek dekorációként vagy funkcionális elemekként szolgálnak.</p></li>
+<li><p><strong>Attributes:</strong> A játékos karakterének jellemzői, mint az erő vagy ügyesség.</p></li>
+<li><p><strong>Skill Points Allocation:</strong> A képességpontok elosztása a játékos karaktere számára.</p></li>
+<li><p><strong>Leveling (max 5):</strong> A játékos szintlépése, maximum 5 szintig.</p></li>
+<li><p><strong>Rewards:</strong> Jutalmak, amelyeket a küldetések és kihívások teljesítéséért kap.</p></li>
+<li><p><strong>Dialogue Options:</strong> Párbeszéd opciók az NPC-kel való interakció során.</p></li>
+<li><p><strong>Quest Givers, Merchants etc:</strong> Küldetésadók és kereskedők, akiktől a játékos küldetéseket és tárgyakat kaphat.</p></li>
+<li><p><strong>Unlockable Abilities:</strong> Képességek, amelyeket a játékos feloldhat.</p></li>
+<li><p><strong>Faction Allegiances:</strong> A játékos kapcsolata a frakciókkal.</p></li>
+<li><p><strong>Traps:</strong> Csapdák, amelyek akadályozzák vagy sebesítik a játékost.</p></li>
+<li><p><strong>Interactive Objects:</strong> Olyan tárgyak, amelyekkel a játékos közvetlenül interakcióba léphet.</p></li>
+<li><p><strong>Items:</strong> Tárgyak, amelyeket a játékos gyűjthet és használhat.</p></li>
+<li><p><strong>Weapons:</strong> Fegyverek, amelyek a játékos harci képességeit növelik.</p></li>
+<li><p><strong>Xp, Gold, Equipment, Reputation:</strong> Tapasztalati pontok, arany, felszerelések és hírnév, amelyeket a játékos megszerezhet.</p></li>
+<li><p><strong>Exploration Quests:</strong> Felfedezéshez kötődő küldetések.</p></li>
+<li><p><strong>Collect Quests:</strong> Gyűjtögetéshez kapcsolódó küldeté</p></li>
+</ul>
+<h2 data-number="2.3" id="alrendszerek"><span class="header-section-number">2.3</span> Alrendszerek</h2>
+<div class="img-wrap">
+<p><a href="alrendszerek.svg" target="_blank"><img src="alrendszerek.svg" alt="Alrendszer diagram" title="Alrendszer diagram" /></a></p>
+</div>
+<h3 data-number="2.3.1" id="felhasználói-felület-alrendszer"><span class="header-section-number">2.3.1</span> Felhasználói felület alrendszer</h3>
+<p>Ez az alrendszer felelős a játékban megjelenő elemek és menük kezeléséért, beleértve a HUD-ot, a főmenüt, és a különféle játékbeállítási opciókat.</p>
+<p><strong>Osztályok:</strong> MainMenu, Settings, Audio, Video, HUD, Inventory, Active Quests, Completed Quests, Map, Chat, Notifications, Dialogue Box, Online Players List, Achievements</p>
+<h3 data-number="2.3.2" id="játék-mechanika-alrendszer"><span class="header-section-number">2.3.2</span> Játék mechanika alrendszer</h3>
+<p>Ez az alrendszer tartalmazza a játék főbb funkcióit, például a harcrendszert, a képességeket, a fejlesztési rendszert, és a küldetéseket.</p>
+<p><strong>Osztályok:</strong> Combat system, Progression system, Skills, Active skills, Passive skills, Special skills, Quests, Quest system, Quest types, Objectives, Rewards, Party system, Aggro system, Enemy AI</p>
+<h3 data-number="2.3.3" id="világ-alrendszer"><span class="header-section-number">2.3.3</span> Világ alrendszer</h3>
+<p>Ez az alrendszer felelős a játék világának felépítéséért, a különböző helyszínekért, elemekért, valamint a környezeti és időjárási hatásokért.</p>
+<p><strong>Osztályok:</strong> World objects, Environments, Weather system, Day/night, Forest, Desert, Evil world, Environmental elements, trees, stones, lava, NPC dialogue system</p>
+<h3 data-number="2.3.4" id="adatkezelés-és-mentés-alrendszer"><span class="header-section-number">2.3.4</span> Adatkezelés és mentés alrendszer</h3>
+<p>Ez az alrendszer kezeli a játékállások mentését és betöltését, valamint a felhő alapú mentéseket és a helyi mentési lehetőségeket.</p>
+<p><strong>Osztályok:</strong> Save system, Local/Cloud saved Games List, New Game, Continue, Import Game</p>
+<h3 data-number="2.3.5" id="multiplayer-alrendszer"><span class="header-section-number">2.3.5</span> Multiplayer alrendszer</h3>
+<p>A többjátékos funkciókért felelős alrendszer, beleértve a csatlakozási lehetőségeket, játékok listáját, és a különböző többjátékos beállításokat.</p>
+<p><strong>Osztályok:</strong> Multiplayer, List Game, Host Game, Direct Connect, Join, My Games, New Game</p>
+<h1 data-number="3" id="világ-alrendszer-modellje"><span class="header-section-number">3</span> Világ alrendszer modellje</h1>
+<h2 data-number="3.1" id="statikus-modell"><span class="header-section-number">3.1</span> Statikus modell</h2>
+<h3 data-number="3.1.1" id="kapcsolatok-pontosítása"><span class="header-section-number">3.1.1</span> Kapcsolatok pontosítása</h3>
+<p>Az alábbi osztályok találhatók meg a Világ alrendszerben:</p>
+<ul>
+<li><strong>WorldManager</strong>: Az összefogó osztály, amely kezeli a világ létrehozását, betöltését és törlését.
+<ul>
+<li>Kapcsolódik az alábbi osztályokhoz:
+<ul>
+<li><strong>MapManager</strong>: A térképek generálását és karbantartását végzi.</li>
+<li><strong>NPCManager</strong>: Nem játékos karakterek (NPC-k) kezelése, létrehozása és irányítása.</li>
+<li><strong>EnvironmentManager</strong>: A világ fizikai és időjárási tulajdonságait kezeli.</li>
+<li><strong>QuestManager</strong>: A világban elérhető küldetéseket és eseményeket tartja nyilván.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 data-number="3.1.2" id="attribútumok-azonosítása"><span class="header-section-number">3.1.2</span> Attribútumok azonosítása</h3>
+<p>Az osztályok attribútumai:</p>
+<p><strong>WorldManager</strong> - <code>worldName</code>: A világ neve. - <code>currentMap</code>: Az éppen aktív térkép azonosítója. - <code>timeOfDay</code>: A játék világában eltelt idő (például: nappal/éjszaka). - <code>activeQuests</code>: Az aktív küldetések listája.</p>
+<p><strong>MapManager</strong> - <code>maps</code>: A térképek listája. - <code>activeZone</code>: Az éppen aktív zóna azonosítója.</p>
+<p><strong>NPCManager</strong> - <code>npcList</code>: Az aktív NPC-k listája. - <code>spawnRate</code>: Az NPC-k újrateremtésének gyakorisága.</p>
+<p><strong>EnvironmentManager</strong> - <code>weather</code>: Az aktuális időjárási állapot. - <code>dayCycle</code>: Az éjjel-nappal ciklus beállításai.</p>
+<p><strong>QuestManager</strong> - <code>availableQuests</code>: Az elérhető küldetések listája. - <code>completedQuests</code>: A teljesített küldetések listája.</p>
+<h3 data-number="3.1.3" id="bázisosztályok-keresése"><span class="header-section-number">3.1.3</span> Bázisosztályok keresése</h3>
+<ul>
+<li><strong>Entity</strong>: Bázisosztály lehet az NPC-k, objektumok és egyéb világelemek számára.
+<ul>
+<li>Attribútumok:
+<ul>
+<li><code>id</code>: Egyedi azonosító.</li>
+<li><code>name</code>: Az entitás neve.</li>
+<li><code>position</code>: Az entitás helye a térképen.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 data-number="3.2" id="dinamikus-modell"><span class="header-section-number">3.2</span> Dinamikus modell</h2>
+<p>IMAGE!01!Dinamikus modell</p>
+<p>A dinamikus modell a világ működése során bekövetkező folyamatokat írja le:</p>
+<ul>
+<li><strong>Világ inicializálása</strong>: A játék betöltésekor a <code>WorldManager</code> elindítja a <code>MapManager</code>-t, <code>NPCManager</code>-t, és az <code>EnvironmentManager</code>-t.</li>
+<li><strong>Térkép váltása</strong>: Amikor a játékos egy új zónába lép, a <code>MapManager</code> betölti az adott térképet, és az <code>NPCManager</code> újrateremti az NPC-ket.</li>
+<li><strong>Küldetések aktiválása</strong>: A <code>QuestManager</code> aktiválja az adott térképen elérhető küldetéseket, amikor a játékos belép a zónába.</li>
+</ul>
+<h2 data-number="3.3" id="funkcionális-modell"><span class="header-section-number">3.3</span> Funkcionális modell</h2>
+<p>IMAGE!02!Funkcionális modell</p>
+<p>Az egyes osztályok funkciói:</p>
+<ul>
+<li>WorldManager
+<ul>
+<li><code>initializeWorld(worldName)</code>: A világ inicializálása a megadott név alapján.</li>
+<li><code>saveWorld()</code>: A világ állapotának elmentése.</li>
+<li><code>loadWorld(saveID)</code>: Egy mentett világ betöltése.</li>
+<li><code>deleteWorld(worldID)</code>: Egy meglévő világ törlése.</li>
+</ul></li>
+<li>MapManager
+<ul>
+<li><code>loadMap(mapID)</code>: Egy térkép betöltése.</li>
+<li><code>generateMap(seed)</code>: Új térkép generálása adott seed alapján.</li>
+</ul></li>
+</ul>
+<h2 data-number="3.4" id="operációk-azonosítása"><span class="header-section-number">3.4</span> 3.4 Operációk azonosítása</h2>
+<ul>
+<li><strong>Világ betöltése</strong>:
+<ul>
+<li>Műveletek:
+<ul>
+<li><code>initializeWorld()</code>: A WorldManager elindítja a folyamatot.</li>
+<li><code>loadMap()</code>: A MapManager betölti az első térképet.</li>
+<li><code>spawnNPCs()</code>: Az NPCManager aktiválja a karaktereket.</li>
+<li><code>updateWeather()</code>: Az EnvironmentManager frissíti az időjárást.</li>
+</ul></li>
+</ul></li>
+<li><strong>Új térkép betöltése</strong>:
+<ul>
+<li>Műveletek:
+<ul>
+<li><code>loadMap()</code>: Betölti az új térképet.</li>
+<li><code>despawnNPCs()</code>: Az előző térkép NPC-it eltünteti.</li>
+<li><code>spawnNPCs()</code>: Az új térkép NPC-it létrehozza.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 data-number="3.5" id="az-analízis-modell-osztálydiagramja"><span class="header-section-number">3.5</span> 3.5 Az analízis modell osztálydiagramja</h2>
+<h2 data-number="3.6" id="osztályok-felelősségei-és-attribútumai"><span class="header-section-number">3.6</span> 3.6 Osztályok felelősségei és attribútumai</h2>
+<h3 data-number="3.6.1" id="worldmanager"><span class="header-section-number">3.6.1</span> WorldManager</h3>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Felelősség
+</th>
+<th>
+Feladat
+</th>
+</tr>
+<tr>
+<td>
+Kezeli a világ állapotát, betöltést, mentést és törlést.
+</td>
+<td>
+A világ létrehozása, mentése és törlése.
+</td>
+</tr>
+</table></div>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Együttműködők
+</th>
+<td>
+<code>MapManager</code>, <code>NPCManager</code>, <code>EnvironmentManager</code>, <code>QuestManager</code>
+</td>
+</tr>
+</table></div>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Attribútum
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+<tr>
+<td>
+<code>currentWorld</code>
+</td>
+<td>
+<code>Object</code>
+</td>
+<td>
+Az aktuális játékvilág tárolása.
+</td>
+</tr>
+<tr>
+<td>
+<code>worldState</code>
+</td>
+<td>
+<code>String</code>
+</td>
+<td>
+A világ aktuális állapota (pl. betöltve, mentve stb.).
+</td>
+</tr>
+</table></div>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Operációk
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, Feladata
+</th>
+</tr>
+<tr>
+<td>
+<code>initializeWorld()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Inicializálja az új világot, előkészítve a kezdő térképet és NPC-ket.
+</td>
+</tr>
+<tr>
+<td>
+<code>loadWorld()</code>
+</td>
+<td>
+<code>worldFile</code>
+</td>
+<td>
+Betölti az adott világot egy fájlból.
+</td>
+</tr>
+<tr>
+<td>
+<code>saveWorld()</code>
+</td>
+<td>
+<code>worldFile</code>
+</td>
+<td>
+Ment egy világállapotot egy fájlba.
+</td>
+</tr>
+<tr>
+<td>
+<code>deleteWorld()</code>
+</td>
+<td>
+<code>worldFile</code>
+</td>
+<td>
+Törli a világot a fájlrendszerből.
+</td>
+</tr>
+</table></div>
+<h3 data-number="3.6.2" id="npcmanager"><span class="header-section-number">3.6.2</span> NPCManager</h3>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Felelősség
+</th>
+<th>
+Feladat
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Létrehozza és eltávolítja az NPC-ket az adott zónában.
+</td>
+<td>
+Az NPC-k kezelése, létrehozása, eltávolítása egy adott területen.
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Együttműködők
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+WorldManager
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Attribútumok
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+npcList
+</td>
+<td>
+List
+</td>
+<td>
+Az összes NPC-t tárolja egy listában.
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Operációk
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működés, Feladat
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+createNPC()
+</td>
+<td>
+npcData
+</td>
+<td>
+Létrehozza az NPC-t a megadott adatok alapján.
+</td>
+</tr>
+<tr>
+<td>
+removeNPC()
+</td>
+<td>
+npcID
+</td>
+<td>
+Eltávolít egy NPC-t a világból az azonosítója alapján.
+</td>
+</tr>
+<tr>
+<td>
+updateNPC()
+</td>
+<td>
+npcID, newData
+</td>
+<td>
+Frissíti egy NPC adatait.
+</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="3.6.3" id="mapmanager"><span class="header-section-number">3.6.3</span> MapManager</h3>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Felelősség
+</th>
+<th>
+Feladat
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Kezeli a térképeket, beleértve azok betöltését és generálását.
+</td>
+<td>
+A játék világának térképeit generálja és kezeli.
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Együttműködők
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+WorldManager
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Attribútumok
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+mapData
+</td>
+<td>
+Object
+</td>
+<td>
+A térkép adatainak tárolása.
+</td>
+</tr>
+<tr>
+<td>
+mapSize
+</td>
+<td>
+Integer
+</td>
+<td>
+A térkép mérete.
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Operációk
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működés, Feladat
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+generateMap()
+</td>
+<td>
+mapSize
+</td>
+<td>
+Létrehozza a térképet a megadott mérettel.
+</td>
+</tr>
+<tr>
+<td>
+loadMap()
+</td>
+<td>
+mapSize
+</td>
+<td>
+Betölti a térképet egy fájlból.
+</td>
+</tr>
+<tr>
+<td>
+saveMap()
+</td>
+<td>
+mapSize
+</td>
+<td>
+Elmenti a térképet egy fájlba.
+</td>
+</tr>
+<tr>
+<td>
+removeMap()
+</td>
+<td>
+mapSize
+</td>
+<td>
+Törli a jelenlegi térképet.
+</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="3.6.4" id="environmentmanager"><span class="header-section-number">3.6.4</span> EnvironmentManager</h3>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Felelősség
+</th>
+<th>
+Feladat
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Frissíti az időjárást és kezeli az idő előrehaladását.
+</td>
+<td>
+Az időjárás és idő folyamatos változása a világban.
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Együttműködők
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+WorldManager
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Attribútumok
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+currentWeather
+</td>
+<td>
+String
+</td>
+<td>
+Az aktuális időjárás (pl. napos, esős).
+</td>
+</tr>
+<tr>
+<td>
+timeOfDay
+</td>
+<td>
+String
+</td>
+<td>
+Az időpont (pl. reggel, délután).
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Operációk
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működés, Feladat
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+updateWeather()
+</td>
+<td>
+weatherType
+</td>
+<td>
+Frissíti az időjárást az új típusnak megfelelően.
+</td>
+</tr>
+<tr>
+<td>
+updateTimeOfDay()
+</td>
+<td>
+timePeriod
+</td>
+<td>
+Frissíti az időpontot (pl. nappali vagy éjjeli órákra).
+</td>
+</tr>
+<tr>
+<td>
+getWeatherForecast()
+</td>
+<td>
+nincs
+</td>
+<td>
+Megadja az előrejelzett időjárást egy adott időszakra.
+</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="3.6.5" id="questmanager"><span class="header-section-number">3.6.5</span> QuestManager</h3>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Felelősség
+</th>
+<th>
+Feladat
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+A küldetések kezelését végzi, beleértve azok hozzáadását és befejezését.
+</td>
+<td>
+A küldetések létrehozása, kezelése és befejezése a játékban.
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Együttműködők
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+WorldManager
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Attribútumok
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+quests
+</td>
+<td>
+List
+</td>
+<td>
+A játékban elérhető küldetések listája.
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Operációk
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működés, Feladat
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+addQuest()
+</td>
+<td>
+questData
+</td>
+<td>
+Új küldetést ad hozzá a rendszerhez.
+</td>
+</tr>
+<tr>
+<td>
+completeQuest()
+</td>
+<td>
+questID
+</td>
+<td>
+Befejezi a megadott küldetést.
+</td>
+</tr>
+<tr>
+<td>
+getActiveQuests()
+</td>
+<td>
+nincs
+</td>
+<td>
+Lekéri az aktív küldetéseket, amelyek még nem lettek befejezve.
+</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="3.6.6" id="baseentity"><span class="header-section-number">3.6.6</span> BaseEntity</h3>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Felelősség
+</th>
+<th>
+Feladat
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Az alapvető entitások, mint NPC-k, objektumok stb. közös tulajdonságait és metódusait tartalmazza.
+</td>
+<td>
+A világ összes entitásának közös tulajdonságai és metódusai.
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Együttműködők
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+NPCManager, MapManager
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Attribútumok
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+id
+</td>
+<td>
+Integer
+</td>
+<td>
+Az entitás egyedi azonosítója.
+</td>
+</tr>
+<tr>
+<td>
+position
+</td>
+<td>
+Vector3
+</td>
+<td>
+Az entitás pozíciója a térképen.
+</td>
+</tr>
+<tr>
+<td>
+entityType
+</td>
+<td>
+String
+</td>
+<td>
+Az entitás típusa (pl. NPC, objektum).
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Operációk
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működés, Feladat
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+moveEntity()
+</td>
+<td>
+destroyEntity()
+</td>
+<td>
+Az entitás elmozdítása az új pozícióra.
+</td>
+</tr>
+<tr>
+<td>
+interactWith()
+</td>
+<td>
+entityID
+</td>
+<td>
+Interakció más entitással.
+</td>
+</tr>
+<tr>
+<td>
+destroyEntity()
+</td>
+<td>
+nincs
+</td>
+<td>
+Az entitás eltávolítása a világból.
+</td>
+</tr>
+</tbody>
+</table></div>
+<h1 data-number="4" id="adatkezelés-és-mentés-alrendszer-1"><span class="header-section-number">4</span> Adatkezelés és mentés alrendszer</h1>
+<h2 data-number="4.1" id="statikus-modell-1"><span class="header-section-number">4.1</span> Statikus modell</h2>
+<h3 data-number="4.1.1" id="kapcsolatok"><span class="header-section-number">4.1.1</span> Kapcsolatok</h3>
+<ol type="1">
+<li><strong>SaveSystem — ImportGame:</strong>
+<ul>
+<li>A SaveSystem használja az ImportGame-et az importálási műveletekhez. Az importálás eredménye a SaveSystem mentési listájába kerülhet.</li>
+</ul></li>
+<li><strong>SaveSystem — Continue:</strong>
+<ul>
+<li>A SaveSystem közvetlenül kapcsolódik a Continue-hoz, mivel a mentett állapotokat a SaveSystem tárolja és a Continue azon keresztül tölti be a játékot.</li>
+</ul></li>
+<li><strong>SaveSystem — LocalCloudSavedGameList:</strong>
+<ul>
+<li>A SaveSystem és a LocalCloudSavedGameList szinkronizálják a mentett játékokat helyben és felhőben. Az adatok elérhetők és szinkronizálhatók a felhővel, ami lehetővé teszi a több eszköz közötti átvitelét.</li>
+</ul></li>
+<li><strong>ImportGame — SaveSystem:</strong>
+<ul>
+<li>Az ImportGame az adatokat betölti és validálja, majd a SaveSystem kezeli a mentett állapotokat.</li>
+</ul></li>
+<li><strong>New Game — SaveSystem:</strong>
+<ul>
+<li>A New Game kezdeményezi az új játékot, amelyet a SaveSystem menthet és kezelhet.</li>
+</ul></li>
+<li><strong>LocalCloudSavedGameList — Continue:</strong>
+<ul>
+<li>A LocalCloudSavedGameList biztosítja a mentett játékok listáját a Continue számára, hogy a játékos folytathassa a játékot a mentett állapotokból.</li>
+</ul></li>
+</ol>
+<p>Az alrendszerek közötti kapcsolatok lehetővé teszik, hogy a játékos különböző játékállapotokat importáljon, folytasson, mentse és szinkronizálja azokat helyben vagy a felhőben, miközben minden adat összhangban van a rendszer többi komponensével.</p>
+<h3 data-number="4.1.2" id="osztályok-és-azok-attribútumainak-azonosítása-és-műveleteik"><span class="header-section-number">4.1.2</span> Osztályok és azok attribútumainak azonosítása és műveleteik</h3>
+<p><strong>SaveSystem</strong></p>
+<ul>
+<li><strong>Attribútumok:</strong>
+<ul>
+<li><code>savedGames</code>: Lista, amely tartalmazza az elérhető mentett játékokat.</li>
+<li><code>gameSettings</code>: A játék beállításait tároló objektum (pl. grafikai, hangbeállítások).</li>
+<li><code>saveDirectory</code>: Az elérési út a mentési fájlokhoz.</li>
+<li><code>cloudSyncStatus</code>: Információ arról, hogy a felhő szinkronizálás aktív-e vagy sem.</li>
+</ul></li>
+<li><strong>Műveletek:</strong></li>
+<li><code>saveGame()</code>: Ment egy új játékot vagy felülír egy meglévőt.</li>
+<li><code>loadGame()</code>: Betölti a játékot egy adott mentett állapotból.</li>
+<li><code>deleteSavedGame()</code>: Törli a mentett játékot.</li>
+<li><code>saveSettings()</code>: Menthetők a beállítások.</li>
+<li><code>getSaveFilePath()</code>: Visszaadja a mentési fájl helyét.</li>
+</ul>
+<p><strong>ImportGame</strong></p>
+<ul>
+<li><strong>Attribútumok:</strong>
+<ul>
+<li><code>importSource</code>: Forrás, ahonnan az adatokat importálni kell (pl. másik eszköz, fájl, felhő).</li>
+<li><code>importStatus</code>: Az importálás állapota (sikeres vagy hibás).</li>
+</ul></li>
+<li><strong>Műveletek:</strong>
+<ul>
+<li><code>importGameData()</code>: Importálja a játék adatokat.</li>
+<li><code>validateImportedGame()</code>: Validálja az importált adatokat.</li>
+</ul></li>
+</ul>
+<p><strong>Continue</strong></p>
+<ul>
+<li><strong>Attribútumok:</strong>
+<ul>
+<li><code>lastSavedGame</code>: A legutóbb mentett játék adatai.</li>
+<li><code>gameProgress</code>: A játékban elért előrehaladás (pl. szint, küldetés).</li>
+</ul></li>
+<li><strong>Műveletek:</strong>
+<ul>
+<li><code>continueGame()</code>: Folytatja a legutóbbi mentett játékot.</li>
+<li><code>checkSavedGameExists()</code>: Ellenőrzi, hogy van-e elérhető mentett játék a folytatáshoz.</li>
+</ul></li>
+</ul>
+<p><strong>New Game</strong></p>
+<ul>
+<li><strong>Attribútumok:</strong>
+<ul>
+<li><code>playerCharacter</code>: A játékos karaktere, amelyet új játék kezdetekor kell inicializálni.</li>
+<li><code>gameStartTime</code>: Az új játék kezdési ideje.</li>
+</ul></li>
+<li><strong>Műveletek:</strong>
+<ul>
+<li><code>startNewGame()</code>: Létrehozza az új játékot.</li>
+<li><code>initializePlayerCharacter()</code>: Inicializálja a játékos karakterét.</li>
+</ul></li>
+</ul>
+<p><strong>LocalCloudSavedGameList</strong></p>
+<ul>
+<li><strong>Attribútumok:</strong>
+<ul>
+<li><code>savedGameList</code>: A mentett játékok listája.</li>
+<li><code>cloudSyncStatus</code>: A felhő szinkronizálásának státusza.</li>
+</ul></li>
+<li><strong>Műveletek:</strong>
+<ul>
+<li><code>getSavedGamesList():</code> Lekéri a mentett játékok listáját helyben vagy a felhőből.</li>
+<li><code>syncWithCloud():</code> Szinkronizálja a mentéseket a felhővel.</li>
+<li><code>downloadSavedGame():</code> Letölti a mentett játékot.</li>
+<li><code>uploadSavedGame():</code> Feltölti a mentett játékot a felhőbe.</li>
+</ul></li>
+</ul>
+<h3 data-number="4.1.3" id="bázisosztályok-keresése-1"><span class="header-section-number">4.1.3</span> Bázisosztályok keresése</h3>
+<ol type="1">
+<li>FileHandler
+<ul>
+<li><strong>Szerepe:</strong> Általános osztály a fájlműveletekhez, amely minden olyan komponens számára hasznos, amely fájlokat olvas, ír vagy töröl.</li>
+<li><strong>Attribútumok:</strong>
+<ul>
+<li><code>filePath:</code> A fájl elérési útja.</li>
+<li><code>fileFormat:</code> A fájl formátuma (pl. JSON, XML, bináris). Műveletek:</li>
+<li><code>readFile():</code> Fájl olvasása.</li>
+<li><code>writeFile(data):</code> Adat írása a fájlba.</li>
+<li><code>deleteFile():</code> Fájl törlése.</li>
+</ul></li>
+<li><strong>Örökölheti:</strong>
+<ul>
+<li><code>SaveSystem</code></li>
+<li><code>LocalCloudSavedGameList</code></li>
+<li><code>ImportGame</code></li>
+</ul></li>
+</ul></li>
+<li>GameData
+<ul>
+<li><strong>Szerepe:</strong> Az osztály, amely a játék adatstruktúráit definiálja, például a játékos állapotát, beállításait vagy világadatait.</li>
+<li><strong>Attribútumok:</strong>
+<ul>
+<li><code>playerState</code>: A játékos aktuális állapota (pl. életerő, pozíció).</li>
+<li><code>gameSettings</code>: A játék beállításai (pl. nehézség, vezérlők).</li>
+<li><code>worldState</code>: A világ aktuális állapota (pl. NPC-k, küldetések).</li>
+</ul></li>
+<li>Műveletek:
+<ul>
+<li><code>serialize()</code>: Az adatok sorosítása mentéshez.</li>
+<li><code>deserialize()</code>: Az adatok visszaállítása fájlból vagy memóriából.</li>
+</ul></li>
+<li><strong>Örökölheti:</strong>
+<ul>
+<li><code>SaveSystem</code></li>
+<li><code>Continue</code></li>
+<li><code>New Game</code></li>
+</ul></li>
+</ul></li>
+<li>CloudSync
+<ul>
+<li><strong>Szerepe:</strong> Az osztály a felhővel való kapcsolódáshoz szükséges funkciókat biztosítja.</li>
+<li><strong>Attribútumok:</strong>
+<ul>
+<li><code>cloudServiceURL</code>: A felhőszolgáltatás URL-je.</li>
+<li><code>authToken</code>: Hitelesítési token a hozzáféréshez.</li>
+<li><strong>Műveletek:</strong></li>
+<li><code>upload(data)</code>: Adatok feltöltése a felhőbe.</li>
+<li><code>download()</code>: Adatok letöltése a felhőből.</li>
+<li><code>sync()</code>: Helyi és felhő adatok szinkronizálása.</li>
+</ul></li>
+<li><strong>Örökölheti:</strong>
+<ul>
+<li><code>LocalCloudSavedGameList</code></li>
+</ul></li>
+</ul></li>
+<li>GameAction</li>
+</ol>
+<ul>
+<li><strong>Szerepe:</strong> Általános osztály a játékmenet akcióihoz, például új játék indítása, mentés betöltése vagy folytatás.</li>
+<li><strong>Attribútumok:</strong>
+<ul>
+<li><code>actionName</code>: Az akció neve (pl. “Continue”, “New Game”).</li>
+<li><code>actionTimestamp</code>: Az akció végrehajtásának időpontja.</li>
+</ul></li>
+<li><strong>Műveletek:</strong>
+<ul>
+<li><code>execute()</code>: Az akció végrehajtása.</li>
+</ul></li>
+<li><strong>Örökölheti:</strong>
+<ul>
+<li><code>New Game</code></li>
+<li><code>Continue</code></li>
+</ul></li>
+</ul>
+<h2 data-number="4.2" id="dinamikus-modell-1"><span class="header-section-number">4.2</span> Dinamikus modell</h2>
+<p>IMAGE!01!Dinamikus modell</p>
+<h2 data-number="4.3" id="funkcionális-modell-1"><span class="header-section-number">4.3</span> Funkcionális modell</h2>
+<p>IMAGE!02!Funkcionális modell</p>
+<h2 data-number="4.4" id="operációk-azonosítása-1"><span class="header-section-number">4.4</span> Operációk azonosítása</h2>
+<p><strong><code>SaveSystem:</code></strong> <code>saveGame(data: GameData): Boolean</code>, <code>loadGame(saveID: String): GameData</code>, <code>deleteSave(saveID: String): Boolean</code>, <code>syncSaves(): Boolean</code>, <code>getAvailableSaves(): List&lt;String&gt;</code></p>
+<p><strong><code>ImportGame:</code></strong> <code>importData(sourcePath: String): GameData</code>, <code>validateData(data: GameData): Boolean</code>, <code>sendToSaveSystem(data: GameData): Boolean</code>,</p>
+<p><strong><code>LocalCloudSavedGameList</code>:</strong> <code>getLocalSaves(): List&lt;String&gt;</code>, <code>getCloudSaves(): List&lt;String&gt;</code>, <code>syncSaves(): Boolean</code>, <code>getSaveInfo(saveID: String): SaveMetadata</code></p>
+<p><strong><code>Continue:</code></strong> <code>selectSave(saveID: String): Boolean</code>, <code>continueGame(): GameData</code></p>
+<p><strong><code>New Game:</code></strong> <code>initializeNewGame(settings: GameSettings): GameData</code>, <code>createInitialSave(data:GameData): Boolean</code></p>
+<h2 data-number="4.5" id="az-analízis-modell-osztálydiagramja-1"><span class="header-section-number">4.5</span> Az analízis modell osztálydiagramja</h2>
+<p>IMAGE!03!Az analízis modell osztálydiagramja</p>
+<h3 data-number="4.5.1" id="savesystem"><span class="header-section-number">4.5.1</span> SaveSystem</h3>
+<p><strong>Felelőssége, feladata:</strong> Kezeli a játék mentését, betöltését, törlését és szinkronizálását helyben vagy felhőben.</p>
+<p><strong>Együttműködők:</strong></p>
+<ul>
+<li><code>ImportGame</code>: Adatimportáláshoz.</li>
+<li><code>LocalCloudSavedGameList</code>: Mentett játékok listájának kezeléséhez.</li>
+<li><code>Continue</code>: Mentett játék betöltéséhez.</li>
+<li><code>New Game</code>: Új játék létrehozásához.</li>
+</ul>
+<p><strong>Attribútumok</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>saveData</code>
+</td>
+<td>
+<code>GameData</code>
+</td>
+<td>
+A mentett játék adatai.
+</td>
+</tr>
+<tr>
+<td>
+<code>savePath</code>
+</td>
+<td>
+<code>String</code>
+</td>
+<td>
+A mentési fájl helyi elérési útja.
+</td>
+</tr>
+<tr>
+<td>
+<code>cloudEnabled</code>
+</td>
+<td>
+<code>Boolean</code>
+</td>
+<td>
+A felhőszinkronizáció engedélyezése.
+</td>
+</tr>
+<tr>
+<td>
+<code>lastSaveTimestamp</code>
+</td>
+<td>
+<code>DateTime</code>
+</td>
+<td>
+Az utolsó mentés időpontja.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Operációk</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+saveGame
+</td>
+<td>
+data: GameData
+</td>
+<td>
+Elmenti az aktuális játékállapotot fájlba vagy felhőbe.
+</td>
+</tr>
+<tr>
+<td>
+loadGame
+</td>
+<td>
+saveID: String
+</td>
+<td>
+Betölti a kiválasztott mentést helyről vagy felhőből.
+</td>
+</tr>
+<tr>
+<td>
+deleteSave
+</td>
+<td>
+saveID: String
+</td>
+<td>
+Törli a megadott mentést.
+</td>
+</tr>
+<tr>
+<td>
+syncSaves
+</td>
+<td>
+Nincs
+</td>
+<td>
+Szinkronizálja a mentéseket a felhővel.
+</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="4.5.2" id="importgame"><span class="header-section-number">4.5.2</span> ImportGame</h3>
+<p><strong>Felelőssége, feladata:</strong> Más játékokból vagy fájlformátumokból származó adatok importálása a rendszerbe.</p>
+<p><strong>Együttműködők:</strong></p>
+<ul>
+<li><code>SaveSystem</code>: Az importált adatokat továbbítja a mentés kezeléséhez.</li>
+</ul>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>importFormat</code>
+</td>
+<td>
+<code>String</code>
+</td>
+<td>
+Az importálás formátuma (JSON, XML).
+</td>
+</tr>
+<tr>
+<td>
+<code>sourcePath</code>
+</td>
+<td>
+<code>String</code>
+</td>
+<td>
+Az importált fájl elérési útja.
+</td>
+</tr>
+<tr>
+<td>
+<code>importedData</code>
+</td>
+<td>
+<code>GameData</code>
+</td>
+<td>
+Az importált adatstruktúra.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>importData</code>
+</td>
+<td>
+<code>sourcePath: String</code>
+</td>
+<td>
+Betölti az adatokat a megadott fájlból.
+</td>
+</tr>
+<tr>
+<td>
+<code>validateData</code>
+</td>
+<td>
+<code>data: GameData</code>
+</td>
+<td>
+Ellenőrzi az importált adatok érvényességét.
+</td>
+</tr>
+<tr>
+<td>
+<code>sendToSave</code>
+</td>
+<td>
+<code>data: GameData</code>
+</td>
+<td>
+Továbbítja az adatokat a SaveSystem-nek mentésre.
+</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="4.5.3" id="localcloudsavedgamelist"><span class="header-section-number">4.5.3</span> LocalCloudSavedGameList</h3>
+<p><strong>Felelőssége, feladata:</strong> Kezeli a mentett játékok helyi és felhőbeli listáját.</p>
+<p><strong>Együttműködők:</strong></p>
+<ul>
+<li><code>SaveSystem</code>: A mentett játékok eléréséhez és szinkronizálásához.</li>
+<li><code>Continue</code>: A mentett játék kiválasztásához.</li>
+</ul>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>localSaves</code>
+</td>
+<td>
+<code>List&lt;String&gt;</code>
+</td>
+<td>
+A helyi mentések azonosítói.
+</td>
+</tr>
+<tr>
+<td>
+<code>cloudSaves</code>
+</td>
+<td>
+<code>List&lt;String&gt;</code>
+</td>
+<td>
+A felhőben tárolt mentések azonosítói.
+</td>
+</tr>
+<tr>
+<td>
+<code>syncStatus</code>
+</td>
+<td>
+<code>Boolean</code>
+</td>
+<td>
+A szinkronizáció aktuális állapota.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>getSaveList</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Visszaadja az elérhető mentések listáját.
+</td>
+</tr>
+<tr>
+<td>
+<code>syncSaves</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Szinkronizálja a helyi és felhőbeli mentéseket.
+</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="4.5.4" id="continue"><span class="header-section-number">4.5.4</span> Continue</h3>
+<p><strong>Felelőssége, feladata:</strong> Lehetővé teszi a játékos számára egy mentett játék folytatását.</p>
+<p><strong>Együttműködők:</strong> - <code>SaveSystem</code>: A mentett állapot betöltéséhez. - <code>LocalCloudSavedGameList</code>: A mentések listájának lekérdezéséhez.</p>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>selectedSave</code>
+</td>
+<td>
+<code>String</code>
+</td>
+<td>
+Az aktuálisan kiválasztott mentés azonosítója.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>selectSave</code>
+</td>
+<td>
+<code>saveID: String</code>
+</td>
+<td>
+Kiválasztja a folytatni kívánt mentést.
+</td>
+</tr>
+<tr>
+<td>
+<code>continueGame</code>
+</td>
+<td>
+<code>saveID: String</code>
+</td>
+<td>
+Betölti a kiválasztott mentett állapotot.
+</td>
+</tr>
+</tbody>
+</table></div>
+</body>
+</html>
