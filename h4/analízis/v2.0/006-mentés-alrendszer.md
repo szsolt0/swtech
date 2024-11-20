@@ -36,11 +36,11 @@ Az alrendszerek közötti kapcsolatok lehetővé teszik, hogy a játékos külö
   - `cloudSyncStatus`: Információ arról, hogy a felhő szinkronizálás aktív-e vagy sem.
 
 - **Műveletek:**
-- `saveGame()`: Ment egy új játékot vagy felülír egy meglévőt.
-- `loadGame()`: Betölti a játékot egy adott mentett állapotból.
-- `deleteSavedGame()`: Törli a mentett játékot.
-- `saveSettings()`: Menthetők a beállítások.
-- `getSaveFilePath()`: Visszaadja a mentési fájl helyét.
+  - `saveGame()`: Ment egy új játékot vagy felülír egy meglévőt.
+  - `loadGame()`: Betölti a játékot egy adott mentett állapotból.
+  - `deleteSavedGame()`: Törli a mentett játékot.
+  - `saveSettings()`: Menthetők a beállítások.
+  - `getSaveFilePath()`: Visszaadja a mentési fájl helyét.
 
 **ImportGame**
 
@@ -129,40 +129,62 @@ Az alrendszerek közötti kapcsolatok lehetővé teszik, hogy a játékos külö
       - `LocalCloudSavedGameList`
 
 4. GameAction
-  - **Szerepe:** Általános osztály a játékmenet akcióihoz, például új játék indítása, mentés
-betöltése vagy folytatás.
-  - **Attribútumok:**
-    - `actionName`: Az akció neve (pl. "Continue", "New Game").
-    - `actionTimestamp`: Az akció végrehajtásának időpontja.
-  - **Műveletek:**
-    - `execute()`: Az akció végrehajtása.
-  - **Örökölheti:**
-    - `New Game`
-    - `Continue`
+    - **Szerepe:** Általános osztály a játékmenet akcióihoz, például új játék indítása, mentés
+  betöltése vagy folytatás.
+    - **Attribútumok:**
+      - `actionName`: Az akció neve (pl. "Continue", "New Game").
+      - `actionTimestamp`: Az akció végrehajtásának időpontja.
+    - **Műveletek:**
+      - `execute()`: Az akció végrehajtása.
+    - **Örökölheti:**
+      - `New Game`
+      - `Continue`
 
 ## Dinamikus modell
 
-IMAGE!01!Dinamikus modell
+<div class="img-wrap">
+<a href="mentés-01.png" target="_blank"><img src="mentés-01.png" alt="Adatkezelés és mentés alrendszer dinamikus modell" title="Adatkezelés és mentés alrendszer dinamikus modell"></a>
+</div>
 
 ## Funkcionális modell
 
-IMAGE!02!Funkcionális modell
+<div class="img-wrap">
+<a href="mentés-02.png" target="_blank"><img src="mentés-02.png" alt="Adatkezelés és mentés alrendszer funkcionális modell" title="Adatkezelés és mentés alrendszer funkcionális modell"></a>
+</div>
 
 ## Operációk azonosítása
 
-**`SaveSystem:`** `saveGame(data: GameData): Boolean`, `loadGame(saveID: String): GameData`, `deleteSave(saveID: String): Boolean`, `syncSaves(): Boolean`, `getAvailableSaves(): List<String>`
+- **`SaveSystem:`**
+  - `saveGame(data: GameData): Boolean`
+  - `loadGame(saveID: String): GameData`
+  - `deleteSave(saveID: String): Boolean`
+  - `syncSaves(): Boolean`
+  - `getAvailableSaves(): List<String>`
 
-**`ImportGame:`** `importData(sourcePath: String): GameData`, `validateData(data: GameData): Boolean`, `sendToSaveSystem(data: GameData): Boolean`,
+- **`ImportGame:`**
+  - `importData(sourcePath: String): GameData`
+  - `validateData(data: GameData): Boolean`
+  - `sendToSaveSystem(data: GameData): Boolean`
 
-**`LocalCloudSavedGameList`:** `getLocalSaves(): List<String>`, `getCloudSaves(): List<String>`, `syncSaves(): Boolean`, `getSaveInfo(saveID: String): SaveMetadata`
+- **`LocalCloudSavedGameList`:**
+  - `getLocalSaves(): List<String>`
+  - `getCloudSaves(): List<String>`
+  - `syncSaves(): Boolean`
+  - `getSaveInfo(saveID: String): SaveMetadata`
 
-**`Continue:`** `selectSave(saveID: String): Boolean`, `continueGame(): GameData`
+- **`Continue:`**
+  - `selectSave(saveID: String): Boolean`
+  - `continueGame(): GameData`
 
-**`New Game:`** `initializeNewGame(settings: GameSettings): GameData`, `createInitialSave(data:GameData): Boolean`
+- **`New Game:`**
+  - `initializeNewGame(settings: GameSettings): GameData`
+  - `createInitialSave(data:GameData): Boolean`
 
 ## Az analízis modell osztálydiagramja
 
-IMAGE!03!Az analízis modell osztálydiagramja
+<div class="img-wrap">
+<a href="mentés-03.png" target="_blank"><img src="mentés-03.png" alt="Adatkezelés és mentés alrendszer analízis modell osztálydiagramja" title="Adatkezelés és mentés alrendszer analízis modell osztálydiagramja"></a>
+</div>
 
 ### SaveSystem
 
@@ -377,6 +399,7 @@ IMAGE!03!Az analízis modell osztálydiagramja
 **Felelőssége, feladata:** Lehetővé teszi a játékos számára egy mentett játék folytatását.
 
 **Együttműködők:**
+
 - `SaveSystem`: A mentett állapot betöltéséhez.
 - `LocalCloudSavedGameList`: A mentések listájának lekérdezéséhez.
 
