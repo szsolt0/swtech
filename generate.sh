@@ -36,6 +36,7 @@ genhtml h4/jzbbg_ANAL1.0.html "Analízis Modell" h4/analízis/v1.0
 genhtml h4/jzbbg_ANAL2.0.html "Analízis Modell" h4/analízis/v2.0
 genhtml h4/szotar.html "Szótár" h4/szótár
 cp h4/analízis/v1.0/*.{svg,png} dist/h4/
+cp h4/analízis/v2.0/*.{svg,png} dist/h4/
 
 # === H5 ===
 genhtml h5/ertekeles.html "Értékelési Táblázat" h5/értékelés
