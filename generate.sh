@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# asd
-
 shopt -s nullglob
 
 genhtml() {
@@ -16,12 +14,12 @@ genhtml() {
 mkdir -p dist/h{1..5}
 cp index.html dist/
 
-for i in {2..4}; do
+for i in {1..5}; do
 	cp "h$i/index.html" "dist/h$i/"
 done
 
 # === H1 ===
-genhtml h1/projektterv.html "Projektterv" h1
+genhtml h1/projektterv.html "Projektterv" h1/v0.1
 
 # === H2 ===
 genhtml h2/vizio-v0.2.html "Vízió" h2/v0.2
@@ -37,8 +35,11 @@ cp h3/v1.1/pálya.png dist/h3/
 genhtml h4/jzbbg_ANAL1.0.html "Analízis Modell" h4/analízis/v1.0
 genhtml h4/jzbbg_ANAL2.0.html "Analízis Modell" h4/analízis/v2.0
 genhtml h4/szotar.html "Szótár" h4/szótár
-cp h4/analízis/v1.0/alrendszerek.svg dist/h4/
-cp h4/analízis/v1.0/osztályok.png dist/h4/
+cp h4/analízis/v1.0/*.{svg,png} dist/h4/
+
+# === H5 ===
+genhtml h5/ertekeles.html "Értékelési Táblázat" h5/értékelés
+cp h5/értékelés/értékelés.pdf dist/h5/ertekeles.pdf
 
 # === Munkanapló ===
 genhtml munkanaplo.html "Munkanapló" munkanapló
