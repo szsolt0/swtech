@@ -42,6 +42,16 @@
 			color: #eff6ff;
 		}
 
+		main > a.értékelés {
+			border: 1.5pt solid #dc2626;
+		}
+
+		main > a.értékelés:hover {
+			border-color: #ef4444;
+			background-color: #dc2626;
+			color: #fef2f2;
+		}
+
 		@media only screen and (max-width: 600px) {
 			main {
 				grid-template-columns: auto;
@@ -52,8 +62,8 @@
 <body>
 	<h1>H5</h1>
 	<main>
-		<a href="ertekeles.html">Értékelési Táblázat</a>
-		<a href="ertekeles.pdf" download="jzbbg-értékelés.pdf">Értékelési Táblázat PDF</a>
+		<a href="ertekeles.html" class="értékelés">Értékelési Táblázat (WIP)</a>
+		<a href="jzbbg-értékelés.pdf" download="jzbbg-értékelés.pdf" class="értékelés">Értékelési Táblázat PDF (WIP)</a>
 	</main>
 </body>
 </html>

@@ -40,7 +40,7 @@ cp h4/analízis/v2.0/*.{svg,png} dist/h4/
 
 # === H5 ===
 genhtml h5/ertekeles.html "Értékelési Táblázat" h5/értékelés
-cp h5/értékelés/értékelés.pdf dist/h5/ertekeles.pdf
+cp h5/értékelés/értékelés.pdf dist/h5/jzbbg-értékelés.pdf
 
 # === Munkanapló ===
 genhtml munkanaplo.html "Munkanapló" munkanapló
