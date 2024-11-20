@@ -24,14 +24,11 @@
   	border-collapse: collapse;
   }
 
-  .tbl-wrap {
+  .tbl-wrap, .img-wrap {
   	width: 100%;
   	overflow-y: scroll;
-  }
-
-  .img-wrap {
-  	width: 100%;
-  	overflow-y: scroll;
+  	margin-top: 1em;
+  	margin-bottom: 1em;
   }
   </style>
 </head>
@@ -56,10 +53,16 @@
 	<tr><td>Sebe Zsolt</td><td>progterv</td><td>sebezsolt2@gmail.com</td></tr>
 </table></div>
 
-<p style="text-align: right;">2024-11-04</p>
+<p style="text-align: right;">[EGY DÁTUM]</p>
 <div class="tbl-wrap"><table>
 	<tr><th>Dátum</th><th>Verzió</th><th>Leírás</th><th>Szerző</th></tr>
 	<tr><td>2024-11-04</td><td>1.0</td><td>Első verzió.</td><td>Sándor János<br>Adamcsik Bendegúz<br>Dobozi Botond<br>Füzi Gergő Róbert<br>Sebe Zsolt</td></tr>
+	<tr><td>[EGY DÁTUM]</td><td>2.0</td><td>3. Felhasználói felület alrendszer létrehozása.</td><td>Adamcsik Bendegúz</td></tr>
+	<tr><td>[EGY DÁTUM]</td><td>2.0</td><td>4. Játék mechanika alrendszer létrehozása.</td><td>Sebe Zsolt</td></tr>
+	<tr><td>[EGY DÁTUM]</td><td>2.0</td><td>5. Világ alrendszer alrendszer létrehozása.</td><td>Dobozi Botond</td></tr>
+	<tr><td>[EGY DÁTUM]</td><td>2.0</td><td>6. Adatkezelés és mentés alrendszer létrehozása.</td><td>Füzi Gergő Róbert</td></tr>
+	<tr><td>[EGY DÁTUM]</td><td>2.0</td><td>7. Multiplayer alrendszer létrehozása.</td><td>Sándor János</td></tr>
+	<tr><td>[EGY DÁTUM]</td><td>2.0</td><td>Összefűzött verzió létrehozása.</td><td>Sándor János<br>Adamcsik Bendegúz<br>Dobozi Botond<br>Füzi Gergő Róbert<br>Sebe Zsolt</td></tr>
 </table></div>
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -87,16 +90,15 @@
 </ul></li>
 <li><a href="#dinamikus-modell"><span class="toc-section-number">3.2</span> Dinamikus modell</a></li>
 <li><a href="#funkcionális-modell"><span class="toc-section-number">3.3</span> Funkcionális modell</a></li>
-<li><a href="#operációk-azonosítása"><span class="toc-section-number">3.4</span> 3.4 Operációk azonosítása</a></li>
-<li><a href="#az-analízis-modell-osztálydiagramja"><span class="toc-section-number">3.5</span> 3.5 Az analízis modell osztálydiagramja</a></li>
-<li><a href="#osztályok-felelősségei-és-attribútumai"><span class="toc-section-number">3.6</span> 3.6 Osztályok felelősségei és attribútumai</a>
+<li><a href="#operációk-azonosítása"><span class="toc-section-number">3.4</span> Operációk azonosítása</a></li>
+<li><a href="#az-analízis-modell-osztálydiagramja"><span class="toc-section-number">3.5</span> Az analízis modell osztálydiagramja</a>
 <ul>
-<li><a href="#worldmanager"><span class="toc-section-number">3.6.1</span> WorldManager</a></li>
-<li><a href="#npcmanager"><span class="toc-section-number">3.6.2</span> NPCManager</a></li>
-<li><a href="#mapmanager"><span class="toc-section-number">3.6.3</span> MapManager</a></li>
-<li><a href="#environmentmanager"><span class="toc-section-number">3.6.4</span> EnvironmentManager</a></li>
-<li><a href="#questmanager"><span class="toc-section-number">3.6.5</span> QuestManager</a></li>
-<li><a href="#baseentity"><span class="toc-section-number">3.6.6</span> BaseEntity</a></li>
+<li><a href="#worldmanager"><span class="toc-section-number">3.5.1</span> WorldManager</a></li>
+<li><a href="#npcmanager"><span class="toc-section-number">3.5.2</span> NPCManager</a></li>
+<li><a href="#mapmanager"><span class="toc-section-number">3.5.3</span> MapManager</a></li>
+<li><a href="#environmentmanager"><span class="toc-section-number">3.5.4</span> EnvironmentManager</a></li>
+<li><a href="#questmanager"><span class="toc-section-number">3.5.5</span> QuestManager</a></li>
+<li><a href="#baseentity"><span class="toc-section-number">3.5.6</span> BaseEntity</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#adatkezelés-és-mentés-alrendszer-1"><span class="toc-section-number">4</span> Adatkezelés és mentés alrendszer</a>
@@ -116,6 +118,31 @@
 <li><a href="#importgame"><span class="toc-section-number">4.5.2</span> ImportGame</a></li>
 <li><a href="#localcloudsavedgamelist"><span class="toc-section-number">4.5.3</span> LocalCloudSavedGameList</a></li>
 <li><a href="#continue"><span class="toc-section-number">4.5.4</span> Continue</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#a-multiplayer-alrendszer-modellje"><span class="toc-section-number">5</span> A multiplayer alrendszer modellje</a>
+<ul>
+<li><a href="#statikus-modell-2"><span class="toc-section-number">5.1</span> Statikus modell</a>
+<ul>
+<li><a href="#kapcsolatok-pontosítása-1"><span class="toc-section-number">5.1.1</span> Kapcsolatok pontosítása</a></li>
+<li><a href="#attribútumok-azonosítása-1"><span class="toc-section-number">5.1.2</span> Attribútumok azonosítása</a></li>
+<li><a href="#bázisosztályok-keresése-2"><span class="toc-section-number">5.1.3</span> Bázisosztályok keresése</a></li>
+<li><a href="#dinamikus-modell-2"><span class="toc-section-number">5.1.4</span> Dinamikus modell</a></li>
+</ul></li>
+<li><a href="#funkcionális-modell-2"><span class="toc-section-number">5.2</span> Funkcionális modell</a></li>
+<li><a href="#operációk-azonosítása-2"><span class="toc-section-number">5.3</span> Operációk azonosítása</a></li>
+<li><a href="#az-analízis-modell-osztálydiagramja-2"><span class="toc-section-number">5.4</span> Az analízis modell osztálydiagramja</a>
+<ul>
+<li><a href="#multiplayer"><span class="toc-section-number">5.4.1</span> Multiplayer</a></li>
+<li><a href="#new-game"><span class="toc-section-number">5.4.2</span> New Game</a></li>
+<li><a href="#new-world"><span class="toc-section-number">5.4.3</span> New World</a></li>
+<li><a href="#load-game"><span class="toc-section-number">5.4.4</span> Load Game</a></li>
+<li><a href="#saved-games"><span class="toc-section-number">5.4.5</span> Saved Games</a></li>
+<li><a href="#direct-join"><span class="toc-section-number">5.4.6</span> Direct Join</a></li>
+<li><a href="#list-games"><span class="toc-section-number">5.4.7</span> List Games</a></li>
+<li><a href="#available-games"><span class="toc-section-number">5.4.8</span> Available Games</a></li>
+<li><a href="#join-game"><span class="toc-section-number">5.4.9</span> Join Game</a></li>
+<li><a href="#host-game"><span class="toc-section-number">5.4.10</span> Host Game</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -324,11 +351,35 @@
 </ul>
 <h3 data-number="3.1.2" id="attribútumok-azonosítása"><span class="header-section-number">3.1.2</span> Attribútumok azonosítása</h3>
 <p>Az osztályok attribútumai:</p>
-<p><strong>WorldManager</strong> - <code>worldName</code>: A világ neve. - <code>currentMap</code>: Az éppen aktív térkép azonosítója. - <code>timeOfDay</code>: A játék világában eltelt idő (például: nappal/éjszaka). - <code>activeQuests</code>: Az aktív küldetések listája.</p>
-<p><strong>MapManager</strong> - <code>maps</code>: A térképek listája. - <code>activeZone</code>: Az éppen aktív zóna azonosítója.</p>
-<p><strong>NPCManager</strong> - <code>npcList</code>: Az aktív NPC-k listája. - <code>spawnRate</code>: Az NPC-k újrateremtésének gyakorisága.</p>
-<p><strong>EnvironmentManager</strong> - <code>weather</code>: Az aktuális időjárási állapot. - <code>dayCycle</code>: Az éjjel-nappal ciklus beállításai.</p>
-<p><strong>QuestManager</strong> - <code>availableQuests</code>: Az elérhető küldetések listája. - <code>completedQuests</code>: A teljesített küldetések listája.</p>
+<ul>
+<li><strong>WorldManager</strong>
+<ul>
+<li><code>worldName</code>: A világ neve.</li>
+<li><code>currentMap</code>: Az éppen aktív térkép azonosítója.</li>
+<li><code>timeOfDay</code>: A játék világában eltelt idő (például: nappal/éjszaka).</li>
+<li><code>activeQuests</code>: Az aktív küldetések listája.</li>
+</ul></li>
+<li><strong>MapManager</strong>
+<ul>
+<li><code>maps</code>: A térképek listája.</li>
+<li><code>activeZone</code>: Az éppen aktív zóna azonosítója.</li>
+</ul></li>
+<li><strong>NPCManager</strong>
+<ul>
+<li><code>npcList</code>: Az aktív NPC-k listája.</li>
+<li><code>spawnRate</code>: Az NPC-k újrateremtésének gyakorisága.</li>
+</ul></li>
+<li><strong>EnvironmentManager</strong>
+<ul>
+<li><code>weather</code>: Az aktuális időjárási állapot.</li>
+<li><code>dayCycle</code>: Az éjjel-nappal ciklus beállításai.</li>
+</ul></li>
+<li><strong>QuestManager</strong>
+<ul>
+<li><code>availableQuests</code>: Az elérhető küldetések listája.</li>
+<li><code>completedQuests</code>: A teljesített küldetések listája.</li>
+</ul></li>
+</ul>
 <h3 data-number="3.1.3" id="bázisosztályok-keresése"><span class="header-section-number">3.1.3</span> Bázisosztályok keresése</h3>
 <ul>
 <li><strong>Entity</strong>: Bázisosztály lehet az NPC-k, objektumok és egyéb világelemek számára.
@@ -342,7 +393,9 @@
 </ul></li>
 </ul>
 <h2 data-number="3.2" id="dinamikus-modell"><span class="header-section-number">3.2</span> Dinamikus modell</h2>
-<p>IMAGE!01!Dinamikus modell</p>
+<div class="img-wrap">
+<p><a href="világ-01.png" target="_blank"><img src="világ-01.png" alt="Világ alrendszer dinamikus modell" title="Világ alrendszer dinamikus modell"></a></p>
+</div>
 <p>A dinamikus modell a világ működése során bekövetkező folyamatokat írja le:</p>
 <ul>
 <li><strong>Világ inicializálása</strong>: A játék betöltésekor a <code>WorldManager</code> elindítja a <code>MapManager</code>-t, <code>NPCManager</code>-t, és az <code>EnvironmentManager</code>-t.</li>
@@ -350,7 +403,9 @@
 <li><strong>Küldetések aktiválása</strong>: A <code>QuestManager</code> aktiválja az adott térképen elérhető küldetéseket, amikor a játékos belép a zónába.</li>
 </ul>
 <h2 data-number="3.3" id="funkcionális-modell"><span class="header-section-number">3.3</span> Funkcionális modell</h2>
-<p>IMAGE!02!Funkcionális modell</p>
+<div class="img-wrap">
+<p><a href="világ-02.png" target="_blank"><img src="világ-02.png" alt="Világ alrendszer funkcionális modell" title="Világ alrendszer funkcionális modell"></a></p>
+</div>
 <p>Az egyes osztályok funkciói:</p>
 <ul>
 <li>WorldManager
@@ -366,7 +421,7 @@
 <li><code>generateMap(seed)</code>: Új térkép generálása adott seed alapján.</li>
 </ul></li>
 </ul>
-<h2 data-number="3.4" id="operációk-azonosítása"><span class="header-section-number">3.4</span> 3.4 Operációk azonosítása</h2>
+<h2 data-number="3.4" id="operációk-azonosítása"><span class="header-section-number">3.4</span> Operációk azonosítása</h2>
 <ul>
 <li><strong>Világ betöltése</strong>:
 <ul>
@@ -388,9 +443,11 @@
 </ul></li>
 </ul></li>
 </ul>
-<h2 data-number="3.5" id="az-analízis-modell-osztálydiagramja"><span class="header-section-number">3.5</span> 3.5 Az analízis modell osztálydiagramja</h2>
-<h2 data-number="3.6" id="osztályok-felelősségei-és-attribútumai"><span class="header-section-number">3.6</span> 3.6 Osztályok felelősségei és attribútumai</h2>
-<h3 data-number="3.6.1" id="worldmanager"><span class="header-section-number">3.6.1</span> WorldManager</h3>
+<h2 data-number="3.5" id="az-analízis-modell-osztálydiagramja"><span class="header-section-number">3.5</span> Az analízis modell osztálydiagramja</h2>
+<div class="img-wrap">
+<p><a href="világ-03.png" target="_blank"><img src="világ-03.png" alt="Világ alrendszer analízis modell osztálydiagramja" title="Világ alrendszer analízis modell osztálydiagramja"></a></p>
+</div>
+<h3 data-number="3.5.1" id="worldmanager"><span class="header-section-number">3.5.1</span> WorldManager</h3>
 <div class="tbl-wrap"><table>
 <tr>
 <th>
@@ -414,6 +471,8 @@ A világ létrehozása, mentése és törlése.
 <th>
 Együttműködők
 </th>
+</tr>
+<tr>
 <td>
 <code>MapManager</code>, <code>NPCManager</code>, <code>EnvironmentManager</code>, <code>QuestManager</code>
 </td>
@@ -511,7 +570,7 @@ Törli a világot a fájlrendszerből.
 </td>
 </tr>
 </table></div>
-<h3 data-number="3.6.2" id="npcmanager"><span class="header-section-number">3.6.2</span> NPCManager</h3>
+<h3 data-number="3.5.2" id="npcmanager"><span class="header-section-number">3.5.2</span> NPCManager</h3>
 <div class="tbl-wrap"><table>
 <thead>
 <tr>
@@ -545,7 +604,7 @@ Együttműködők
 <tbody>
 <tr>
 <td>
-WorldManager
+<code>WorldManager</code>
 </td>
 </tr>
 </tbody>
@@ -567,10 +626,10 @@ Leírás
 <tbody>
 <tr>
 <td>
-npcList
+<code>npcList</code>
 </td>
 <td>
-List
+<code>List</code>
 </td>
 <td>
 Az összes NPC-t tárolja egy listában.
@@ -595,10 +654,10 @@ Működés, Feladat
 <tbody>
 <tr>
 <td>
-createNPC()
+<code>createNPC()</code>
 </td>
 <td>
-npcData
+<code>npcData</code>
 </td>
 <td>
 Létrehozza az NPC-t a megadott adatok alapján.
@@ -606,10 +665,10 @@ Létrehozza az NPC-t a megadott adatok alapján.
 </tr>
 <tr>
 <td>
-removeNPC()
+<code>removeNPC()</code>
 </td>
 <td>
-npcID
+<code>npcID</code>
 </td>
 <td>
 Eltávolít egy NPC-t a világból az azonosítója alapján.
@@ -617,10 +676,10 @@ Eltávolít egy NPC-t a világból az azonosítója alapján.
 </tr>
 <tr>
 <td>
-updateNPC()
+<code>updateNPC()</code>
 </td>
 <td>
-npcID, newData
+<code>npcID</code>, <code>newData</code>
 </td>
 <td>
 Frissíti egy NPC adatait.
@@ -628,7 +687,7 @@ Frissíti egy NPC adatait.
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="3.6.3" id="mapmanager"><span class="header-section-number">3.6.3</span> MapManager</h3>
+<h3 data-number="3.5.3" id="mapmanager"><span class="header-section-number">3.5.3</span> MapManager</h3>
 <div class="tbl-wrap"><table>
 <thead>
 <tr>
@@ -662,7 +721,7 @@ Együttműködők
 <tbody>
 <tr>
 <td>
-WorldManager
+<code>WorldManager</code>
 </td>
 </tr>
 </tbody>
@@ -684,10 +743,10 @@ Leírás
 <tbody>
 <tr>
 <td>
-mapData
+<code>mapData</code>
 </td>
 <td>
-Object
+<code>Object</code>
 </td>
 <td>
 A térkép adatainak tárolása.
@@ -695,10 +754,10 @@ A térkép adatainak tárolása.
 </tr>
 <tr>
 <td>
-mapSize
+<code>mapSize</code>
 </td>
 <td>
-Integer
+<code>int</code>
 </td>
 <td>
 A térkép mérete.
@@ -723,10 +782,10 @@ Működés, Feladat
 <tbody>
 <tr>
 <td>
-generateMap()
+<code>generateMap()</code>
 </td>
 <td>
-mapSize
+<code>mapSize</code>
 </td>
 <td>
 Létrehozza a térképet a megadott mérettel.
@@ -734,10 +793,10 @@ Létrehozza a térképet a megadott mérettel.
 </tr>
 <tr>
 <td>
-loadMap()
+<code>loadMap()</code>
 </td>
 <td>
-mapSize
+<code>mapSize</code>
 </td>
 <td>
 Betölti a térképet egy fájlból.
@@ -745,10 +804,10 @@ Betölti a térképet egy fájlból.
 </tr>
 <tr>
 <td>
-saveMap()
+<code>saveMap()</code>
 </td>
 <td>
-mapSize
+<code>mapSize</code>
 </td>
 <td>
 Elmenti a térképet egy fájlba.
@@ -756,10 +815,10 @@ Elmenti a térképet egy fájlba.
 </tr>
 <tr>
 <td>
-removeMap()
+<code>removeMap()</code>
 </td>
 <td>
-mapSize
+<code>mapSize</code>
 </td>
 <td>
 Törli a jelenlegi térképet.
@@ -767,7 +826,7 @@ Törli a jelenlegi térképet.
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="3.6.4" id="environmentmanager"><span class="header-section-number">3.6.4</span> EnvironmentManager</h3>
+<h3 data-number="3.5.4" id="environmentmanager"><span class="header-section-number">3.5.4</span> EnvironmentManager</h3>
 <div class="tbl-wrap"><table>
 <thead>
 <tr>
@@ -801,7 +860,7 @@ Együttműködők
 <tbody>
 <tr>
 <td>
-WorldManager
+<code>WorldManager</code>
 </td>
 </tr>
 </tbody>
@@ -823,10 +882,10 @@ Leírás
 <tbody>
 <tr>
 <td>
-currentWeather
+<code>currentWeather</code>
 </td>
 <td>
-String
+<code>String</code>
 </td>
 <td>
 Az aktuális időjárás (pl. napos, esős).
@@ -834,10 +893,10 @@ Az aktuális időjárás (pl. napos, esős).
 </tr>
 <tr>
 <td>
-timeOfDay
+<code>timeOfDay</code>
 </td>
 <td>
-String
+<code>String</code>
 </td>
 <td>
 Az időpont (pl. reggel, délután).
@@ -862,10 +921,10 @@ Működés, Feladat
 <tbody>
 <tr>
 <td>
-updateWeather()
+<code>updateWeather()</code>
 </td>
 <td>
-weatherType
+<code>weatherType</code>
 </td>
 <td>
 Frissíti az időjárást az új típusnak megfelelően.
@@ -873,10 +932,10 @@ Frissíti az időjárást az új típusnak megfelelően.
 </tr>
 <tr>
 <td>
-updateTimeOfDay()
+<code>updateTimeOfDay()</code>
 </td>
 <td>
-timePeriod
+<code>timePeriod</code>
 </td>
 <td>
 Frissíti az időpontot (pl. nappali vagy éjjeli órákra).
@@ -884,7 +943,7 @@ Frissíti az időpontot (pl. nappali vagy éjjeli órákra).
 </tr>
 <tr>
 <td>
-getWeatherForecast()
+<code>getWeatherForecast()</code>
 </td>
 <td>
 nincs
@@ -895,7 +954,7 @@ Megadja az előrejelzett időjárást egy adott időszakra.
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="3.6.5" id="questmanager"><span class="header-section-number">3.6.5</span> QuestManager</h3>
+<h3 data-number="3.5.5" id="questmanager"><span class="header-section-number">3.5.5</span> QuestManager</h3>
 <div class="tbl-wrap"><table>
 <thead>
 <tr>
@@ -929,7 +988,7 @@ Együttműködők
 <tbody>
 <tr>
 <td>
-WorldManager
+<code>WorldManager</code>
 </td>
 </tr>
 </tbody>
@@ -951,10 +1010,10 @@ Leírás
 <tbody>
 <tr>
 <td>
-quests
+<code>quests</code>
 </td>
 <td>
-List
+<code>List</code>
 </td>
 <td>
 A játékban elérhető küldetések listája.
@@ -979,10 +1038,10 @@ Működés, Feladat
 <tbody>
 <tr>
 <td>
-addQuest()
+<code>addQuest()</code>
 </td>
 <td>
-questData
+<code>questData</code>
 </td>
 <td>
 Új küldetést ad hozzá a rendszerhez.
@@ -990,10 +1049,10 @@ questData
 </tr>
 <tr>
 <td>
-completeQuest()
+<code>completeQuest()</code>
 </td>
 <td>
-questID
+<code>questID</code>
 </td>
 <td>
 Befejezi a megadott küldetést.
@@ -1001,7 +1060,7 @@ Befejezi a megadott küldetést.
 </tr>
 <tr>
 <td>
-getActiveQuests()
+<code>getActiveQuests()</code>
 </td>
 <td>
 nincs
@@ -1012,7 +1071,7 @@ Lekéri az aktív küldetéseket, amelyek még nem lettek befejezve.
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="3.6.6" id="baseentity"><span class="header-section-number">3.6.6</span> BaseEntity</h3>
+<h3 data-number="3.5.6" id="baseentity"><span class="header-section-number">3.5.6</span> BaseEntity</h3>
 <div class="tbl-wrap"><table>
 <thead>
 <tr>
@@ -1046,7 +1105,7 @@ Együttműködők
 <tbody>
 <tr>
 <td>
-NPCManager, MapManager
+<code>NPCManager</code>, <code>MapManager</code>
 </td>
 </tr>
 </tbody>
@@ -1068,10 +1127,10 @@ Leírás
 <tbody>
 <tr>
 <td>
-id
+<code>id</code>
 </td>
 <td>
-Integer
+<code>int</code>
 </td>
 <td>
 Az entitás egyedi azonosítója.
@@ -1079,10 +1138,10 @@ Az entitás egyedi azonosítója.
 </tr>
 <tr>
 <td>
-position
+<code>position</code>
 </td>
 <td>
-Vector3
+<code>Vector3</code>
 </td>
 <td>
 Az entitás pozíciója a térképen.
@@ -1090,10 +1149,10 @@ Az entitás pozíciója a térképen.
 </tr>
 <tr>
 <td>
-entityType
+<code>entityType</code>
 </td>
 <td>
-String
+<code>String</code>
 </td>
 <td>
 Az entitás típusa (pl. NPC, objektum).
@@ -1118,10 +1177,10 @@ Működés, Feladat
 <tbody>
 <tr>
 <td>
-moveEntity()
+<code>moveEntity()</code>
 </td>
 <td>
-destroyEntity()
+<code>destroyEntity()</code>
 </td>
 <td>
 Az entitás elmozdítása az új pozícióra.
@@ -1129,10 +1188,10 @@ Az entitás elmozdítása az új pozícióra.
 </tr>
 <tr>
 <td>
-interactWith()
+<code>interactWith()</code>
 </td>
 <td>
-entityID
+<code>entityID</code>
 </td>
 <td>
 Interakció más entitással.
@@ -1140,7 +1199,7 @@ Interakció más entitással.
 </tr>
 <tr>
 <td>
-destroyEntity()
+<code>destroyEntity()</code>
 </td>
 <td>
 nincs
@@ -1191,12 +1250,14 @@ Az entitás eltávolítása a világból.
 <li><code>saveDirectory</code>: Az elérési út a mentési fájlokhoz.</li>
 <li><code>cloudSyncStatus</code>: Információ arról, hogy a felhő szinkronizálás aktív-e vagy sem.</li>
 </ul></li>
-<li><strong>Műveletek:</strong></li>
+<li><strong>Műveletek:</strong>
+<ul>
 <li><code>saveGame()</code>: Ment egy új játékot vagy felülír egy meglévőt.</li>
 <li><code>loadGame()</code>: Betölti a játékot egy adott mentett állapotból.</li>
 <li><code>deleteSavedGame()</code>: Törli a mentett játékot.</li>
 <li><code>saveSettings()</code>: Menthetők a beállítások.</li>
 <li><code>getSaveFilePath()</code>: Visszaadja a mentési fájl helyét.</li>
+</ul></li>
 </ul>
 <p><strong>ImportGame</strong></p>
 <ul>
@@ -1310,8 +1371,7 @@ Az entitás eltávolítása a világból.
 <li><code>LocalCloudSavedGameList</code></li>
 </ul></li>
 </ul></li>
-<li>GameAction</li>
-</ol>
+<li>GameAction
 <ul>
 <li><strong>Szerepe:</strong> Általános osztály a játékmenet akcióihoz, például új játék indítása, mentés betöltése vagy folytatás.</li>
 <li><strong>Attribútumok:</strong>
@@ -1328,19 +1388,54 @@ Az entitás eltávolítása a világból.
 <li><code>New Game</code></li>
 <li><code>Continue</code></li>
 </ul></li>
-</ul>
+</ul></li>
+</ol>
 <h2 data-number="4.2" id="dinamikus-modell-1"><span class="header-section-number">4.2</span> Dinamikus modell</h2>
-<p>IMAGE!01!Dinamikus modell</p>
+<div class="img-wrap">
+<p><a href="mentés-01.png" target="_blank"><img src="mentés-01.png" alt="Adatkezelés és mentés alrendszer dinamikus modell" title="Adatkezelés és mentés alrendszer dinamikus modell"></a></p>
+</div>
 <h2 data-number="4.3" id="funkcionális-modell-1"><span class="header-section-number">4.3</span> Funkcionális modell</h2>
-<p>IMAGE!02!Funkcionális modell</p>
+<div class="img-wrap">
+<p><a href="mentés-02.png" target="_blank"><img src="mentés-02.png" alt="Adatkezelés és mentés alrendszer funkcionális modell" title="Adatkezelés és mentés alrendszer funkcionális modell"></a></p>
+</div>
 <h2 data-number="4.4" id="operációk-azonosítása-1"><span class="header-section-number">4.4</span> Operációk azonosítása</h2>
-<p><strong><code>SaveSystem:</code></strong> <code>saveGame(data: GameData): Boolean</code>, <code>loadGame(saveID: String): GameData</code>, <code>deleteSave(saveID: String): Boolean</code>, <code>syncSaves(): Boolean</code>, <code>getAvailableSaves(): List&lt;String&gt;</code></p>
-<p><strong><code>ImportGame:</code></strong> <code>importData(sourcePath: String): GameData</code>, <code>validateData(data: GameData): Boolean</code>, <code>sendToSaveSystem(data: GameData): Boolean</code>,</p>
-<p><strong><code>LocalCloudSavedGameList</code>:</strong> <code>getLocalSaves(): List&lt;String&gt;</code>, <code>getCloudSaves(): List&lt;String&gt;</code>, <code>syncSaves(): Boolean</code>, <code>getSaveInfo(saveID: String): SaveMetadata</code></p>
-<p><strong><code>Continue:</code></strong> <code>selectSave(saveID: String): Boolean</code>, <code>continueGame(): GameData</code></p>
-<p><strong><code>New Game:</code></strong> <code>initializeNewGame(settings: GameSettings): GameData</code>, <code>createInitialSave(data:GameData): Boolean</code></p>
+<ul>
+<li><strong><code>SaveSystem:</code></strong>
+<ul>
+<li><code>saveGame(data: GameData): Boolean</code></li>
+<li><code>loadGame(saveID: String): GameData</code></li>
+<li><code>deleteSave(saveID: String): Boolean</code></li>
+<li><code>syncSaves(): Boolean</code></li>
+<li><code>getAvailableSaves(): List&lt;String&gt;</code></li>
+</ul></li>
+<li><strong><code>ImportGame:</code></strong>
+<ul>
+<li><code>importData(sourcePath: String): GameData</code></li>
+<li><code>validateData(data: GameData): Boolean</code></li>
+<li><code>sendToSaveSystem(data: GameData): Boolean</code></li>
+</ul></li>
+<li><strong><code>LocalCloudSavedGameList</code>:</strong>
+<ul>
+<li><code>getLocalSaves(): List&lt;String&gt;</code></li>
+<li><code>getCloudSaves(): List&lt;String&gt;</code></li>
+<li><code>syncSaves(): Boolean</code></li>
+<li><code>getSaveInfo(saveID: String): SaveMetadata</code></li>
+</ul></li>
+<li><strong><code>Continue:</code></strong>
+<ul>
+<li><code>selectSave(saveID: String): Boolean</code></li>
+<li><code>continueGame(): GameData</code></li>
+</ul></li>
+<li><strong><code>New Game:</code></strong>
+<ul>
+<li><code>initializeNewGame(settings: GameSettings): GameData</code></li>
+<li><code>createInitialSave(data:GameData): Boolean</code></li>
+</ul></li>
+</ul>
 <h2 data-number="4.5" id="az-analízis-modell-osztálydiagramja-1"><span class="header-section-number">4.5</span> Az analízis modell osztálydiagramja</h2>
-<p>IMAGE!03!Az analízis modell osztálydiagramja</p>
+<div class="img-wrap">
+<p><a href="mentés-03.png" target="_blank"><img src="mentés-03.png" alt="Adatkezelés és mentés alrendszer analízis modell osztálydiagramja" title="Adatkezelés és mentés alrendszer analízis modell osztálydiagramja"></a></p>
+</div>
 <h3 data-number="4.5.1" id="savesystem"><span class="header-section-number">4.5.1</span> SaveSystem</h3>
 <p><strong>Felelőssége, feladata:</strong> Kezeli a játék mentését, betöltését, törlését és szinkronizálását helyben vagy felhőben.</p>
 <p><strong>Együttműködők:</strong></p>
@@ -1682,7 +1777,11 @@ Szinkronizálja a helyi és felhőbeli mentéseket.
 </table></div>
 <h3 data-number="4.5.4" id="continue"><span class="header-section-number">4.5.4</span> Continue</h3>
 <p><strong>Felelőssége, feladata:</strong> Lehetővé teszi a játékos számára egy mentett játék folytatását.</p>
-<p><strong>Együttműködők:</strong> - <code>SaveSystem</code>: A mentett állapot betöltéséhez. - <code>LocalCloudSavedGameList</code>: A mentések listájának lekérdezéséhez.</p>
+<p><strong>Együttműködők:</strong></p>
+<ul>
+<li><code>SaveSystem</code>: A mentett állapot betöltéséhez.</li>
+<li><code>LocalCloudSavedGameList</code>: A mentések listájának lekérdezéséhez.</li>
+</ul>
 <p><strong>Attribútumok:</strong></p>
 <div class="tbl-wrap"><table>
 <thead>
@@ -1748,6 +1847,847 @@ Kiválasztja a folytatni kívánt mentést.
 </td>
 <td>
 Betölti a kiválasztott mentett állapotot.
+</td>
+</tr>
+</tbody>
+</table></div>
+<h1 data-number="5" id="a-multiplayer-alrendszer-modellje"><span class="header-section-number">5</span> A multiplayer alrendszer modellje</h1>
+<h2 data-number="5.1" id="statikus-modell-2"><span class="header-section-number">5.1</span> Statikus modell</h2>
+<h3 data-number="5.1.1" id="kapcsolatok-pontosítása-1"><span class="header-section-number">5.1.1</span> Kapcsolatok pontosítása</h3>
+<p>Az osztálydiagramon való kapcsolatok tisztázása és meghatározása, hogy a különböző elemek hogyan függnek egymástól. Az alábbi osztályok találhatóak meg a Multiplayer alrendszerben:</p>
+<ul>
+<li><strong>Multiplayer:</strong> Az összefűző osztály, amely kezeli a mentéseket és irányításokat és innen érhetjük el a többi osztály funkcióit. Ezekkel az osztályokkal áll kapcsolatban:
+<ul>
+<li><strong>New Game:</strong> Hívásakor új játékot hozunk létre, melyet elmentve majd megoszthatunk egy másik osztályban, a Host Game-ben</li>
+<li><strong>My Games:</strong> A meglévő játékokat folytatjuk, esetleg megoszthatjuk a Host Game osztályban, hogy mások is csatlakozhassanak hozzánk</li>
+<li><strong>Join Game:</strong> A List Game osztályban listázott játékokból egy kiválasztott játékhoz csatlakozunk ezzel az osztállyal</li>
+<li><strong>Direct Join:</strong> Lehetőséget biztosít egy elérhető online játék mihamarabbi csatlakozásához</li>
+<li><strong>Host Game:</strong> Egy új vagy folytatott játék megosztása másokkal, így csatlakozhatnak a csapatba</li>
+<li><strong>List Game:</strong> Az elérhető online játékokat listázza, ahova majd a Join Game osztállyal csatlakozhatunk</li>
+</ul></li>
+</ul>
+<p>Ezek az osztályok mind a <code>Multiplayer</code> központi osztályból indulnak ki, és egy irányított kapcsolatot jelenítenek meg, ami meghatározza, hogyan lehet elérni az egyes funkciókat.</p>
+<h3 data-number="5.1.2" id="attribútumok-azonosítása-1"><span class="header-section-number">5.1.2</span> Attribútumok azonosítása</h3>
+<p>Az alábbi releváns attribútumokat rendeljük hozzá az alrendszer osztályaihoz:</p>
+<ul>
+<li><strong>New Game:</strong> tartalmazhat olyan attribútumokat, mint a <code>gameName</code>, <code>maxPlayers</code>, <code>gameMode</code>, <code>gameDifficulty</code>, <code>gameVisibility</code> (Csatlakozhatnak-e hozzá).</li>
+<li><strong>My Games:</strong> tartalmazza a <code>savedGames</code> listáját, amely a korábban létrehozott játékokat és adataikat tárolja és megjeleníti.</li>
+<li><strong>Join Game:</strong> Olyan attribútumokkal rendelkezik, mint a <code>gameID</code> és <code>playerID</code> a legkönnyebb csatlakozás eléréséhez.</li>
+<li><strong>Host Game:</strong> tartalmazza a <code>hostName</code>, <code>playerLimit</code> attribútumokat, illetve egy származtatott <code>isGameVisible</code> attribútumot.</li>
+<li><strong>List Game:</strong> Tartalmazza a <code>availableGames</code> attribútumot, amely a jelenleg elérhető játékokat listázza és jeleníti meg a <code>gameVisibility</code> keretében.</li>
+</ul>
+<h3 data-number="5.1.3" id="bázisosztályok-keresése-2"><span class="header-section-number">5.1.3</span> Bázisosztályok keresése</h3>
+<p>Az esetleges bázisosztály a Game lehet, amely általános tulajdonságokat hordoz, amit más osztály is megörökölhet. Ezen tulajdonságok a következők lehetnek:</p>
+<ul>
+<li><code>gameName</code></li>
+<li><code>players</code></li>
+<li><code>status (active, paused, finished)</code></li>
+<li><code>gameVisibility</code></li>
+</ul>
+<p>Az egyes specifikus játékállapotok, mint például <code>New Game</code>, <code>Join Game</code>, és <code>Host Game</code>, származhatnak ebből a bázisosztályból, mivel valamennyi feltüntetett tulajdonság megtalálható bennük.</p>
+<h3 data-number="5.1.4" id="dinamikus-modell-2"><span class="header-section-number">5.1.4</span> Dinamikus modell</h3>
+<div class="img-wrap">
+<p><a href="multiplayer-01.png" target="_blank"><img src="multiplayer-01.png" alt="Multiplayer alrendszer dinamikus modell" title="Multiplayer alrendszer dinamikus modell"></a></p>
+</div>
+<h2 data-number="5.2" id="funkcionális-modell-2"><span class="header-section-number">5.2</span> Funkcionális modell</h2>
+<div class="img-wrap">
+<p><a href="multiplayer-02.png" target="_blank"><img src="multiplayer-02.png" alt="Multiplayer alrendszer funkcionális modell" title="Multiplayer alrendszer funkcionális modell"></a></p>
+</div>
+<h2 data-number="5.3" id="operációk-azonosítása-2"><span class="header-section-number">5.3</span> Operációk azonosítása</h2>
+<p>Az osztálydiagramot kiegészítő az egyes osztályokhoz tartozó műveletek:</p>
+<ul>
+<li><strong>Mainmenu:</strong> <code>setMultiplayerInterface()</code></li>
+<li><strong>New Game:</strong> <code>createGame()</code>, <code>configureGame()</code>, <code>startGame()</code></li>
+<li><strong>Load Game:</strong> <code>listSavedGames()</code>, <code>chooseFromSavedGames()</code>, <code>loadGame(chosenID)</code>, <code>startGame()</code></li>
+<li><strong>Direct Join:</strong> <code>selectRandomGame()</code>, <code>joinGame()</code></li>
+<li><strong>Host Game:</strong> <code>shareGame(chosenID)</code>, <code>managePlayers()</code>, <code>setPlayerCharacters()</code></li>
+<li><strong>List Game:</strong> <code>fetchAvailableGames()</code></li>
+<li><strong>Join:</strong> <code>chooseGame()</code>, <code>joinGame(chosenID)</code></li>
+</ul>
+<h2 data-number="5.4" id="az-analízis-modell-osztálydiagramja-2"><span class="header-section-number">5.4</span> Az analízis modell osztálydiagramja</h2>
+<div class="img-wrap">
+<p><a href="multiplayer-03.png" target="_blank"><img src="multiplayer-03.png" alt="Multiplayer alrendszer analízis modell osztálydiagramja" title="Multiplayer alrendszer analízis modell osztálydiagramja"></a></p>
+</div>
+<h3 data-number="5.4.1" id="multiplayer"><span class="header-section-number">5.4.1</span> Multiplayer</h3>
+<ul>
+<li><strong>Felelőssége, feladata:</strong> A HUD és a multiplayer felület kezelése, emellett itt hívjuk meg a többi osztály függvényeit.</li>
+<li><strong>Együttműködők:</strong> New Game, Load Game, List Games, Direct Join</li>
+</ul>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>mouseListener</code>
+</td>
+<td>
+<code>Listener</code>
+</td>
+<td>
+Az egér kattintásával való irányítás az opciók között.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>showHUD()</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+A HUD megalkotása és megvalósítása.
+</td>
+</tr>
+<tr>
+<td>
+<code>newGame()</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+<code>New Game</code> osztály meghívása és elkezdése.
+</td>
+</tr>
+<tr>
+<td>
+<code>loadGame()</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Elmentett játék betöltésére szolgáló osztály meghívása.
+</td>
+</tr>
+<tr>
+<td>
+<code>directJoin()</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Véletlenszerű elérhető játékba való csatlakozás előkészülete.
+</td>
+</tr>
+<tr>
+<td>
+<code>listGames()</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Egy listázást indít el, ahol kiírja az összes elérhető online játékot.
+</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="5.4.2" id="new-game"><span class="header-section-number">5.4.2</span> New Game</h3>
+<ul>
+<li><strong>Felelőssége, feladata:</strong> Az adott attribútumokkal előállít egy hívást, mely létrehoz egy világot, amit utána megosztunk.</li>
+<li><strong>Együttműködők:</strong> <code>New World</code>, <code>Host Game</code></li>
+</ul>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>name</code>
+</td>
+<td>
+<code>String</code>
+</td>
+<td>
+A világ neve lesz ez a <code>String</code>.
+</td>
+</tr>
+<tr>
+<td>
+<code>difficulty</code>
+</td>
+<td>
+<code>String</code>
+</td>
+<td>
+A világ nehézségét állítja be majd a <code>String</code> tartalma.
+</td>
+</tr>
+<tr>
+<td>
+<code>mouseListener</code>
+</td>
+<td>
+<code>Listener</code>
+</td>
+<td>
+A kattintási lehetőségnek megfelelően <code>mouseListener</code>t használunk.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>call()</code>
+</td>
+<td>
+<code>name</code>, <code>difficulty</code>
+</td>
+<td>
+Az adott argumentumokkal hívja meg a <code>New World</code> osztályt, hogy előállítson egy világot, majd tovább küldje <code>Host Game</code>-nek.
+</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="5.4.3" id="new-world"><span class="header-section-number">5.4.3</span> New World</h3>
+<ul>
+<li><strong>felelőssége, feladata:</strong> Feladata a két argumentummal előállítani egy új világot a játékos számára, amit vissza is ad hhívásakor a New Game-be</li>
+<li><strong>Együttműködők:</strong> <code>New Game</code></li>
+</ul>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>newWorld</code>
+</td>
+<td>
+<code>Objektum</code>
+</td>
+<td>
+A <code>name</code> és <code>difficulty</code> alapján jön létre konstruktor alapján, mely meghatározza a játékvilágot.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>generate()</code>
+</td>
+<td>
+<code>newWorld</code>
+</td>
+<td>
+A megadott konstruktori beállításokkal az objektum alapján elkészíti a világot és visszaküldi <code>New Game</code>-nek.
+</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="5.4.4" id="load-game"><span class="header-section-number">5.4.4</span> Load Game</h3>
+<ul>
+<li><strong>Felelőssége, feladata:</strong> Az elmentett végigjátszásunkat tölti be.</li>
+<li><strong>Együttműködők:</strong> <code>Saved Games</code>, <code>Host Game</code></li>
+</ul>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>mouseListener</code>
+</td>
+<td>
+<code>Listener</code>
+</td>
+<td>
+A kiválasztás és kattintás miatt használjuk fel.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>callSavedGames()</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Lekéri az összes elmentett játékunkat a <code>Saved Games</code> osztályból.
+</td>
+</tr>
+<tr>
+<td>
+<code>chooseSavedGame()</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Kiválasztja a betölteni kívánt mentést és tovább küldi a <code>Host Game</code>-be.
+</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="5.4.5" id="saved-games"><span class="header-section-number">5.4.5</span> Saved Games</h3>
+<ul>
+<li><strong>Felelőssége, feladata:</strong> Tárolja, betölti, és kiválasztáskor elküldi az elmentett játékainkat</li>
+<li><strong>Együttműködők:</strong> <code>Load Game</code></li>
+</ul>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>savedGames</code>
+</td>
+<td>
+<code>dinamic array</code>
+</td>
+<td>
+Tárolja az elmentett világainkat.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>getSavedGames()</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Lekéri az elmentett világainkat, hogy abból majd tudjunk választani a <code>Load Game</code>-ben.
+</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="5.4.6" id="direct-join"><span class="header-section-number">5.4.6</span> Direct Join</h3>
+<ul>
+<li><strong>Felelőssége, feladata:</strong> Egy véletlenszerű, de elérhető online világhoz csatlakozik.</li>
+<li><strong>Együttműködők:</strong> <code>Available Games</code>, <code>Join Games</code></li>
+</ul>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>mouseListener</code>
+</td>
+<td>
+<code>Listener</code>
+</td>
+<td>
+Kattintással indítjuk el a folyamatát az osztálynak.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>joinRandomGame()</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Kiválaszt egy véletlenszerű elérhető játékot és annak ID-jait küldi a <code>Join Game</code>-be.
+</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="5.4.7" id="list-games"><span class="header-section-number">5.4.7</span> List Games</h3>
+<ul>
+<li><strong>Felelőssége, feladata:</strong> Listázza az összes elérhető online játékot, amihet tudunk csatlakozni</li>
+<li><strong>Együttműködők:</strong> <code>Available Games</code>, <code>Join Game</code></li>
+</ul>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>mouseListener</code>
+</td>
+<td>
+<code>Listener</code>
+</td>
+<td>
+A listázás és kiválasztáshoz felhasználjuk.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>getAvailableGames()</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Listázza az <code>Available Games</code>-ből lekérve a játékokat.
+</td>
+</tr>
+<tr>
+<td>
+<code>chooseGame()</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Kiválasztjuk azt a játékot, amihez csatlakozni szeretnénk.
+</td>
+</tr>
+<tr>
+<td>
+<code>joinGame(chosen)</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Továbbküldi a kiválasztott világ tulajdonságait a <code>Join Game</code>-nek.
+</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="5.4.8" id="available-games"><span class="header-section-number">5.4.8</span> Available Games</h3>
+<ul>
+<li><strong>Felelőssége, feladata:</strong> Tárolja az elérhető online világokat, amikhez tudunk csatlakozni</li>
+<li><strong>Együttműködők:</strong> <code>Direct Join</code>, <code>List Games</code></li>
+</ul>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>availableGames</code>
+</td>
+<td>
+<code>dinamic array</code>
+</td>
+<td>
+Tárolja az elérhető játékokat.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>getAvailableGames()</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Lekéri és kiírja az elérhető játékokat, amiből majd tudunk választani/véletlenszerűen választunk.
+</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="5.4.9" id="join-game"><span class="header-section-number">5.4.9</span> Join Game</h3>
+<ul>
+<li><strong>Felelőssége, feladata:</strong> A megkapott online világhoz csatlakoztat minket a Host Game-ben</li>
+<li><strong>Együttműködők:</strong> <code>Direct Join</code>, <code>List Games</code>, <code>Host Game</code></li>
+</ul>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>playerID</code>
+</td>
+<td>
+<code>long int</code>
+</td>
+<td>
+A játékosunk személyes ID-je.
+</td>
+</tr>
+<tr>
+<td>
+<code>hostID</code>
+</td>
+<td>
+<code>long int</code>
+</td>
+<td>
+A világ ID-ja, amihez csatlakozni akarunk.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>getConnect()</code>
+</td>
+<td>
+<code>chosen</code>, <code>hostID</code>
+</td>
+<td>
+A kiválasztott világhoz csatlakoztat minket és tovább küld a <code>Host Game</code> osztályba.
+</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="5.4.10" id="host-game"><span class="header-section-number">5.4.10</span> Host Game</h3>
+<ul>
+<li><strong>Felelőssége, feladata:</strong> Itt valósul meg a játék kezdése, ahol minden játékos saját ID-vel rendelkezik és csapatban játszanak.</li>
+<li><strong>Együttműködők:</strong> <code>New Game</code>, <code>Load Game</code>, <code>Join Game</code></li>
+</ul>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>mouseListener</code>
+</td>
+<td>
+<code>Listener</code>
+</td>
+<td>
+Az egér irányításához és a kattintásos opciókhoz használva.
+</td>
+</tr>
+<tr>
+<td>
+<code>keyListener</code>
+</td>
+<td>
+<code>Listener</code>
+</td>
+<td>
+A billentyűgombjainak és kombinációinak használatához.
+</td>
+</tr>
+<tr>
+<td>
+<code>playerID</code>
+</td>
+<td>
+<code>array</code>
+</td>
+<td>
+Fix méretű tömb a játékosok ID-jével.
+</td>
+</tr>
+<tr>
+<td>
+<code>Name</code>
+</td>
+<td>
+<code>String</code>
+</td>
+<td>
+A játékosok nevei.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>distributeClasses()</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Kiosztja a megadott kasztokat a játékosoknak.
+</td>
+</tr>
+<tr>
+<td>
+<code>startGame()</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Elkezdi a játékot multiplayer-ben játszani.
 </td>
 </tr>
 </tbody>
