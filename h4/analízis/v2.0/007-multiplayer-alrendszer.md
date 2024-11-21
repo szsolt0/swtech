@@ -37,7 +37,7 @@ Az esetleges bázisosztály a Game lehet, amely általános tulajdonságokat hor
 
 Az egyes specifikus játékállapotok, mint például `New Game`, `Join Game`, és `Host Game`, származhatnak ebből a bázisosztályból, mivel valamennyi feltüntetett tulajdonság megtalálható bennük.
 
-### Dinamikus modell
+## Dinamikus modell
 
 <div class="img-wrap">
 <a href="multiplayer-01.png" target="_blank"><img src="multiplayer-01.png" alt="Multiplayer alrendszer dinamikus modell" title="Multiplayer alrendszer dinamikus modell"></a>
@@ -66,6 +66,8 @@ Az osztálydiagramot kiegészítő az egyes osztályokhoz tartozó műveletek:
 <div class="img-wrap">
 <a href="multiplayer-03.png" target="_blank"><img src="multiplayer-03.png" alt="Multiplayer alrendszer analízis modell osztálydiagramja" title="Multiplayer alrendszer analízis modell osztálydiagramja"></a>
 </div>
+
+## Az analízis modell osztályainak listája
 
 ### Multiplayer
 

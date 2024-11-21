@@ -186,6 +186,8 @@ Az alrendszerek közötti kapcsolatok lehetővé teszik, hogy a játékos külö
 <a href="mentés-03.png" target="_blank"><img src="mentés-03.png" alt="Adatkezelés és mentés alrendszer analízis modell osztálydiagramja" title="Adatkezelés és mentés alrendszer analízis modell osztálydiagramja"></a>
 </div>
 
+## Az analízis modell osztályainak listája
+
 ### SaveSystem
 
 **Felelőssége, feladata:** Kezeli a játék mentését, betöltését, törlését és szinkronizálását helyben vagy felhőben.
@@ -243,22 +245,22 @@ Az alrendszerek közötti kapcsolatok lehetővé teszik, hogy a játékos külö
   </thead>
   <tbody>
     <tr>
-      <td>saveGame</td>
-      <td>data: GameData</td>
+      <td>`saveGame`</td>
+      <td>`data: GameData`</td>
       <td>Elmenti az aktuális játékállapotot fájlba vagy felhőbe.</td>
     </tr>
     <tr>
-      <td>loadGame</td>
-      <td>saveID: String</td>
+      <td>`loadGame`</td>
+      <td>`saveID: String`</td>
       <td>Betölti a kiválasztott mentést helyről vagy felhőből.</td>
     </tr>
     <tr>
-      <td>deleteSave</td>
-      <td>saveID: String</td>
+      <td>`deleteSave`</td>
+      <td>`saveID: String`</td>
       <td>Törli a megadott mentést.</td>
     </tr>
     <tr>
-      <td>syncSaves</td>
+      <td>`syncSaves`</td>
       <td>Nincs</td>
       <td>Szinkronizálja a mentéseket a felhővel.</td>
     </tr>

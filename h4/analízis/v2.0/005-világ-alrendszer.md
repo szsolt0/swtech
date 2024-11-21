@@ -99,6 +99,8 @@ Az egyes osztályok funkciói:
 <a href="világ-03.png" target="_blank"><img src="világ-03.png" alt="Világ alrendszer analízis modell osztálydiagramja" title="Világ alrendszer analízis modell osztálydiagramja"></a>
 </div>
 
+## Az analízis modell osztályainak listája
+
 ### WorldManager
 
 <table>
