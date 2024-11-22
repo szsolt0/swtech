@@ -1,4 +1,4 @@
-# A multiplayer alrendszer modellje
+# Multiplayer alrendszer modellje
 
 ## Statikus modell
 
