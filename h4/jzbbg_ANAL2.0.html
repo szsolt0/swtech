@@ -80,13 +80,14 @@
 <li><a href="#multiplayer-alrendszer"><span class="toc-section-number">2.3.5</span> Multiplayer alrendszer</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#játék-mechanika-alrendszer-modellje"><span class="toc-section-number">3</span> Játék mechanika alrendszer modellje</a>
+<li><a href="#felhasználói-felület-alrendszer-modellje"><span class="toc-section-number">3</span> Felhasználói felület alrendszer modellje</a>
 <ul>
 <li><a href="#statikus-modell"><span class="toc-section-number">3.1</span> Statikus modell</a>
 <ul>
 <li><a href="#kapcsolatok-pontosítása"><span class="toc-section-number">3.1.1</span> Kapcsolatok pontosítása</a></li>
-<li><a href="#attribútumok-azonosítása"><span class="toc-section-number">3.1.2</span> Attribútumok azonosítása</a></li>
-<li><a href="#bázisosztályok-keresése"><span class="toc-section-number">3.1.3</span> Bázisosztályok keresése</a></li>
+<li><a href="#osztályok-a-felhasználói-felület-alrendszerében"><span class="toc-section-number">3.1.2</span> Osztályok a felhasználói felület alrendszerében</a></li>
+<li><a href="#attribútumok-azonosítása"><span class="toc-section-number">3.1.3</span> Attribútumok azonosítása</a></li>
+<li><a href="#bázisosztályok-keresése"><span class="toc-section-number">3.1.4</span> Bázisosztályok keresése</a></li>
 </ul></li>
 <li><a href="#dinamikus-modell"><span class="toc-section-number">3.2</span> Dinamikus modell</a></li>
 <li><a href="#funkcionális-modell"><span class="toc-section-number">3.3</span> Funkcionális modell</a></li>
@@ -94,26 +95,19 @@
 <li><a href="#az-analízis-modell-osztálydiagramja"><span class="toc-section-number">3.5</span> Az analízis modell osztálydiagramja</a></li>
 <li><a href="#az-analízis-modell-osztályainak-listája"><span class="toc-section-number">3.6</span> Az analízis modell osztályainak listája</a>
 <ul>
-<li><a href="#armor"><span class="toc-section-number">3.6.1</span> Armor</a></li>
-<li><a href="#stats"><span class="toc-section-number">3.6.2</span> Stats</a></li>
-<li><a href="#entity"><span class="toc-section-number">3.6.3</span> Entity</a></li>
-<li><a href="#fightentity"><span class="toc-section-number">3.6.4</span> FightEntity</a></li>
-<li><a href="#inventory"><span class="toc-section-number">3.6.5</span> Inventory</a></li>
-<li><a href="#item"><span class="toc-section-number">3.6.6</span> Item</a></li>
-<li><a href="#itementity"><span class="toc-section-number">3.6.7</span> ItemEntity</a></li>
-<li><a href="#shield"><span class="toc-section-number">3.6.8</span> Shield</a></li>
-<li><a href="#enemy"><span class="toc-section-number">3.6.9</span> Enemy</a></li>
-<li><a href="#npc"><span class="toc-section-number">3.6.10</span> NPC</a></li>
-<li><a href="#consumable"><span class="toc-section-number">3.6.11</span> Consumable</a></li>
-<li><a href="#projectile"><span class="toc-section-number">3.6.12</span> Projectile</a></li>
-<li><a href="#attack"><span class="toc-section-number">3.6.13</span> Attack</a></li>
-<li><a href="#environentity"><span class="toc-section-number">3.6.14</span> EnvironEntity</a></li>
-<li><a href="#storageentity"><span class="toc-section-number">3.6.15</span> StorageEntity</a></li>
-<li><a href="#weapon"><span class="toc-section-number">3.6.16</span> Weapon</a></li>
-<li><a href="#player"><span class="toc-section-number">3.6.17</span> Player</a></li>
+<li><a href="#mainmenu"><span class="toc-section-number">3.6.1</span> MainMenu</a></li>
+<li><a href="#continue"><span class="toc-section-number">3.6.2</span> Continue</a></li>
+<li><a href="#multiplayer"><span class="toc-section-number">3.6.3</span> Multiplayer</a></li>
+<li><a href="#settings"><span class="toc-section-number">3.6.4</span> Settings</a></li>
+<li><a href="#audio"><span class="toc-section-number">3.6.5</span> Audio</a></li>
+<li><a href="#controls"><span class="toc-section-number">3.6.6</span> Controls</a></li>
+<li><a href="#video"><span class="toc-section-number">3.6.7</span> Video</a></li>
+<li><a href="#new-game"><span class="toc-section-number">3.6.8</span> New Game</a></li>
+<li><a href="#hud"><span class="toc-section-number">3.6.9</span> HUD</a></li>
+<li><a href="#hudonline"><span class="toc-section-number">3.6.10</span> HUDOnline</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#világ-alrendszer-modellje"><span class="toc-section-number">4</span> Világ alrendszer modellje</a>
+<li><a href="#játék-mechanika-alrendszer-modellje"><span class="toc-section-number">4</span> Játék mechanika alrendszer modellje</a>
 <ul>
 <li><a href="#statikus-modell-1"><span class="toc-section-number">4.1</span> Statikus modell</a>
 <ul>
@@ -127,20 +121,31 @@
 <li><a href="#az-analízis-modell-osztálydiagramja-1"><span class="toc-section-number">4.5</span> Az analízis modell osztálydiagramja</a></li>
 <li><a href="#az-analízis-modell-osztályainak-listája-1"><span class="toc-section-number">4.6</span> Az analízis modell osztályainak listája</a>
 <ul>
-<li><a href="#worldmanager"><span class="toc-section-number">4.6.1</span> WorldManager</a></li>
-<li><a href="#npcmanager"><span class="toc-section-number">4.6.2</span> NPCManager</a></li>
-<li><a href="#mapmanager"><span class="toc-section-number">4.6.3</span> MapManager</a></li>
-<li><a href="#environmentmanager"><span class="toc-section-number">4.6.4</span> EnvironmentManager</a></li>
-<li><a href="#questmanager"><span class="toc-section-number">4.6.5</span> QuestManager</a></li>
-<li><a href="#baseentity"><span class="toc-section-number">4.6.6</span> BaseEntity</a></li>
+<li><a href="#armor"><span class="toc-section-number">4.6.1</span> Armor</a></li>
+<li><a href="#stats"><span class="toc-section-number">4.6.2</span> Stats</a></li>
+<li><a href="#entity"><span class="toc-section-number">4.6.3</span> Entity</a></li>
+<li><a href="#fightentity"><span class="toc-section-number">4.6.4</span> FightEntity</a></li>
+<li><a href="#inventory"><span class="toc-section-number">4.6.5</span> Inventory</a></li>
+<li><a href="#item"><span class="toc-section-number">4.6.6</span> Item</a></li>
+<li><a href="#itementity"><span class="toc-section-number">4.6.7</span> ItemEntity</a></li>
+<li><a href="#shield"><span class="toc-section-number">4.6.8</span> Shield</a></li>
+<li><a href="#enemy"><span class="toc-section-number">4.6.9</span> Enemy</a></li>
+<li><a href="#npc"><span class="toc-section-number">4.6.10</span> NPC</a></li>
+<li><a href="#consumable"><span class="toc-section-number">4.6.11</span> Consumable</a></li>
+<li><a href="#projectile"><span class="toc-section-number">4.6.12</span> Projectile</a></li>
+<li><a href="#attack"><span class="toc-section-number">4.6.13</span> Attack</a></li>
+<li><a href="#environentity"><span class="toc-section-number">4.6.14</span> EnvironEntity</a></li>
+<li><a href="#storageentity"><span class="toc-section-number">4.6.15</span> StorageEntity</a></li>
+<li><a href="#weapon"><span class="toc-section-number">4.6.16</span> Weapon</a></li>
+<li><a href="#player"><span class="toc-section-number">4.6.17</span> Player</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#adatkezelés-és-mentés-alrendszer-1"><span class="toc-section-number">5</span> Adatkezelés és mentés alrendszer</a>
+<li><a href="#világ-alrendszer-modellje"><span class="toc-section-number">5</span> Világ alrendszer modellje</a>
 <ul>
 <li><a href="#statikus-modell-2"><span class="toc-section-number">5.1</span> Statikus modell</a>
 <ul>
-<li><a href="#kapcsolatok"><span class="toc-section-number">5.1.1</span> Kapcsolatok</a></li>
-<li><a href="#osztályok-és-azok-attribútumainak-azonosítása-és-műveleteik"><span class="toc-section-number">5.1.2</span> Osztályok és azok attribútumainak azonosítása és műveleteik</a></li>
+<li><a href="#kapcsolatok-pontosítása-2"><span class="toc-section-number">5.1.1</span> Kapcsolatok pontosítása</a></li>
+<li><a href="#attribútumok-azonosítása-2"><span class="toc-section-number">5.1.2</span> Attribútumok azonosítása</a></li>
 <li><a href="#bázisosztályok-keresése-2"><span class="toc-section-number">5.1.3</span> Bázisosztályok keresése</a></li>
 </ul></li>
 <li><a href="#dinamikus-modell-2"><span class="toc-section-number">5.2</span> Dinamikus modell</a></li>
@@ -149,18 +154,20 @@
 <li><a href="#az-analízis-modell-osztálydiagramja-2"><span class="toc-section-number">5.5</span> Az analízis modell osztálydiagramja</a></li>
 <li><a href="#az-analízis-modell-osztályainak-listája-2"><span class="toc-section-number">5.6</span> Az analízis modell osztályainak listája</a>
 <ul>
-<li><a href="#savesystem"><span class="toc-section-number">5.6.1</span> SaveSystem</a></li>
-<li><a href="#importgame"><span class="toc-section-number">5.6.2</span> ImportGame</a></li>
-<li><a href="#localcloudsavedgamelist"><span class="toc-section-number">5.6.3</span> LocalCloudSavedGameList</a></li>
-<li><a href="#continue"><span class="toc-section-number">5.6.4</span> Continue</a></li>
+<li><a href="#worldmanager"><span class="toc-section-number">5.6.1</span> WorldManager</a></li>
+<li><a href="#npcmanager"><span class="toc-section-number">5.6.2</span> NPCManager</a></li>
+<li><a href="#mapmanager"><span class="toc-section-number">5.6.3</span> MapManager</a></li>
+<li><a href="#environmentmanager"><span class="toc-section-number">5.6.4</span> EnvironmentManager</a></li>
+<li><a href="#questmanager"><span class="toc-section-number">5.6.5</span> QuestManager</a></li>
+<li><a href="#baseentity"><span class="toc-section-number">5.6.6</span> BaseEntity</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#a-multiplayer-alrendszer-modellje"><span class="toc-section-number">6</span> A multiplayer alrendszer modellje</a>
+<li><a href="#adatkezelés-és-mentés-alrendszer-1"><span class="toc-section-number">6</span> Adatkezelés és mentés alrendszer</a>
 <ul>
 <li><a href="#statikus-modell-3"><span class="toc-section-number">6.1</span> Statikus modell</a>
 <ul>
-<li><a href="#kapcsolatok-pontosítása-2"><span class="toc-section-number">6.1.1</span> Kapcsolatok pontosítása</a></li>
-<li><a href="#attribútumok-azonosítása-2"><span class="toc-section-number">6.1.2</span> Attribútumok azonosítása</a></li>
+<li><a href="#kapcsolatok"><span class="toc-section-number">6.1.1</span> Kapcsolatok</a></li>
+<li><a href="#osztályok-és-azok-attribútumainak-azonosítása-és-műveleteik"><span class="toc-section-number">6.1.2</span> Osztályok és azok attribútumainak azonosítása és műveleteik</a></li>
 <li><a href="#bázisosztályok-keresése-3"><span class="toc-section-number">6.1.3</span> Bázisosztályok keresése</a></li>
 </ul></li>
 <li><a href="#dinamikus-modell-3"><span class="toc-section-number">6.2</span> Dinamikus modell</a></li>
@@ -169,16 +176,36 @@
 <li><a href="#az-analízis-modell-osztálydiagramja-3"><span class="toc-section-number">6.5</span> Az analízis modell osztálydiagramja</a></li>
 <li><a href="#az-analízis-modell-osztályainak-listája-3"><span class="toc-section-number">6.6</span> Az analízis modell osztályainak listája</a>
 <ul>
-<li><a href="#multiplayer"><span class="toc-section-number">6.6.1</span> Multiplayer</a></li>
-<li><a href="#new-game"><span class="toc-section-number">6.6.2</span> New Game</a></li>
-<li><a href="#new-world"><span class="toc-section-number">6.6.3</span> New World</a></li>
-<li><a href="#load-game"><span class="toc-section-number">6.6.4</span> Load Game</a></li>
-<li><a href="#saved-games"><span class="toc-section-number">6.6.5</span> Saved Games</a></li>
-<li><a href="#direct-join"><span class="toc-section-number">6.6.6</span> Direct Join</a></li>
-<li><a href="#list-games"><span class="toc-section-number">6.6.7</span> List Games</a></li>
-<li><a href="#available-games"><span class="toc-section-number">6.6.8</span> Available Games</a></li>
-<li><a href="#join-game"><span class="toc-section-number">6.6.9</span> Join Game</a></li>
-<li><a href="#host-game"><span class="toc-section-number">6.6.10</span> Host Game</a></li>
+<li><a href="#savesystem"><span class="toc-section-number">6.6.1</span> SaveSystem</a></li>
+<li><a href="#importgame"><span class="toc-section-number">6.6.2</span> ImportGame</a></li>
+<li><a href="#localcloudsavedgamelist"><span class="toc-section-number">6.6.3</span> LocalCloudSavedGameList</a></li>
+<li><a href="#continue-1"><span class="toc-section-number">6.6.4</span> Continue</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#multiplayer-alrendszer-modellje"><span class="toc-section-number">7</span> Multiplayer alrendszer modellje</a>
+<ul>
+<li><a href="#statikus-modell-4"><span class="toc-section-number">7.1</span> Statikus modell</a>
+<ul>
+<li><a href="#kapcsolatok-pontosítása-3"><span class="toc-section-number">7.1.1</span> Kapcsolatok pontosítása</a></li>
+<li><a href="#attribútumok-azonosítása-3"><span class="toc-section-number">7.1.2</span> Attribútumok azonosítása</a></li>
+<li><a href="#bázisosztályok-keresése-4"><span class="toc-section-number">7.1.3</span> Bázisosztályok keresése</a></li>
+</ul></li>
+<li><a href="#dinamikus-modell-4"><span class="toc-section-number">7.2</span> Dinamikus modell</a></li>
+<li><a href="#funkcionális-modell-4"><span class="toc-section-number">7.3</span> Funkcionális modell</a></li>
+<li><a href="#operációk-azonosítása-4"><span class="toc-section-number">7.4</span> Operációk azonosítása</a></li>
+<li><a href="#az-analízis-modell-osztálydiagramja-4"><span class="toc-section-number">7.5</span> Az analízis modell osztálydiagramja</a></li>
+<li><a href="#az-analízis-modell-osztályainak-listája-4"><span class="toc-section-number">7.6</span> Az analízis modell osztályainak listája</a>
+<ul>
+<li><a href="#multiplayer-1"><span class="toc-section-number">7.6.1</span> Multiplayer</a></li>
+<li><a href="#new-game-1"><span class="toc-section-number">7.6.2</span> New Game</a></li>
+<li><a href="#new-world"><span class="toc-section-number">7.6.3</span> New World</a></li>
+<li><a href="#load-game"><span class="toc-section-number">7.6.4</span> Load Game</a></li>
+<li><a href="#saved-games"><span class="toc-section-number">7.6.5</span> Saved Games</a></li>
+<li><a href="#direct-join"><span class="toc-section-number">7.6.6</span> Direct Join</a></li>
+<li><a href="#list-games"><span class="toc-section-number">7.6.7</span> List Games</a></li>
+<li><a href="#available-games"><span class="toc-section-number">7.6.8</span> Available Games</a></li>
+<li><a href="#join-game"><span class="toc-section-number">7.6.9</span> Join Game</a></li>
+<li><a href="#host-game"><span class="toc-section-number">7.6.10</span> Host Game</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -369,26 +396,1663 @@
 <h3 data-number="2.3.5" id="multiplayer-alrendszer"><span class="header-section-number">2.3.5</span> Multiplayer alrendszer</h3>
 <p>A többjátékos funkciókért felelős alrendszer, beleértve a csatlakozási lehetőségeket, játékok listáját, és a különböző többjátékos beállításokat.</p>
 <p><strong>Osztályok:</strong> Multiplayer, List Game, Host Game, Direct Connect, Join, My Games, New Game</p>
-<h1 data-number="3" id="játék-mechanika-alrendszer-modellje"><span class="header-section-number">3</span> Játék mechanika alrendszer modellje</h1>
+<h1 data-number="3" id="felhasználói-felület-alrendszer-modellje"><span class="header-section-number">3</span> Felhasználói felület alrendszer modellje</h1>
 <h2 data-number="3.1" id="statikus-modell"><span class="header-section-number">3.1</span> Statikus modell</h2>
 <h3 data-number="3.1.1" id="kapcsolatok-pontosítása"><span class="header-section-number">3.1.1</span> Kapcsolatok pontosítása</h3>
-<h3 data-number="3.1.2" id="attribútumok-azonosítása"><span class="header-section-number">3.1.2</span> Attribútumok azonosítása</h3>
-<h3 data-number="3.1.3" id="bázisosztályok-keresése"><span class="header-section-number">3.1.3</span> Bázisosztályok keresése</h3>
+<h3 data-number="3.1.2" id="osztályok-a-felhasználói-felület-alrendszerében"><span class="header-section-number">3.1.2</span> Osztályok a felhasználói felület alrendszerében</h3>
+<ul>
+<li><p><strong>MainMenu:</strong> Az összefűző osztály, amely kezeli a főmenü elemeit, és innen érhetjük el a többi osztály funkcióit. Ezekkel az osztályokkal áll kapcsolatban:</p>
+<ul>
+<li><strong>NewGame:</strong> Hívásakor új játékot hozunk létre, amelyhez kettő dolog megadása szükséges: a világ neve, és hogy milyen nehézségi szintű legye a játék. Ezt elmenthetjük és folytathatjuk.</li>
+<li><strong>LoadGame:</strong> Az elmentett játékok betöltése.</li>
+<li><strong>Settings:</strong> A játék beállításainak kezelése, mint videó, hang és vezérlési beállítások.</li>
+<li><strong>Quit:</strong> A játék bezárása.</li>
+</ul></li>
+<li><p><strong>Settings:</strong> Az osztály, amely kezeli a különböző beállításokat és azok mentését. Kapcsolatban áll a következő osztályokkal:</p>
+<ul>
+<li><strong>VideoSettings:</strong> A videó beállítások kezelése. Különböző csúszkák illetve mini listákból áll.</li>
+<li><strong>AudioSettings:</strong> A hang beállítások kezelése csúszkákkal.</li>
+<li><strong>ControlSettings:</strong> A vezérlési beállítások kezelése, billentyűk funkcióinak beállítása.</li>
+</ul></li>
+<li><p><strong>HUD:</strong> A játékos állapotának megjelenítése, beleértve az életerőt, manát, SP-t (Sanity Points), valamint a minitérképet, küldetéseket, inventory-t és egyéb információkat.</p></li>
+<li><p><strong>HUDOnline (Only Online Elements):</strong> Csak online játékhoz kapcsolódó elemek.</p></li>
+</ul>
+<h3 data-number="3.1.3" id="attribútumok-azonosítása"><span class="header-section-number">3.1.3</span> Attribútumok azonosítása</h3>
+<p>Az alábbi releváns attribútumokat rendeljük hozzá az alrendszer osztályaihoz:</p>
+<p><strong>MainMenu (Főmenü):</strong> - <strong>NewGame:</strong> tartalmazhat olyan attribútumokat, mint a <code>gameName</code>, <code>maxPlayers</code>, <code>gameMode</code>, <code>gameDifficulty</code>, <code>gameVisibility</code> (Csatlakozhatnak-e hozzá ez opcionális vagyis a Singleplayer-ben elengedhető).</p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Settings
+</th>
+<th>
+Attribútum
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>VideoSettings</code>
+</td>
+<td>
+<code>resolution</code>
+</td>
+<td>
+A képernyőfelbontás beállítása1920x1080 (Full HD), 2560x1440 (QHD), 3840x2160 (4K), Windowed / Fullscreen / Borderless
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>scale</code>
+</td>
+<td>
+Scale beállítás: 100% / 125% / 150%
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>fpsLimit</code>
+</td>
+<td>
+FPS korlátozás: 30 / 60 / 120 / 144 / Uncapped
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>vSync</code>
+</td>
+<td>
+V-Sync beállítás: On / Off
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>graphicsQuality</code>
+</td>
+<td>
+Grafikai minőség: Low / Medium / High / Ultra
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>antiAliasing</code>
+</td>
+<td>
+Élsimítás: Off / FXAA / MSAA / TAA
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>textureQuality</code>
+</td>
+<td>
+Textúra minőség: Low / Medium / High / Ultra
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>shadows</code>
+</td>
+<td>
+Árnyékok: Off / Low / Medium / High
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>shadowDistance</code>
+</td>
+<td>
+Árnyék távolság: Near / Medium / Far
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>ambientOcclusion</code>
+</td>
+<td>
+Környezeti takarás: On / Off
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>bloomEffect</code>
+</td>
+<td>
+Bloom effekt: On / Off
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>motionBlur</code>
+</td>
+<td>
+Mozgási elmosódás: Off / Low / Medium / High
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>fieldOfView</code>
+</td>
+<td>
+Látószög (FOV): 60° / 75° / 90° / 100° / 110°
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>depthOfField</code>
+</td>
+<td>
+Mélységélesség: On / Off
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>renderDistance</code>
+</td>
+<td>
+Renderelési távolság: Near / Medium / Far
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>anisotropicFiltering</code>
+</td>
+<td>
+Anizotróp szűrés: Off / 2x / 4x / 8x / 16x
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>colorBlindMode</code>
+</td>
+<td>
+Színtévesztő mód: On / Off
+</td>
+</tr>
+<tr>
+<td>
+<code>AudioSettings</code>
+</td>
+<td>
+<code>masterVolume</code>
+</td>
+<td>
+A fő hangerő szintje
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>musicVolume</code>
+</td>
+<td>
+A zenei hangerő szintje
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>sfxVolume</code>
+</td>
+<td>
+A hangeffektek hangerő szintje
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>dialogueVolume</code>
+</td>
+<td>
+A párbeszédek hangerő szintje
+</td>
+</tr>
+<tr>
+<td>
+<code>ControlSettings</code>
+</td>
+<td>
+<code>keyBindings</code>
+</td>
+<td>
+A billentyűkiosztás konfigurációja
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>mouseSensitivity</code>
+</td>
+<td>
+Az egér érzékenységének beállítása
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<code>gamepadConfiguration</code>
+</td>
+<td>
+Gamepad konfiguráció
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>HUD:</strong></p>
+<ul>
+<li><strong>HP</strong>: A játékos életereje.</li>
+<li><strong>Mana</strong>: A játékos mana pontjai.</li>
+<li><strong>SP (Sanity Points)</strong>: A játékos elmeállapota.</li>
+<li><strong>MiniMap</strong>: A játékos környezetének megjelenítése.
+<ul>
+<li><strong>Map</strong>: A teljes térkép.</li>
+<li><strong>Quests</strong>: A játékos küldetéseinek nyomon követése.
+<ul>
+<li><strong>Active Quests</strong>: Jelenleg aktív küldetések.</li>
+<li><strong>Completed Quests</strong>: Teljesített küldetések.</li>
+</ul></li>
+</ul></li>
+<li><strong>Inventory</strong>: A játékos tárgyainak kezelése.
+<ul>
+<li><strong>Wearable</strong>: Viselhető tárgyak.
+<ul>
+<li><strong>Head</strong>: Fejre viselhető tárgyak.</li>
+<li><strong>Body</strong>: Testre viselhető tárgyak.</li>
+<li><strong>Shoes</strong>: Lábbeli.</li>
+<li><strong>Extra Item</strong>: Kiegészítő tárgyak.</li>
+</ul></li>
+<li><strong>Tool (Weapons Only)</strong>: Fegyverek.</li>
+<li><strong>Shield (Defensive Items Only)</strong>: Védekező tárgyak.</li>
+<li><strong>Bag (Extra Item Slots)</strong>: További tárhely.
+<ul>
+<li><strong>List of Items</strong>: Tárgyak listája.</li>
+<li><strong>List of Quest items (infinite slots)</strong>: Küldetési tárgyak listája.</li>
+</ul></li>
+<li><strong>Gold (Currency)</strong>: Pénz.</li>
+</ul></li>
+<li><strong>Skills</strong>: A játékos képességei.
+<ul>
+<li><strong>Active Skills</strong>: Aktív képességek.</li>
+<li><strong>Passive Skills</strong>: Passzív képességek.</li>
+<li><strong>Special Skills</strong>: Különleges képességek.</li>
+</ul></li>
+<li><strong>Buffs/Debuffs</strong>: A játékosra ható pozitív és negatív hatások.
+<ul>
+<li><strong>Active Effects</strong>: Aktív hatások.</li>
+<li><strong>XP Bar (Experience Points)</strong>: Tapasztalati pontok sávja.</li>
+<li><strong>Level Indicator</strong>: Szintjelző.</li>
+<li><strong>Dialogue Box</strong>: Párbeszédek megjelenítése.</li>
+</ul></li>
+<li><strong>Notifications</strong>: Értesítések megjelenítése.
+<ul>
+<li><strong>System Messages</strong>: Rendszerüzenetek.</li>
+<li><strong>Achievements</strong>: Eredmények.</li>
+</ul></li>
+</ul>
+<h3 data-number="3.1.4" id="bázisosztályok-keresése"><span class="header-section-number">3.1.4</span> Bázisosztályok keresése</h3>
+<p>Azonosított Bázisosztályok</p>
+<p><strong>MenuOption Bázisosztály</strong></p>
+<p>Az osztályokban található cím, opciók és kiválasztottOpció attribútumok alapján bevezetünk egy közös bázisosztályt:</p>
+<ul>
+<li><strong>MenuOption</strong>
+<ul>
+<li><strong>Attribútumok:</strong>
+<ul>
+<li><strong>cím (title):</strong> <code>String</code></li>
+<li><strong>opciók (options):</strong> <code>List</code></li>
+<li><strong>kiválasztottOpció (selectedOption):</strong> <code>String</code></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>SettingsOption Bázisosztály</strong></p>
+<p>Az egyes beállítások osztályaiban ismétlődő attribútumokat egy közös bázisosztályba emeljük:</p>
+<ul>
+<li><strong>SettingsOption</strong>
+<ul>
+<li><strong>Attribútumok:</strong>
+<ul>
+<li><strong>felbontás (resolution):</strong> <code>List</code></li>
+<li><strong>scale:</strong> <code>List</code></li>
+<li><strong>fpsLimit:</strong> <code>List</code></li>
+<li><strong>vSync:</strong> <code>Boolean</code></li>
+<li><strong>graphicsQuality:</strong> <code>List</code></li>
+<li><strong>antiAliasing:</strong> <code>List</code></li>
+<li><strong>textureQuality:</strong> <code>List</code></li>
+<li><strong>shadows:</strong> <code>List</code></li>
+<li><strong>shadowDistance:</strong> <code>List</code></li>
+<li><strong>ambientOcclusion:</strong> <code>Boolean</code></li>
+<li><strong>bloomEffect:</strong> <code>Boolean</code></li>
+<li><strong>motionBlur:</strong> <code>List</code></li>
+<li><strong>fieldOfView:</strong> <code>List</code></li>
+<li><strong>depthOfField:</strong> <code>Boolean</code></li>
+<li><strong>renderDistance:</strong> <code>List</code></li>
+<li><strong>anisotropicFiltering:</strong> <code>List</code></li>
+<li><strong>colorBlindMode:</strong> <code>Boolean</code></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>VolumeSettings Bázisosztály</strong></p>
+<p>A hangbeállítások osztályában található ismétlődő hangerő attribútumokat egy közös bázisosztályba emeljük:</p>
+<ul>
+<li><strong>VolumeSettings</strong>
+<ul>
+<li><strong>Attribútumok:</strong>
+<ul>
+<li><strong>masterVolume:</strong> <code>Integer</code></li>
+<li><strong>musicVolume:</strong> <code>Integer</code></li>
+<li><strong>sfxVolume:</strong> <code>Integer</code></li>
+<li><strong>dialogueVolume:</strong> <code>Integer</code></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>ControlSettings Bázisosztály</strong></p>
+<p>A vezérlés beállításainak attribútumait egy közös bázisosztályba emeljük:</p>
+<ul>
+<li><strong>ControlSettings</strong>
+<ul>
+<li><strong>Attribútumok:</strong>
+<ul>
+<li><strong>keyBindings:</strong> <code>Map</code></li>
+<li><strong>mouseSensitivity:</strong> <code>Float</code></li>
+<li><strong>gamepadConfiguration:</strong> <code>Map</code></li>
+</ul></li>
+</ul></li>
+</ul>
 <h2 data-number="3.2" id="dinamikus-modell"><span class="header-section-number">3.2</span> Dinamikus modell</h2>
 <div class="img-wrap">
-<p><a href="mechanika-01.png" target="_blank"><img src="mechanika-01.png" alt="Játék mechanika alrendszer dinamikus modell" title="Játék mechanika alrendszer dinamikus modell"></a></p>
+<p><a href="ui-01.png" target="_blank"><img src="ui-01.png" alt="Felhasználói felület alrendszer dinamikus modell" title="Felhasználói felület alrendszer dinamikus modell"></a></p>
 </div>
 <h2 data-number="3.3" id="funkcionális-modell"><span class="header-section-number">3.3</span> Funkcionális modell</h2>
 <div class="img-wrap">
-<p><a href="mechanika-02.png" target="_blank"><img src="mechanika-02.png" alt="Játék mechanika alrendszer funkcionális modell" title="Játék mechanika alrendszer funkcionális modell"></a></p>
+<p><a href="ui-02.png" target="_blank"><img src="ui-02.png" alt="Felhasználói felület alrendszer funkcionális modell" title="Felhasználói felület alrendszer funkcionális modell"></a></p>
+</div>
+<p><strong>Hud diagramm:</strong></p>
+<div class="img-wrap">
+<p><a href="ui-03.png" target="_blank"><img src="ui-03.png" alt="Felhasználói felület alrendszer HUD diagramm" title="Felhasználói felület alrendszer HUD diagramm"></a></p>
+</div>
+<div class="img-wrap">
+<p><a href="ui-04.png" target="_blank"><img src="ui-04.png" alt="Felhasználói felület alrendszer HUD diagramm" title="Felhasználói felület alrendszer HUD diagramm"></a></p>
 </div>
 <h2 data-number="3.4" id="operációk-azonosítása"><span class="header-section-number">3.4</span> Operációk azonosítása</h2>
 <h2 data-number="3.5" id="az-analízis-modell-osztálydiagramja"><span class="header-section-number">3.5</span> Az analízis modell osztálydiagramja</h2>
 <div class="img-wrap">
-<p><a href="mechanika-03.svg" target="_blank"><img src="mechanika-03.svg" alt="Játék mechanika alrendszer analízis modell osztálydiagramja" title="Játék mechanika alrendszer analízis modell osztálydiagramja"></a></p>
+<p><a href="ui-05.png" target="_blank"><img src="ui-05.png" alt="Felhasználói felület alrendszer analízis modell osztálydiagramja" title="Felhasználói felület alrendszer analízis modell osztálydiagramja"></a></p>
 </div>
 <h2 data-number="3.6" id="az-analízis-modell-osztályainak-listája"><span class="header-section-number">3.6</span> Az analízis modell osztályainak listája</h2>
-<h3 data-number="3.6.1" id="armor"><span class="header-section-number">3.6.1</span> Armor</h3>
+<h3 data-number="3.6.1" id="mainmenu"><span class="header-section-number">3.6.1</span> MainMenu</h3>
+<p><strong>Felelőssége, feladata</strong>: A főmenü kezelése, innen érhetőek el a játék különböző funkciói.<br />
+<strong>Együttműködők</strong>: <code>NewGame</code>, <code>Continue</code>, <code>Settings</code>, <code>Multiplayer</code></p>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+<tr>
+<td>
+<code>mouse</code>
+</td>
+<td>
+<code>Listener</code>
+</td>
+<td>
+Az egér kattintásával való irányítás az opciók között.
+</td>
+</tr>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+<tr>
+<td>
+<code>setMainMenuHUD()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A HUD megalkotása és megvalósítása.
+</td>
+</tr>
+<tr>
+<td>
+<code>quit()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A program befejezése, kilépés.
+</td>
+</tr>
+<tr>
+<td>
+<code>play()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Játékmód kiválasztása.
+</td>
+</tr>
+<tr>
+<td>
+<code>continue()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Mentések elérése.
+</td>
+</tr>
+</table></div>
+<h3 data-number="3.6.2" id="continue"><span class="header-section-number">3.6.2</span> Continue</h3>
+<p><strong>Felelőssége, feladata</strong>: A legutóbbi és egyéb mentések elérése és betöltése.<br />
+<strong>Együttműködők</strong>: <code>MainMenu</code></p>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+<tr>
+<td>
+<code>LocalSavesList</code>
+</td>
+<td>
+<code>obj</code>
+</td>
+<td>
+Mentések elérése.
+</td>
+</tr>
+<tr>
+<td>
+<code>CloudSavedSavesList</code>
+</td>
+<td>
+<code>obj</code>
+</td>
+<td>
+Mentések elérése a felhőből.
+</td>
+</tr>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+<tr>
+<td>
+<code>importGame()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Mentések betöltése.
+</td>
+</tr>
+</table></div>
+<h3 data-number="3.6.3" id="multiplayer"><span class="header-section-number">3.6.3</span> Multiplayer</h3>
+<p><strong>Felelőssége, feladata</strong>: A HUD és a multiplayer felület kezelése, emellett itt hívjuk meg a többi osztály függvényeit.<br />
+<strong>Együttműködők</strong>: <code>New Game</code>, <code>Load Game</code>, <code>List Games</code>, <code>Direct Join</code>, <code>MainMenu</code></p>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+<tr>
+<td>
+<code>mouseListener</code>
+</td>
+<td>
+Listener
+</td>
+<td>
+Az egér kattintásával való irányítás az opciók között.
+</td>
+</tr>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+<tr>
+<td>
+<code>setSettingsHUD()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A HUD megalkotása és megvalósítása.
+</td>
+</tr>
+<tr>
+<td>
+<code>newGame()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+New Game osztály meghívása és elkezdése.
+</td>
+</tr>
+<tr>
+<td>
+<code>loadGame()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Elmentett játék betöltésére szolgáló osztály meghívása.
+</td>
+</tr>
+<tr>
+<td>
+<code>directJoin()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Véletlenszerű elérhető játékba való csatlakozás előkészülete.
+</td>
+</tr>
+<tr>
+<td>
+<code>listGames()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Egy listázást indít el, amely kiírja nekünk az összes elérhető online játékot.
+</td>
+</tr>
+</table></div>
+<h3 data-number="3.6.4" id="settings"><span class="header-section-number">3.6.4</span> Settings</h3>
+<p><strong>Felelőssége, feladata</strong>: Beállítások kezelése, megjelenítése.<br />
+<strong>Együttműködők</strong>: <code>MainMenu</code>, <code>Audio</code>, <code>Controls</code>, <code>Video</code></p>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+<tr>
+<td>
+<code>mouseListener</code>
+</td>
+<td>
+Listener
+</td>
+<td>
+Az egér kattintásával való irányítás az opciók között.
+</td>
+</tr>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+<tr>
+<td>
+<code>showHUD()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A HUD megalkotása és megvalósítása.
+</td>
+</tr>
+</table></div>
+<h3 data-number="3.6.5" id="audio"><span class="header-section-number">3.6.5</span> Audio</h3>
+<p><strong>Felelőssége, feladata</strong>: A hangerő átállítására ad lehetőséget.<br />
+<strong>Együttműködők</strong>: <code>MainMenu</code>, <code>Settings</code></p>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+<tr>
+<td>
+<code>mouseListener</code>
+</td>
+<td>
+Listener
+</td>
+<td>
+Az egér kattintásával való irányítás az opciók között.
+</td>
+</tr>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+<tr>
+<td>
+<code>setMusicVolume()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A zene hangerejét állítja át.
+</td>
+</tr>
+<tr>
+<td>
+<code>setDialogueVolume()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A beszéd hangerejét állítja.
+</td>
+</tr>
+<tr>
+<td>
+<code>setSFXVolume()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A különböző hangeffektek hangerejét állítja.
+</td>
+</tr>
+<tr>
+<td>
+<code>setMasterVolume()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Az egész alkalmazás hangerejét állítja.
+</td>
+</tr>
+</table></div>
+<h3 data-number="3.6.6" id="controls"><span class="header-section-number">3.6.6</span> Controls</h3>
+<p><strong>Felelőssége, feladata</strong>: A billentyűzet és gamepad átállítására ad lehetőséget, illetve egér beállítására is.<br />
+<strong>Együttműködők</strong>: <code>MainMenu</code>, <code>Settings</code></p>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+<tr>
+<td>
+<code>mouseListener</code>
+</td>
+<td>
+Listener
+</td>
+<td>
+Az egér kattintásával való irányítás az opciók között.
+</td>
+</tr>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+<tr>
+<td>
+<code>setKeyBinding()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A billentyűzeten egyes gombjainak funkcióinak megváltoztatása.
+</td>
+</tr>
+<tr>
+<td>
+<code>setGamepadConfiguration()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A gamepad egyes gombjainak funkcióinak megváltoztatása.
+</td>
+</tr>
+<tr>
+<td>
+<code>setMouseSensitivity()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Az egér DPI megváltoztatása.
+</td>
+</tr>
+</table></div>
+<h3 data-number="3.6.7" id="video"><span class="header-section-number">3.6.7</span> Video</h3>
+<p><strong>Felelőssége, feladata</strong>: A képernyő beállításaiért felelős.<br />
+<strong>Együttműködők</strong>: <code>MainMenu</code>, <code>Settings</code></p>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+<tr>
+<td>
+<code>mouseListener</code>
+</td>
+<td>
+Listener
+</td>
+<td>
+Az egér kattintásával való irányítás az opciók között.
+</td>
+</tr>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+<tr>
+<td>
+<code>setResolution()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A képernyő felbontását állítja.
+</td>
+</tr>
+<tr>
+<td>
+<code>setScale()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A képernyő méretezését állítja.
+</td>
+</tr>
+<tr>
+<td>
+<code>setFPSLimit()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Az FPS korlátot állítja.
+</td>
+</tr>
+<tr>
+<td>
+<code>setVSync()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A V-Sync beállítását kezeli.
+</td>
+</tr>
+<tr>
+<td>
+<code>setGraphicsQuality()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A grafikai minőséget állítja.
+</td>
+</tr>
+<tr>
+<td>
+<code>setAntiAliasing()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Az élsimítás beállításait kezeli.
+</td>
+</tr>
+<tr>
+<td>
+<code>setTextureQuality()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A textúra minőséget állítja.
+</td>
+</tr>
+<tr>
+<td>
+<code>setShadows()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Az árnyékok beállításait kezeli.
+</td>
+</tr>
+<tr>
+<td>
+<code>setShadowDistance()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Az árnyékok távolságát állítja.
+</td>
+</tr>
+<tr>
+<td>
+<code>setAmbientOcclusion()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A környezeti takarás beállítását kezeli.
+</td>
+</tr>
+<tr>
+<td>
+<code>setBloomEffect()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A Bloom effektet állítja.
+</td>
+</tr>
+<tr>
+<td>
+<code>setMotionBlur()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A mozgási elmosódást állítja.
+</td>
+</tr>
+<tr>
+<td>
+<code>setFieldOfView()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A látószöget (FOV) állítja.
+</td>
+</tr>
+<tr>
+<td>
+<code>setDepthOfField()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A mélységélesség beállítását kezeli.
+</td>
+</tr>
+<tr>
+<td>
+<code>setRenderDistance()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A renderelési távolságot állítja.
+</td>
+</tr>
+<tr>
+<td>
+<code>setAnisotropicFiltering()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Az anizotróp szűrést állítja.
+</td>
+</tr>
+</table></div>
+<h3 data-number="3.6.8" id="new-game"><span class="header-section-number">3.6.8</span> New Game</h3>
+<p><strong>Felelőssége, feladata</strong>: Az új játék létrehozásáért felelős.<br />
+<strong>Együttműködők</strong>: <code>MainMenu</code></p>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+<tr>
+<td>
+<code>WorldName</code>
+</td>
+<td>
+<code>String</code>
+</td>
+<td>
+A világ neve.
+</td>
+</tr>
+<tr>
+<td>
+<code>Difficulty</code>
+</td>
+<td>
+<code>int</code>
+</td>
+<td>
+Mennyire legyen nehéz a játék.
+</td>
+</tr>
+<tr>
+<td>
+<code>Visibility</code>
+</td>
+<td>
+<code>int</code>
+</td>
+<td>
+Kik láthassák a host-olt játékodat.
+</td>
+</tr>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+<tr>
+<td>
+<code>createGame()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A játék készítéséért felelős.
+</td>
+</tr>
+<tr>
+<td>
+<code>startGame()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A játék elindításáért felelős.
+</td>
+</tr>
+</table></div>
+<h3 data-number="3.6.9" id="hud"><span class="header-section-number">3.6.9</span> HUD</h3>
+<p><strong>Felelőssége, feladata</strong>: A gameplay UI-ért felelős.<br />
+<strong>Együttműködők</strong>: <code>HUDOnline</code>, <code>Settings</code></p>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+<tr>
+<td>
+<code>pauseMenu</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Az opciók megjelenítése, amikor a játék szünetel.
+</td>
+</tr>
+<tr>
+<td>
+<code>settings</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A beállítások kezelése.
+</td>
+</tr>
+<tr>
+<td>
+<code>quit</code>
+</td>
+<td>
+boolean
+</td>
+<td>
+A játékból való kilépés.
+</td>
+</tr>
+<tr>
+<td>
+<code>hp</code>
+</td>
+<td>
+int
+</td>
+<td>
+A játékos életereje.
+</td>
+</tr>
+<tr>
+<td>
+<code>mana</code>
+</td>
+<td>
+int
+</td>
+<td>
+A játékos mana pontjai.
+</td>
+</tr>
+<tr>
+<td>
+<code>sp</code>
+</td>
+<td>
+int
+</td>
+<td>
+A játékos elmeállapota.
+</td>
+</tr>
+<tr>
+<td>
+<code>miniMap</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A játékos környezetének megjelenítése.
+</td>
+</tr>
+<tr>
+<td>
+<code>quests</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A játékos küldetéseinek nyomon követése.
+</td>
+</tr>
+<tr>
+<td>
+<code>inventory</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A játékos tárgyainak kezelése.
+</td>
+</tr>
+<tr>
+<td>
+<code>skills</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A játékos képességeinek kezelése.
+</td>
+</tr>
+<tr>
+<td>
+<code>buffsDebuffs</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A játékosra ható pozitív és negatív hatások.
+</td>
+</tr>
+<tr>
+<td>
+<code>xpBar</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Tapasztalati pontok sávja.
+</td>
+</tr>
+<tr>
+<td>
+<code>levelIndicator</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Szintjelző.
+</td>
+</tr>
+<tr>
+<td>
+<code>dialogueBox</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Párbeszédek megjelenítése.
+</td>
+</tr>
+<tr>
+<td>
+<code>notifications</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Értesítések megjelenítése.
+</td>
+</tr>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+<tr>
+<td>
+<code>setPauseMenu()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A szünet menü megjelenítése és kezelése.
+</td>
+</tr>
+<tr>
+<td>
+<code>setSettings()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A beállítások menü megjelenítése és kezelése.
+</td>
+</tr>
+<tr>
+<td>
+<code>quitGame()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A játékból való kilépés.
+</td>
+</tr>
+<tr>
+<td>
+<code>showHUD()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Az alapvető HUD elemek megjelenítése.
+</td>
+</tr>
+<tr>
+<td>
+<code>updateHP()</code>
+</td>
+<td>
+int hp
+</td>
+<td>
+Az aktuális HP frissítése a HUD-on.
+</td>
+</tr>
+<tr>
+<td>
+<code>updateMana()</code>
+</td>
+<td>
+int mana
+</td>
+<td>
+Az aktuális Mana frissítése a HUD-on.
+</td>
+</tr>
+<tr>
+<td>
+<code>updateSP()</code>
+</td>
+<td>
+int sp
+</td>
+<td>
+Az aktuális SP (Sanity Points) frissítése a HUD-on.
+</td>
+</tr>
+<tr>
+<td>
+<code>showMiniMap()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+A mini térkép megjelenítése a HUD-on.
+</td>
+</tr>
+<tr>
+<td>
+<code>updateQuests()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Az aktív és befejezett küldetések frissítése.
+</td>
+</tr>
+<tr>
+<td>
+<code>updateInventory()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Az inventory frissítése és megjelenítése.
+</td>
+</tr>
+<tr>
+<td>
+<code>showSkills()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Az elérhető és aktív képességek megjelenítése.
+</td>
+</tr>
+<tr>
+<td>
+<code>updateBuffsDebuffs()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Az aktuális hatások (buffok és debuffok) frissítése.
+</td>
+</tr>
+<tr>
+<td>
+<code>updateXPBar()</code>
+</td>
+<td>
+int xp
+</td>
+<td>
+Az XP (tapasztalati pont) sáv frissítése.
+</td>
+</tr>
+<tr>
+<td>
+<code>showLevelIndicator()</code>
+</td>
+<td>
+int level
+</td>
+<td>
+Az aktuális szint megjelenítése a HUD-on.
+</td>
+</tr>
+<tr>
+<td>
+<code>showDialogueBox()</code>
+</td>
+<td>
+String text
+</td>
+<td>
+Párbeszédablak megjelenítése adott szöveggel.
+</td>
+</tr>
+<tr>
+<td>
+<code>showNotifications()</code>
+</td>
+<td>
+String text
+</td>
+<td>
+Rendszerüzenetek és értesítések megjelenítése.
+</td>
+</tr>
+<tr>
+<td>
+<code>showOnlinePlayersList()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Az online játékosok listájának megjelenítése a HUD-on.
+</td>
+</tr>
+</table></div>
+<h3 data-number="3.6.10" id="hudonline"><span class="header-section-number">3.6.10</span> HUDOnline</h3>
+<p><strong>Felelőssége, feladata</strong>: Extra kiegészítés a multiplayer módhoz.<br />
+<strong>Együttműködők</strong>: <code>HUD</code></p>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+<tr>
+<td>
+<code>chat</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Játékbeli chat.
+</td>
+</tr>
+<tr>
+<td>
+<code>playerlist</code>
+</td>
+<td>
+int
+</td>
+<td>
+Játékban lévők játékosok.
+</td>
+</tr>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+<tr>
+<td>
+<code>showOnlinePlayersList()</code>
+</td>
+<td>
+nincs
+</td>
+<td>
+Az online játékosok listájának megjelenítése a HUD-on.
+</td>
+</tr>
+</table></div>
+<h1 data-number="4" id="játék-mechanika-alrendszer-modellje"><span class="header-section-number">4</span> Játék mechanika alrendszer modellje</h1>
+<h2 data-number="4.1" id="statikus-modell-1"><span class="header-section-number">4.1</span> Statikus modell</h2>
+<h3 data-number="4.1.1" id="kapcsolatok-pontosítása-1"><span class="header-section-number">4.1.1</span> Kapcsolatok pontosítása</h3>
+<h3 data-number="4.1.2" id="attribútumok-azonosítása-1"><span class="header-section-number">4.1.2</span> Attribútumok azonosítása</h3>
+<h3 data-number="4.1.3" id="bázisosztályok-keresése-1"><span class="header-section-number">4.1.3</span> Bázisosztályok keresése</h3>
+<h2 data-number="4.2" id="dinamikus-modell-1"><span class="header-section-number">4.2</span> Dinamikus modell</h2>
+<div class="img-wrap">
+<p><a href="mechanika-01.png" target="_blank"><img src="mechanika-01.png" alt="Játék mechanika alrendszer dinamikus modell" title="Játék mechanika alrendszer dinamikus modell"></a></p>
+</div>
+<h2 data-number="4.3" id="funkcionális-modell-1"><span class="header-section-number">4.3</span> Funkcionális modell</h2>
+<div class="img-wrap">
+<p><a href="mechanika-02.png" target="_blank"><img src="mechanika-02.png" alt="Játék mechanika alrendszer funkcionális modell" title="Játék mechanika alrendszer funkcionális modell"></a></p>
+</div>
+<h2 data-number="4.4" id="operációk-azonosítása-1"><span class="header-section-number">4.4</span> Operációk azonosítása</h2>
+<h2 data-number="4.5" id="az-analízis-modell-osztálydiagramja-1"><span class="header-section-number">4.5</span> Az analízis modell osztálydiagramja</h2>
+<div class="img-wrap">
+<p><a href="mechanika-03.svg" target="_blank"><img src="mechanika-03.svg" alt="Játék mechanika alrendszer analízis modell osztálydiagramja" title="Játék mechanika alrendszer analízis modell osztálydiagramja"></a></p>
+</div>
+<h2 data-number="4.6" id="az-analízis-modell-osztályainak-listája-1"><span class="header-section-number">4.6</span> Az analízis modell osztályainak listája</h2>
+<h3 data-number="4.6.1" id="armor"><span class="header-section-number">4.6.1</span> Armor</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> Az Armor osztály a páncélokat reprezentálja a játékban. Feladata az, hogy kezelje a páncél típusát, szintjét, valamint a különböző védekezési tulajdonságokat (fizikai, mágikus stb.).</li>
 <li><strong>Együttműködők:</strong> <code>FightEntity</code>, <code>Inventory</code></li>
@@ -528,7 +2192,7 @@ Működése, feladata
 <tbody>
 </tbody>
 </table></div>
-<h3 data-number="3.6.2" id="stats"><span class="header-section-number">3.6.2</span> Stats</h3>
+<h3 data-number="4.6.2" id="stats"><span class="header-section-number">4.6.2</span> Stats</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> A <code>Stats</code> osztály a játékban szereplő entitások alapvető statisztikáit kezeli, beleértve az erőt, intelligenciát, hitet és ezek különböző módosítóit. Feladata ezen értékek tárolása és számított statisztikák biztosítása.</li>
 <li><strong>Együttműködők:</strong> <code>FightEntity</code></li>
@@ -756,7 +2420,7 @@ Visszaadja a játékos szintjét, ami a fentebb említett 4 szint átlaga
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="3.6.3" id="entity"><span class="header-section-number">3.6.3</span> Entity</h3>
+<h3 data-number="4.6.3" id="entity"><span class="header-section-number">4.6.3</span> Entity</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> Az alapvető entitások közös tulajdonságait reprezentálja a játékban. Ez az osztály szolgál alapként a többi entitáshoz.</li>
 <li><strong>Együttműködők:</strong> <code>FightEntity</code>, <code>NPC</code>, <code>EnvironEntity</code>, <code>StorageEntity</code></li>
@@ -874,7 +2538,7 @@ Az entitás elpusztulásakor lefutó metódus
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="3.6.4" id="fightentity"><span class="header-section-number">3.6.4</span> FightEntity</h3>
+<h3 data-number="4.6.4" id="fightentity"><span class="header-section-number">4.6.4</span> FightEntity</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> A harcban résztvevő entitásokat reprezentálja. Tartalmazza az életpontokkal, mannával és statisztikákkal kapcsolatos adatokat, valamint az inventory-t.</li>
 <li><strong>Együttműködők:</strong> <code>Entity</code>, <code>Stats</code>, <code>Inventory</code>, <code>Attack</code></li>
@@ -1036,7 +2700,7 @@ Kidobja a megadott tárgyat az inventory-ból.
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="3.6.5" id="inventory"><span class="header-section-number">3.6.5</span> Inventory</h3>
+<h3 data-number="4.6.5" id="inventory"><span class="header-section-number">4.6.5</span> Inventory</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> A játékos vagy más entitás által birtokolt tárgyak kezeléséért felel. Tárolja a normál tárgyakat, a küldetéshez kötődő tárgyakat, valamint a felszerelt páncélokat.</li>
 <li><strong>Együttműködők:</strong> <code>Item</code>, <code>Armor</code>, <code>ItemEntity</code>, <code>Weapon</code>, <code>Shield</code></li>
@@ -1165,7 +2829,7 @@ Működése, feladata
 <tbody>
 </tbody>
 </table></div>
-<h3 data-number="3.6.6" id="item"><span class="header-section-number">3.6.6</span> Item</h3>
+<h3 data-number="4.6.6" id="item"><span class="header-section-number">4.6.6</span> Item</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> Az összes tárgy alapját képezi a játékban. Leírja a tárgy nevét, kinézetét, leírását, és alapvető tulajdonságait, például a tartósságot.</li>
 <li><strong>Együttműködők:</strong> <code>Inventory</code>, <code>ItemEntity</code></li>
@@ -1294,7 +2958,7 @@ Működése, feladata
 <tbody>
 </tbody>
 </table></div>
-<h3 data-number="3.6.7" id="itementity"><span class="header-section-number">3.6.7</span> ItemEntity</h3>
+<h3 data-number="4.6.7" id="itementity"><span class="header-section-number">4.6.7</span> ItemEntity</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> Eldobott, “földön lévő” <code>Item</code> represzentációja.</li>
 <li><strong>Együttműködők:</strong> <code>Item</code>, <code>FightEntity</code></li>
@@ -1346,7 +3010,7 @@ Működése, feladata
 <tbody>
 </tbody>
 </table></div>
-<h3 data-number="3.6.8" id="shield"><span class="header-section-number">3.6.8</span> Shield</h3>
+<h3 data-number="4.6.8" id="shield"><span class="header-section-number">4.6.8</span> Shield</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> Pajzs. Felére csökkent minden támadást, ha az entitás éppen védekezik vele. Csak másodlagos kézben (<code>sec_arm</code>) lehet használni.</li>
 <li><strong>Együttműködők:</strong> <code>Item</code>, <code>FightEntity</code></li>
@@ -1387,7 +3051,7 @@ Működése, feladata
 <tbody>
 </tbody>
 </table></div>
-<h3 data-number="3.6.9" id="enemy"><span class="header-section-number">3.6.9</span> Enemy</h3>
+<h3 data-number="4.6.9" id="enemy"><span class="header-section-number">4.6.9</span> Enemy</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> A játékban szereplő ellenségeket reprezentálja. Leírja az ellenség nevét, személyiségét, és azt, hogy melyik entitást támadják.</li>
 <li><strong>Együttműködők:</strong> <code>FightEntity</code></li>
@@ -1461,7 +3125,7 @@ Működése, feladata
 <tbody>
 </tbody>
 </table></div>
-<h3 data-number="3.6.10" id="npc"><span class="header-section-number">3.6.10</span> NPC</h3>
+<h3 data-number="4.6.10" id="npc"><span class="header-section-number">4.6.10</span> NPC</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> A nem játékos karaktereket (Non-Player Characters) írja le. Kezeli az NPC-hez kapcsolódó küldetéseket és párbeszédeket.</li>
 <li><strong>Együttműködők:</strong> <code>Quest</code>, <code>Player</code>, <code>Entity</code></li>
@@ -1535,7 +3199,7 @@ Elindít egy párbeszédet az NPC-vel
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="3.6.11" id="consumable"><span class="header-section-number">3.6.11</span> Consumable</h3>
+<h3 data-number="4.6.11" id="consumable"><span class="header-section-number">4.6.11</span> Consumable</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> A fogyasztható tárgyakat írja le, amelyek hatással vannak az életerőre, mannára vagy SP-re. Különleges hatásokat is biztosíthat.</li>
 <li><strong>Együttműködők:</strong> <code>Item</code></li>
@@ -1631,7 +3295,7 @@ Ezotérikus hatás alkalmazása. Csak akkor hívódik meg, ha az <code>is_esoter
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="3.6.12" id="projectile"><span class="header-section-number">3.6.12</span> Projectile</h3>
+<h3 data-number="4.6.12" id="projectile"><span class="header-section-number">4.6.12</span> Projectile</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> A játékban kilőtt lövedékeket írja le. Kezeli a lövedék támadásának típusát és tulajdonosát.</li>
 <li><strong>Együttműködők:</strong> <code>Attack</code>, <code>FightEntity</code></li>
@@ -1694,7 +3358,7 @@ Működése, feladata
 <tbody>
 </tbody>
 </table></div>
-<h3 data-number="3.6.13" id="attack"><span class="header-section-number">3.6.13</span> Attack</h3>
+<h3 data-number="4.6.13" id="attack"><span class="header-section-number">4.6.13</span> Attack</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> A támadások adatait írja le, beleértve a támadás típusát, távolságát, lökéshatását és egyéb paramétereket.</li>
 <li><strong>Együttműködők:</strong> <code>Weapon</code>, <code>Projectile</code></li>
@@ -1801,7 +3465,7 @@ Ezotérikus támadási hatás végrehajtása. Csak akkor, ha a támadás típusa
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="3.6.14" id="environentity"><span class="header-section-number">3.6.14</span> EnvironEntity</h3>
+<h3 data-number="4.6.14" id="environentity"><span class="header-section-number">4.6.14</span> EnvironEntity</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> A játék “környezeti” entitásait reprezentálja. Ezek általában a térképen található objektumok.</li>
 <li><strong>Együttműködők:</strong> <code>Entity</code>.</li>
@@ -1853,7 +3517,7 @@ Működése, feladata
 <tbody>
 </tbody>
 </table></div>
-<h3 data-number="3.6.15" id="storageentity"><span class="header-section-number">3.6.15</span> StorageEntity</h3>
+<h3 data-number="4.6.15" id="storageentity"><span class="header-section-number">4.6.15</span> StorageEntity</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> Azokat az objektumokat írja le, amelyekben tárgyakat lehet tárolni, például ládákat.</li>
 <li><strong>Együttműködők:</strong> <code>Item</code></li>
@@ -1916,7 +3580,7 @@ Működése, feladata
 <tbody>
 </tbody>
 </table></div>
-<h3 data-number="3.6.16" id="weapon"><span class="header-section-number">3.6.16</span> Weapon</h3>
+<h3 data-number="4.6.16" id="weapon"><span class="header-section-number">4.6.16</span> Weapon</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> A játékban használható fegyvereket írja le, beleértve a támadásokat és a manna költséget.</li>
 <li><strong>Együttműködők:</strong> <code>Attack</code></li>
@@ -1979,7 +3643,7 @@ Működése, feladata
 <tbody>
 </tbody>
 </table></div>
-<h3 data-number="3.6.17" id="player"><span class="header-section-number">3.6.17</span> Player</h3>
+<h3 data-number="4.6.17" id="player"><span class="header-section-number">4.6.17</span> Player</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> A játékos karaktert írja le, beleértve a képességeket, a teljesített küldetéseket és az aktuális célpontot.</li>
 <li><strong>Együttműködők:</strong> <code>FightEntity</code>, <code>Quest</code>, <code>Stats</code></li>
@@ -2097,9 +3761,9 @@ Feldolgozza a játékos bemenetét (pl. irányítás)
 </tr>
 </tbody>
 </table></div>
-<h1 data-number="4" id="világ-alrendszer-modellje"><span class="header-section-number">4</span> Világ alrendszer modellje</h1>
-<h2 data-number="4.1" id="statikus-modell-1"><span class="header-section-number">4.1</span> Statikus modell</h2>
-<h3 data-number="4.1.1" id="kapcsolatok-pontosítása-1"><span class="header-section-number">4.1.1</span> Kapcsolatok pontosítása</h3>
+<h1 data-number="5" id="világ-alrendszer-modellje"><span class="header-section-number">5</span> Világ alrendszer modellje</h1>
+<h2 data-number="5.1" id="statikus-modell-2"><span class="header-section-number">5.1</span> Statikus modell</h2>
+<h3 data-number="5.1.1" id="kapcsolatok-pontosítása-2"><span class="header-section-number">5.1.1</span> Kapcsolatok pontosítása</h3>
 <p>Az alábbi osztályok találhatók meg a Világ alrendszerben:</p>
 <ul>
 <li><strong>WorldManager</strong>: Az összefogó osztály, amely kezeli a világ létrehozását, betöltését és törlését.
@@ -2113,7 +3777,7 @@ Feldolgozza a játékos bemenetét (pl. irányítás)
 </ul></li>
 </ul></li>
 </ul>
-<h3 data-number="4.1.2" id="attribútumok-azonosítása-1"><span class="header-section-number">4.1.2</span> Attribútumok azonosítása</h3>
+<h3 data-number="5.1.2" id="attribútumok-azonosítása-2"><span class="header-section-number">5.1.2</span> Attribútumok azonosítása</h3>
 <p>Az osztályok attribútumai:</p>
 <ul>
 <li><strong>WorldManager</strong>
@@ -2144,7 +3808,7 @@ Feldolgozza a játékos bemenetét (pl. irányítás)
 <li><code>completedQuests</code>: A teljesített küldetések listája.</li>
 </ul></li>
 </ul>
-<h3 data-number="4.1.3" id="bázisosztályok-keresése-1"><span class="header-section-number">4.1.3</span> Bázisosztályok keresése</h3>
+<h3 data-number="5.1.3" id="bázisosztályok-keresése-2"><span class="header-section-number">5.1.3</span> Bázisosztályok keresése</h3>
 <ul>
 <li><strong>Entity</strong>: Bázisosztály lehet az NPC-k, objektumok és egyéb világelemek számára.
 <ul>
@@ -2156,7 +3820,7 @@ Feldolgozza a játékos bemenetét (pl. irányítás)
 </ul></li>
 </ul></li>
 </ul>
-<h2 data-number="4.2" id="dinamikus-modell-1"><span class="header-section-number">4.2</span> Dinamikus modell</h2>
+<h2 data-number="5.2" id="dinamikus-modell-2"><span class="header-section-number">5.2</span> Dinamikus modell</h2>
 <div class="img-wrap">
 <p><a href="világ-01.png" target="_blank"><img src="világ-01.png" alt="Világ alrendszer dinamikus modell" title="Világ alrendszer dinamikus modell"></a></p>
 </div>
@@ -2166,7 +3830,7 @@ Feldolgozza a játékos bemenetét (pl. irányítás)
 <li><strong>Térkép váltása</strong>: Amikor a játékos egy új zónába lép, a <code>MapManager</code> betölti az adott térképet, és az <code>NPCManager</code> újrateremti az NPC-ket.</li>
 <li><strong>Küldetések aktiválása</strong>: A <code>QuestManager</code> aktiválja az adott térképen elérhető küldetéseket, amikor a játékos belép a zónába.</li>
 </ul>
-<h2 data-number="4.3" id="funkcionális-modell-1"><span class="header-section-number">4.3</span> Funkcionális modell</h2>
+<h2 data-number="5.3" id="funkcionális-modell-2"><span class="header-section-number">5.3</span> Funkcionális modell</h2>
 <div class="img-wrap">
 <p><a href="világ-02.png" target="_blank"><img src="világ-02.png" alt="Világ alrendszer funkcionális modell" title="Világ alrendszer funkcionális modell"></a></p>
 </div>
@@ -2185,7 +3849,7 @@ Feldolgozza a játékos bemenetét (pl. irányítás)
 <li><code>generateMap(seed)</code>: Új térkép generálása adott seed alapján.</li>
 </ul></li>
 </ul>
-<h2 data-number="4.4" id="operációk-azonosítása-1"><span class="header-section-number">4.4</span> Operációk azonosítása</h2>
+<h2 data-number="5.4" id="operációk-azonosítása-2"><span class="header-section-number">5.4</span> Operációk azonosítása</h2>
 <ul>
 <li><strong>Világ betöltése</strong>:
 <ul>
@@ -2207,12 +3871,12 @@ Feldolgozza a játékos bemenetét (pl. irányítás)
 </ul></li>
 </ul></li>
 </ul>
-<h2 data-number="4.5" id="az-analízis-modell-osztálydiagramja-1"><span class="header-section-number">4.5</span> Az analízis modell osztálydiagramja</h2>
+<h2 data-number="5.5" id="az-analízis-modell-osztálydiagramja-2"><span class="header-section-number">5.5</span> Az analízis modell osztálydiagramja</h2>
 <div class="img-wrap">
 <p><a href="világ-03.png" target="_blank"><img src="világ-03.png" alt="Világ alrendszer analízis modell osztálydiagramja" title="Világ alrendszer analízis modell osztálydiagramja"></a></p>
 </div>
-<h2 data-number="4.6" id="az-analízis-modell-osztályainak-listája-1"><span class="header-section-number">4.6</span> Az analízis modell osztályainak listája</h2>
-<h3 data-number="4.6.1" id="worldmanager"><span class="header-section-number">4.6.1</span> WorldManager</h3>
+<h2 data-number="5.6" id="az-analízis-modell-osztályainak-listája-2"><span class="header-section-number">5.6</span> Az analízis modell osztályainak listája</h2>
+<h3 data-number="5.6.1" id="worldmanager"><span class="header-section-number">5.6.1</span> WorldManager</h3>
 <div class="tbl-wrap"><table>
 <tr>
 <th>
@@ -2335,7 +3999,7 @@ Törli a világot a fájlrendszerből.
 </td>
 </tr>
 </table></div>
-<h3 data-number="4.6.2" id="npcmanager"><span class="header-section-number">4.6.2</span> NPCManager</h3>
+<h3 data-number="5.6.2" id="npcmanager"><span class="header-section-number">5.6.2</span> NPCManager</h3>
 <div class="tbl-wrap"><table>
 <thead>
 <tr>
@@ -2452,7 +4116,7 @@ Frissíti egy NPC adatait.
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="4.6.3" id="mapmanager"><span class="header-section-number">4.6.3</span> MapManager</h3>
+<h3 data-number="5.6.3" id="mapmanager"><span class="header-section-number">5.6.3</span> MapManager</h3>
 <div class="tbl-wrap"><table>
 <thead>
 <tr>
@@ -2591,7 +4255,7 @@ Törli a jelenlegi térképet.
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="4.6.4" id="environmentmanager"><span class="header-section-number">4.6.4</span> EnvironmentManager</h3>
+<h3 data-number="5.6.4" id="environmentmanager"><span class="header-section-number">5.6.4</span> EnvironmentManager</h3>
 <div class="tbl-wrap"><table>
 <thead>
 <tr>
@@ -2719,7 +4383,7 @@ Megadja az előrejelzett időjárást egy adott időszakra.
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="4.6.5" id="questmanager"><span class="header-section-number">4.6.5</span> QuestManager</h3>
+<h3 data-number="5.6.5" id="questmanager"><span class="header-section-number">5.6.5</span> QuestManager</h3>
 <div class="tbl-wrap"><table>
 <thead>
 <tr>
@@ -2836,7 +4500,7 @@ Lekéri az aktív küldetéseket, amelyek még nem lettek befejezve.
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="4.6.6" id="baseentity"><span class="header-section-number">4.6.6</span> BaseEntity</h3>
+<h3 data-number="5.6.6" id="baseentity"><span class="header-section-number">5.6.6</span> BaseEntity</h3>
 <div class="tbl-wrap"><table>
 <thead>
 <tr>
@@ -2975,9 +4639,9 @@ Az entitás eltávolítása a világból.
 </tr>
 </tbody>
 </table></div>
-<h1 data-number="5" id="adatkezelés-és-mentés-alrendszer-1"><span class="header-section-number">5</span> Adatkezelés és mentés alrendszer</h1>
-<h2 data-number="5.1" id="statikus-modell-2"><span class="header-section-number">5.1</span> Statikus modell</h2>
-<h3 data-number="5.1.1" id="kapcsolatok"><span class="header-section-number">5.1.1</span> Kapcsolatok</h3>
+<h1 data-number="6" id="adatkezelés-és-mentés-alrendszer-1"><span class="header-section-number">6</span> Adatkezelés és mentés alrendszer</h1>
+<h2 data-number="6.1" id="statikus-modell-3"><span class="header-section-number">6.1</span> Statikus modell</h2>
+<h3 data-number="6.1.1" id="kapcsolatok"><span class="header-section-number">6.1.1</span> Kapcsolatok</h3>
 <ol type="1">
 <li><strong>SaveSystem — ImportGame:</strong>
 <ul>
@@ -3005,7 +4669,7 @@ Az entitás eltávolítása a világból.
 </ul></li>
 </ol>
 <p>Az alrendszerek közötti kapcsolatok lehetővé teszik, hogy a játékos különböző játékállapotokat importáljon, folytasson, mentse és szinkronizálja azokat helyben vagy a felhőben, miközben minden adat összhangban van a rendszer többi komponensével.</p>
-<h3 data-number="5.1.2" id="osztályok-és-azok-attribútumainak-azonosítása-és-műveleteik"><span class="header-section-number">5.1.2</span> Osztályok és azok attribútumainak azonosítása és műveleteik</h3>
+<h3 data-number="6.1.2" id="osztályok-és-azok-attribútumainak-azonosítása-és-műveleteik"><span class="header-section-number">6.1.2</span> Osztályok és azok attribútumainak azonosítása és műveleteik</h3>
 <p><strong>SaveSystem</strong></p>
 <ul>
 <li><strong>Attribútumok:</strong>
@@ -3078,7 +4742,7 @@ Az entitás eltávolítása a világból.
 <li><code>uploadSavedGame():</code> Feltölti a mentett játékot a felhőbe.</li>
 </ul></li>
 </ul>
-<h3 data-number="5.1.3" id="bázisosztályok-keresése-2"><span class="header-section-number">5.1.3</span> Bázisosztályok keresése</h3>
+<h3 data-number="6.1.3" id="bázisosztályok-keresése-3"><span class="header-section-number">6.1.3</span> Bázisosztályok keresése</h3>
 <ol type="1">
 <li>FileHandler
 <ul>
@@ -3155,15 +4819,15 @@ Az entitás eltávolítása a világból.
 </ul></li>
 </ul></li>
 </ol>
-<h2 data-number="5.2" id="dinamikus-modell-2"><span class="header-section-number">5.2</span> Dinamikus modell</h2>
+<h2 data-number="6.2" id="dinamikus-modell-3"><span class="header-section-number">6.2</span> Dinamikus modell</h2>
 <div class="img-wrap">
 <p><a href="mentés-01.png" target="_blank"><img src="mentés-01.png" alt="Adatkezelés és mentés alrendszer dinamikus modell" title="Adatkezelés és mentés alrendszer dinamikus modell"></a></p>
 </div>
-<h2 data-number="5.3" id="funkcionális-modell-2"><span class="header-section-number">5.3</span> Funkcionális modell</h2>
+<h2 data-number="6.3" id="funkcionális-modell-3"><span class="header-section-number">6.3</span> Funkcionális modell</h2>
 <div class="img-wrap">
 <p><a href="mentés-02.png" target="_blank"><img src="mentés-02.png" alt="Adatkezelés és mentés alrendszer funkcionális modell" title="Adatkezelés és mentés alrendszer funkcionális modell"></a></p>
 </div>
-<h2 data-number="5.4" id="operációk-azonosítása-2"><span class="header-section-number">5.4</span> Operációk azonosítása</h2>
+<h2 data-number="6.4" id="operációk-azonosítása-3"><span class="header-section-number">6.4</span> Operációk azonosítása</h2>
 <ul>
 <li><strong><code>SaveSystem:</code></strong>
 <ul>
@@ -3197,12 +4861,12 @@ Az entitás eltávolítása a világból.
 <li><code>createInitialSave(data:GameData): Boolean</code></li>
 </ul></li>
 </ul>
-<h2 data-number="5.5" id="az-analízis-modell-osztálydiagramja-2"><span class="header-section-number">5.5</span> Az analízis modell osztálydiagramja</h2>
+<h2 data-number="6.5" id="az-analízis-modell-osztálydiagramja-3"><span class="header-section-number">6.5</span> Az analízis modell osztálydiagramja</h2>
 <div class="img-wrap">
 <p><a href="mentés-03.png" target="_blank"><img src="mentés-03.png" alt="Adatkezelés és mentés alrendszer analízis modell osztálydiagramja" title="Adatkezelés és mentés alrendszer analízis modell osztálydiagramja"></a></p>
 </div>
-<h2 data-number="5.6" id="az-analízis-modell-osztályainak-listája-2"><span class="header-section-number">5.6</span> Az analízis modell osztályainak listája</h2>
-<h3 data-number="5.6.1" id="savesystem"><span class="header-section-number">5.6.1</span> SaveSystem</h3>
+<h2 data-number="6.6" id="az-analízis-modell-osztályainak-listája-3"><span class="header-section-number">6.6</span> Az analízis modell osztályainak listája</h2>
+<h3 data-number="6.6.1" id="savesystem"><span class="header-section-number">6.6.1</span> SaveSystem</h3>
 <p><strong>Felelőssége, feladata:</strong> Kezeli a játék mentését, betöltését, törlését és szinkronizálását helyben vagy felhőben.</p>
 <p><strong>Együttműködők:</strong></p>
 <ul>
@@ -3335,7 +4999,7 @@ Szinkronizálja a mentéseket a felhővel.
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="5.6.2" id="importgame"><span class="header-section-number">5.6.2</span> ImportGame</h3>
+<h3 data-number="6.6.2" id="importgame"><span class="header-section-number">6.6.2</span> ImportGame</h3>
 <p><strong>Felelőssége, feladata:</strong> Más játékokból vagy fájlformátumokból származó adatok importálása a rendszerbe.</p>
 <p><strong>Együttműködők:</strong></p>
 <ul>
@@ -3443,7 +5107,7 @@ Továbbítja az adatokat a SaveSystem-nek mentésre.
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="5.6.3" id="localcloudsavedgamelist"><span class="header-section-number">5.6.3</span> LocalCloudSavedGameList</h3>
+<h3 data-number="6.6.3" id="localcloudsavedgamelist"><span class="header-section-number">6.6.3</span> LocalCloudSavedGameList</h3>
 <p><strong>Felelőssége, feladata:</strong> Kezeli a mentett játékok helyi és felhőbeli listáját.</p>
 <p><strong>Együttműködők:</strong></p>
 <ul>
@@ -3541,7 +5205,7 @@ Szinkronizálja a helyi és felhőbeli mentéseket.
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="5.6.4" id="continue"><span class="header-section-number">5.6.4</span> Continue</h3>
+<h3 data-number="6.6.4" id="continue-1"><span class="header-section-number">6.6.4</span> Continue</h3>
 <p><strong>Felelőssége, feladata:</strong> Lehetővé teszi a játékos számára egy mentett játék folytatását.</p>
 <p><strong>Együttműködők:</strong></p>
 <ul>
@@ -3617,9 +5281,9 @@ Betölti a kiválasztott mentett állapotot.
 </tr>
 </tbody>
 </table></div>
-<h1 data-number="6" id="a-multiplayer-alrendszer-modellje"><span class="header-section-number">6</span> A multiplayer alrendszer modellje</h1>
-<h2 data-number="6.1" id="statikus-modell-3"><span class="header-section-number">6.1</span> Statikus modell</h2>
-<h3 data-number="6.1.1" id="kapcsolatok-pontosítása-2"><span class="header-section-number">6.1.1</span> Kapcsolatok pontosítása</h3>
+<h1 data-number="7" id="multiplayer-alrendszer-modellje"><span class="header-section-number">7</span> Multiplayer alrendszer modellje</h1>
+<h2 data-number="7.1" id="statikus-modell-4"><span class="header-section-number">7.1</span> Statikus modell</h2>
+<h3 data-number="7.1.1" id="kapcsolatok-pontosítása-3"><span class="header-section-number">7.1.1</span> Kapcsolatok pontosítása</h3>
 <p>Az osztálydiagramon való kapcsolatok tisztázása és meghatározása, hogy a különböző elemek hogyan függnek egymástól. Az alábbi osztályok találhatóak meg a Multiplayer alrendszerben:</p>
 <ul>
 <li><strong>Multiplayer:</strong> Az összefűző osztály, amely kezeli a mentéseket és irányításokat és innen érhetjük el a többi osztály funkcióit. Ezekkel az osztályokkal áll kapcsolatban:
@@ -3633,7 +5297,7 @@ Betölti a kiválasztott mentett állapotot.
 </ul></li>
 </ul>
 <p>Ezek az osztályok mind a <code>Multiplayer</code> központi osztályból indulnak ki, és egy irányított kapcsolatot jelenítenek meg, ami meghatározza, hogyan lehet elérni az egyes funkciókat.</p>
-<h3 data-number="6.1.2" id="attribútumok-azonosítása-2"><span class="header-section-number">6.1.2</span> Attribútumok azonosítása</h3>
+<h3 data-number="7.1.2" id="attribútumok-azonosítása-3"><span class="header-section-number">7.1.2</span> Attribútumok azonosítása</h3>
 <p>Az alábbi releváns attribútumokat rendeljük hozzá az alrendszer osztályaihoz:</p>
 <ul>
 <li><strong>New Game:</strong> tartalmazhat olyan attribútumokat, mint a <code>gameName</code>, <code>maxPlayers</code>, <code>gameMode</code>, <code>gameDifficulty</code>, <code>gameVisibility</code> (Csatlakozhatnak-e hozzá).</li>
@@ -3642,7 +5306,7 @@ Betölti a kiválasztott mentett állapotot.
 <li><strong>Host Game:</strong> tartalmazza a <code>hostName</code>, <code>playerLimit</code> attribútumokat, illetve egy származtatott <code>isGameVisible</code> attribútumot.</li>
 <li><strong>List Game:</strong> Tartalmazza a <code>availableGames</code> attribútumot, amely a jelenleg elérhető játékokat listázza és jeleníti meg a <code>gameVisibility</code> keretében.</li>
 </ul>
-<h3 data-number="6.1.3" id="bázisosztályok-keresése-3"><span class="header-section-number">6.1.3</span> Bázisosztályok keresése</h3>
+<h3 data-number="7.1.3" id="bázisosztályok-keresése-4"><span class="header-section-number">7.1.3</span> Bázisosztályok keresése</h3>
 <p>Az esetleges bázisosztály a Game lehet, amely általános tulajdonságokat hordoz, amit más osztály is megörökölhet. Ezen tulajdonságok a következők lehetnek:</p>
 <ul>
 <li><code>gameName</code></li>
@@ -3651,15 +5315,15 @@ Betölti a kiválasztott mentett állapotot.
 <li><code>gameVisibility</code></li>
 </ul>
 <p>Az egyes specifikus játékállapotok, mint például <code>New Game</code>, <code>Join Game</code>, és <code>Host Game</code>, származhatnak ebből a bázisosztályból, mivel valamennyi feltüntetett tulajdonság megtalálható bennük.</p>
-<h2 data-number="6.2" id="dinamikus-modell-3"><span class="header-section-number">6.2</span> Dinamikus modell</h2>
+<h2 data-number="7.2" id="dinamikus-modell-4"><span class="header-section-number">7.2</span> Dinamikus modell</h2>
 <div class="img-wrap">
 <p><a href="multiplayer-01.png" target="_blank"><img src="multiplayer-01.png" alt="Multiplayer alrendszer dinamikus modell" title="Multiplayer alrendszer dinamikus modell"></a></p>
 </div>
-<h2 data-number="6.3" id="funkcionális-modell-3"><span class="header-section-number">6.3</span> Funkcionális modell</h2>
+<h2 data-number="7.3" id="funkcionális-modell-4"><span class="header-section-number">7.3</span> Funkcionális modell</h2>
 <div class="img-wrap">
 <p><a href="multiplayer-02.png" target="_blank"><img src="multiplayer-02.png" alt="Multiplayer alrendszer funkcionális modell" title="Multiplayer alrendszer funkcionális modell"></a></p>
 </div>
-<h2 data-number="6.4" id="operációk-azonosítása-3"><span class="header-section-number">6.4</span> Operációk azonosítása</h2>
+<h2 data-number="7.4" id="operációk-azonosítása-4"><span class="header-section-number">7.4</span> Operációk azonosítása</h2>
 <p>Az osztálydiagramot kiegészítő az egyes osztályokhoz tartozó műveletek:</p>
 <ul>
 <li><strong>Mainmenu:</strong> <code>setMultiplayerInterface()</code></li>
@@ -3670,12 +5334,12 @@ Betölti a kiválasztott mentett állapotot.
 <li><strong>List Game:</strong> <code>fetchAvailableGames()</code></li>
 <li><strong>Join:</strong> <code>chooseGame()</code>, <code>joinGame(chosenID)</code></li>
 </ul>
-<h2 data-number="6.5" id="az-analízis-modell-osztálydiagramja-3"><span class="header-section-number">6.5</span> Az analízis modell osztálydiagramja</h2>
+<h2 data-number="7.5" id="az-analízis-modell-osztálydiagramja-4"><span class="header-section-number">7.5</span> Az analízis modell osztálydiagramja</h2>
 <div class="img-wrap">
 <p><a href="multiplayer-03.png" target="_blank"><img src="multiplayer-03.png" alt="Multiplayer alrendszer analízis modell osztálydiagramja" title="Multiplayer alrendszer analízis modell osztálydiagramja"></a></p>
 </div>
-<h2 data-number="6.6" id="az-analízis-modell-osztályainak-listája-3"><span class="header-section-number">6.6</span> Az analízis modell osztályainak listája</h2>
-<h3 data-number="6.6.1" id="multiplayer"><span class="header-section-number">6.6.1</span> Multiplayer</h3>
+<h2 data-number="7.6" id="az-analízis-modell-osztályainak-listája-4"><span class="header-section-number">7.6</span> Az analízis modell osztályainak listája</h2>
+<h3 data-number="7.6.1" id="multiplayer-1"><span class="header-section-number">7.6.1</span> Multiplayer</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> A HUD és a multiplayer felület kezelése, emellett itt hívjuk meg a többi osztály függvényeit.</li>
 <li><strong>Együttműködők:</strong> New Game, Load Game, List Games, Direct Join</li>
@@ -3782,7 +5446,7 @@ Egy listázást indít el, ahol kiírja az összes elérhető online játékot.
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="6.6.2" id="new-game"><span class="header-section-number">6.6.2</span> New Game</h3>
+<h3 data-number="7.6.2" id="new-game-1"><span class="header-section-number">7.6.2</span> New Game</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> Az adott attribútumokkal előállít egy hívást, mely létrehoz egy világot, amit utána megosztunk.</li>
 <li><strong>Együttműködők:</strong> <code>New World</code>, <code>Host Game</code></li>
@@ -3867,7 +5531,7 @@ Az adott argumentumokkal hívja meg a <code>New World</code> osztályt, hogy el�
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="6.6.3" id="new-world"><span class="header-section-number">6.6.3</span> New World</h3>
+<h3 data-number="7.6.3" id="new-world"><span class="header-section-number">7.6.3</span> New World</h3>
 <ul>
 <li><strong>felelőssége, feladata:</strong> Feladata a két argumentummal előállítani egy új világot a játékos számára, amit vissza is ad hhívásakor a New Game-be</li>
 <li><strong>Együttműködők:</strong> <code>New Game</code></li>
@@ -3930,7 +5594,7 @@ A megadott konstruktori beállításokkal az objektum alapján elkészíti a vil
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="6.6.4" id="load-game"><span class="header-section-number">6.6.4</span> Load Game</h3>
+<h3 data-number="7.6.4" id="load-game"><span class="header-section-number">7.6.4</span> Load Game</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> Az elmentett végigjátszásunkat tölti be.</li>
 <li><strong>Együttműködők:</strong> <code>Saved Games</code>, <code>Host Game</code></li>
@@ -4004,7 +5668,7 @@ Kiválasztja a betölteni kívánt mentést és tovább küldi a <code>Host Game
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="6.6.5" id="saved-games"><span class="header-section-number">6.6.5</span> Saved Games</h3>
+<h3 data-number="7.6.5" id="saved-games"><span class="header-section-number">7.6.5</span> Saved Games</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> Tárolja, betölti, és kiválasztáskor elküldi az elmentett játékainkat</li>
 <li><strong>Együttműködők:</strong> <code>Load Game</code></li>
@@ -4067,7 +5731,7 @@ Lekéri az elmentett világainkat, hogy abból majd tudjunk választani a <code>
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="6.6.6" id="direct-join"><span class="header-section-number">6.6.6</span> Direct Join</h3>
+<h3 data-number="7.6.6" id="direct-join"><span class="header-section-number">7.6.6</span> Direct Join</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> Egy véletlenszerű, de elérhető online világhoz csatlakozik.</li>
 <li><strong>Együttműködők:</strong> <code>Available Games</code>, <code>Join Games</code></li>
@@ -4130,7 +5794,7 @@ Kiválaszt egy véletlenszerű elérhető játékot és annak ID-jait küldi a <
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="6.6.7" id="list-games"><span class="header-section-number">6.6.7</span> List Games</h3>
+<h3 data-number="7.6.7" id="list-games"><span class="header-section-number">7.6.7</span> List Games</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> Listázza az összes elérhető online játékot, amihet tudunk csatlakozni</li>
 <li><strong>Együttműködők:</strong> <code>Available Games</code>, <code>Join Game</code></li>
@@ -4215,7 +5879,7 @@ Továbbküldi a kiválasztott világ tulajdonságait a <code>Join Game</code>-ne
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="6.6.8" id="available-games"><span class="header-section-number">6.6.8</span> Available Games</h3>
+<h3 data-number="7.6.8" id="available-games"><span class="header-section-number">7.6.8</span> Available Games</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> Tárolja az elérhető online világokat, amikhez tudunk csatlakozni</li>
 <li><strong>Együttműködők:</strong> <code>Direct Join</code>, <code>List Games</code></li>
@@ -4278,7 +5942,7 @@ Lekéri és kiírja az elérhető játékokat, amiből majd tudunk választani/v
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="6.6.9" id="join-game"><span class="header-section-number">6.6.9</span> Join Game</h3>
+<h3 data-number="7.6.9" id="join-game"><span class="header-section-number">7.6.9</span> Join Game</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> A megkapott online világhoz csatlakoztat minket a Host Game-ben</li>
 <li><strong>Együttműködők:</strong> <code>Direct Join</code>, <code>List Games</code>, <code>Host Game</code></li>
@@ -4352,7 +6016,7 @@ A kiválasztott világhoz csatlakoztat minket és tovább küld a <code>Host Gam
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="6.6.10" id="host-game"><span class="header-section-number">6.6.10</span> Host Game</h3>
+<h3 data-number="7.6.10" id="host-game"><span class="header-section-number">7.6.10</span> Host Game</h3>
 <ul>
 <li><strong>Felelőssége, feladata:</strong> Itt valósul meg a játék kezdése, ahol minden játékos saját ID-vel rendelkezik és csapatban játszanak.</li>
 <li><strong>Együttműködők:</strong> <code>New Game</code>, <code>Load Game</code>, <code>Join Game</code></li>
