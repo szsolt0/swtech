@@ -1,0 +1,1 @@
+# A funkcionális modell kiegészítése
