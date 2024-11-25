@@ -69,7 +69,7 @@ végrehajtását.
 - **SQL lekérdezések végrehajtása:** SQL lekérdezések összeállítása, előkészítése és futtatása, valamint az eredményhalmaz kezelése.
 - **Tranzakciók kezelése:** Tranzakciók indítása, elkötelezése és visszagörgetése.
 
-## Osztályok Kialakítása és Felépítése
+### Osztályok Kialakítása és Felépítése
 
 **Adatbázis Kapcsolat Osztály (Connection Class)**
 
