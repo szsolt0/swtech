@@ -94,9 +94,8 @@
 <li><a href="#statikus-modell"><span class="toc-section-number">3.1</span> Statikus modell</a>
 <ul>
 <li><a href="#kapcsolatok-pontosítása"><span class="toc-section-number">3.1.1</span> Kapcsolatok pontosítása</a></li>
-<li><a href="#osztályok-a-felhasználói-felület-alrendszerében"><span class="toc-section-number">3.1.2</span> Osztályok a felhasználói felület alrendszerében</a></li>
-<li><a href="#attribútumok-azonosítása"><span class="toc-section-number">3.1.3</span> Attribútumok azonosítása</a></li>
-<li><a href="#bázisosztályok-keresése"><span class="toc-section-number">3.1.4</span> Bázisosztályok keresése</a></li>
+<li><a href="#attribútumok-azonosítása"><span class="toc-section-number">3.1.2</span> Attribútumok azonosítása</a></li>
+<li><a href="#bázisosztályok-keresése"><span class="toc-section-number">3.1.3</span> Bázisosztályok keresése</a></li>
 </ul></li>
 <li><a href="#dinamikus-modell"><span class="toc-section-number">3.2</span> Dinamikus modell</a></li>
 <li><a href="#funkcionális-modell"><span class="toc-section-number">3.3</span> Funkcionális modell</a></li>
@@ -409,7 +408,7 @@
 <h1 data-number="3" id="felhasználói-felület-alrendszer-modellje"><span class="header-section-number">3</span> Felhasználói felület alrendszer modellje</h1>
 <h2 data-number="3.1" id="statikus-modell"><span class="header-section-number">3.1</span> Statikus modell</h2>
 <h3 data-number="3.1.1" id="kapcsolatok-pontosítása"><span class="header-section-number">3.1.1</span> Kapcsolatok pontosítása</h3>
-<h3 data-number="3.1.2" id="osztályok-a-felhasználói-felület-alrendszerében"><span class="header-section-number">3.1.2</span> Osztályok a felhasználói felület alrendszerében</h3>
+<p>Az osztálydiagramon való kapcsolatok tisztázása és meghatározása, hogy a különböző elemek hogyan függnek egymástól. Az alábbi osztályok találhatóak meg a felhasználói felület alrendszerében:</p>
 <ul>
 <li><p><strong>MainMenu:</strong> Az összefűző osztály, amely kezeli a főmenü elemeit, és innen érhetjük el a többi osztály funkcióit. Ezekkel az osztályokkal áll kapcsolatban:</p>
 <ul>
@@ -427,7 +426,7 @@
 <li><p><strong>HUD:</strong> A játékos állapotának megjelenítése, beleértve az életerőt, manát, SP-t (Sanity Points), valamint a minitérképet, küldetéseket, inventory-t és egyéb információkat.</p></li>
 <li><p><strong>HUDOnline (Only Online Elements):</strong> Csak online játékhoz kapcsolódó elemek.</p></li>
 </ul>
-<h3 data-number="3.1.3" id="attribútumok-azonosítása"><span class="header-section-number">3.1.3</span> Attribútumok azonosítása</h3>
+<h3 data-number="3.1.2" id="attribútumok-azonosítása"><span class="header-section-number">3.1.2</span> Attribútumok azonosítása</h3>
 <p>Az alábbi releváns attribútumokat rendeljük hozzá az alrendszer osztályaihoz:</p>
 <p><strong>MainMenu (Főmenü):</strong> - <strong>NewGame:</strong> tartalmazhat olyan attribútumokat, mint a <code>gameName</code>, <code>maxPlayers</code>, <code>gameMode</code>, <code>gameDifficulty</code>, <code>gameVisibility</code> (Csatlakozhatnak-e hozzá ez opcionális vagyis a Singleplayer-ben elengedhető).</p>
 <div class="tbl-wrap"><table>
@@ -741,7 +740,7 @@ Gamepad konfiguráció
 <li><strong>Achievements</strong>: Eredmények.</li>
 </ul></li>
 </ul>
-<h3 data-number="3.1.4" id="bázisosztályok-keresése"><span class="header-section-number">3.1.4</span> Bázisosztályok keresése</h3>
+<h3 data-number="3.1.3" id="bázisosztályok-keresése"><span class="header-section-number">3.1.3</span> Bázisosztályok keresése</h3>
 <p>Azonosított Bázisosztályok</p>
 <p><strong>MenuOption Bázisosztály</strong></p>
 <p>Az osztályokban található cím, opciók és kiválasztottOpció attribútumok alapján bevezetünk egy közös bázisosztályt:</p>
@@ -2046,8 +2045,294 @@ Az online játékosok listájának megjelenítése a HUD-on.
 <h1 data-number="4" id="játék-mechanika-alrendszer-modellje"><span class="header-section-number">4</span> Játék mechanika alrendszer modellje</h1>
 <h2 data-number="4.1" id="statikus-modell-1"><span class="header-section-number">4.1</span> Statikus modell</h2>
 <h3 data-number="4.1.1" id="kapcsolatok-pontosítása-1"><span class="header-section-number">4.1.1</span> Kapcsolatok pontosítása</h3>
+<ul>
+<li><strong>Item — Inventory</strong>
+<ul>
+<li>Az <code>Inventory</code> osztály feladata az <code>Item</code> típusú objektumok rendszerezett tárolása.</li>
+</ul></li>
+<li><strong>Item — ItemEntity</strong>
+<ul>
+<li>Az <code>ItemEntity</code> az <code>Item</code> egy eldobott állapotának reprezentációját valósítja meg.</li>
+</ul></li>
+<li><strong>FightEntity — Inventory</strong>
+<ul>
+<li>Minden harcban résztvevő entitás rendelkezik egy <code>Inventory</code>-val, még akkor is, ha ez a felhasználói felületen nem jelenik meg.</li>
+</ul></li>
+<li><strong>FightEntity — Attack</strong>
+<ul>
+<li>A harcban résztvevő entitások <code>Attack</code> típusú támadásokat hajtanak végre egymáson. A támadás hatása elsősorban a célpontot érinti, és a <code>get_attacked()</code> függvényen keresztül kerül végrehajtásra.</li>
+</ul></li>
+<li><strong>Consumable — FightEntity</strong>
+<ul>
+<li>A harcban résztvevő entitások képesek <code>Consumable</code> típusú tárgyakat elfogyasztani, amelyek különböző hatásokat fejtenek ki. A leggyakoribb hatások elérhetők attribútumok formájában.</li>
+</ul></li>
+<li><strong>Attack — AtkType</strong>
+<ul>
+<li>Az <code>AtkType</code> az <code>Attack</code> objektum típusát definiálja.</li>
+</ul></li>
+<li><strong>Player — AtkType</strong>
+<ul>
+<li>A játékos esetében az <code>insanity_type()</code> függvény <code>AtkType</code> típusban adja vissza az őrület kategóriáját.</li>
+</ul></li>
+<li><strong>FightEntity — Stats</strong>
+<ul>
+<li>A <code>Stats</code> osztály a harcban résztvevő entitások különböző tulajdonságait és paramétereit írja le.</li>
+</ul></li>
+<li><strong>Entity — NPC</strong>
+<ul>
+<li>Az NPC-k (nem játékos karakterek) az <code>Entity</code> osztály kiterjesztései.</li>
+</ul></li>
+<li><strong>Entity — FightEntity</strong>
+<ul>
+<li>A harcban résztvevő entitások az <code>Entity</code> osztály leszármazottai.</li>
+</ul></li>
+<li><strong>Shield — FightEntity</strong>
+<ul>
+<li>A harcban résztvevő entitások pajzsot használhatnak védekezésre.</li>
+</ul></li>
+<li><strong>Armor — FightEntity</strong>
+<ul>
+<li>A páncél szintén egy védekezésre alkalmas eszköz, amelyet a harcban résztvevő entitások használhatnak.</li>
+</ul></li>
+<li><strong>Weapon — Attack</strong>
+<ul>
+<li>A fegyverek képesek <code>Attack</code> típusú támadások végrehajtására.</li>
+</ul></li>
+<li><strong>Weapon — Projectile</strong>
+<ul>
+<li>Egyes fegyverek lövedékek kilövésére is alkalmasak.</li>
+</ul></li>
+<li><strong>Projectile — Attack</strong>
+<ul>
+<li>A lövedékek szintén <code>Attack</code> típusú támadásokat hajtanak végre, így a <code>Weapon</code> és <code>Projectile</code> által végzett támadások egységesen kezelhetők.</li>
+</ul></li>
+<li><strong>EnvironEntity — Entity</strong>
+<ul>
+<li>A környezeti entitások, például mozgatható kövek vagy talicskák, az <code>Entity</code> osztályhoz tartoznak.</li>
+</ul></li>
+<li><strong>EnvironEntity — StorageEntity</strong>
+<ul>
+<li>A tárolásra szolgáló környezeti entitások, például ládák vagy hordók, szintén az <code>EnvironEntity</code> osztály leszármazottai. Ezek nem rendelkeznek <code>Inventory</code>-val, mivel nem bírnak olyan tulajdonságokkal (például kéz vagy fej), amelyek tárolást tennének lehetővé.</li>
+</ul></li>
+<li><strong>Entity — Location</strong>
+<ul>
+<li>A <code>Location</code> az entitások térbeli elhelyezkedését és orientációját írja le.</li>
+</ul></li>
+<li><strong>Entity — Movement</strong>
+<ul>
+<li>Az <code>Entity</code> mozgási tulajdonságait definiálja, beleértve az irányt és a sebességet, amely meghatározza, hogyan és milyen gyorsan változtatják helyüket.</li>
+</ul></li>
+<li><strong>Location — Movement</strong>
+<ul>
+<li>A <code>Location</code> és a <code>Movement</code> szorosan összefügg, és együtt alkotják a fizikai szimuláció alapját.</li>
+</ul></li>
+<li><strong>Enemy — FightEntity</strong>
+<ul>
+<li>Az ellenségek a harcrendszer résztvevő entitásai, azaz a <code>FightEntity</code> osztály leszármazottai.</li>
+</ul></li>
+<li><strong>Player — FightEntity</strong>
+<ul>
+<li>A játékos szintén a <code>FightEntity</code> osztályba tartozik, és teljes értékű résztvevője a harcrendszernek.</li>
+</ul></li>
+</ul>
 <h3 data-number="4.1.2" id="attribútumok-azonosítása-1"><span class="header-section-number">4.1.2</span> Attribútumok azonosítása</h3>
+<ul>
+<li><strong>Entity</strong>
+<ul>
+<li><strong>location:</strong> Az entitások térbeli elhelyezkedését és orientációját írja le.<br />
+</li>
+<li><strong>movement:</strong> Az entitások mozgási tulajdonságait, irányát és sebességét definiálja.<br />
+</li>
+<li><strong>weight:</strong> Az entitások tömegének meghatározására szolgál.<br />
+</li>
+<li><strong>texture:</strong> Az entitások megjelenését, vizuális reprezentációját határozza meg.</li>
+</ul></li>
+<li><strong>Consumable</strong>
+<ul>
+<li><strong>delta_hp:</strong> Az adott tárgy által okozott változás a HP-ban (életerő).<br />
+</li>
+<li><strong>delta_sp:</strong> Az SP (mentális állóképesség) módosításának mértéke.<br />
+</li>
+<li><strong>delta_manna:</strong> A manna (mágikus energia) változásának értéke.<br />
+</li>
+<li><strong>is_esoteric:</strong> Meghatározza, hogy a tárgy rendelkezik-e ezoterikus hatással. Az ezoterikus hatások speciális függvényekkel egyedi módosításokat eredményezhetnek, bár az esetek túlnyomó többsége (kb. 95%) nem ilyen.</li>
+</ul></li>
+<li><strong>FightEntity</strong>
+<ul>
+<li><strong>lvl:</strong> A harcban résztvevő entitás szintje (1-5 közötti érték), amely kulcsszerepet játszik a sebzés számításában.<br />
+</li>
+<li><strong>max_hp:</strong> Az entitás maximális életereje.<br />
+</li>
+<li><strong>hp:</strong> Az entitás aktuális életereje.<br />
+</li>
+<li><strong>max_sp:</strong> Az entitás maximális mentális állóképessége.<br />
+</li>
+<li><strong>sp:</strong> Az entitás aktuális mentális állóképessége.<br />
+</li>
+<li><strong>manna:</strong> Az entitás rendelkezésére álló mágikus energia.<br />
+</li>
+<li><strong>max_manna:</strong> Az entitás maximális mágikus energiája.<br />
+</li>
+<li><strong>inventory:</strong> Az entitáshoz társított <code>Inventory</code>, amely a birtokolt tárgyakat kezeli.</li>
+</ul></li>
+<li><strong>ItemEntity</strong>
+<ul>
+<li><strong>item:</strong> Az <code>Item</code>, amelyet az entitás reprezentál.</li>
+</ul></li>
+<li><strong>Item</strong>
+<ul>
+<li><strong>name:</strong> Az adott tárgy statikus neve.<br />
+</li>
+<li><strong>costum_name:</strong> A tárgy egyedi neve, amelyet a játékos opcionálisan megadhat.<br />
+</li>
+<li><strong>description:</strong> A tárgy részletes leírása.<br />
+</li>
+<li><strong>icon:</strong> A tárgyhoz társított ikon, amely a felhasználói felületen jelenik meg.<br />
+</li>
+<li><strong>durability:</strong> Az aktuális tartósság, amely az élettartam fennmaradó részét jelöli.<br />
+</li>
+<li><strong>max_durability:</strong> A tárgy eredeti tartóssága; nullával jelölve, ha a tárgy végtelen élettartamú.<br />
+</li>
+<li><strong>max_nr:</strong> A tárgyból egy slotban tárolható maximális mennyiség.<br />
+</li>
+<li><strong>nr:</strong> Az adott slotban jelenleg tárolt tárgyak száma.</li>
+</ul></li>
+<li><strong>Shield</strong>
+<ul>
+<li>Nincs különálló tulajdonsága, mivel az <code>Item</code> osztály már tartalmazza a szükséges attribútumokat.</li>
+</ul></li>
+<li><strong>Inventory</strong>
+<ul>
+<li><strong>gold:</strong> Az entitásnál található arany mennyisége.<br />
+</li>
+<li><strong>items:</strong> Az általános tárgyak listája, amelyeket az entitás birtokol.<br />
+</li>
+<li><strong>quest_items:</strong> A küldetésekhez kapcsolódó tárgyak, amelyek nem foglalnak helyet a normál tárgylistában, és korlátlan mennyiségben tárolhatók.<br />
+</li>
+<li><strong>head:</strong> A sisak helye.<br />
+</li>
+<li><strong>up_body:</strong> A testpáncél helye.<br />
+</li>
+<li><strong>low_body:</strong> A lábpáncél helye.<br />
+</li>
+<li><strong>pri_arm:</strong> Az elsődleges kézben lévő tárgy; támadás kizárólag ebből a kézből hajtható végre.<br />
+</li>
+<li><strong>sec_arm:</strong> A másodlagos kézben lévő tárgy; védekezésre, például pajzs használatára szolgál.</li>
+</ul></li>
+<li><strong>Weapon</strong>
+<ul>
+<li><strong>attacks:</strong> Egy támadás és valószínűség párosokat tartalmazó tömb. A támadás típusa a valószínűségi súlyok alapján kerül kiválasztásra.<br />
+</li>
+<li><strong>manna_cost:</strong> A fegyver használatához szükséges manna mennyisége. Ha nincs elegendő manna, a fegyver nem használható.</li>
+</ul></li>
+<li><strong>Attack</strong>
+<ul>
+<li><strong>atk_type:</strong> A támadás típusa.<br />
+</li>
+<li><strong>is_magic:</strong> Meghatározza, hogy a támadás mágikus vagy fizikai eredetű.<br />
+</li>
+<li><strong>range:</strong> A sebzés lehetséges értékeit leíró intervallum. A tényleges sebzés egy véletlenszerűen kiválasztott érték az intervallumon belül.<br />
+</li>
+<li><strong>push_back:</strong> A támadás hátralökő hatásának értéke.<br />
+</li>
+<li><strong>mpx_weights:</strong> Négy nem-negatív szám, amelyek a <code>Multiplex</code> típusú támadások valószínűségeit határozzák meg (<code>Physical</code>, <code>Mental</code>, <code>Combined</code>, és <code>Percent</code> típusokra).</li>
+</ul></li>
+<li><strong>Projectile</strong>
+<ul>
+<li><strong>atk:</strong> A lövedék által végrehajtott támadás.<br />
+</li>
+<li><strong>owner:</strong> A lövedéket kilövő entitás referenciája.</li>
+</ul></li>
+<li><strong>Player</strong>
+<ul>
+<li><strong>skill_set:</strong> A játékos képességfája.<br />
+</li>
+<li><strong>name:</strong> A játékos neve.<br />
+</li>
+<li><strong>active_quests:</strong> Az aktív, még nem teljesített küldetések.<br />
+</li>
+<li><strong>finished_quests:</strong> A játékos által teljesített küldetések.<br />
+</li>
+<li><strong>target:</strong> Amennyiben a játékos őrült állapotban van, itt kerül tárolásra a célpont, akire az őrültsége irányul.</li>
+</ul></li>
+<li><strong>Enemy</strong>
+<ul>
+<li><strong>name:</strong> Az ellenség statikus neve.<br />
+</li>
+<li><strong>target:</strong> Az entitás, amelyet az ellenség támadni szándékozik.<br />
+</li>
+<li><strong>personality:</strong> Az ellenség viselkedését és mesterséges intelligenciáját leíró attribútum.</li>
+</ul></li>
+<li><strong>NPC</strong>
+<ul>
+<li><strong>name:</strong> Az NPC statikus neve.<br />
+</li>
+<li><strong>quests:</strong> Az NPC által kiadható küldetések listája.</li>
+</ul></li>
+<li><strong>EnvironEntity</strong>
+<ul>
+<li><strong>name:</strong> Az entitás statikus neve.</li>
+</ul></li>
+<li><strong>StorageEntity</strong>
+<ul>
+<li><strong>costum_name:</strong> Az egyedi, játékos által megadható név.<br />
+</li>
+<li><strong>items:</strong> Az entitás által tárolt tárgyak listája.</li>
+</ul></li>
+<li><strong>Armor</strong>
+<ul>
+<li><strong>lvl:</strong> A páncél szintje.<br />
+</li>
+<li><strong>armor_type:</strong> A páncél típusa (sisak, testpáncél, lábpáncél).<br />
+</li>
+<li><strong>orig_magic:</strong> Az eredeti mágikus támadások elleni védelem.<br />
+</li>
+<li><strong>orig_physics:</strong> Az eredeti fizikai támadások elleni védelem.<br />
+</li>
+<li><strong>type_physics:</strong> A specifikus fizikai típusú támadások elleni védelem.<br />
+</li>
+<li><strong>type_mental:</strong> A specifikus mentális típusú támadások elleni védelem.<br />
+</li>
+<li><strong>type_combined:</strong> A kombinált támadások elleni védelem.<br />
+</li>
+<li><strong>type_percent:</strong> A százalékos alapú támadások elleni védelem.<br />
+</li>
+<li><strong>anti_push_back:</strong> A hátralökő hatás csökkentésének mértéke.</li>
+</ul></li>
+<li><strong>Stats</strong>
+<ul>
+<li><strong>strength:</strong> Az entitás ereje.<br />
+</li>
+<li><strong>intel:</strong> Az entitás intelligenciája.<br />
+</li>
+<li><strong>faith:</strong> Az entitás hite (teológiai értelemben).<br />
+</li>
+<li><strong>spirit_strength_ex:</strong> Az alap hit értéktől való eltérés a spirituális erő szempontjából.<br />
+</li>
+<li><strong>determination_ex:</strong> Az alap hit értéktől való eltérés az eltökéltség szempontjából.<br />
+</li>
+<li><strong>speed:</strong> Az entitás mozgási sebessége.<br />
+</li>
+<li><strong>move_speed_ex:</strong> Az alap sebességtől való eltérés a mozgási sebesség szempontjából.</li>
+<li><strong>atk_speed_ex:</strong> A sebességhez képest a támadási sebesség eltérése. (alapértelmezetten azonos a sebességgel.)</li>
+</ul></li>
+</ul>
 <h3 data-number="4.1.3" id="bázisosztályok-keresése-1"><span class="header-section-number">4.1.3</span> Bázisosztályok keresése</h3>
+<p><strong>Már azonosított bázis osztályok:</strong></p>
+<ul>
+<li><p><strong>Entity:</strong> Az összes fizikai szimulációban részt vevő objektum általános bázisosztálya. Ez magában foglal minden olyan entitást, amely interakcióba léphet a környezettel.</p></li>
+<li><p><strong>FightEntity:</strong> A harcrendszerben részt vevő entitások bázisosztálya. Ezek az entitások képesek támadások végrehajtására, illetve különböző harci interakciókban való részvételre.</p></li>
+<li><p><strong>Item:</strong> A rendszerben használható tárgyak bázisosztálya. Az <code>Item</code> objektumokat az entitások különféle célokra használhatják.</p></li>
+<li><p><strong>Attack:</strong> Az <code>Attack</code> osztály egy <code>FightEntity</code>-t érő támadást reprezentál, amely a harcrendszer egyik központi eleme.</p></li>
+</ul>
+<p><strong>Azonosított, de elvetett bázis osztályok:</strong></p>
+<ul>
+<li><p><strong>NamedEntity:</strong> Névvel rendelkező entitásokat leíró bázisosztály. Az osztály túl egyszerű koncepcióval rendelkezik ahhoz, hogy jelentős funkcionalitást vagy hozzáadott értéket biztosítson.</p></li>
+<li><p><strong>FightItem:</strong> A harcrendszerben használatos tárgyakat (<code>Weapon</code>, <code>Shield</code>, <code>Armor</code>) összefogó bázisosztály. Azonban ezen elemek funkcionalitása és viselkedése túl eltérő ahhoz, hogy érdemi egységesítést biztosítson.</p></li>
+<li><p><strong>ItemOwnerEntity:</strong> Azoknak az entitásoknak a bázisosztálya, amelyek képesek <code>Item</code>-ek tárolására. Mivel az osztály túlságosan általános és semmitmondó lenne, nem indokolt a használata.</p></li>
+<li><p><strong>BasicInventory:</strong> Egy egyszerű <code>Inventory</code> megvalósítás, amely kizárólag <code>Item</code>-ek tárolására szolgál fej-, kéz-, vagy egyéb speciális szegmensek nélkül. Gyakorlatilag csak egy <code>Item</code> tömböt reprezentálna, így nem indokolt külön osztályként kezelni.</p></li>
+<li><p><strong>ItemPickerEntity:</strong> Az <code>ItemEntity</code> felvételére alkalmas entitásokat definiáló osztály. Jelenleg csak a <code>FightEntity</code> rendelkezik ilyen képességgel, így az osztály felesleges. Emellett ez a funkcionalitás hatékonyabban megvalósítható lenne az <code>Entity</code> osztály egy tulajdonságaként.</p></li>
+</ul>
 <h2 data-number="4.2" id="dinamikus-modell-1"><span class="header-section-number">4.2</span> Dinamikus modell</h2>
 <div class="img-wrap">
 <p><a href="mechanika-01.png" target="_blank"><img src="mechanika-01.png" alt="Játék mechanika alrendszer dinamikus modell" title="Játék mechanika alrendszer dinamikus modell"></a></p>
