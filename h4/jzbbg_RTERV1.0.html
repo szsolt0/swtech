@@ -84,17 +84,16 @@
 <li><a href="#az-adatbázis-kezelővel-kapcsolatot-tartó-osztályok"><span class="toc-section-number">3.4</span> Az adatbázis kezelővel kapcsolatot tartó osztályok</a>
 <ul>
 <li><a href="#adatbázis-kezelő-osztályok-áttekintése"><span class="toc-section-number">3.4.1</span> Adatbázis Kezelő Osztályok Áttekintése</a></li>
-</ul></li>
-<li><a href="#osztályok-kialakítása-és-felépítése"><span class="toc-section-number">3.5</span> Osztályok Kialakítása és Felépítése</a>
-<ul>
-<li><a href="#tervezési-minták-és-legjobb-gyakorlatok"><span class="toc-section-number">3.5.1</span> Tervezési Minták és Legjobb Gyakorlatok</a></li>
-<li><a href="#hibakezelés-és-biztonság"><span class="toc-section-number">3.5.2</span> Hibakezelés és Biztonság</a></li>
+<li><a href="#osztályok-kialakítása-és-felépítése"><span class="toc-section-number">3.4.2</span> Osztályok Kialakítása és Felépítése</a></li>
+<li><a href="#tervezési-minták-és-legjobb-gyakorlatok"><span class="toc-section-number">3.4.3</span> Tervezési Minták és Legjobb Gyakorlatok</a></li>
+<li><a href="#hibakezelés-és-biztonság"><span class="toc-section-number">3.4.4</span> Hibakezelés és Biztonság</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#a-funkcionális-modell-kiegészítése"><span class="toc-section-number">4</span> A funkcionális modell kiegészítése</a></li>
 </ul>
 </nav>
 <h1 data-number="1" id="bevezetés"><span class="header-section-number">1</span> Bevezetés</h1>
+<p>Ez a dokumentum a <em>Knights Age</em> rendszertervezési modelljét tartalmazza. A tervezés célja a játék teljes infrastruktúrájának és működési mechanizmusainak átfogó kidolgozása. A dokumentumban szereplő tervezési döntések figyelembe veszik a rendszer skálázhatóságát, a felhasználói élményt, valamint a szoftverkomponensek hosszú távú fenntarthatóságát.</p>
 <h1 data-number="2" id="felhasználói-felület"><span class="header-section-number">2</span> Felhasználói felület</h1>
 <p>Az alábbi HUD (felhasználói felület) elemek segítik a játékos tájékozódását és a játékmenet irányítását:</p>
 <ul>
@@ -216,7 +215,7 @@ A _Firebase_ egy _Google_ által fejlesztett platform, amely széles körű back
 <li><strong>SQL lekérdezések végrehajtása:</strong> SQL lekérdezések összeállítása, előkészítése és futtatása, valamint az eredményhalmaz kezelése.</li>
 <li><strong>Tranzakciók kezelése:</strong> Tranzakciók indítása, elkötelezése és visszagörgetése.</li>
 </ul>
-<h2 data-number="3.5" id="osztályok-kialakítása-és-felépítése"><span class="header-section-number">3.5</span> Osztályok Kialakítása és Felépítése</h2>
+<h3 data-number="3.4.2" id="osztályok-kialakítása-és-felépítése"><span class="header-section-number">3.4.2</span> Osztályok Kialakítása és Felépítése</h3>
 <p><strong>Adatbázis Kapcsolat Osztály (Connection Class)</strong></p>
 <ul>
 <li><p><strong>Felelőssége, feladata:</strong> Az adatbázis kapcsolat osztály felelős az adatbázishoz való csatlakozásért. Ez magában foglalja a kapcsolat létrehozását, a bejelentkezési adatok kezelését, a kapcsolat bontását és a kapcsolat állapotának figyelését.</p></li>
@@ -501,18 +500,19 @@ Visszagörgeti a tranzakciót
 </tr>
 </tbody>
 </table></div>
-<h3 data-number="3.5.1" id="tervezési-minták-és-legjobb-gyakorlatok"><span class="header-section-number">3.5.1</span> Tervezési Minták és Legjobb Gyakorlatok</h3>
+<h3 data-number="3.4.3" id="tervezési-minták-és-legjobb-gyakorlatok"><span class="header-section-number">3.4.3</span> Tervezési Minták és Legjobb Gyakorlatok</h3>
 <p><strong>DAO (Data Access Object) Minta</strong></p>
 <p>A DAO minta segít az adatbázis műveletek absztrakciójában és elkülönítésében az üzleti logikától. Az adatbázis műveletek külön osztályokba szervezése tisztább és karbantarthatóbb kódot eredményez.</p>
 <p><strong>Repository Minta</strong></p>
 <p>A repository minta az adatelérés centralizálására szolgál, megkönnyítve ezzel a tesztelhetőséget és az adatelérési logika újrafelhasználhatóságát.</p>
 <p><strong>Singleton Minta</strong></p>
 <p>A Singleton minta biztosítja, hogy egy osztályból csak egy példány létezik. Az adatbázis kapcsolat osztály esetében a Singleton minta használata garantálja, hogy mindig ugyanazt a kapcsolatot használjuk az alkalmazásban.</p>
-<h3 data-number="3.5.2" id="hibakezelés-és-biztonság"><span class="header-section-number">3.5.2</span> Hibakezelés és Biztonság</h3>
+<h3 data-number="3.4.4" id="hibakezelés-és-biztonság"><span class="header-section-number">3.4.4</span> Hibakezelés és Biztonság</h3>
 <p><strong>Hibakezelés</strong></p>
 <p>Az adatbázis műveletek során fellépő hibák kezelése try-catch blokkok használatával történik. A hibák loggolása is fontos a későbbi hibaelhárítás és nyomon követés érdekében.</p>
 <p><strong>Biztonsági Szempontok</strong></p>
 <p>Az adatbázis kapcsolatok biztonságos kezelése magában foglalja a jelszavak titkosítását, az SQL injekció megelőzését előkészített állítások használatával és a szerepkör-alapú hozzáférés szabályozását.</p>
 <h1 data-number="4" id="a-funkcionális-modell-kiegészítése"><span class="header-section-number">4</span> A funkcionális modell kiegészítése</h1>
+<p>A jelen verzióban nem történt módosítás a funkcionális modellel kapcsolatban.</p>
 </body>
 </html>
