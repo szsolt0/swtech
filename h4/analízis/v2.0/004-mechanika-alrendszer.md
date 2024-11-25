@@ -209,13 +209,13 @@
 ## Dinamikus modell
 
 <div class="img-wrap">
-<a href="mechanika-01.png" target="_blank"><img src="mechanika-01.png" alt="Játék mechanika alrendszer dinamikus modell" title="Játék mechanika alrendszer dinamikus modell"></a>
+<a href="mechanika-01.svg" target="_blank"><img src="mechanika-01.svg" alt="Játék mechanika alrendszer dinamikus modell" title="Játék mechanika alrendszer dinamikus modell"></a>
 </div>
  
 ## Funkcionális modell
 
 <div class="img-wrap">
-<a href="mechanika-02.png" target="_blank"><img src="mechanika-02.png" alt="Játék mechanika alrendszer funkcionális modell" title="Játék mechanika alrendszer funkcionális modell"></a>
+<a href="mechanika-02.svg" target="_blank"><img src="mechanika-02.svg" alt="Játék mechanika alrendszer funkcionális modell" title="Játék mechanika alrendszer funkcionális modell"></a>
 </div>
 
 ## Operációk azonosítása
