@@ -2,6 +2,44 @@
 
 ## Adatbázis kezelő kiválasztása
 
+A választott adatbázis-kezelő a _Firebase_.
+
+<!--
+A _Firebase_ egy _Google_ által fejlesztett platform, amely széles körű backend-szolgáltatásokat kínál, beleértve az adatbázis-kezelést, autentikációt és valós idejű adatkommunikációt. Két fő adatbázis-megoldást biztosít:
+
+- **Firebase Realtime Database:** Egy NoSQL alapú, valós idejű szinkronizációra optimalizált adatbázis.
+- **Cloud Firestore:** Egy modern, skálázható NoSQL adatbázis, amely szintén támogatja a valós idejű adatkommunikációt.
+
+**Firebase kiválasztásának indokai:**
+
+- **Valós idejű szinkronizáció**
+  - A _Firebase Realtime Database_ és _Firestore_ natív támogatást nyújt a valós idejű adatszinkronizációhoz, amely kulcsfontosságú a játékosok közötti gyors kommunikáció és az online mentések kezelése során.
+  - A kapcsoló szerverek és a játékosok közötti állapotfrissítések azonnal szinkronizálódnak.
+- **Skálázhatóság**
+  - A _Firebase_ infrastrukturális alapját a _Google Cloud_ biztosítja, amely nagy volumenű terheléseket is képes kezelni. Ez előnyös a játék népszerűsödése esetén, mivel a rendszer automatikusan skálázódik a forgalomnak megfelelően.
+  - A _Firestore_ regionális replikációt biztosít, ami alacsony késleltetést eredményez.
+- **Egyszerű integráció és gyors fejlesztés**
+  - A _Firebase_ SDK-k széles körű támogatást biztosítanak különféle platformokon, beleértve a _Godot_-ot, amelyet a mi játékunk is használ.
+  - Az előre elkészített funkciók, például az autentikációs modulok és a valós idejű adatfolyamok, jelentősen csökkentik a fejlesztési időt.
+- **Költséghatékonyság**
+  - A _Firebase_ ingyenes rétege (_Spark Plan_) lehetőséget biztosít prototípusok és kisebb projektek létrehozására.
+  - A skálázódó fizetési struktúra (_Blaze Plan_) lehetővé teszi, hogy csak a ténylegesen használt erőforrások után kelljen fizetni.
+- **Biztonság és megbízhatóság**
+  - A _Firebase_ biztonsági szabályrendszere testreszabható, így biztosítható, hogy csak a hitelesített játékosok férjenek hozzá az adatokhoz.
+  - Az automatikus adatmentés és redundancia minimalizálja az adatvesztés kockázatát.
+- Keresztplatformos támogatás
+  - A _Firebase_ kiválóan támogatja az _Android_, _iOS_, és webes platformokat, ami megkönnyíti a játék keresztplatformos kompatibilitását.
+
+**Konkrét alkalmazás a játékban:**
+
+- **Online mentések kezelése**
+  - A _Firebase Firestore_ használatával minden játékoshoz egyedi mentési slotok rendelhetők a `.knightsage` fájlok tárolásához, amelyek automatikusan frissülnek, amikor változás történik.
+- **Kapcsoló szerver funkciók**
+  - A szerver valós idejű adatkapcsolatot biztosít a játékosok között, például lobby-információk megosztásával.
+  - A szerverek a _Firebase Realtime Database_-en keresztül nyomon követhetik az aktív játékokat, és hostokat rendelhetnek a csatlakozni kívánó játékosokhoz.
+- **Felhasználói adatok tárolása**
+  - A _Firebase Authentication_ összeköthető az adatbázissal, lehetővé téve a felhasználók egyszerű azonosítását és az adatok személyre szabását.
+-->
 ## Szemantikai adatmodell
 
 <div class="img-wrap">
