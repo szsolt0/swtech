@@ -4,7 +4,6 @@
 
 A választott adatbázis-kezelő a _Firebase_.
 
-<!--
 A _Firebase_ egy _Google_ által fejlesztett platform, amely széles körű backend-szolgáltatásokat kínál, beleértve az adatbázis-kezelést, autentikációt és valós idejű adatkommunikációt. Két fő adatbázis-megoldást biztosít:
 
 - **Firebase Realtime Database:** Egy NoSQL alapú, valós idejű szinkronizációra optimalizált adatbázis.
@@ -39,7 +38,7 @@ A _Firebase_ egy _Google_ által fejlesztett platform, amely széles körű back
   - A szerverek a _Firebase Realtime Database_-en keresztül nyomon követhetik az aktív játékokat, és hostokat rendelhetnek a csatlakozni kívánó játékosokhoz.
 - **Felhasználói adatok tárolása**
   - A _Firebase Authentication_ összeköthető az adatbázissal, lehetővé téve a felhasználók egyszerű azonosítását és az adatok személyre szabását.
--->
+
 ## Szemantikai adatmodell
 
 <div class="img-wrap">
