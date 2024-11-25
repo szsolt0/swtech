@@ -67,6 +67,390 @@
 	<tr><th>Dátum</th><th>Verzió</th><th>Leírás</th><th>Szerző</th></tr>
 	<tr><td>[DÁTUM]</td><td>1.0</td><td>Első verzió.</td><td>Sándor János<br>Adamcsik Bendegúz<br>Dobozi Botond<br>Füzi Gergő Róbert<br>Sebe Zsolt</td></tr>
 </table></div>
-<p>[TARTALOM]</p>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#bevezetés"><span class="toc-section-number">1</span> Bevezetés</a></li>
+<li><a href="#felhasználói-felület"><span class="toc-section-number">2</span> Felhasználói felület</a></li>
+<li><a href="#adatmodellek"><span class="toc-section-number">3</span> Adatmodellek</a>
+<ul>
+<li><a href="#adatbázis-kezelő-kiválasztása"><span class="toc-section-number">3.1</span> Adatbázis kezelő kiválasztása</a></li>
+<li><a href="#szemantikai-adatmodell"><span class="toc-section-number">3.2</span> Szemantikai adatmodell</a></li>
+<li><a href="#relációs-adatmodell"><span class="toc-section-number">3.3</span> Relációs adatmodell</a></li>
+<li><a href="#az-adatbázis-kezelővel-kapcsolatot-tartó-osztályok"><span class="toc-section-number">3.4</span> Az adatbázis kezelővel kapcsolatot tartó osztályok</a>
+<ul>
+<li><a href="#adatbázis-kezelő-osztályok-áttekintése"><span class="toc-section-number">3.4.1</span> Adatbázis Kezelő Osztályok Áttekintése</a></li>
+</ul></li>
+<li><a href="#osztályok-kialakítása-és-felépítése"><span class="toc-section-number">3.5</span> Osztályok Kialakítása és Felépítése</a>
+<ul>
+<li><a href="#tervezési-minták-és-legjobb-gyakorlatok"><span class="toc-section-number">3.5.1</span> Tervezési Minták és Legjobb Gyakorlatok</a></li>
+<li><a href="#hibakezelés-és-biztonság"><span class="toc-section-number">3.5.2</span> Hibakezelés és Biztonság</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#a-funkcionális-modell-kiegészítése"><span class="toc-section-number">4</span> A funkcionális modell kiegészítése</a></li>
+</ul>
+</nav>
+<h1 data-number="1" id="bevezetés"><span class="header-section-number">1</span> Bevezetés</h1>
+<h1 data-number="2" id="felhasználói-felület"><span class="header-section-number">2</span> Felhasználói felület</h1>
+<p>Az alábbi HUD (felhasználói felület) elemek segítik a játékos tájékozódását és a játékmenet irányítását:</p>
+<ul>
+<li>Sárkányszem ikon (bal alsó sarok):</li>
+<li>Egy ikon, amelyre kattintva a játékos megtekintheti a karakter statisztikáit.</li>
+<li>Itt található a négy skill fejlesztési csíkja. Ha elérhető fejlesztési pont áll rendelkezésre, egy „+” jel jelenik meg az adott skillnél, lehetővé téve annak fejlesztését.</li>
+<li>Zsák ikon (bal alsó sarok):</li>
+<li>Az ikonra kattintva az inventory (felszerelés és tárgykezelő) jelenik meg.</li>
+<li>Az inventory-ban a játékos:</li>
+<li>Megtekintheti, hogy mit visel (pl. kard, sisak, mellvért, pajzs, csizma).</li>
+<li>Kezelheti a tárgyait, amelyek 3x7-es rácsban (21 hely) tárolhatók.</li>
+<li>Minden viselt tárgy és inventory slot mellett található egy „X” gomb, amely lehetővé teszi a felszerelés levételét vagy a tárgyak eltávolítását.</li>
+<li>Élet-, mana- és józanság-sávok (bal felső sarok):</li>
+<li>Az élet, mana és józanság aktuális állapotát vizuálisan jelzik a sávok.</li>
+<li>Mini térkép (jobb felső sarok):</li>
+<li>Kör alakú minimap, amely a következőket jeleníti meg:</li>
+<li>Piros körök: ellenségek.</li>
+<li>Zöld körök: NPC-k.</li>
+<li>Arany nyílfej: a játékos helyzetét mutatja.</li>
+<li>A minimap nem részletes térkép, inkább a közeli események vizuális jelzésére szolgál.</li>
+<li>Egy M gomb található a minimap mellett. Erre kattintva egy nagyobb, központi térkép nyílik meg, amelyen szélesebb körű tájékozódásra van lehetőség.</li>
+<li>Gyorshasználati slotok (alsó középen):</li>
+<li>Egy sor gyorselérési slot található itt, amelyek lehetővé teszik az előre beállított tárgyak vagy képességek gyors használatát.</li>
+</ul>
+<p>Ez a HUD úgy van kialakítva, hogy a játékos számára átlátható és könnyen használható legyen, miközben a legfontosabb információkat és interakciókat biztosítja a játékmenet során.</p>
+<p><strong>Illusztrációk:</strong></p>
+<div class="img-wrap">
+<p><a href="uidraw-01.svg" target="_blank"><img src="uidraw-01.svg" alt="Felhasználói felület illusztráció" title="Felhasználói felület illusztráció"></a></p>
+</div>
+<div class="img-wrap">
+<p><a href="uidraw-02.svg" target="_blank"><img src="uidraw-02.svg" alt="Felhasználói felület illusztráció" title="Felhasználói felület illusztráció"></a></p>
+</div>
+<div class="img-wrap">
+<p><a href="uidraw-03.svg" target="_blank"><img src="uidraw-03.svg" alt="Felhasználói felület illusztráció" title="Felhasználói felület illusztráció"></a></p>
+</div>
+<div class="img-wrap">
+<p><a href="uidraw-04.svg" target="_blank"><img src="uidraw-04.svg" alt="Felhasználói felület illusztráció" title="Felhasználói felület illusztráció"></a></p>
+</div>
+<div class="img-wrap">
+<p><a href="uidraw-05.svg" target="_blank"><img src="uidraw-05.svg" alt="Felhasználói felület illusztráció" title="Felhasználói felület illusztráció"></a></p>
+</div>
+<div class="img-wrap">
+<p><a href="uidraw-06.svg" target="_blank"><img src="uidraw-06.svg" alt="Felhasználói felület illusztráció" title="Felhasználói felület illusztráció"></a></p>
+</div>
+<h1 data-number="3" id="adatmodellek"><span class="header-section-number">3</span> Adatmodellek</h1>
+<h2 data-number="3.1" id="adatbázis-kezelő-kiválasztása"><span class="header-section-number">3.1</span> Adatbázis kezelő kiválasztása</h2>
+<h2 data-number="3.2" id="szemantikai-adatmodell"><span class="header-section-number">3.2</span> Szemantikai adatmodell</h2>
+<div class="img-wrap">
+<p><a href="szemantikai-modell.png" target="_blank"><img src="szemantikai-modell.png" alt="Szemantikai adatmodell" title="Szemantikai adatmodell"></a></p>
+</div>
+<h2 data-number="3.3" id="relációs-adatmodell"><span class="header-section-number">3.3</span> Relációs adatmodell</h2>
+<div class="img-wrap">
+<p><a href="relációs-modell.png" target="_blank"><img src="relációs-modell.png" alt="Relációs adatmodell" title="Relációs adatmodell"></a></p>
+</div>
+<h2 data-number="3.4" id="az-adatbázis-kezelővel-kapcsolatot-tartó-osztályok"><span class="header-section-number">3.4</span> Az adatbázis kezelővel kapcsolatot tartó osztályok</h2>
+<h3 data-number="3.4.1" id="adatbázis-kezelő-osztályok-áttekintése"><span class="header-section-number">3.4.1</span> Adatbázis Kezelő Osztályok Áttekintése</h3>
+<p><strong>Definíció és Szerep</strong></p>
+<p>Az adatbázis kezelővel kapcsolatot tartó osztályok felelősek az alkalmazás és az adatbázis közötti kommunikációért. Ez magában foglalja az adatok lekérdezését, módosítását, törlését és beszúrását. Az ilyen osztályok alapvető szerepe az, hogy biztosítsák az adatbázis műveletek hatékony és biztonságos végrehajtását.</p>
+<p><strong>Funkciók és Feladatok</strong></p>
+<ul>
+<li><strong>Kapcsolat létrehozása és kezelése:</strong> Az adatbázis kapcsolat létrehozása, hitelesítési adatok kezelése, kapcsolat bontása, és a kapcsolat állapotának figyelése.</li>
+<li><strong>SQL lekérdezések végrehajtása:</strong> SQL lekérdezések összeállítása, előkészítése és futtatása, valamint az eredményhalmaz kezelése.</li>
+<li><strong>Tranzakciók kezelése:</strong> Tranzakciók indítása, elkötelezése és visszagörgetése.</li>
+</ul>
+<h2 data-number="3.5" id="osztályok-kialakítása-és-felépítése"><span class="header-section-number">3.5</span> Osztályok Kialakítása és Felépítése</h2>
+<p><strong>Adatbázis Kapcsolat Osztály (Connection Class)</strong></p>
+<ul>
+<li><p><strong>Felelőssége, feladata:</strong> Az adatbázis kapcsolat osztály felelős az adatbázishoz való csatlakozásért. Ez magában foglalja a kapcsolat létrehozását, a bejelentkezési adatok kezelését, a kapcsolat bontását és a kapcsolat állapotának figyelését.</p></li>
+<li><p><strong>Együttműködők:</strong></p>
+<ul>
+<li><strong>ImportGame:</strong> Adatimportáláshoz.</li>
+<li><strong>LocalCloudSavedGameList:</strong> Mentett játékok listájának kezeléséhez.</li>
+<li><strong>Continue:</strong> Mentett játék betöltéséhez.</li>
+<li><strong>New Game:</strong> Új játék létrehozásához.</li>
+</ul></li>
+</ul>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>databaseURL</code>
+</td>
+<td>
+<code>String</code>
+</td>
+<td>
+Az adatbázis elérési útja
+</td>
+</tr>
+<tr>
+<td>
+<code>username</code>
+</td>
+<td>
+<code>String</code>
+</td>
+<td>
+A felhasználónév
+</td>
+</tr>
+<tr>
+<td>
+<code>password</code>
+</td>
+<td>
+<code>String</code>
+</td>
+<td>
+A jelszó
+</td>
+</tr>
+<tr>
+<td>
+<code>connection</code>
+</td>
+<td>
+<code>Connection</code>
+</td>
+<td>
+Az adatbázis kapcsolat objektuma
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>connect()</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Létrehozza az adatbázis kapcsolatot
+</td>
+</tr>
+<tr>
+<td>
+<code>disconnect()</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Bontja az adatbázis kapcsolatot
+</td>
+</tr>
+<tr>
+<td>
+<code>isConnected()</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Ellenőrzi, hogy az adatbázis kapcsolat aktív-e
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Lekérdezés Kezelő Osztály (Query Handler Class)</strong></p>
+<ul>
+<li><strong>Felelőssége, feladata:</strong> Az SQL lekérdezés kezelő osztály felelős az SQL lekérdezések összeállításáért és végrehajtásáért.</li>
+<li><strong>Együttműködők:</strong>
+<ul>
+<li><strong>SaveSystem:</strong> Az adatbázis kapcsolat osztály segítségével végrehajtott lekérdezésekhez.</li>
+<li><strong>Continue:</strong> Az SQL lekérdezések eredményének feldolgozásához.</li>
+</ul></li>
+</ul>
+<p><strong>Attribútumok:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Típus
+</th>
+<th>
+Leírás
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>sqlQuery</code>
+</td>
+<td>
+<code>String</code>
+</td>
+<td>
+Az SQL lekérdezés szövege
+</td>
+</tr>
+<tr>
+<td>
+<code>resultSet</code>
+</td>
+<td>
+<code>ResultSet</code>
+</td>
+<td>
+Az SQL lekérdezés eredményhalmaza
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>executeQuery()</code>
+</td>
+<td>
+<code>String query</code>
+</td>
+<td>
+Végrehajt egy SQL lekérdezést
+</td>
+</tr>
+<tr>
+<td>
+<code>executeUpdate()</code>
+</td>
+<td>
+<code>String query</code>
+</td>
+<td>
+Végrehajt egy SQL módosító lekérdezést
+</td>
+</tr>
+<tr>
+<td>
+<code>prepareStatement()</code>
+</td>
+<td>
+<code>String query</code>
+</td>
+<td>
+Előkészít egy SQL lekérdezést
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Adatbázis Tranzakció Kezelő Osztály (Transaction Manager Class)</strong></p>
+<ul>
+<li><strong>Felelőssége, feladata:</strong> Az adatbázis tranzakció kezelő osztály felelős az adatbázis tranzakciók kezeléséért (BEGIN, COMMIT, ROLLBACK).</li>
+<li><strong>Együttműködők:</strong>
+<ul>
+<li><strong>SaveSystem:</strong> A tranzakciók indításához és kezeléséhez.</li>
+<li><strong>LocalCloudSavedGameList:</strong> Tranzakciók kezeléséhez a mentett játékok szinkronizálása során.</li>
+</ul></li>
+</ul>
+<p><strong>Operációk:</strong></p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>
+Név
+</th>
+<th>
+Argumentumok
+</th>
+<th>
+Működése, feladata
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>beginTransaction()</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Elindít egy tranzakciót
+</td>
+</tr>
+<tr>
+<td>
+<code>commit()</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Elkötelezi a tranzakciót
+</td>
+</tr>
+<tr>
+<td>
+<code>rollback()</code>
+</td>
+<td>
+Nincs
+</td>
+<td>
+Visszagörgeti a tranzakciót
+</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="3.5.1" id="tervezési-minták-és-legjobb-gyakorlatok"><span class="header-section-number">3.5.1</span> Tervezési Minták és Legjobb Gyakorlatok</h3>
+<p><strong>DAO (Data Access Object) Minta</strong></p>
+<p>A DAO minta segít az adatbázis műveletek absztrakciójában és elkülönítésében az üzleti logikától. Az adatbázis műveletek külön osztályokba szervezése tisztább és karbantarthatóbb kódot eredményez.</p>
+<p><strong>Repository Minta</strong></p>
+<p>A repository minta az adatelérés centralizálására szolgál, megkönnyítve ezzel a tesztelhetőséget és az adatelérési logika újrafelhasználhatóságát.</p>
+<p><strong>Singleton Minta</strong></p>
+<p>A Singleton minta biztosítja, hogy egy osztályból csak egy példány létezik. Az adatbázis kapcsolat osztály esetében a Singleton minta használata garantálja, hogy mindig ugyanazt a kapcsolatot használjuk az alkalmazásban.</p>
+<h3 data-number="3.5.2" id="hibakezelés-és-biztonság"><span class="header-section-number">3.5.2</span> Hibakezelés és Biztonság</h3>
+<p><strong>Hibakezelés</strong></p>
+<p>Az adatbázis műveletek során fellépő hibák kezelése try-catch blokkok használatával történik. A hibák loggolása is fontos a későbbi hibaelhárítás és nyomon követés érdekében.</p>
+<p><strong>Biztonsági Szempontok</strong></p>
+<p>Az adatbázis kapcsolatok biztonságos kezelése magában foglalja a jelszavak titkosítását, az SQL injekció megelőzését előkészített állítások használatával és a szerepkör-alapú hozzáférés szabályozását.</p>
+<h1 data-number="4" id="a-funkcionális-modell-kiegészítése"><span class="header-section-number">4</span> A funkcionális modell kiegészítése</h1>
 </body>
 </html>
