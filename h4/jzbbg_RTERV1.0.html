@@ -62,15 +62,15 @@
 	<tr><td>Sebe Zsolt</td><td>progterv</td><td>sebezsolt2@gmail.com</td></tr>
 </table></div>
 
-<p style="text-align: right;">[DÁTUM]</p>
+<p style="text-align: right;">2024-11-25</p>
 <div class="tbl-wrap"><table>
 	<tr><th>Dátum</th><th>Verzió</th><th>Leírás</th><th>Szerző</th></tr>
-	<tr><td>[DÁTUM]</td><td>1.0</td><td>Az 1., 3.2, 3.3. pont létrehozása.</td><td>Sándor János</td></tr>
-	<tr><td>[DÁTUM]</td><td>1.0</td><td>A 2. pont létrehozása.</td><td>Füzi Gergő Róbert</td></tr>
-	<tr><td>[DÁTUM]</td><td>1.0</td><td>A 3.1. pont létrehozása.</td><td>Sebe Zsolt</td></tr>
-	<tr><td>[DÁTUM]</td><td>1.0</td><td>A 3.4. pont létrehozása.</td><td>Adamcsik Bendegúz</td></tr>
-	<tr><td>[DÁTUM]</td><td>1.0</td><td>Az 4. pont létrehozása.</td><td>Dobozi Botond</td></tr>
-	<tr><td>[DÁTUM]</td><td>1.0</td><td>Első verzió.</td><td>Sándor János<br>Adamcsik Bendegúz<br>Dobozi Botond<br>Füzi Gergő Róbert<br>Sebe Zsolt</td></tr>
+	<tr><td>2024-11-25</td><td>1.0</td><td>Az 1., 3.2, 3.3. pont létrehozása.</td><td>Sándor János</td></tr>
+	<tr><td>2024-11-25</td><td>1.0</td><td>A 2. pont létrehozása.</td><td>Füzi Gergő Róbert</td></tr>
+	<tr><td>2024-11-25</td><td>1.0</td><td>A 3.1. pont létrehozása.</td><td>Sebe Zsolt</td></tr>
+	<tr><td>2024-11-25</td><td>1.0</td><td>A 3.4. pont létrehozása.</td><td>Adamcsik Bendegúz</td></tr>
+	<tr><td>2024-11-25</td><td>1.0</td><td>Az 4. pont létrehozása.</td><td>Dobozi Botond</td></tr>
+	<tr><td>2024-11-25</td><td>1.0</td><td>Első verzió.</td><td>Sándor János<br>Adamcsik Bendegúz<br>Dobozi Botond<br>Füzi Gergő Róbert<br>Sebe Zsolt</td></tr>
 </table></div>
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -161,42 +161,59 @@
 <h1 data-number="3" id="adatmodellek"><span class="header-section-number">3</span> Adatmodellek</h1>
 <h2 data-number="3.1" id="adatbázis-kezelő-kiválasztása"><span class="header-section-number">3.1</span> Adatbázis kezelő kiválasztása</h2>
 <p>A választott adatbázis-kezelő a <em>Firebase</em>.</p>
-<!--
-A _Firebase_ egy _Google_ által fejlesztett platform, amely széles körű backend-szolgáltatásokat kínál, beleértve az adatbázis-kezelést, autentikációt és valós idejű adatkommunikációt. Két fő adatbázis-megoldást biztosít:
-
-- **Firebase Realtime Database:** Egy NoSQL alapú, valós idejű szinkronizációra optimalizált adatbázis.
-- **Cloud Firestore:** Egy modern, skálázható NoSQL adatbázis, amely szintén támogatja a valós idejű adatkommunikációt.
-
-**Firebase kiválasztásának indokai:**
-
-- **Valós idejű szinkronizáció**
-  - A _Firebase Realtime Database_ és _Firestore_ natív támogatást nyújt a valós idejű adatszinkronizációhoz, amely kulcsfontosságú a játékosok közötti gyors kommunikáció és az online mentések kezelése során.
-  - A kapcsoló szerverek és a játékosok közötti állapotfrissítések azonnal szinkronizálódnak.
-- **Skálázhatóság**
-  - A _Firebase_ infrastrukturális alapját a _Google Cloud_ biztosítja, amely nagy volumenű terheléseket is képes kezelni. Ez előnyös a játék népszerűsödése esetén, mivel a rendszer automatikusan skálázódik a forgalomnak megfelelően.
-  - A _Firestore_ regionális replikációt biztosít, ami alacsony késleltetést eredményez.
-- **Egyszerű integráció és gyors fejlesztés**
-  - A _Firebase_ SDK-k széles körű támogatást biztosítanak különféle platformokon, beleértve a _Godot_-ot, amelyet a mi játékunk is használ.
-  - Az előre elkészített funkciók, például az autentikációs modulok és a valós idejű adatfolyamok, jelentősen csökkentik a fejlesztési időt.
-- **Költséghatékonyság**
-  - A _Firebase_ ingyenes rétege (_Spark Plan_) lehetőséget biztosít prototípusok és kisebb projektek létrehozására.
-  - A skálázódó fizetési struktúra (_Blaze Plan_) lehetővé teszi, hogy csak a ténylegesen használt erőforrások után kelljen fizetni.
-- **Biztonság és megbízhatóság**
-  - A _Firebase_ biztonsági szabályrendszere testreszabható, így biztosítható, hogy csak a hitelesített játékosok férjenek hozzá az adatokhoz.
-  - Az automatikus adatmentés és redundancia minimalizálja az adatvesztés kockázatát.
-- Keresztplatformos támogatás
-  - A _Firebase_ kiválóan támogatja az _Android_, _iOS_, és webes platformokat, ami megkönnyíti a játék keresztplatformos kompatibilitását.
-
-**Konkrét alkalmazás a játékban:**
-
-- **Online mentések kezelése**
-  - A _Firebase Firestore_ használatával minden játékoshoz egyedi mentési slotok rendelhetők a `.knightsage` fájlok tárolásához, amelyek automatikusan frissülnek, amikor változás történik.
-- **Kapcsoló szerver funkciók**
-  - A szerver valós idejű adatkapcsolatot biztosít a játékosok között, például lobby-információk megosztásával.
-  - A szerverek a _Firebase Realtime Database_-en keresztül nyomon követhetik az aktív játékokat, és hostokat rendelhetnek a csatlakozni kívánó játékosokhoz.
-- **Felhasználói adatok tárolása**
-  - A _Firebase Authentication_ összeköthető az adatbázissal, lehetővé téve a felhasználók egyszerű azonosítását és az adatok személyre szabását.
--->
+<p>A <em>Firebase</em> egy <em>Google</em> által fejlesztett platform, amely széles körű backend-szolgáltatásokat kínál, beleértve az adatbázis-kezelést, autentikációt és valós idejű adatkommunikációt. Két fő adatbázis-megoldást biztosít:</p>
+<ul>
+<li><strong>Firebase Realtime Database:</strong> Egy NoSQL alapú, valós idejű szinkronizációra optimalizált adatbázis.</li>
+<li><strong>Cloud Firestore:</strong> Egy modern, skálázható NoSQL adatbázis, amely szintén támogatja a valós idejű adatkommunikációt.</li>
+</ul>
+<p><strong>Firebase kiválasztásának indokai:</strong></p>
+<ul>
+<li><strong>Valós idejű szinkronizáció</strong>
+<ul>
+<li>A <em>Firebase Realtime Database</em> és <em>Firestore</em> natív támogatást nyújt a valós idejű adatszinkronizációhoz, amely kulcsfontosságú a játékosok közötti gyors kommunikáció és az online mentések kezelése során.</li>
+<li>A kapcsoló szerverek és a játékosok közötti állapotfrissítések azonnal szinkronizálódnak.</li>
+</ul></li>
+<li><strong>Skálázhatóság</strong>
+<ul>
+<li>A <em>Firebase</em> infrastrukturális alapját a <em>Google Cloud</em> biztosítja, amely nagy volumenű terheléseket is képes kezelni. Ez előnyös a játék népszerűsödése esetén, mivel a rendszer automatikusan skálázódik a forgalomnak megfelelően.</li>
+<li>A <em>Firestore</em> regionális replikációt biztosít, ami alacsony késleltetést eredményez.</li>
+</ul></li>
+<li><strong>Egyszerű integráció és gyors fejlesztés</strong>
+<ul>
+<li>A <em>Firebase</em> SDK-k széles körű támogatást biztosítanak különféle platformokon, beleértve a <em>Godot</em>-ot, amelyet a mi játékunk is használ.</li>
+<li>Az előre elkészített funkciók, például az autentikációs modulok és a valós idejű adatfolyamok, jelentősen csökkentik a fejlesztési időt.</li>
+</ul></li>
+<li><strong>Költséghatékonyság</strong>
+<ul>
+<li>A <em>Firebase</em> ingyenes rétege (<em>Spark Plan</em>) lehetőséget biztosít prototípusok és kisebb projektek létrehozására.</li>
+<li>A skálázódó fizetési struktúra (<em>Blaze Plan</em>) lehetővé teszi, hogy csak a ténylegesen használt erőforrások után kelljen fizetni.</li>
+</ul></li>
+<li><strong>Biztonság és megbízhatóság</strong>
+<ul>
+<li>A <em>Firebase</em> biztonsági szabályrendszere testreszabható, így biztosítható, hogy csak a hitelesített játékosok férjenek hozzá az adatokhoz.</li>
+<li>Az automatikus adatmentés és redundancia minimalizálja az adatvesztés kockázatát.</li>
+</ul></li>
+<li>Keresztplatformos támogatás
+<ul>
+<li>A <em>Firebase</em> kiválóan támogatja az <em>Android</em>, <em>iOS</em>, és webes platformokat, ami megkönnyíti a játék keresztplatformos kompatibilitását.</li>
+</ul></li>
+</ul>
+<p><strong>Konkrét alkalmazás a játékban:</strong></p>
+<ul>
+<li><strong>Online mentések kezelése</strong>
+<ul>
+<li>A <em>Firebase Firestore</em> használatával minden játékoshoz egyedi mentési slotok rendelhetők a <code>.knightsage</code> fájlok tárolásához, amelyek automatikusan frissülnek, amikor változás történik.</li>
+</ul></li>
+<li><strong>Kapcsoló szerver funkciók</strong>
+<ul>
+<li>A szerver valós idejű adatkapcsolatot biztosít a játékosok között, például lobby-információk megosztásával.</li>
+<li>A szerverek a <em>Firebase Realtime Database</em>-en keresztül nyomon követhetik az aktív játékokat, és hostokat rendelhetnek a csatlakozni kívánó játékosokhoz.</li>
+</ul></li>
+<li><strong>Felhasználói adatok tárolása</strong>
+<ul>
+<li>A <em>Firebase Authentication</em> összeköthető az adatbázissal, lehetővé téve a felhasználók egyszerű azonosítását és az adatok személyre szabását.</li>
+</ul></li>
+</ul>
 <h2 data-number="3.2" id="szemantikai-adatmodell"><span class="header-section-number">3.2</span> Szemantikai adatmodell</h2>
 <div class="img-wrap">
 <p><a href="szemantikai-modell.png" target="_blank"><img src="szemantikai-modell.png" alt="Szemantikai adatmodell" title="Szemantikai adatmodell"></a></p>
