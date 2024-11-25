@@ -4,7 +4,9 @@
 
 ### Kapcsolatok pontosítása
 
-### Osztályok a felhasználói felület alrendszerében
+Az osztálydiagramon való kapcsolatok tisztázása és meghatározása, hogy a különböző
+elemek hogyan függnek egymástól. Az alábbi osztályok találhatóak meg a felhasználói
+felület alrendszerében:
 
 - **MainMenu:** Az összefűző osztály, amely kezeli a főmenü elemeit, és innen érhetjük el a többi osztály funkcióit. Ezekkel az osztályokkal áll kapcsolatban:
   - **NewGame:** Hívásakor új játékot hozunk létre, amelyhez kettő dolog megadása szükséges: a világ neve, és hogy milyen nehézségi szintű legye a játék. Ezt elmenthetjük és folytathatjuk.

@@ -34,13 +34,16 @@ cp h3/v1.1/pálya.png dist/h3/
 # === H4 ===
 genhtml h4/jzbbg_ANAL1.0.html "Analízis Modell" h4/analízis/v1.0
 genhtml h4/jzbbg_ANAL2.0.html "Analízis Modell" h4/analízis/v2.0
+genhtml h4/jzbbg_RTERV1.0.html "Rendszertervezés" h4/rendszertervezés/v1.0
 genhtml h4/szotar.html "Szótár" h4/szótár
 cp h4/analízis/v1.0/*.{svg,png} dist/h4/
 cp h4/analízis/v2.0/*.{svg,png} dist/h4/
 
 # === H5 ===
-genhtml h5/ertekeles.html "Értékelési Táblázat" h5/értékelés
-cp h5/értékelés/értékelés.pdf dist/h5/jzbbg-értékelés.pdf
+
+# uncomment when ready
+#genhtml h5/ertekeles.html "Értékelési Táblázat" h5/értékelés
+#cp h5/értékelés/értékelés.pdf dist/h5/jzbbg-értékelés.pdf
 
 # === Munkanapló ===
 genhtml munkanaplo.html "Munkanapló" munkanapló

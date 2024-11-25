@@ -4,9 +4,207 @@
  
 ### Kapcsolatok pontosítása
 
+- **Item --- Inventory**  
+  - Az `Inventory` osztály feladata az `Item` típusú objektumok rendszerezett tárolása.
+
+- **Item --- ItemEntity**  
+  - Az `ItemEntity` az `Item` egy eldobott állapotának reprezentációját valósítja meg.
+
+- **FightEntity --- Inventory**  
+  - Minden harcban résztvevő entitás rendelkezik egy `Inventory`-val, még akkor is, ha ez a felhasználói felületen nem jelenik meg.
+
+- **FightEntity --- Attack**  
+  - A harcban résztvevő entitások `Attack` típusú támadásokat hajtanak végre egymáson. A támadás hatása elsősorban a célpontot érinti, és a `get_attacked()` függvényen keresztül kerül végrehajtásra.
+
+- **Consumable --- FightEntity**  
+  - A harcban résztvevő entitások képesek `Consumable` típusú tárgyakat elfogyasztani, amelyek különböző hatásokat fejtenek ki. A leggyakoribb hatások elérhetők attribútumok formájában.
+
+- **Attack --- AtkType**  
+  - Az `AtkType` az `Attack` objektum típusát definiálja.
+
+- **Player --- AtkType**  
+  - A játékos esetében az `insanity_type()` függvény `AtkType` típusban adja vissza az őrület kategóriáját.
+
+- **FightEntity --- Stats**  
+  - A `Stats` osztály a harcban résztvevő entitások különböző tulajdonságait és paramétereit írja le.
+
+- **Entity --- NPC**  
+  - Az NPC-k (nem játékos karakterek) az `Entity` osztály kiterjesztései.
+
+- **Entity --- FightEntity**  
+  - A harcban résztvevő entitások az `Entity` osztály leszármazottai.
+
+- **Shield --- FightEntity**  
+  - A harcban résztvevő entitások pajzsot használhatnak védekezésre.
+
+- **Armor --- FightEntity**  
+  - A páncél szintén egy védekezésre alkalmas eszköz, amelyet a harcban résztvevő entitások használhatnak.
+
+- **Weapon --- Attack**  
+  - A fegyverek képesek `Attack` típusú támadások végrehajtására.
+
+- **Weapon --- Projectile**  
+  - Egyes fegyverek lövedékek kilövésére is alkalmasak.
+
+- **Projectile --- Attack**  
+  - A lövedékek szintén `Attack` típusú támadásokat hajtanak végre, így a `Weapon` és `Projectile` által végzett támadások egységesen kezelhetők.
+
+- **EnvironEntity --- Entity**  
+  - A környezeti entitások, például mozgatható kövek vagy talicskák, az `Entity` osztályhoz tartoznak.
+
+- **EnvironEntity --- StorageEntity**  
+  - A tárolásra szolgáló környezeti entitások, például ládák vagy hordók, szintén az `EnvironEntity` osztály leszármazottai. Ezek nem rendelkeznek `Inventory`-val, mivel nem bírnak olyan tulajdonságokkal (például kéz vagy fej), amelyek tárolást tennének lehetővé.
+
+- **Entity --- Location**  
+  - A `Location` az entitások térbeli elhelyezkedését és orientációját írja le.
+
+- **Entity --- Movement**  
+  - Az `Entity` mozgási tulajdonságait definiálja, beleértve az irányt és a sebességet, amely meghatározza, hogyan és milyen gyorsan változtatják helyüket.
+
+- **Location --- Movement**  
+  - A `Location` és a `Movement` szorosan összefügg, és együtt alkotják a fizikai szimuláció alapját.
+
+- **Enemy --- FightEntity**  
+  - Az ellenségek a harcrendszer résztvevő entitásai, azaz a `FightEntity` osztály leszármazottai.
+
+- **Player --- FightEntity**  
+  - A játékos szintén a `FightEntity` osztályba tartozik, és teljes értékű résztvevője a harcrendszernek.
+
+
 ### Attribútumok azonosítása
 
+- **Entity**  
+  - **location:** Az entitások térbeli elhelyezkedését és orientációját írja le.  
+  - **movement:** Az entitások mozgási tulajdonságait, irányát és sebességét definiálja.  
+  - **weight:** Az entitások tömegének meghatározására szolgál.  
+  - **texture:** Az entitások megjelenését, vizuális reprezentációját határozza meg.
+
+- **Consumable**  
+  - **delta_hp:** Az adott tárgy által okozott változás a HP-ban (életerő).  
+  - **delta_sp:** Az SP (mentális állóképesség) módosításának mértéke.  
+  - **delta_manna:** A manna (mágikus energia) változásának értéke.  
+  - **is_esoteric:** Meghatározza, hogy a tárgy rendelkezik-e ezoterikus hatással. Az ezoterikus hatások speciális függvényekkel egyedi módosításokat eredményezhetnek, bár az esetek túlnyomó többsége (kb. 95%) nem ilyen.
+
+- **FightEntity**  
+  - **lvl:** A harcban résztvevő entitás szintje (1-5 közötti érték), amely kulcsszerepet játszik a sebzés számításában.  
+  - **max_hp:** Az entitás maximális életereje.  
+  - **hp:** Az entitás aktuális életereje.  
+  - **max_sp:** Az entitás maximális mentális állóképessége.  
+  - **sp:** Az entitás aktuális mentális állóképessége.  
+  - **manna:** Az entitás rendelkezésére álló mágikus energia.  
+  - **max_manna:** Az entitás maximális mágikus energiája.  
+  - **inventory:** Az entitáshoz társított `Inventory`, amely a birtokolt tárgyakat kezeli.
+
+- **ItemEntity**  
+  - **item:** Az `Item`, amelyet az entitás reprezentál.
+
+- **Item**  
+  - **name:** Az adott tárgy statikus neve.  
+  - **costum_name:** A tárgy egyedi neve, amelyet a játékos opcionálisan megadhat.  
+  - **description:** A tárgy részletes leírása.  
+  - **icon:** A tárgyhoz társított ikon, amely a felhasználói felületen jelenik meg.  
+  - **durability:** Az aktuális tartósság, amely az élettartam fennmaradó részét jelöli.  
+  - **max_durability:** A tárgy eredeti tartóssága; nullával jelölve, ha a tárgy végtelen élettartamú.  
+  - **max_nr:** A tárgyból egy slotban tárolható maximális mennyiség.  
+  - **nr:** Az adott slotban jelenleg tárolt tárgyak száma.
+
+- **Shield**  
+  - Nincs különálló tulajdonsága, mivel az `Item` osztály már tartalmazza a szükséges attribútumokat.
+
+- **Inventory**  
+  - **gold:** Az entitásnál található arany mennyisége.  
+  - **items:** Az általános tárgyak listája, amelyeket az entitás birtokol.  
+  - **quest_items:** A küldetésekhez kapcsolódó tárgyak, amelyek nem foglalnak helyet a normál tárgylistában, és korlátlan mennyiségben tárolhatók.  
+  - **head:** A sisak helye.  
+  - **up_body:** A testpáncél helye.  
+  - **low_body:** A lábpáncél helye.  
+  - **pri_arm:** Az elsődleges kézben lévő tárgy; támadás kizárólag ebből a kézből hajtható végre.  
+  - **sec_arm:** A másodlagos kézben lévő tárgy; védekezésre, például pajzs használatára szolgál.
+
+- **Weapon**  
+  - **attacks:** Egy támadás és valószínűség párosokat tartalmazó tömb. A támadás típusa a valószínűségi súlyok alapján kerül kiválasztásra.  
+  - **manna_cost:** A fegyver használatához szükséges manna mennyisége. Ha nincs elegendő manna, a fegyver nem használható.
+
+- **Attack**  
+  - **atk_type:** A támadás típusa.  
+  - **is_magic:** Meghatározza, hogy a támadás mágikus vagy fizikai eredetű.  
+  - **range:** A sebzés lehetséges értékeit leíró intervallum. A tényleges sebzés egy véletlenszerűen kiválasztott érték az intervallumon belül.  
+  - **push_back:** A támadás hátralökő hatásának értéke.  
+  - **mpx_weights:** Négy nem-negatív szám, amelyek a `Multiplex` típusú támadások valószínűségeit határozzák meg (`Physical`, `Mental`, `Combined`, és `Percent` típusokra).
+
+- **Projectile**  
+  - **atk:** A lövedék által végrehajtott támadás.  
+  - **owner:** A lövedéket kilövő entitás referenciája.
+
+- **Player**  
+  - **skill_set:** A játékos képességfája.  
+  - **name:** A játékos neve.  
+  - **active_quests:** Az aktív, még nem teljesített küldetések.  
+  - **finished_quests:** A játékos által teljesített küldetések.  
+  - **target:** Amennyiben a játékos őrült állapotban van, itt kerül tárolásra a célpont, akire az őrültsége irányul.
+
+- **Enemy**  
+  - **name:** Az ellenség statikus neve.  
+  - **target:** Az entitás, amelyet az ellenség támadni szándékozik.  
+  - **personality:** Az ellenség viselkedését és mesterséges intelligenciáját leíró attribútum.
+
+- **NPC**  
+  - **name:** Az NPC statikus neve.  
+  - **quests:** Az NPC által kiadható küldetések listája.
+
+- **EnvironEntity**  
+  - **name:** Az entitás statikus neve.
+
+- **StorageEntity**  
+  - **costum_name:** Az egyedi, játékos által megadható név.  
+  - **items:** Az entitás által tárolt tárgyak listája.
+
+- **Armor**  
+  - **lvl:** A páncél szintje.  
+  - **armor_type:** A páncél típusa (sisak, testpáncél, lábpáncél).  
+  - **orig_magic:** Az eredeti mágikus támadások elleni védelem.  
+  - **orig_physics:** Az eredeti fizikai támadások elleni védelem.  
+  - **type_physics:** A specifikus fizikai típusú támadások elleni védelem.  
+  - **type_mental:** A specifikus mentális típusú támadások elleni védelem.  
+  - **type_combined:** A kombinált támadások elleni védelem.  
+  - **type_percent:** A százalékos alapú támadások elleni védelem.  
+  - **anti_push_back:** A hátralökő hatás csökkentésének mértéke.
+
+- **Stats**  
+  - **strength:** Az entitás ereje.  
+  - **intel:** Az entitás intelligenciája.  
+  - **faith:** Az entitás hite (teológiai értelemben).  
+  - **spirit_strength_ex:** Az alap hit értéktől való eltérés a spirituális erő szempontjából.  
+  - **determination_ex:** Az alap hit értéktől való eltérés az eltökéltség szempontjából.  
+  - **speed:** Az entitás mozgási sebessége.  
+  - **move_speed_ex:** Az alap sebességtől való eltérés a mozgási sebesség szempontjából.
+  - **atk_speed_ex:** A sebességhez képest a támadási sebesség eltérése. (alapértelmezetten azonos a sebességgel.)
+
+
 ### Bázisosztályok keresése
+
+**Már azonosított bázis osztályok:**
+
+- **Entity:** Az összes fizikai szimulációban részt vevő objektum általános bázisosztálya. Ez magában foglal minden olyan entitást, amely interakcióba léphet a környezettel.
+
+- **FightEntity:** A harcrendszerben részt vevő entitások bázisosztálya. Ezek az entitások képesek támadások végrehajtására, illetve különböző harci interakciókban való részvételre.
+
+- **Item:** A rendszerben használható tárgyak bázisosztálya. Az `Item` objektumokat az entitások különféle célokra használhatják.
+
+- **Attack:** Az `Attack` osztály egy `FightEntity`-t érő támadást reprezentál, amely a harcrendszer egyik központi eleme.
+
+**Azonosított, de elvetett bázis osztályok:**
+
+- **NamedEntity:** Névvel rendelkező entitásokat leíró bázisosztály. Az osztály túl egyszerű koncepcióval rendelkezik ahhoz, hogy jelentős funkcionalitást vagy hozzáadott értéket biztosítson.
+
+- **FightItem:** A harcrendszerben használatos tárgyakat (`Weapon`, `Shield`, `Armor`) összefogó bázisosztály. Azonban ezen elemek funkcionalitása és viselkedése túl eltérő ahhoz, hogy érdemi egységesítést biztosítson.
+
+- **ItemOwnerEntity:** Azoknak az entitásoknak a bázisosztálya, amelyek képesek `Item`-ek tárolására. Mivel az osztály túlságosan általános és semmitmondó lenne, nem indokolt a használata.
+
+- **BasicInventory:**  Egy egyszerű `Inventory` megvalósítás, amely kizárólag `Item`-ek tárolására szolgál fej-, kéz-, vagy egyéb speciális szegmensek nélkül. Gyakorlatilag csak egy `Item` tömböt reprezentálna, így nem indokolt külön osztályként kezelni.
+
+- **ItemPickerEntity:** Az `ItemEntity` felvételére alkalmas entitásokat definiáló osztály. Jelenleg csak a `FightEntity` rendelkezik ilyen képességgel, így az osztály felesleges. Emellett ez a funkcionalitás hatékonyabban megvalósítható lenne az `Entity` osztály egy tulajdonságaként.
+
 
 ## Dinamikus modell
 
