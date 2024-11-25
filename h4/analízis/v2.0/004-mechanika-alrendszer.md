@@ -208,17 +208,51 @@
 
 ## Dinamikus modell
 
+Osztályok dinamikus kapcsolata a harc szempontjából:
+
 <div class="img-wrap">
 <a href="mechanika-01.svg" target="_blank"><img src="mechanika-01.svg" alt="Játék mechanika alrendszer dinamikus modell" title="Játék mechanika alrendszer dinamikus modell"></a>
 </div>
  
 ## Funkcionális modell
 
+A támadások kiszámítása:
+
 <div class="img-wrap">
 <a href="mechanika-02.svg" target="_blank"><img src="mechanika-02.svg" alt="Játék mechanika alrendszer funkcionális modell" title="Játék mechanika alrendszer funkcionális modell"></a>
 </div>
 
 ## Operációk azonosítása
+
+## Operációk Azonosítása
+
+A következő szekció az egyes osztályokhoz kapcsolódó funkciók részletezését tartalmazza.
+
+- **Consumable**
+  - **esoteric_effect():** Az `is_esoteric` igaz állapota esetén aktiválódó függvény. Lehetővé teszi olyan speciális effektek implementálását, amelyek a jelenlegi harcrendszer keretein belül nem valósíthatók meg.
+- **Attack**
+  - **esoteric_atk():** Az `Esoteric` típusú támadások esetén meghívódó függvény. Célja, hogy olyan támadási effekteket kezeljen, amelyek a meglévő harcrendszerben egyébként nem támogatottak.
+- **FightEntity**
+  - **get_attacked():** Egy támadás végrehajtása esetén futó metódus. Minden, a támadás során bekövetkező eseményt kezel.
+  - **try_pick_up_item():** Megkísérel egy földön található `ItemEntity` felvételét. Visszatérési értéke jelzi, hogy a művelet sikeres volt-e.
+  - **drop_item():** Egy tárgy eldobását végzi el, amely az eldobás után `ItemEntity`-vé alakul, hogy a "földön" helyezkedjen el.
+- **Entity**
+  - **\_ready():** Az entitás inicializálását végző belső metódus. Az entitással kapcsolatos kezdeti beállításokat hajtja végre.
+  - **\_physics_process():** A fizikai szimuláció minden frissítésénél lefutó metódus. Az entitás fizikai állapotának és mozgásának központi kezelése.
+  - **destroy():** Az entitás elpusztulása során meghívott metódus. Például az inventory kiürítésére használható.
+- **Stats**
+  - **spirit_strength():** A spirituális erő értékét adja vissza, amely a `faith` és a `spirit_strength_ex` összege.
+  - **determination():** Az elhivatottság értékét adja vissza, amely a `faith` és a `determination_ex` összege.
+  - **mov_speed():** A mozgási sebesség értéke, amely a `speed` és a `move_speed_ex` összegeként számítódik.
+  - **atk_speed():** A támadási sebesség értéke, amely a `speed` és az `atk_speed_ex` összege.
+  - **strength_lvl():** Az erő szintje, amely a `strength` alapján kerül kiszámításra.
+  - **intel_lvl():** Az intelligencia szintje, amely a `intel` alapján kerül kiszámításra.
+  - **faith_lvl():** A hit szintje, amely a `faith` alapján kerül kiszámításra.
+  - **speed_lvl():** A sebesség szintje, amely a `speed` alapján kerül kiszámításra.
+  - **full_lvl():** A játékos "teljes" szintje, amely a fent említett négy tulajdonság átlaga alapján kerül meghatározásra.
+- **NPC**
+  - **enter_dialog():** Egy párbeszédet indít az NPC-vel. A párbeszéd befolyásolhatja a játék történetét, feladatokat biztosíthat, illetve jutalmakat adhat a feladatok teljesítése esetén.
+
 
 ## Az analízis modell osztálydiagramja
 
