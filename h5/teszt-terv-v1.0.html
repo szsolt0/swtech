@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Tesztelési Terv</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <style>
+  th, td {
+  	padding: .5em;
+  	border: 1pt solid gray;
+  }
+
+  table {
+  	width: 100%;
+  	border-collapse: collapse;
+  }
+
+  .tbl-wrap, .img-wrap {
+  	width: 100%;
+  	overflow-y: scroll;
+  	margin-top: 1em;
+  	margin-bottom: 1em;
+  }
+
+  .img-wrap {
+  	max-width: 800px;
+  	margin: 0 auto;
+  }
+
+  img {
+  	width: 100%;
+  }
+  </style>
+</head>
+<body>
+<div style="margin: 1em; padding: .5em 1em; border: 1.5pt solid #fbbf24; background-color: #fef3c7">
+	<p style="font-weight: bold">Figyelmeztetés</p>
+	<p>Ez a dokumentum WIP (Work In Progress) állapotú. Még nem végleges, és csak belső indokból létezik.</p>
+</div>
+
+<p>Csoport neve: JZBBG</p>
+
+<p>Feladat sorszáma: 1</p>
+
+<p>Feladat címe: Knights Age</p>
+
+<p style="text-align: center; font-weight: bold; font-size: xx-large;">Tesztelési Terv</p>
+<p style="text-align: center;">Gyakorlatvezető:</p>
+<p style="text-align: center; font-size: x-large;">Árvai László</p>
+
+<p>Csoport tagok:</p>
+
+<div class="tbl-wrap"><table>
+	<tr><td>Sándor János</td><td>progterv</td><td>sandorj2002@gmail.com</td></tr>
+	<tr><td>Adamcsik Bendegúz</td><td>progterv</td><td>bendeguz.adamcsik@gmail.com</td></tr>
+	<tr><td>Dobozi Botond</td><td>progterv</td><td>boti2424@gmail.com</td></tr>
+	<tr><td>Füzi Gergő Róbert</td><td>mérnökinfó</td><td>fgergo21@gmail.com</td></tr>
+	<tr><td>Sebe Zsolt</td><td>progterv</td><td>sebezsolt2@gmail.com</td></tr>
+</table></div>
+
+<p style="text-align: right;">[DÁTUM]</p>
+<div class="tbl-wrap"><table>
+	<tr><th>Dátum</th><th>Verzió</th><th>Leírás</th><th>Szerző</th></tr>
+	<tr><td>[DÁTUM]</td><td>1.0</td><td>Első verzió.</td><td>Sándor János<br>Adamcsik Bendegúz<br>Dobozi Botond<br>Füzi Gergő Róbert<br>Sebe Zsolt</td></tr>
+</table></div>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#bevezetés"><span class="toc-section-number">1</span> Bevezetés</a></li>
+<li><a href="#felhasználói-felület-alrendszer-tesztek"><span class="toc-section-number">2</span> Felhasználói felület alrendszer tesztek</a>
+<ul>
+<li><a href="#automatikus-tesztek"><span class="toc-section-number">2.1</span> Automatikus tesztek</a></li>
+<li><a href="#manuális-tesztek"><span class="toc-section-number">2.2</span> Manuális tesztek</a></li>
+</ul></li>
+<li><a href="#játék-mechanika-alrendszer-tesztek"><span class="toc-section-number">3</span> Játék mechanika alrendszer tesztek</a>
+<ul>
+<li><a href="#automatikus-tesztek-1"><span class="toc-section-number">3.1</span> Automatikus tesztek</a></li>
+<li><a href="#manuális-tesztek-1"><span class="toc-section-number">3.2</span> Manuális tesztek</a></li>
+</ul></li>
+<li><a href="#világ-alrendszer-tesztek"><span class="toc-section-number">4</span> Világ alrendszer tesztek</a>
+<ul>
+<li><a href="#automatikus-tesztek-2"><span class="toc-section-number">4.1</span> Automatikus tesztek</a></li>
+<li><a href="#manuális-tesztek-2"><span class="toc-section-number">4.2</span> Manuális tesztek</a></li>
+</ul></li>
+<li><a href="#adatkezelés-és-mentés-tesztek"><span class="toc-section-number">5</span> Adatkezelés és mentés tesztek</a>
+<ul>
+<li><a href="#automatikus-tesztek-3"><span class="toc-section-number">5.1</span> Automatikus tesztek</a></li>
+<li><a href="#manuális-tesztek-3"><span class="toc-section-number">5.2</span> Manuális tesztek</a></li>
+</ul></li>
+<li><a href="#multiplayer-alrendszer-tesztek"><span class="toc-section-number">6</span> Multiplayer alrendszer tesztek</a>
+<ul>
+<li><a href="#automatikus-tesztek-4"><span class="toc-section-number">6.1</span> Automatikus tesztek</a></li>
+<li><a href="#manuális-tesztek-4"><span class="toc-section-number">6.2</span> Manuális tesztek</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="bevezetés"><span class="header-section-number">1</span> Bevezetés</h1>
+<h1 data-number="2" id="felhasználói-felület-alrendszer-tesztek"><span class="header-section-number">2</span> Felhasználói felület alrendszer tesztek</h1>
+<h2 data-number="2.1" id="automatikus-tesztek"><span class="header-section-number">2.1</span> Automatikus tesztek</h2>
+<h2 data-number="2.2" id="manuális-tesztek"><span class="header-section-number">2.2</span> Manuális tesztek</h2>
+<h1 data-number="3" id="játék-mechanika-alrendszer-tesztek"><span class="header-section-number">3</span> Játék mechanika alrendszer tesztek</h1>
+<h2 data-number="3.1" id="automatikus-tesztek-1"><span class="header-section-number">3.1</span> Automatikus tesztek</h2>
+<h2 data-number="3.2" id="manuális-tesztek-1"><span class="header-section-number">3.2</span> Manuális tesztek</h2>
+<h1 data-number="4" id="világ-alrendszer-tesztek"><span class="header-section-number">4</span> Világ alrendszer tesztek</h1>
+<h2 data-number="4.1" id="automatikus-tesztek-2"><span class="header-section-number">4.1</span> Automatikus tesztek</h2>
+<h2 data-number="4.2" id="manuális-tesztek-2"><span class="header-section-number">4.2</span> Manuális tesztek</h2>
+<h1 data-number="5" id="adatkezelés-és-mentés-tesztek"><span class="header-section-number">5</span> Adatkezelés és mentés tesztek</h1>
+<h2 data-number="5.1" id="automatikus-tesztek-3"><span class="header-section-number">5.1</span> Automatikus tesztek</h2>
+<h2 data-number="5.2" id="manuális-tesztek-3"><span class="header-section-number">5.2</span> Manuális tesztek</h2>
+<h1 data-number="6" id="multiplayer-alrendszer-tesztek"><span class="header-section-number">6</span> Multiplayer alrendszer tesztek</h1>
+<h2 data-number="6.1" id="automatikus-tesztek-4"><span class="header-section-number">6.1</span> Automatikus tesztek</h2>
+<h2 data-number="6.2" id="manuális-tesztek-4"><span class="header-section-number">6.2</span> Manuális tesztek</h2>
+</body>
+</html>
