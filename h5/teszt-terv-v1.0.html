@@ -70,7 +70,7 @@
 <p style="text-align: right;">[DÁTUM]</p>
 <div class="tbl-wrap"><table>
 	<tr><th>Dátum</th><th>Verzió</th><th>Leírás</th><th>Szerző</th></tr>
-	<tr><td>[DÁTUM]</td><td>1.0</td><td>Első verzió.</td><td>Sándor János<br>Adamcsik Bendegúz<br>Dobozi Botond<br>Füzi Gergő Róbert<br>Sebe Zsolt</td></tr>
+	<tr><td>[DÁTUM]</td><td>1.0</td><td>Első verzió. Az alrendszerekhez tartozó teszteket azok írták, akik a H4 Analízisben csinálták ugyanazt az alrendszert. A 7. pont közösen lett elkészítve.</td><td>Sándor János<br>Adamcsik Bendegúz<br>Dobozi Botond<br>Füzi Gergő Róbert<br>Sebe Zsolt</td></tr>
 </table></div>
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -78,27 +78,83 @@
 <li><a href="#felhasználói-felület-alrendszer-tesztek"><span class="toc-section-number">2</span> Felhasználói felület alrendszer tesztek</a>
 <ul>
 <li><a href="#automatikus-tesztek"><span class="toc-section-number">2.1</span> Automatikus tesztek</a></li>
-<li><a href="#manuális-tesztek"><span class="toc-section-number">2.2</span> Manuális tesztek</a></li>
+<li><a href="#manuális-tesztek"><span class="toc-section-number">2.2</span> Manuális tesztek</a>
+<ul>
+<li><a href="#menu-gomb-működés-teszt"><span class="toc-section-number">2.2.1</span> Menu — Gomb működés teszt</a></li>
+<li><a href="#menu-navigációs-teszt"><span class="toc-section-number">2.2.2</span> Menu — Navigációs teszt</a></li>
+<li><a href="#menu-world-name-teszt"><span class="toc-section-number">2.2.3</span> Menu — World name teszt</a></li>
+<li><a href="#menu-difficulty-slider-teszt"><span class="toc-section-number">2.2.4</span> Menu — Difficulty slider teszt</a></li>
+<li><a href="#menu-multiplayer-test"><span class="toc-section-number">2.2.5</span> Menu — Multiplayer test</a></li>
+<li><a href="#menu-localcloud-saved-games-list-teszt"><span class="toc-section-number">2.2.6</span> Menu — Local/Cloud Saved Games List teszt</a></li>
+<li><a href="#settings-video-resolution-teszt"><span class="toc-section-number">2.2.7</span> Settings — Video — Resolution teszt</a></li>
+<li><a href="#settings-audio-master-volume-teszt"><span class="toc-section-number">2.2.8</span> Settings — Audio — Master Volume teszt</a></li>
+<li><a href="#settings-controls-key-bindings-teszt"><span class="toc-section-number">2.2.9</span> Settings — Controls — Key Bindings teszt</a></li>
+<li><a href="#hud-hp-megjelenítés-teszt"><span class="toc-section-number">2.2.10</span> HUD — HP megjelenítés teszt</a></li>
+<li><a href="#hud-minimap-teszt"><span class="toc-section-number">2.2.11</span> HUD — MiniMap teszt</a></li>
+<li><a href="#hud-list-of-item-teszt"><span class="toc-section-number">2.2.12</span> HUD — List of item teszt</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#játék-mechanika-alrendszer-tesztek"><span class="toc-section-number">3</span> Játék mechanika alrendszer tesztek</a>
 <ul>
-<li><a href="#automatikus-tesztek-1"><span class="toc-section-number">3.1</span> Automatikus tesztek</a></li>
-<li><a href="#manuális-tesztek-1"><span class="toc-section-number">3.2</span> Manuális tesztek</a></li>
+<li><a href="#automatikus-tesztek-1"><span class="toc-section-number">3.1</span> Automatikus tesztek</a>
+<ul>
+<li><a href="#támadás-kalkuláció-teszt"><span class="toc-section-number">3.1.1</span> Támadás kalkuláció teszt</a></li>
+<li><a href="#stat-kalkuláció-teszt"><span class="toc-section-number">3.1.2</span> Stat kalkuláció teszt</a></li>
+<li><a href="#stat-kalkuláció-teszt-2"><span class="toc-section-number">3.1.3</span> Stat kalkuláció teszt 2</a></li>
+<li><a href="#párhuzamos-item-felvétel-teszt"><span class="toc-section-number">3.1.4</span> Párhuzamos item felvétel teszt</a></li>
+<li><a href="#párhuzamos-támadás-teszt"><span class="toc-section-number">3.1.5</span> Párhuzamos támadás teszt</a></li>
+<li><a href="#friendly-fire-teszt"><span class="toc-section-number">3.1.6</span> Friendly fire teszt</a></li>
+</ul></li>
+<li><a href="#manuális-tesztek-1"><span class="toc-section-number">3.2</span> Manuális tesztek</a>
+<ul>
+<li><a href="#item-eldobás-teszt"><span class="toc-section-number">3.2.1</span> Item eldobás teszt</a></li>
+<li><a href="#támadás-bekövetkezés-teszt"><span class="toc-section-number">3.2.2</span> Támadás bekövetkezés teszt</a></li>
+<li><a href="#irányítás-teszt"><span class="toc-section-number">3.2.3</span> Irányítás teszt</a></li>
+<li><a href="#őrültség-teszt"><span class="toc-section-number">3.2.4</span> Őrültség teszt</a></li>
+<li><a href="#ellenséges-ai-teszt"><span class="toc-section-number">3.2.5</span> Ellenséges AI teszt</a></li>
+<li><a href="#npc-interakció-és-quest-rendszer-teszt"><span class="toc-section-number">3.2.6</span> NPC interakció és quest rendszer teszt</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#világ-alrendszer-tesztek"><span class="toc-section-number">4</span> Világ alrendszer tesztek</a>
 <ul>
 <li><a href="#automatikus-tesztek-2"><span class="toc-section-number">4.1</span> Automatikus tesztek</a></li>
 <li><a href="#manuális-tesztek-2"><span class="toc-section-number">4.2</span> Manuális tesztek</a></li>
 </ul></li>
-<li><a href="#adatkezelés-és-mentés-tesztek"><span class="toc-section-number">5</span> Adatkezelés és mentés tesztek</a>
+<li><a href="#adatkezelés-és-mentés-alrendszer"><span class="toc-section-number">5</span> Adatkezelés és mentés alrendszer</a>
 <ul>
-<li><a href="#automatikus-tesztek-3"><span class="toc-section-number">5.1</span> Automatikus tesztek</a></li>
-<li><a href="#manuális-tesztek-3"><span class="toc-section-number">5.2</span> Manuális tesztek</a></li>
+<li><a href="#automatikus-tesztek-3"><span class="toc-section-number">5.1</span> Automatikus tesztek</a>
+<ul>
+<li><a href="#mentés-létrehozása-teszt"><span class="toc-section-number">5.1.1</span> Mentés létrehozása teszt</a></li>
+<li><a href="#mentett-fájl-elérési-út-teszt"><span class="toc-section-number">5.1.2</span> Mentett fájl elérési út teszt</a></li>
+<li><a href="#törlés-funkció-teszt"><span class="toc-section-number">5.1.3</span> Törlés funkció teszt</a></li>
+<li><a href="#szinkronizáció-teszt"><span class="toc-section-number">5.1.4</span> Szinkronizáció teszt</a></li>
+<li><a href="#importált-mentés-validálása-teszt"><span class="toc-section-number">5.1.5</span> Importált mentés validálása teszt</a></li>
+</ul></li>
+<li><a href="#manuális-tesztek-3"><span class="toc-section-number">5.2</span> Manuális tesztek</a>
+<ul>
+<li><a href="#új-mentés-létrehozás-ui-teszt"><span class="toc-section-number">5.2.1</span> Új mentés létrehozás UI teszt</a></li>
+<li><a href="#mentett-játék-betöltése-ui-teszt"><span class="toc-section-number">5.2.2</span> Mentett játék betöltése UI teszt</a></li>
+<li><a href="#felhőszinkronizáció-állapotjelzés-teszt"><span class="toc-section-number">5.2.3</span> Felhőszinkronizáció állapotjelzés teszt</a></li>
+<li><a href="#importálás-hibajelzés-teszt"><span class="toc-section-number">5.2.4</span> Importálás hibajelzés teszt</a></li>
+<li><a href="#törlés-megerősítése-teszt"><span class="toc-section-number">5.2.5</span> Törlés megerősítése teszt</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#multiplayer-alrendszer-tesztek"><span class="toc-section-number">6</span> Multiplayer alrendszer tesztek</a>
 <ul>
 <li><a href="#automatikus-tesztek-4"><span class="toc-section-number">6.1</span> Automatikus tesztek</a></li>
 <li><a href="#manuális-tesztek-4"><span class="toc-section-number">6.2</span> Manuális tesztek</a></li>
+</ul></li>
+<li><a href="#alrendszerhez-nem-tartozó-tesztek"><span class="toc-section-number">7</span> Alrendszerhez nem tartozó tesztek</a>
+<ul>
+<li><a href="#automatikus-tesztek-5"><span class="toc-section-number">7.1</span> Automatikus tesztek</a>
+<ul>
+<li><a href="#crash-log-teszt"><span class="toc-section-number">7.1.1</span> Crash log teszt</a></li>
+</ul></li>
+<li><a href="#manuális-tesztek-5"><span class="toc-section-number">7.2</span> Manuális tesztek</a>
+<ul>
+<li><a href="#teljesítmény-teszt"><span class="toc-section-number">7.2.1</span> Teljesítmény teszt</a></li>
+<li><a href="#meta-teszt"><span class="toc-section-number">7.2.2</span> Meta teszt</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -106,17 +162,700 @@
 <h1 data-number="2" id="felhasználói-felület-alrendszer-tesztek"><span class="header-section-number">2</span> Felhasználói felület alrendszer tesztek</h1>
 <h2 data-number="2.1" id="automatikus-tesztek"><span class="header-section-number">2.1</span> Automatikus tesztek</h2>
 <h2 data-number="2.2" id="manuális-tesztek"><span class="header-section-number">2.2</span> Manuális tesztek</h2>
+<h3 data-number="2.2.1" id="menu-gomb-működés-teszt"><span class="header-section-number">2.2.1</span> Menu — Gomb működés teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Teszteli a main menu illetve a ui gombjainak megfelelő működését.</td>
+<td><p>A tesztelő rákattint a gombra.</p>
+<p><strong>Sikerességi Feltétel:</strong> a bal egér gomb lenyomására szürkésre változik a gomb és felengedésre pedig átnavigál a megfelelő oldalt</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="2.2.2" id="menu-navigációs-teszt"><span class="header-section-number">2.2.2</span> Menu — Navigációs teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Tesztelik hogy a navigációs menüpontok működnek-e.</td>
+<td><p>A tesztelő végig kattint az ősszes menüponton a navigációs menüben.</p>
+<p><strong>Sikerességi Feltétel:</strong> minden kattintásra a megfelelő oldalra navigál</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="2.2.3" id="menu-world-name-teszt"><span class="header-section-number">2.2.3</span> Menu — World name teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Teszteli, hogy az új játék létrehozásakor megadható-e a világ neve.</td>
+<td><p>A tesztelő beír egy világ nevet az erre szolgáló mezőbe és elindítja az új játékot.</p>
+<p><strong>Sikerességi Feltétel:</strong> A világ neve mentésre kerül és megjelenik a mentések között az adott név.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="2.2.4" id="menu-difficulty-slider-teszt"><span class="header-section-number">2.2.4</span> Menu — Difficulty slider teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Teszteli, hogy az új játék létrehozásakor kiválasztható-e a nehézségi szint.</td>
+<td><p>A tesztelő kiválaszt egy nehézségi szintet és elindítja az új játékot.</p>
+<p><strong>Sikerességi Feltétel:</strong> A kiválasztott nehézségi szint megfelelően alkalmazásra kerül a játékban.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="2.2.5" id="menu-multiplayer-test"><span class="header-section-number">2.2.5</span> Menu — Multiplayer test</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Teszteli, hogy létrehozható-e egy új többjátékos játék.</td>
+<td><p>A tesztelő kiválasztja a Host Game opciót, megadja a szükséges beállításokat, és elindítja a játékot.</p>
+<p><strong>Sikerességi Feltétel:</strong> A játék megfelelően indul és más játékosok csatlakozni tudnak.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="2.2.6" id="menu-localcloud-saved-games-list-teszt"><span class="header-section-number">2.2.6</span> Menu — Local/Cloud Saved Games List teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Teszteli, hogy betölthető-e egy mentett játék a helyi vagy felhő alapú mentések listájáról.</td>
+<td><p>A tesztelő kiválaszt egy mentést a listáról és betölti azt.</p>
+<p><strong>Sikerességi Feltétel:</strong> A kiválasztott mentés megfelelően betöltődik és a játék folytatódik.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="2.2.7" id="settings-video-resolution-teszt"><span class="header-section-number">2.2.7</span> Settings — Video — Resolution teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Teszteli, hogy a képernyő felbontás beállítása megfelelően működik-e.</td>
+<td><p>A tesztelő kiválaszt egy felbontást a listáról és alkalmazza azt.</p>
+<p><strong>Sikerességi Feltétel:</strong> A képernyő felbontása változik a kiválasztott beállításnak megfelelően.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="2.2.8" id="settings-audio-master-volume-teszt"><span class="header-section-number">2.2.8</span> Settings — Audio — Master Volume teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Teszteli, hogy a fő hangerő beállítása megfelelően működik-e.</td>
+<td><p>A tesztelő módosítja a fő hangerő szintjét és ellenőrzi a változást a játék hangjában.</p>
+<p><strong>Sikerességi Feltétel:</strong> A játék hangereje változik a beállított szintnek megfelelően.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="2.2.9" id="settings-controls-key-bindings-teszt"><span class="header-section-number">2.2.9</span> Settings — Controls — Key Bindings teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Teszteli, hogy az egyes billentyűkötések megfelelően testreszabhatók-e.</td>
+<td><p>A tesztelő megváltoztat egy vagy több billentyűkötést és ellenőrzi azok működését a játékban.</p>
+<p><strong>Sikerességi Feltétel:</strong> Az új billentyűkötések megfelelően működnek a játék során.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="2.2.10" id="hud-hp-megjelenítés-teszt"><span class="header-section-number">2.2.10</span> HUD — HP megjelenítés teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Teszteli, hogy az egyes billentyűkötések megfelelően testreszabhatók-e.</td>
+<td>A tesztelő megváltoztat egy vagy több billentyűkötést és ellenőrzi azok működését a játékban.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="2.2.11" id="hud-minimap-teszt"><span class="header-section-number">2.2.11</span> HUD — MiniMap teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Teszteli, hogy a mini térkép megfelelően működik-e.</td>
+<td><p>A tesztelő különböző területeken mozog és figyeli a mini térkép frissülését.</p>
+<p><strong>Sikerességi Feltétel:</strong> A mini térkép pontosan mutatja a játékos aktuális helyzetét és környezetét.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="2.2.12" id="hud-list-of-item-teszt"><span class="header-section-number">2.2.12</span> HUD — List of item teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Teszteli, hogy a tárgylista helyesen jeleníti-e meg az összes játékos által birtokolt tárgyat.</td>
+<td><p>A tesztelő különböző tárgyakat vesz fel, helyez el, illetve használ fel az inventory-ban.</p>
+<p><strong>Sikerességi Feltétel:</strong> A tárgylista pontosan mutatja az összes aktuális tárgyat és azok mennyiségét.</p></td>
+</tr>
+</tbody>
+</table></div>
 <h1 data-number="3" id="játék-mechanika-alrendszer-tesztek"><span class="header-section-number">3</span> Játék mechanika alrendszer tesztek</h1>
 <h2 data-number="3.1" id="automatikus-tesztek-1"><span class="header-section-number">3.1</span> Automatikus tesztek</h2>
+<h3 data-number="3.1.1" id="támadás-kalkuláció-teszt"><span class="header-section-number">3.1.1</span> Támadás kalkuláció teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Teszteli, hogy a támadások kalkulációja a rendszerben az SRS dokumentációban leírt specifikációk szerint történik-e.</td>
+<td><p>Az entitások <code>get_attacked()</code> függvényét hívjuk meg előre definiált, manuálisan kalkulált paraméterekkel. A teszt összehasonlítja az entitás új állapotát az előre kézzel kiszámolt elvárt eredménnyel.</p>
+<p><strong>Sikerességi Feltétel:</strong> Az entitás új állapota pontosan meg kell egyezzen a kézzel számított referenciaértékekkel.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="3.1.2" id="stat-kalkuláció-teszt"><span class="header-section-number">3.1.2</span> Stat kalkuláció teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Teszteli, hogy a <code>Stat</code> típusú objektumok “összeadása” a megfelelő eredményt adja.</td>
+<td><p>Több <code>Stat</code> típusó objektum kerül összeadásra az <code>add()</code> függvényt használva. A teszt során a keletkező <code>Stat</code> objektumok értékeit összehasonlítjuk a kézzel előre kalkulált referenciaértékekkel.</p>
+<p><strong>Sikerességi Feltétel:</strong> A keletkezett <code>Stat</code> objektumok értékeinek pontosan meg kell egyezniük a kézzel számított referenciaértékekkel.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="3.1.3" id="stat-kalkuláció-teszt-2"><span class="header-section-number">3.1.3</span> Stat kalkuláció teszt 2</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Teszteli, hogy az entitás <code>current_stat</code> értékei (azaz az entitások jelenlegi stat-jai, a stat módosító tényezőkkel együtt) kiszámítása a rendszerben az SRS dokumentációban rögzített specifikációknak megfelelően történik-e.</td>
+<td><p>Az entitások <code>base_stat</code> értékei és egyéb releváns tulajdonságai előre definiálva lesznek. Emellett az entitások különféle, stat-okat módosító item-eket fognak hordozni. A teszt során az entitások <code>current_stat</code> értékeit összehasonlítjuk a kézzel előre kalkulált referenciaértékekkel.</p>
+<p><strong>Sikerességi Feltétel:</strong> Az entitás <code>current_stat</code> értékeinek pontosan meg kell egyezniük a kézzel számított referenciaértékekkel.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="3.1.4" id="párhuzamos-item-felvétel-teszt"><span class="header-section-number">3.1.4</span> Párhuzamos item felvétel teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Teszteli, hogy két entitás nem képes egyszerre felvenni ugyanazt az item-et, elkerülve a versenyhelyzetből adódó hibákat.</td>
+<td><p>Két különböző <code>FightEntity</code> entitás számára meghívjuk a <code>try_pick_up_item()</code> függvényt ugyanarra az item-re, minimális időeltéréssel. A szituációt úgy hozzuk létre, hogy az entitásokat fizikailag közel helyezzük el egymáshoz, és gyorsan <code>ItemEntity</code>-ket spawn-olunk a környezetükben. A teszt végén ellenőrizzük, hogy egyik entitás inventory-jában sincs ugyanaz az item többször.</p>
+<p><strong>Sikerességi Feltétel:</strong> Egyik entitás sem veheti fel kétszer ugyanazt az item-et, és nem fordulhat elő versenyhelyzet miatti duplikáció.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="3.1.5" id="párhuzamos-támadás-teszt"><span class="header-section-number">3.1.5</span> Párhuzamos támadás teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Teszteli, hogy egymással közeli időben bekövetkező támadások sorrendje helyes, és a rendszer elkerüli a nem-atomikus konkurens módosításokból eredő adatinkonzisztenciát.</td>
+<td><p>Több konkurens támadást hajtunk végre egyetlen <code>FightEntity</code> entitás ellen. A támadások intenzitása és sebessége jelentősen meghaladja a normál játékmenet során elvárható szintet, ezzel szimulálva extrém terhelési körülményeket.</p>
+<p><strong>Sikerességi Feltétel:</strong> A támadások hatása és sorrendje pontosan egyezik az előre meghatározott referenciaértékekkel.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="3.1.6" id="friendly-fire-teszt"><span class="header-section-number">3.1.6</span> Friendly fire teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Ellenőrzi, hogy az egymással “friendly fire” kapcsolatban álló entitások nem tudnak kárt okozni egymásnak.</td>
+<td><p>Az entitások megpróbálják megtámadni azokat az entitásokat, amelyekkel “friendly fire” kapcsolatban állnak.</p>
+<p><strong>Sikerességi Feltétel:</strong> Az entitások nem okozhatnak sérülést a “friendly fire” viszonyban lévő társaknak.</p></td>
+</tr>
+</tbody>
+</table></div>
 <h2 data-number="3.2" id="manuális-tesztek-1"><span class="header-section-number">3.2</span> Manuális tesztek</h2>
+<h3 data-number="3.2.1" id="item-eldobás-teszt"><span class="header-section-number">3.2.1</span> Item eldobás teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Teszteli, hogy amikor a játékos eldob egy item-et, az megfelelő ikonú item entitásként jelenik meg a játék világában.</td>
+<td><p>A tesztelő eldob egy item-et, majd manuálisan ellenőrzi, hogy a létrejött entitás ikonja megfelel-e az eldobott item-nek.</p>
+<p><strong>Sikerességi Feltétel:</strong> Az eldobott item megfelelő ikonú entitásként jön létre.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="3.2.2" id="támadás-bekövetkezés-teszt"><span class="header-section-number">3.2.2</span> Támadás bekövetkezés teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Teszteli, hogy a játékos által kezdeményezett támadások megfelelően bekövetkeznek, és a támadások hatásai helyesen kerülnek alkalmazásra.</td>
+<td><p>A teszt során a játékos különböző típusú fegyverekkel (közeli, távoli, és “area of effect”) támad ellenséges entitásokat, miközben ő maga is támadások célpontja lesz. A debugger segítségével ellenőrizzük, hogy minden támadás megfelelő módon hajtódik végre és a várható hatások bekövetkeznek.</p>
+<p><strong>Sikerességi Feltétel:</strong> Minden támadás pontosan az elvárásoknak megfelelően következik be, és a hatások helyesen jelennek meg.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="3.2.3" id="irányítás-teszt"><span class="header-section-number">3.2.3</span> Irányítás teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Teszteli, hogy a játékos által generált beviteli jelek (például mozgás, támadás gomb) megfelelő akciókat váltanak-e ki, hogy a hibás bemenetek (például egyszerre előre és hátra mozgás) nem okoznak problémát, valamint hogy a bemenetek és azok hatásai között nincs észrevehető késleltetés.</td>
+<td><p>A teszt során a tesztelő az adott vezérlő eszköz (billentyűzet, egér, kontroller) segítségével különböző beviteli jeleket generál. A teszt során szándékosan hibás bemeneteket is adunk, például ellentétes irányú mozgás parancsokat. A játékbeli vizuális visszajelzések alapján a tesztelő ellenőrzi, hogy a bemenetek megfelelő akciókat váltanak ki, illetve nincs-e észrevehető késés.</p>
+<p><strong>Sikerességi Feltétel:</strong> Az összes bemenet pontosan a hozzá rendelt műveletet hajtja végre, a hibás bemenetek nem okoznak nem várt problémát, és a bemenetek hatása késedelem nélkül jelenik meg.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="3.2.4" id="őrültség-teszt"><span class="header-section-number">3.2.4</span> Őrültség teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Vizsgálja, hogy az őrült állapotban lévő játékosok (<code>is_insane</code> attribútum igaz) viselkedése és a kapcsolódó mechanikák az SRS dokumentációban meghatározottak szerint működnek-e, valamint ellenőrzi az őrültségből való helyreállítás folyamatának helyességét.</td>
+<td><p>A teszt során a tesztelő manuálisan őrült állapotba állítja a játékost, például fejlesztői konzol vagy debugger használatával, hogy felgyorsítsa a folyamatot. Ezután minden egyes őrültségi típus (összesen négy) esetében megfigyeli a játékos viselkedését, például az irányítás, a mozgás, a támadások és egyéb akciók tekintetében. Emellett ellenőrzi, hogy az őrültség megszüntetése (az SP értékének maximálisra töltésével) pontosan és az elvárt módon történik-e.</p>
+<p><strong>Sikerességi Feltétel:</strong> Az őrült állapot minden esetben az SRS dokumentációban meghatározott viselkedési minták szerint zajlik, és az őrültség megszüntetése hibátlanul végrehajtódik.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="3.2.5" id="ellenséges-ai-teszt"><span class="header-section-number">3.2.5</span> Ellenséges AI teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Vizsgálja, hogy az ellenséges entitások megfelelően reagálnak-e a játékos jelenlétére, valamint ellenőrzi, hogy a nehézségi szintek közötti eltérések megfelelő arányban vannak-e, és a harc dinamikája kiegyensúlyozott-e.</td>
+<td><p>A teszt során a tesztelő különböző helyszíneken és szituációkban lép interakcióba az ellenséges entitásokkal. Összehasonlítja ezek viselkedését az SRS dokumentációban meghatározott specifikációkkal. Olyan zónákban is elvégzi a tesztelést, ahol az ellenségek szintje a játékos szintjéhez igazodik. Figyeli, hogy az ellenségek képességei, támadási stratégiái és szintjük a játékos aktuális szintjéhez képest kiegyensúlyozottak-e, és hogy a harc tisztességes és élvezetes-e mindkét fél számára.</p>
+<p><strong>Sikerességi Feltétel:</strong> Az ellenséges entitások pontosan az SRS dokumentációban leírt módon működnek, a szintjük és képességeik megfelelően illeszkednek a játékos szintjéhez, valamint a harc minden esetben kiegyensúlyozott és a játékmenet szempontjából élvezetes.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="3.2.6" id="npc-interakció-és-quest-rendszer-teszt"><span class="header-section-number">3.2.6</span> NPC interakció és quest rendszer teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Teszteli, hogy az NPC-vel való interakció, a küldetések kiadása, elfogadása és teljesítése a rendszerterv szerint történik-e, valamint hogy a nem teljesíthető állapotban lévő küldetések nem aktiválhatók véletlenül.</td>
+<td><p>A tesztelő NPC-kkel lép interakcióba, különböző küldetéseket fogad el és teljesít. Az interakciók során megfigyeli, hogy a küldetések állapotváltozásai (elfogadás, teljesítés, jutalom kiosztás) helyesen zajlanak-e. A teszt során mesterséges körülmények között (pl. konzol parancsokkal) módosíthatja a küldetések állapotát, hogy gyorsabban tesztelhesse az összes lehetőséget. Különös figyelmet fordít arra, hogy:</p>
+<ul>
+<li><p>Nem teljesített küldetés esetén az NPC ne adhassa ki a küldetés jutalmát.</p></li>
+<li><p>Már befejezett küldetés ne legyen ismét elfogadható, hacsak a rendszer nem engedi azt szabályosan.</p></li>
+<li><p>Mellékküldetések egyedi szabályai szerint történjenek az interakciók.</p></li>
+</ul>
+<p><strong>Sikerességi Feltétel:</strong> Az NPC-k megfelelően adják ki a küldetéseket, kezelik azok állapotait, és minden egyes interakció pontosan az SRS dokumentációban meghatározott módon zajlik le. A teszt akkor számít sikeresnek, ha az összes vizsgált küldetésfolyamat hibamentesen működik.</p></td>
+</tr>
+</tbody>
+</table></div>
 <h1 data-number="4" id="világ-alrendszer-tesztek"><span class="header-section-number">4</span> Világ alrendszer tesztek</h1>
 <h2 data-number="4.1" id="automatikus-tesztek-2"><span class="header-section-number">4.1</span> Automatikus tesztek</h2>
 <h2 data-number="4.2" id="manuális-tesztek-2"><span class="header-section-number">4.2</span> Manuális tesztek</h2>
-<h1 data-number="5" id="adatkezelés-és-mentés-tesztek"><span class="header-section-number">5</span> Adatkezelés és mentés tesztek</h1>
+<h1 data-number="5" id="adatkezelés-és-mentés-alrendszer"><span class="header-section-number">5</span> Adatkezelés és mentés alrendszer</h1>
 <h2 data-number="5.1" id="automatikus-tesztek-3"><span class="header-section-number">5.1</span> Automatikus tesztek</h2>
+<h3 data-number="5.1.1" id="mentés-létrehozása-teszt"><span class="header-section-number">5.1.1</span> Mentés létrehozása teszt</h3>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Teszt</th>
+<th style="text-align: left;">Metódus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Teszteli, hogy a SaveSystem megfelelően menti a játékállapotot az SRS dokumentáció szerint. Az aktuális játékállapotot a saveGame() metódussal mentjük, majd a fájlt visszaolvasva összehasonlítjuk az eredeti állapottal.</td>
+<td style="text-align: left;">A saveGame() metódust hívjuk meg. A visszaolvasott mentés pontosan megegyezik az eredeti állapottal, ez garantálja a teszt sikerességét.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="5.1.2" id="mentett-fájl-elérési-út-teszt"><span class="header-section-number">5.1.2</span> Mentett fájl elérési út teszt</h3>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Teszt</th>
+<th style="text-align: left;">Metódus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Teszteli, hogy a SaveSystem megfelelő fájlelérési utat generál az adott mentés számára. Egy mentést hozunk létre, majd a getSaveFilePath() metódus eredményét összehasonlítjuk a várt elérési úttal.</td>
+<td style="text-align: left;">A getSaveFilePath() metódust hívjuk meg. Az elérési út pontosan egyezik a várt útvonal formátumával, ez biztosítja a teszt sikerességét.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="5.1.3" id="törlés-funkció-teszt"><span class="header-section-number">5.1.3</span> Törlés funkció teszt</h3>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Teszt</th>
+<th style="text-align: left;">Metódus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Teszteli, hogy a SaveSystem megfelelően törli a kiválasztott mentéseket. Egy mentést hozunk létre, majd a deleteSavedGame() metódust hívjuk meg. Ezután ellenőrizzük, hogy a mentés már nem létezik.</td>
+<td style="text-align: left;">A deleteSavedGame() metódust használjuk. A törölt mentés már nem található meg a mentések listájában, ami a teszt sikerességi feltétele.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="5.1.4" id="szinkronizáció-teszt"><span class="header-section-number">5.1.4</span> Szinkronizáció teszt</h3>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Teszt</th>
+<th style="text-align: left;">Metódus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Teszteli, hogy a LocalCloudSavedGameList szinkronizálja-e a mentéseket helyben és a felhőben. Helyi mentést hozunk létre, majd a syncWithCloud() metódussal szinkronizáljuk.</td>
+<td style="text-align: left;">A syncWithCloud() metódust alkalmazzuk. A mentés elérhetővé válik a felhőben és a helyi listában is, ami a teszt sikerességét jelenti.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="5.1.5" id="importált-mentés-validálása-teszt"><span class="header-section-number">5.1.5</span> Importált mentés validálása teszt</h3>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Teszt</th>
+<th style="text-align: left;">Metódus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Teszteli, hogy az ImportGame validálja-e az importált mentéseket. Egy sérült mentést próbálunk importálni a validateImportedGame() metódussal.</td>
+<td style="text-align: left;">A validateImportedGame() metódust hívjuk meg. A sérült mentés validálása nem sikerül (hamis eredmény), ez a teszt sikerességi feltétele.</td>
+</tr>
+</tbody>
+</table></div>
 <h2 data-number="5.2" id="manuális-tesztek-3"><span class="header-section-number">5.2</span> Manuális tesztek</h2>
+<h3 data-number="5.2.1" id="új-mentés-létrehozás-ui-teszt"><span class="header-section-number">5.2.1</span> Új mentés létrehozás UI teszt</h3>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Teszt</th>
+<th style="text-align: left;">Metódus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Teszteli, hogy a SaveSystem UI megfelelően jelzi-e a sikeres mentést. A felhasználó új játékot ment a játék UI-ján keresztül, majd ellenőrzi, hogy a mentés megjelenik-e a mentések listájában.</td>
+<td style="text-align: left;">A mentést a UI-n keresztül végezzük el. A mentés azonnal megjelenik a mentések listájában a megfelelő névvel és dátummal, ami a teszt sikerességét jelenti.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="5.2.2" id="mentett-játék-betöltése-ui-teszt"><span class="header-section-number">5.2.2</span> Mentett játék betöltése UI teszt</h3>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Teszt</th>
+<th style="text-align: left;">Metódus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Teszteli, hogy a SaveSystem UI-n keresztül betöltött mentés helyesen visszaállítja a játékállapotot. Egy mentést választunk ki a betöltési képernyőről, majd ellenőrizzük, hogy a játék az adott állapotban indul-e.</td>
+<td style="text-align: left;">A mentést a betöltési képernyőn keresztül választjuk ki. A játék pontosan az adott mentett állapotban indul, ez biztosítja a teszt sikerességét.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="5.2.3" id="felhőszinkronizáció-állapotjelzés-teszt"><span class="header-section-number">5.2.3</span> Felhőszinkronizáció állapotjelzés teszt</h3>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Teszt</th>
+<th style="text-align: left;">Metódus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Teszteli, hogy a LocalCloudSavedGameList UI helyesen jelzi-e a szinkronizáció állapotát. A felhőszinkronizációt manuálisan elindítjuk, majd ellenőrizzük, hogy az állapotjelző pontosan frissül-e.</td>
+<td style="text-align: left;">A szinkronizációt manuálisan végezzük. Az állapotjelző a szinkronizáció eredményét pontosan tükrözi, ez garantálja a teszt sikerességét.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="5.2.4" id="importálás-hibajelzés-teszt"><span class="header-section-number">5.2.4</span> Importálás hibajelzés teszt</h3>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Teszt</th>
+<th style="text-align: left;">Metódus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Teszteli, hogy az ImportGame UI megfelelően jelzi-e a hibás importálást. Egy hibás fájlt próbálunk importálni a játék UI-ján keresztül, és megfigyeljük a hibajelzést.</td>
+<td style="text-align: left;">A hibás fájlt az UI-n keresztül importáljuk. A rendszer érthető hibaüzenetet jelenít meg a felhasználónak, ez a teszt sikerességi feltétele.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="5.2.5" id="törlés-megerősítése-teszt"><span class="header-section-number">5.2.5</span> Törlés megerősítése teszt</h3>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Teszt</th>
+<th style="text-align: left;">Metódus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Teszteli, hogy a SaveSystem UI helyesen kezeli a törlés megerősítését. Egy mentés törlését kezdeményezzük a UI-n keresztül, majd megvizsgáljuk, hogy a rendszer kéri-e a törlés megerősítését.</td>
+<td style="text-align: left;">A törlést a UI-n keresztül végezzük. A rendszer csak akkor törli a mentést, ha a felhasználó megerősíti a műveletet, ami a teszt sikerességét jelenti.</td>
+</tr>
+</tbody>
+</table></div>
 <h1 data-number="6" id="multiplayer-alrendszer-tesztek"><span class="header-section-number">6</span> Multiplayer alrendszer tesztek</h1>
 <h2 data-number="6.1" id="automatikus-tesztek-4"><span class="header-section-number">6.1</span> Automatikus tesztek</h2>
 <h2 data-number="6.2" id="manuális-tesztek-4"><span class="header-section-number">6.2</span> Manuális tesztek</h2>
+<h1 data-number="7" id="alrendszerhez-nem-tartozó-tesztek"><span class="header-section-number">7</span> Alrendszerhez nem tartozó tesztek</h1>
+<h2 data-number="7.1" id="automatikus-tesztek-5"><span class="header-section-number">7.1</span> Automatikus tesztek</h2>
+<h3 data-number="7.1.1" id="crash-log-teszt"><span class="header-section-number">7.1.1</span> Crash log teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Vizsgálja, hogy a játék összeomlása esetén a naplófájlok (crash log) megfelelően és teljes körűen generálódnak-e, valamint ellenőrzi, hogy a hibakeresést segítő adatok (pl. core dump) létrejönnek-e.</td>
+<td><p>A teszt során a játékot szándékosan összeomlásra késztetjük különböző módszerekkel, például specifikusan hibás bemeneti adatokkal vagy szándékosan létrehozott hibás állapotokkal. Az összeomlás után ellenőrizzük, hogy a crash log fájlok és a core dump fájlok létrejöttek-e, valamint megvizsgáljuk ezek tartalmát, hogy az esemény megfelelően dokumentálva van-e.</p>
+<p><strong>Sikerességi Feltétel:</strong> Az összeomlást követően a crash log és a core dump fájlok hibátlanul létrejönnek, és azok tartalma pontosan tükrözi az összeomlás körülményeit.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h2 data-number="7.2" id="manuális-tesztek-5"><span class="header-section-number">7.2</span> Manuális tesztek</h2>
+<h3 data-number="7.2.1" id="teljesítmény-teszt"><span class="header-section-number">7.2.1</span> Teljesítmény teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>A játék futási teljesítményét vizsgálja különböző körülmények között.</td>
+<td><p>A teszt során a tesztelő különböző játékmeneti tevékenységeket végez, miközben monitorozza a játék teljesítményére vonatkozó adatokat, például az FPS-t, a fizikai szimulációk számát másodpercenként, az entitások számát, valamint egyéb releváns mutatókat. Emellett a tesztelő saját szubjektív értékelése alapján is megítéli, hogy a játék teljesítménye megfelel-e a zökkenőmentes és élvezetes játékmenet elvárásainak.</p>
+<p><strong>Sikerességi Feltétel:</strong> A teszt sikeresnek minősül, ha az objektív mérések és a tesztelő szubjektív tapasztalatai alapján a játék teljesítménye kielégítő az élvezhető játékmenethez.</p></td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="7.2.2" id="meta-teszt"><span class="header-section-number">7.2.2</span> Meta teszt</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teszt</strong></td>
+<td><strong>Metódus</strong></td>
+</tr>
+<tr class="even">
+<td>Ellenőrzi a meglévő tesztek helyességét azáltal, hogy szándékosan hibás környezetet vagy hibás bemenetet generálunk.</td>
+<td><p>A meglévő teszteket szándékosan hibás körülmények között futtatjuk, például a tesztkörnyezet manipulálásával vagy a bemeneti adatok megváltoztatásával. A cél annak vizsgálata, hogy a tesztek képesek-e a hibás állapotokat megfelelően detektálni.</p>
+<p><strong>Sikerességi Feltétel:</strong> A tesztek pontosan érzékelik a hibákat, és ennek megfelelő hibajelzést generálnak.</p></td>
+</tr>
+</tbody>
+</table></div>
 </body>
 </html>
