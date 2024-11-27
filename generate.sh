@@ -35,8 +35,10 @@ genhtml h2/vizio-v1.0.html "Vízió" h2/v1.0
 # === H3 ===
 genhtml h3/srs-v1.0.html "Software Követelmény Specifikáció" h3/v1.0
 genhtml h3/srs-v1.1.html "Software Követelmény Specifikáció" h3/v1.1
+genhtml h3/srs-v1.2.html "Software Követelmény Specifikáció" h3/v1.2
 genhtml h3/szotar.html "Szótár" h3/szótár
 cp h3/v1.1/pálya.png dist/h3/
+cp h3/v1.2/*.svg dist/h3
 
 # === H4 ===
 genhtml h4/jzbbg_ANAL1.0.html "Analízis Modell" h4/analízis/v1.0
@@ -50,6 +52,7 @@ cp h4/rendszertervezés/v1.0/*.{svg,png} dist/h4/
 # === H5 ===
 genhtml h5/teszt-terv-v1.0.html "Tesztelési Terv" h5/teszt-terv/v1.0
 genhtml h5/ertekeles.html "Értékelési Táblázat" h5/értékelés
+genhtml h5/szotar.html "Szótár" h5/szótár
 cp h5/értékelés/értékelés.pdf dist/h5/jzbbg-értékelés.pdf
 
 # === Munkanapló ===

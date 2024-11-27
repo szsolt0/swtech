@@ -1,0 +1,1 @@
+../v1.1/012-alkalmazott-szabványok.md

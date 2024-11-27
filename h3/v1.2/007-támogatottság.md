@@ -1,0 +1,1 @@
+../v1.1/007-támogatottság.md
