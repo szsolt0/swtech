@@ -8,7 +8,14 @@ genhtml() {
 	local path="$3"
 	shift 3
 
-	pandoc -t html -H style.html -B "$path/cover.html" -B "$path/history.html" $path/*.md --toc -N --metadata document-css=false --metadata title="$title" -V title: | sed -e 's:^<table>$:<div class="tbl-wrap"><table>:g' -e 's:^</table>$:</table></div>:g' > "dist/$fname"
+	pandoc -t html -H style.html -B "$path/cover.html" -B "$path/history.html" $path/*.md --toc -N --metadata document-css=false --metadata title="$title" -V title: | \
+	sed \
+		-e 's:^<table style=.*>:<table>:' \
+		-e 's:^<table>$:<div class="tbl-wrap"><table>:g' \
+		-e 's:^</table>$:</table></div>:g' \
+		-e 's:^<td><strong>:<th>:g' \
+		-e 's:</strong></td>$:</th>:g' \
+	> "dist/$fname"
 }
 
 mkdir -p dist/h{1..5}
