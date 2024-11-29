@@ -109,24 +109,24 @@
 
 
 
-+-----------------------------------+-----------------------------------+
-| **Teszt**                         | **Metódus**                       |
-+-----------------------------------+-----------------------------------+
-| Teszteli, hogy egymással közeli   | Több konkurens támadást hajtunk   |
-| időben bekövetkező támadások      | végre egyetlen `FightEntity`      |
-| sorrendje helyes, és a rendszer   | entitás ellen. A támadások        |
-| elkerüli a nem-atomikus konkurens | intenzitása és sebessége          |
-| módosításokból eredő              | jelentősen meghaladja a normál    |
-| adatinkonzisztenciát.             | játékmenet során elvárható        |
-|                                   | szintet, ezzel szimulálva extrém  |
-|                                   | terhelési körülményeket.          |
-|                                   |                                   |
-|                                   | **Sikerességi Feltétel:** A       |
-|                                   | támadások hatása és sorrendje     |
-|                                   | pontosan egyezik az előre         |
-|                                   | meghatározott                     |
-|                                   | referenciaértékekkel.             |
-+-----------------------------------+-----------------------------------+
++------------------------------------+-----------------------------------+
+| **Teszt**                          | **Metódus**                       |
++------------------------------------+-----------------------------------+
+| Teszteli, hogy egymással közeli    | Több konkurens támadást hajtunk   |
+| időben bekövetkező támadások       | végre egyetlen `FightEntity`      |
+| sorrendje helyes, és a rendszer    | entitás ellen. A támadások        |
+| elkerüli a nem-atomikus párhuzamos | intenzitása és sebessége          |
+| módosításokból eredő               | jelentősen meghaladja a normál    |
+| adatinkonzisztenciát.              | játékmenet során elvárható        |
+|                                    | szintet, ezzel szimulálva extrém  |
+|                                    | terhelési körülményeket.          |
+|                                    |                                   |
+|                                    | **Sikerességi Feltétel:** A       |
+|                                    | támadások hatása és sorrendje     |
+|                                    | pontosan egyezik az előre         |
+|                                    | meghatározott                     |
+|                                    | referenciaértékekkel.             |
++------------------------------------+-----------------------------------+
 
 
 
