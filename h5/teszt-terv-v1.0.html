@@ -117,8 +117,22 @@
 </ul></li>
 <li><a href="#világ-alrendszer-tesztek"><span class="toc-section-number">4</span> Világ alrendszer tesztek</a>
 <ul>
-<li><a href="#automatikus-tesztek-2"><span class="toc-section-number">4.1</span> Automatikus tesztek</a></li>
-<li><a href="#manuális-tesztek-2"><span class="toc-section-number">4.2</span> Manuális tesztek</a></li>
+<li><a href="#automatikus-tesztek-2"><span class="toc-section-number">4.1</span> Automatikus tesztek</a>
+<ul>
+<li><a href="#térkép-generálása-és-validálása"><span class="toc-section-number">4.1.1</span> Térkép generálása és validálása</a></li>
+<li><a href="#npc-k-helyes-spawnolása"><span class="toc-section-number">4.1.2</span> NPC-k helyes spawnolása</a></li>
+<li><a href="#világváltozások-szinkronizációja"><span class="toc-section-number">4.1.3</span> Világváltozások szinkronizációja</a></li>
+<li><a href="#nap-és-éjszaka-ciklus-helyes-működése"><span class="toc-section-number">4.1.4</span> Nap és éjszaka ciklus helyes működése</a></li>
+<li><a href="#terhelés-alatti-működés"><span class="toc-section-number">4.1.5</span> Terhelés alatti működés</a></li>
+</ul></li>
+<li><a href="#manuális-tesztek-2"><span class="toc-section-number">4.2</span> Manuális tesztek</a>
+<ul>
+<li><a href="#felfedezhető-helyek-elérhetősége"><span class="toc-section-number">4.2.1</span> Felfedezhető helyek elérhetősége</a></li>
+<li><a href="#váratlan-akadályok-vizsgálata"><span class="toc-section-number">4.2.2</span> Váratlan akadályok vizsgálata</a></li>
+<li><a href="#világ-részleteinek-betöltése"><span class="toc-section-number">4.2.3</span> Világ részleteinek betöltése</a></li>
+<li><a href="#interaktív-elemek-működése"><span class="toc-section-number">4.2.4</span> Interaktív elemek működése</a></li>
+<li><a href="#környezeti-hanghatások-tesztelése"><span class="toc-section-number">4.2.5</span> Környezeti hanghatások tesztelése</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#adatkezelés-és-mentés-alrendszer"><span class="toc-section-number">5</span> Adatkezelés és mentés alrendszer</a>
 <ul>
@@ -618,7 +632,177 @@
 </table></div>
 <h1 data-number="4" id="világ-alrendszer-tesztek"><span class="header-section-number">4</span> Világ alrendszer tesztek</h1>
 <h2 data-number="4.1" id="automatikus-tesztek-2"><span class="header-section-number">4.1</span> Automatikus tesztek</h2>
+<h3 data-number="4.1.1" id="térkép-generálása-és-validálása"><span class="header-section-number">4.1.1</span> Térkép generálása és validálása</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Teszt</th>
+<th>Metódus</th>
+</tr>
+<tr class="even">
+<td>Annak ellenőrzése, hogy a generált térkép megfelel-e az előre definiált szabályoknak.</td>
+<td>A rendszer automatikusan generál egy térképet, majd összeveti a generált elemeket (pl. akadályok, utak, erőforrások) az előre meghatározott paraméterekkel. Ha az elemek helyesek és összhangban vannak a szabályokkal, a teszt sikeres.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="4.1.2" id="npc-k-helyes-spawnolása"><span class="header-section-number">4.1.2</span> NPC-k helyes spawnolása</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Teszt</th>
+<th>Metódus</th>
+</tr>
+<tr class="even">
+<td>A nem játékos karakterek (NPC-k) a megfelelő helyeken és mennyiségben jelennek-e meg.</td>
+<td>A rendszer véletlenszerű helyszíneken spawnolja az NPC-ket, majd ellenőrzi a spawnolási pozíciókat és számukat. Az eredményeket az elvárt adatokkal hasonlítjuk össze. Ha az NPC-k a megadott helyeken és számban jelennek meg, a teszt sikeres.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="4.1.3" id="világváltozások-szinkronizációja"><span class="header-section-number">4.1.3</span> Világváltozások szinkronizációja</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Teszt</th>
+<th>Metódus</th>
+</tr>
+<tr class="even">
+<td>A világban történt változások (pl. egy fa kivágása vagy egy épület felépítése) szinkronizálódnak-e minden kliens között.</td>
+<td>Egy változást indítunk az egyik klienssel (pl. egy tárgyat elmozdítunk), majd ellenőrizzük, hogy ez a változás megjelenik-e minden másik kliens képernyőjén. Ha a változások minden kliensnél helyesen jelennek meg, a teszt sikeres.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="4.1.4" id="nap-és-éjszaka-ciklus-helyes-működése"><span class="header-section-number">4.1.4</span> Nap és éjszaka ciklus helyes működése</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Teszt</th>
+<th>Metódus</th>
+</tr>
+<tr class="even">
+<td>A nap-éjszaka ciklus dinamikusan és helyesen működik-e a játékban.</td>
+<td>A szerver futtat egy teljes nap-éjszaka ciklust gyorsított sebességgel, miközben monitorozza a világ megvilágítását, árnyékokat és az idő múlását. Ha a ciklus logikusan követi az előre definiált paramétereket, a teszt sikeres.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="4.1.5" id="terhelés-alatti-működés"><span class="header-section-number">4.1.5</span> Terhelés alatti működés</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Teszt</th>
+<th>Metódus</th>
+</tr>
+<tr class="even">
+<td>A világ működése stabil marad-e nagy számú játékos és esemény esetén.</td>
+<td>Szimulálunk egy nagy mennyiségű játékost és eseményt (pl. harcok, építkezések, interakciók) a világban, majd figyeljük a rendszer teljesítményét és válaszidejét. Ha a válaszidők elfogadhatóak, és nincs jelentős késés vagy összeomlás, a teszt sikeres.</td>
+</tr>
+</tbody>
+</table></div>
 <h2 data-number="4.2" id="manuális-tesztek-2"><span class="header-section-number">4.2</span> Manuális tesztek</h2>
+<h3 data-number="4.2.1" id="felfedezhető-helyek-elérhetősége"><span class="header-section-number">4.2.1</span> Felfedezhető helyek elérhetősége</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Teszt</th>
+<th>Metódus</th>
+</tr>
+<tr class="even">
+<td>Ellenőrizzük, hogy a játékos képes-e eljutni minden felfedezhető helyszínre.</td>
+<td>Belépünk a játék világába, és manuálisan végigjárjuk az összes helyszínt. Figyeljük, hogy van-e olyan hely, amely elérhetetlen vagy hibásan jelenik meg. Ha minden helyszín elérhető, a teszt sikeres.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="4.2.2" id="váratlan-akadályok-vizsgálata"><span class="header-section-number">4.2.2</span> Váratlan akadályok vizsgálata</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Teszt</th>
+<th>Metódus</th>
+</tr>
+<tr class="even">
+<td>Az akadályok (pl. falak, hegyek) megfelelően viselkednek-e, és nem blokkolják a játékos mozgását indokolatlanul.</td>
+<td>A játékos karakterével különböző tereptárgyakat közelítünk meg, és ellenőrizzük, hogy az akadályok megállítják-e a mozgást, illetve a megfelelő helyeken át lehet-e haladni. Ha nincs váratlan akadály vagy hibás átjárhatóság, a teszt sikeres.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="4.2.3" id="világ-részleteinek-betöltése"><span class="header-section-number">4.2.3</span> Világ részleteinek betöltése</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Teszt</th>
+<th>Metódus</th>
+</tr>
+<tr class="even">
+<td>A világ elemei (pl. épületek, fák, terep) megfelelően töltődnek-e be különböző távolságokból.</td>
+<td>A játékos karakterével különböző távolságokról közelítjük meg a világ elemeit, és figyeljük azok betöltési folyamatát. Ha az elemek megfelelően jelennek meg és nincsenek grafikai hibák, a teszt sikeres.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="4.2.4" id="interaktív-elemek-működése"><span class="header-section-number">4.2.4</span> Interaktív elemek működése</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Teszt</th>
+<th>Metódus</th>
+</tr>
+<tr class="even">
+<td>Ellenőrizzük, hogy az interaktív elemek (pl. ajtók, kapcsolók) megfelelően reagálnak-e a játékos interakcióira.</td>
+<td>A játékban különböző interaktív elemekkel lépünk kapcsolatba, majd figyeljük, hogy azok helyesen működnek-e (pl. egy ajtó kinyílik, egy kapcsoló aktivál egy eseményt). Ha az interakciók megfelelőek, a teszt sikeres.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 data-number="4.2.5" id="környezeti-hanghatások-tesztelése"><span class="header-section-number">4.2.5</span> Környezeti hanghatások tesztelése</h3>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<th>Teszt</th>
+<th>Metódus</th>
+</tr>
+<tr class="even">
+<td>A világ különböző részein hallható hanghatások (pl. madárcsicsergés, szélzaj) a megfelelő helyszíneken és időben szólalnak-e meg.</td>
+<td>A világot manuálisan bejárva figyeljük, hogy a különböző hanghatások a megfelelő helyeken aktiválódnak-e, és nincsenek hanghibák. Ha a hanghatások időzítése és helyszíne helyes, a teszt sikeres.</td>
+</tr>
+</tbody>
+</table></div>
 <h1 data-number="5" id="adatkezelés-és-mentés-alrendszer"><span class="header-section-number">5</span> Adatkezelés és mentés alrendszer</h1>
 <h2 data-number="5.1" id="automatikus-tesztek-3"><span class="header-section-number">5.1</span> Automatikus tesztek</h2>
 <h3 data-number="5.1.1" id="mentés-létrehozása-teszt"><span class="header-section-number">5.1.1</span> Mentés létrehozása teszt</h3>
