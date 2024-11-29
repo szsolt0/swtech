@@ -22,4 +22,7 @@
 	<tr><td>2024-11-12</td><td>Sándor János<br>Adamcsik Bendegúz<br>Dobozi Botond<br>Füzi Gergő Róbert<br>Sebe Zsolt</td><td>11.10 és 11.12 között a játék implementációján való munkálat. Plusz animáció készítése a PPT hez. Jelenleg a játékban vannak animációk. A lovag és a mobok teljesen működő képes állapotban vannak. Arra jó lesz, hogy egy kettő videót készítsünk a PPT hez.</td></tr>
 	<tr><td>2024-11-25</td><td>Sándor János<br>Adamcsik Bendegúz<br>Dobozi Botond<br>Füzi Gergő Róbert<br>Sebe Zsolt</td><td>H4-gyel kapcsolatos kiosztott egyéni részfeladatok megoldása, és közös munkaszerverre való beküldése.</td></tr>
 	<tr><td>2024-11-25</td><td>Sebe Zsolt</td><td>H4 dokumentumok webes formátumba (HTML) való átalakítása, majd feltöltése a megadott webtárhelyre.</td></tr>
+	<tr><td>2024-11-29</td><td>Sándor János<br>Adamcsik Bendegúz<br>Dobozi Botond<br>Füzi Gergő Róbert<br>Sebe Zsolt</td><td>H5-tel kapcsolatos kiosztott egyéni részfeladatok megoldása, és közös munkaszerverre való beküldése.</td></tr>
+	<tr><td>2024-11-29</td><td>Sebe Zsolt</td><td>H5 dokumentumok webes formátumba (HTML) való átalakítása, majd feltöltése a megadott webtárhelyre.</td></tr>
+	<tr><td>2024-12-03</td><td>Sándor János<br>Adamcsik Bendegúz<br>Dobozi Botond<br>Füzi Gergő Róbert<br>Sebe Zsolt</td><td>A H5, valamint a demó játék bemutatása a gyakorlatvezetőnek.</td></tr>
 </table>
