@@ -42,11 +42,6 @@
   </style>
 </head>
 <body>
-<div style="margin: 1em; padding: .5em 1em; border: 1.5pt solid #fbbf24; background-color: #fef3c7">
-	<p style="font-weight: bold">Figyelmeztetés</p>
-	<p>Ez a dokumentum WIP (Work In Progress) állapotú. Még nem végleges, és csak belső indokból létezik.</p>
-</div>
-
 <p>Csoport neve: JZBBG</p>
 
 <p>Feladat sorszáma: 1</p>
@@ -813,14 +808,14 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Teszt</th>
-<th style="text-align: left;">Metódus</th>
+<th>Teszt</th>
+<th>Metódus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Teszteli, hogy a SaveSystem megfelelően menti a játékállapotot az SRS dokumentáció szerint. Az aktuális játékállapotot a saveGame() metódussal mentjük, majd a fájlt visszaolvasva összehasonlítjuk az eredeti állapottal.</td>
-<td style="text-align: left;">A saveGame() metódust hívjuk meg. A visszaolvasott mentés pontosan megegyezik az eredeti állapottal, ez garantálja a teszt sikerességét.</td>
+<td>Teszteli, hogy a SaveSystem megfelelően menti a játékállapotot az SRS dokumentáció szerint. Az aktuális játékállapotot a saveGame() metódussal mentjük, majd a fájlt visszaolvasva összehasonlítjuk az eredeti állapottal.</td>
+<td>A saveGame() metódust hívjuk meg. A visszaolvasott mentés pontosan megegyezik az eredeti állapottal, ez garantálja a teszt sikerességét.</td>
 </tr>
 </tbody>
 </table></div>
@@ -832,14 +827,14 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Teszt</th>
-<th style="text-align: left;">Metódus</th>
+<th>Teszt</th>
+<th>Metódus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Teszteli, hogy a SaveSystem megfelelő fájlelérési utat generál az adott mentés számára. Egy mentést hozunk létre, majd a getSaveFilePath() metódus eredményét összehasonlítjuk a várt elérési úttal.</td>
-<td style="text-align: left;">A getSaveFilePath() metódust hívjuk meg. Az elérési út pontosan egyezik a várt útvonal formátumával, ez biztosítja a teszt sikerességét.</td>
+<td>Teszteli, hogy a SaveSystem megfelelő fájlelérési utat generál az adott mentés számára. Egy mentést hozunk létre, majd a getSaveFilePath() metódus eredményét összehasonlítjuk a várt elérési úttal.</td>
+<td>A getSaveFilePath() metódust hívjuk meg. Az elérési út pontosan egyezik a várt útvonal formátumával, ez biztosítja a teszt sikerességét.</td>
 </tr>
 </tbody>
 </table></div>
@@ -851,14 +846,14 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Teszt</th>
-<th style="text-align: left;">Metódus</th>
+<th>Teszt</th>
+<th>Metódus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Teszteli, hogy a SaveSystem megfelelően törli a kiválasztott mentéseket. Egy mentést hozunk létre, majd a deleteSavedGame() metódust hívjuk meg. Ezután ellenőrizzük, hogy a mentés már nem létezik.</td>
-<td style="text-align: left;">A deleteSavedGame() metódust használjuk. A törölt mentés már nem található meg a mentések listájában, ami a teszt sikerességi feltétele.</td>
+<td>Teszteli, hogy a SaveSystem megfelelően törli a kiválasztott mentéseket. Egy mentést hozunk létre, majd a deleteSavedGame() metódust hívjuk meg. Ezután ellenőrizzük, hogy a mentés már nem létezik.</td>
+<td>A deleteSavedGame() metódust használjuk. A törölt mentés már nem található meg a mentések listájában, ami a teszt sikerességi feltétele.</td>
 </tr>
 </tbody>
 </table></div>
@@ -870,14 +865,14 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Teszt</th>
-<th style="text-align: left;">Metódus</th>
+<th>Teszt</th>
+<th>Metódus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Teszteli, hogy a LocalCloudSavedGameList szinkronizálja-e a mentéseket helyben és a felhőben. Helyi mentést hozunk létre, majd a syncWithCloud() metódussal szinkronizáljuk.</td>
-<td style="text-align: left;">A syncWithCloud() metódust alkalmazzuk. A mentés elérhetővé válik a felhőben és a helyi listában is, ami a teszt sikerességét jelenti.</td>
+<td>Teszteli, hogy a LocalCloudSavedGameList szinkronizálja-e a mentéseket helyben és a felhőben. Helyi mentést hozunk létre, majd a syncWithCloud() metódussal szinkronizáljuk.</td>
+<td>A syncWithCloud() metódust alkalmazzuk. A mentés elérhetővé válik a felhőben és a helyi listában is, ami a teszt sikerességét jelenti.</td>
 </tr>
 </tbody>
 </table></div>
@@ -889,14 +884,14 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Teszt</th>
-<th style="text-align: left;">Metódus</th>
+<th>Teszt</th>
+<th>Metódus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Teszteli, hogy az ImportGame validálja-e az importált mentéseket. Egy sérült mentést próbálunk importálni a validateImportedGame() metódussal.</td>
-<td style="text-align: left;">A validateImportedGame() metódust hívjuk meg. A sérült mentés validálása nem sikerül (hamis eredmény), ez a teszt sikerességi feltétele.</td>
+<td>Teszteli, hogy az ImportGame validálja-e az importált mentéseket. Egy sérült mentést próbálunk importálni a validateImportedGame() metódussal.</td>
+<td>A validateImportedGame() metódust hívjuk meg. A sérült mentés validálása nem sikerül (hamis eredmény), ez a teszt sikerességi feltétele.</td>
 </tr>
 </tbody>
 </table></div>
@@ -909,14 +904,14 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Teszt</th>
-<th style="text-align: left;">Metódus</th>
+<th>Teszt</th>
+<th>Metódus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Teszteli, hogy a SaveSystem UI megfelelően jelzi-e a sikeres mentést. A felhasználó új játékot ment a játék UI-ján keresztül, majd ellenőrzi, hogy a mentés megjelenik-e a mentések listájában.</td>
-<td style="text-align: left;">A mentést a UI-n keresztül végezzük el. A mentés azonnal megjelenik a mentések listájában a megfelelő névvel és dátummal, ami a teszt sikerességét jelenti.</td>
+<td>Teszteli, hogy a SaveSystem UI megfelelően jelzi-e a sikeres mentést. A felhasználó új játékot ment a játék UI-ján keresztül, majd ellenőrzi, hogy a mentés megjelenik-e a mentések listájában.</td>
+<td>A mentést a UI-n keresztül végezzük el. A mentés azonnal megjelenik a mentések listájában a megfelelő névvel és dátummal, ami a teszt sikerességét jelenti.</td>
 </tr>
 </tbody>
 </table></div>
@@ -928,14 +923,14 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Teszt</th>
-<th style="text-align: left;">Metódus</th>
+<th>Teszt</th>
+<th>Metódus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Teszteli, hogy a SaveSystem UI-n keresztül betöltött mentés helyesen visszaállítja a játékállapotot. Egy mentést választunk ki a betöltési képernyőről, majd ellenőrizzük, hogy a játék az adott állapotban indul-e.</td>
-<td style="text-align: left;">A mentést a betöltési képernyőn keresztül választjuk ki. A játék pontosan az adott mentett állapotban indul, ez biztosítja a teszt sikerességét.</td>
+<td>Teszteli, hogy a SaveSystem UI-n keresztül betöltött mentés helyesen visszaállítja a játékállapotot. Egy mentést választunk ki a betöltési képernyőről, majd ellenőrizzük, hogy a játék az adott állapotban indul-e.</td>
+<td>A mentést a betöltési képernyőn keresztül választjuk ki. A játék pontosan az adott mentett állapotban indul, ez biztosítja a teszt sikerességét.</td>
 </tr>
 </tbody>
 </table></div>
@@ -947,14 +942,14 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Teszt</th>
-<th style="text-align: left;">Metódus</th>
+<th>Teszt</th>
+<th>Metódus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Teszteli, hogy a LocalCloudSavedGameList UI helyesen jelzi-e a szinkronizáció állapotát. A felhőszinkronizációt manuálisan elindítjuk, majd ellenőrizzük, hogy az állapotjelző pontosan frissül-e.</td>
-<td style="text-align: left;">A szinkronizációt manuálisan végezzük. Az állapotjelző a szinkronizáció eredményét pontosan tükrözi, ez garantálja a teszt sikerességét.</td>
+<td>Teszteli, hogy a LocalCloudSavedGameList UI helyesen jelzi-e a szinkronizáció állapotát. A felhőszinkronizációt manuálisan elindítjuk, majd ellenőrizzük, hogy az állapotjelző pontosan frissül-e.</td>
+<td>A szinkronizációt manuálisan végezzük. Az állapotjelző a szinkronizáció eredményét pontosan tükrözi, ez garantálja a teszt sikerességét.</td>
 </tr>
 </tbody>
 </table></div>
@@ -966,14 +961,14 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Teszt</th>
-<th style="text-align: left;">Metódus</th>
+<th>Teszt</th>
+<th>Metódus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Teszteli, hogy az ImportGame UI megfelelően jelzi-e a hibás importálást. Egy hibás fájlt próbálunk importálni a játék UI-ján keresztül, és megfigyeljük a hibajelzést.</td>
-<td style="text-align: left;">A hibás fájlt az UI-n keresztül importáljuk. A rendszer érthető hibaüzenetet jelenít meg a felhasználónak, ez a teszt sikerességi feltétele.</td>
+<td>Teszteli, hogy az ImportGame UI megfelelően jelzi-e a hibás importálást. Egy hibás fájlt próbálunk importálni a játék UI-ján keresztül, és megfigyeljük a hibajelzést.</td>
+<td>A hibás fájlt az UI-n keresztül importáljuk. A rendszer érthető hibaüzenetet jelenít meg a felhasználónak, ez a teszt sikerességi feltétele.</td>
 </tr>
 </tbody>
 </table></div>
@@ -985,14 +980,14 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Teszt</th>
-<th style="text-align: left;">Metódus</th>
+<th>Teszt</th>
+<th>Metódus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Teszteli, hogy a SaveSystem UI helyesen kezeli a törlés megerősítését. Egy mentés törlését kezdeményezzük a UI-n keresztül, majd megvizsgáljuk, hogy a rendszer kéri-e a törlés megerősítését.</td>
-<td style="text-align: left;">A törlést a UI-n keresztül végezzük. A rendszer csak akkor törli a mentést, ha a felhasználó megerősíti a műveletet, ami a teszt sikerességét jelenti.</td>
+<td>Teszteli, hogy a SaveSystem UI helyesen kezeli a törlés megerősítését. Egy mentés törlését kezdeményezzük a UI-n keresztül, majd megvizsgáljuk, hogy a rendszer kéri-e a törlés megerősítését.</td>
+<td>A törlést a UI-n keresztül végezzük. A rendszer csak akkor törli a mentést, ha a felhasználó megerősíti a műveletet, ami a teszt sikerességét jelenti.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1006,14 +1001,14 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Teszt</th>
-<th style="text-align: left;">Metódus</th>
+<th>Teszt</th>
+<th>Metódus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Annak ellenőrzése, hogy a kliens képes-e stabilan kapcsolódni a szerverhez egy hosszabb időszak alatt.</td>
-<td style="text-align: left;">A kliens csatlakozik a szerverhez, és ellenőrizzük, hogy a kapcsolat stabil marad-e egy meghatározott időszakon (pl. 1 órán) keresztül. Ezt úgy teszteljük, hogy a kliens kapcsolódását figyeljük egy előre beállított időn keresztül, és a végén újra ellenőrizzük a kapcsolat állapotát. Ha a kapcsolat végig fennmaradt, a teszt sikeres.</td>
+<td>Annak ellenőrzése, hogy a kliens képes-e stabilan kapcsolódni a szerverhez egy hosszabb időszak alatt.</td>
+<td>A kliens csatlakozik a szerverhez, és ellenőrizzük, hogy a kapcsolat stabil marad-e egy meghatározott időszakon (pl. 1 órán) keresztül. Ezt úgy teszteljük, hogy a kliens kapcsolódását figyeljük egy előre beállított időn keresztül, és a végén újra ellenőrizzük a kapcsolat állapotát. Ha a kapcsolat végig fennmaradt, a teszt sikeres.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1025,14 +1020,14 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Teszt</th>
-<th style="text-align: left;">Metódus</th>
+<th>Teszt</th>
+<th>Metódus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Annak ellenőrzése, hogy a játékos pozíciója és állapota helyesen szinkronizálódik a szerver és a többi játékos között.</td>
-<td style="text-align: left;">Mozgást indítunk a klienssel, majd ellenőrizzük, hogy a szerver frissítette-e a játékos pozícióját. A teszt során a kliens pozícióját elküldjük a szervernek, amelyet később összevetünk a szerveren tárolt pozícióval. Ha az adatok helyesen szinkronizálódtak, a teszt sikeres.</td>
+<td>Annak ellenőrzése, hogy a játékos pozíciója és állapota helyesen szinkronizálódik a szerver és a többi játékos között.</td>
+<td>Mozgást indítunk a klienssel, majd ellenőrizzük, hogy a szerver frissítette-e a játékos pozícióját. A teszt során a kliens pozícióját elküldjük a szervernek, amelyet később összevetünk a szerveren tárolt pozícióval. Ha az adatok helyesen szinkronizálódtak, a teszt sikeres.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1044,14 +1039,14 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Teszt</th>
-<th style="text-align: left;">Metódus</th>
+<th>Teszt</th>
+<th>Metódus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Automatikusan ellenőrizzük, hogy a játékosok képesek-e egymással interakcióba lépni (pl. harc vagy kereskedelem).</td>
-<td style="text-align: left;">Egy játékos támadást indít a másik ellen, és figyeljük, hogy a támadás csökkenti-e a célpont életerejét. A kliens elküldi a támadási parancsot a szervernek, amely ezt feldolgozza, és frissíti a másik játékos állapotát. Ha a támadás sikeres és a másik játékos életereje csökken, a teszt sikeres.</td>
+<td>Automatikusan ellenőrizzük, hogy a játékosok képesek-e egymással interakcióba lépni (pl. harc vagy kereskedelem).</td>
+<td>Egy játékos támadást indít a másik ellen, és figyeljük, hogy a támadás csökkenti-e a célpont életerejét. A kliens elküldi a támadási parancsot a szervernek, amely ezt feldolgozza, és frissíti a másik játékos állapotát. Ha a támadás sikeres és a másik játékos életereje csökken, a teszt sikeres.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1063,14 +1058,14 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Teszt</th>
-<th style="text-align: left;">Metódus</th>
+<th>Teszt</th>
+<th>Metódus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">A szerver és a kliens közötti késleltetés (lag) mérésének tesztelése.</td>
-<td style="text-align: left;">Egy ping üzenetet küldünk a szervernek, és megmérjük az időt, amíg a válasz visszaérkezik. Ha az üzenet késleltetése kevesebb, mint egy adott időkorlát (pl. 500 ms), akkor a teszt sikeres. A kliens elküldi a ping üzenetet, a szerver fogadja és visszaküldi a választ, amelynek időzítését figyeljük.</td>
+<td>A szerver és a kliens közötti késleltetés (lag) mérésének tesztelése.</td>
+<td>Egy ping üzenetet küldünk a szervernek, és megmérjük az időt, amíg a válasz visszaérkezik. Ha az üzenet késleltetése kevesebb, mint egy adott időkorlát (pl. 500 ms), akkor a teszt sikeres. A kliens elküldi a ping üzenetet, a szerver fogadja és visszaküldi a választ, amelynek időzítését figyeljük.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1082,14 +1077,14 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Teszt</th>
-<th style="text-align: left;">Metódus</th>
+<th>Teszt</th>
+<th>Metódus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">A játékos adatai helyes mentésének és visszaállításának és frissítésének ellenőrzése.</td>
-<td style="text-align: left;">A játék során elmentjük a játékos állapotát, majd kilépünk és újra betöltjük a játékot. A visszatöltött állapotot összevetjük az elmentett adatokkal. Ha az adatok helyesen mentődtek el, és visszaállítás után megegyeznek az eredeti állapotokkal, akkor a teszt sikeres.</td>
+<td>A játékos adatai helyes mentésének és visszaállításának és frissítésének ellenőrzése.</td>
+<td>A játék során elmentjük a játékos állapotát, majd kilépünk és újra betöltjük a játékot. A visszatöltött állapotot összevetjük az elmentett adatokkal. Ha az adatok helyesen mentődtek el, és visszaállítás után megegyeznek az eredeti állapotokkal, akkor a teszt sikeres.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1102,14 +1097,14 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Teszt</th>
-<th style="text-align: left;">Metódus</th>
+<th>Teszt</th>
+<th>Metódus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Teszteli, hogy a játékos és egy másik játékos ugyanabba a térképbe lépnek, és meg kell győződni arról, hogy mindketten látják egymást a térképen.</td>
-<td style="text-align: left;">Elindítjuk két játékos karakterét két külön kliensről, majd mindkettővel csatlakozunk a multiplayer szerverhez. A karaktereket ugyanabba a térképbe visszük. Figyeljük meg, hogy a másik játékos karaktere látható-e mindkét kliensen. Ha mindkét karakter jól látható, a teszt sikeres.</td>
+<td>Teszteli, hogy a játékos és egy másik játékos ugyanabba a térképbe lépnek, és meg kell győződni arról, hogy mindketten látják egymást a térképen.</td>
+<td>Elindítjuk két játékos karakterét két külön kliensről, majd mindkettővel csatlakozunk a multiplayer szerverhez. A karaktereket ugyanabba a térképbe visszük. Figyeljük meg, hogy a másik játékos karaktere látható-e mindkét kliensen. Ha mindkét karakter jól látható, a teszt sikeres.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1121,14 +1116,14 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Teszt</th>
-<th style="text-align: left;">Metódus</th>
+<th>Teszt</th>
+<th>Metódus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Egyik karakterünk átad egy tárgyat egy másik karakternek, és ellenőrizzük a kereskedelem helyes működését.</td>
-<td style="text-align: left;">Belépünk két különböző karakterrel a játékba, és kezdeményezünk kereskedelmet közöttük. Áthelyezünk egy tárgyat az egyik karaktertől a másikhoz, majd megfigyeljük, hogy a tárgy megjelenik-e a másik karakter tárgylistájában. Ha a tárgyat sikeresen átadtuk, a teszt sikeres.</td>
+<td>Egyik karakterünk átad egy tárgyat egy másik karakternek, és ellenőrizzük a kereskedelem helyes működését.</td>
+<td>Belépünk két különböző karakterrel a játékba, és kezdeményezünk kereskedelmet közöttük. Áthelyezünk egy tárgyat az egyik karaktertől a másikhoz, majd megfigyeljük, hogy a tárgy megjelenik-e a másik karakter tárgylistájában. Ha a tárgyat sikeresen átadtuk, a teszt sikeres.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1140,14 +1135,14 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Teszt</th>
-<th style="text-align: left;">Metódus</th>
+<th>Teszt</th>
+<th>Metódus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Teszteljük, hogy a két karakterünk között megfelelően működik-e a chat funkció.</td>
-<td style="text-align: left;">Elindítunk két játékos karaktert, és mindkettőt csatlakoztatjuk a szerverhez. Az egyik karakterünkkel küldünk egy chat üzenetet a másik karakternek. Ezután ellenőrizzük, hogy az üzenet azonnal megérkezik-e a másik karakterhez. Ha az üzenet időben megjelenik, a teszt sikeres.</td>
+<td>Teszteljük, hogy a két karakterünk között megfelelően működik-e a chat funkció.</td>
+<td>Elindítunk két játékos karaktert, és mindkettőt csatlakoztatjuk a szerverhez. Az egyik karakterünkkel küldünk egy chat üzenetet a másik karakternek. Ezután ellenőrizzük, hogy az üzenet azonnal megérkezik-e a másik karakterhez. Ha az üzenet időben megjelenik, a teszt sikeres.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1159,14 +1154,14 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Teszt</th>
-<th style="text-align: left;">Metódus</th>
+<th>Teszt</th>
+<th>Metódus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Harcot kezdeményezünk két karakterünk között, és ellenőrizzük a harci mechanizmusok helyes működését.</td>
-<td style="text-align: left;">Két karakterünkkel csatlakozunk a multiplayer játékhoz, és az egyik karakterünkkel kezdeményezünk egy harcot a másikkal. A harc során figyelemmel kísérjük az akciók (támadások, védekezések) helyes működését, valamint az életerő csökkenését. Ha a harc megfelelően zajlik le, a teszt sikeres.</td>
+<td>Harcot kezdeményezünk két karakterünk között, és ellenőrizzük a harci mechanizmusok helyes működését.</td>
+<td>Két karakterünkkel csatlakozunk a multiplayer játékhoz, és az egyik karakterünkkel kezdeményezünk egy harcot a másikkal. A harc során figyelemmel kísérjük az akciók (támadások, védekezések) helyes működését, valamint az életerő csökkenését. Ha a harc megfelelően zajlik le, a teszt sikeres.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1178,14 +1173,14 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Teszt</th>
-<th style="text-align: left;">Metódus</th>
+<th>Teszt</th>
+<th>Metódus</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Teszteljük, hogy mi történik, amikor egy karakterünk kilép egy többjátékos csapatból.</td>
-<td style="text-align: left;">Létrehozunk egy csapatot két karakterünkkel. Miután a csapatot létrehoztuk, az egyik karakterünket kiléptetjük a csapatból. Ezután ellenőrizzük, hogy a másik karakter látja-e, hogy az első karakter kilépett. Ha a kilépés megfelelően frissül a másik karakter kliensén, a teszt sikeres.</td>
+<td>Teszteljük, hogy mi történik, amikor egy karakterünk kilép egy többjátékos csapatból.</td>
+<td>Létrehozunk egy csapatot két karakterünkkel. Miután a csapatot létrehoztuk, az egyik karakterünket kiléptetjük a csapatból. Ezután ellenőrizzük, hogy a másik karakter látja-e, hogy az első karakter kilépett. Ha a kilépés megfelelően frissül a másik karakter kliensén, a teszt sikeres.</td>
 </tr>
 </tbody>
 </table></div>
