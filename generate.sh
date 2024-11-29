@@ -15,6 +15,8 @@ genhtml() {
 		-e 's:^</table>$:</table></div>:g' \
 		-e 's:^<td><strong>:<th>:g' \
 		-e 's:</strong></td>$:</th>:g' \
+		-e 's:^<td style=[^>]*>:<td>:' \
+		-e 's:^<th style=[^>]*>:<th>:' \
 	> "dist/$fname"
 }
 
